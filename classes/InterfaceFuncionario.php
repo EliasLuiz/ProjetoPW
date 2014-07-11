@@ -28,7 +28,7 @@
             $this->email = $_POST["email"];
             $this->login = $_POST["login"];
             $this->senha = $_POST["senha"];
-            $this->usuario = $_POST["usuario"];
+            //$this->usuario = $_POST["usuario"];
             $this->cargo = $_POST["cargo"];
             $this->registro = $_POST["registro"];
         }

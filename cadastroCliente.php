@@ -4,7 +4,7 @@
     require_once 'classes/Medico.php';   
     require_once 'classes/Bairro.php';  
     require_once 'classes/InterfaceUsuario.php';
-    require_once 'html/cadastros/cadastrocliente/cadastrocliente.html';
+    require_once 'html/cadastros/cliente/cadastrocliente.html';
     
     if(isset($_POST["usuario"])){
         $interf = new InterfaceUsuario();

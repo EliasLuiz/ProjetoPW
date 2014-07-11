@@ -29,40 +29,28 @@ class Hospital {
     public function carregaMySQL($cdClinicaHospital){
         
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
         
         //Gera SQL e busca Hospital no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_ClinicaHospital c WHERE c.cdClinicaHospital = '" . $cdClinicaHospital . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
-            
+        $result = mysql_query($sql, $con) or die('Não foi possível carregar TipoExame do banco de dados: '.mysql_error());
+        $result = mysql_fetch_array($result);
             $this->nmhospital = $result['nmClinicaHospital'];
             $this->telefone = $result['telefone'];
-        }
-        else{
-            die('Não foi possível carregar hospital do banco de dados: '.mysql_error());
-        }
         
         mysql_close($con);
     }
     public function salvaMySQL(){
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
         
         //Gera SQL para salvar/atualizar Hospital no banco
-        $sql = "SELECT * FROM TB_ClinicaHospital c WHERE c.cdClinicaHospital = '" . $cdClinicaHospital . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
+        $sql = "SELECT * FROM TB_ClinicaHospital c WHERE c.nmClinicaHospital = '" . $this->nmhospital . "'";
+        $result = mysql_query($sql) or die('Não foi possível buscar TipoExame no banco de dados: '.mysql_error());
+        $result = mysql_fetch_array($result);
+        if($result["nmClinicaHospital"]==$this->nmhospital){
             $sql = "UPDATE TB_ClinicaHospital c SET c.nmClinicaHospital = '" . $this->nmhospital .
                    "', c.telefone = '" . $this->telefone . "' WHERE c.cdClinicaHospital = " .
                    $result['cdClinicaHospital'];
@@ -73,10 +61,7 @@ class Hospital {
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível salvar pessoa no banco de dados: '.mysql_error());
-        }
+        $result = mysql_query($sql,$con) or die('Não foi possível salvar TipoExame no banco de dados: '.mysql_error());
         
         mysql_close($con);
     }

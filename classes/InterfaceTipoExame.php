@@ -33,7 +33,7 @@
             $texame->setNome($this->nome);
             $texame->setColetaDomicilio($this->coletadomicilio);
             $texame->setrequisitos($this->requisitos);
-            $texame->setInfo($this->requisitos);
+            $texame->setInfo($this->info);
             $texame->setPreco($this->preco);
             
             return $texame;
