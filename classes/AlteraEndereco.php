@@ -38,20 +38,18 @@ class AlteraEndereco extends Pessoa {
     public function salvaMySQL($login, $senha){
         
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        mysql_select_db('mydb') or die('falha ao selecionar o banco');
         
         //Gera SQL para atualizar endereço de Cliente no banco
         $sql = "SELECT * FROM TB_Pessoa p, TB_Cliente c WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "' and p.cdPessoa = c.cdPessoa";
-        $result = mysql_query($sql, $con);
-        if($result){
+        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
+        $result = mysql_fetch_array($result);
+        if($result["ruaCliente"]==$this->email){
             $result = mysql_fetch_array($result);
-            $sql = "UPDATE TB_Cliente SET rua = '" . $this->rua .
-                   "', numeroEnd = " . $this->numeroEnd . ", complementoEnd = '".
+            $sql = "UPDATE TB_Cliente SET ruaCliente = '" . $this->rua .
+                   "', nEndCliente = " . $this->numeroEnd . ", complementoEndCliente = '".
                    $this->complementoEnd .
                    "' WHERE cdPessoa = " . $result['cdPessoa'];
         }
@@ -60,12 +58,8 @@ class AlteraEndereco extends Pessoa {
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível salvar medico no banco de dados: '.mysql_error());
-        }
-        
-        mysql_close($con);
+         $result = mysql_query($sql,$con) or die('Não foi possível salvar Funcionario no banco de dados: '.mysql_error());
+         mysql_close($con);
     }
 }
 
