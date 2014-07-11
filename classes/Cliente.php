@@ -61,26 +61,19 @@ class Cliente extends Pessoa {
         parent::carregaMySQL($cdCliente);
         
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
+        
         
         //Gera SQL e busca Cliente no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Cliente WHERE cdPessoa = " . $cdCliente;
-        $result = mysql_query($sql, $con);
-        if($result){
+        $result = mysql_query($sql, $con) or die('Não foi possível carregar Pessoa do banco de dados: '.mysql_error());
             $result = mysql_fetch_array($result);
             $this->rua = $result['rua'];
             $this->numeroEnd = $result['numeroEnd'];
             $this->complementoEnd = $result['complementoEnd'];
             $this->medicamentos = $result['medicamentos'];
             $this->bairro->carregaMySQL($result['cdBairro']);
-        }
-        else{
-            die('Não foi possível carregar cliente do banco de dados: '.mysql_error());
-        }
         
         mysql_close($con);
     }
@@ -90,18 +83,15 @@ class Cliente extends Pessoa {
         parent::salvaMySQL();
         
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        mysql_select_db('mydb') or die('falha ao selecionar o banco');
         
         //Gera SQL para salvar/atualizar Cliente no banco
         $sql = "SELECT * FROM TB_Pessoa p, TB_Cliente c WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "' and p.cdPessoa = c.cdPessoa";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
+        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
+        $result = mysql_fetch_array($result);
+        if($result["nmPessoa"]==$this->nome){
             $sql = "UPDATE TB_Cliente SET rua = '" . $this->rua .
                    "', numeroEnd = " . $this->numeroEnd . ", complementoEnd = '".
                    $this->complementoEnd . "', medicamentos = '" . $this->medicamentos .
@@ -111,25 +101,16 @@ class Cliente extends Pessoa {
             //Busca chave de pessoa e de bairro para inserir em cliente
             $sql = "SELECT * FROM TB_Pessoa p, TB_Bairro b WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "' and b.cdBairro = " . $this->bairro->getCdBairro();
-            $result = mysql_query($sql, $con);
             
-            if(!$result){
-                die('Não foi possível carregar pessoa do banco de dados: '.mysql_error());
-            }
-            
-            $result = mysql_fetch_array($result);
+            $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
             $sql = "INSERT INTO TB_Cliente(cdPessoa, cdBairro, rua, numeroEnd, complementoEnd, medicamentos) "
                    . "VALUES (" . $result['cdPessoa'] . ",". $result['cdBairro'] . ",'" . $this->rua . "','" .
                    $this->numeroEnd . "','" . $this->complementoEnd . "','" . $this->medicamentos . "')";
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível salvar medico no banco de dados: '.mysql_error());
-        }
-        
-        mysql_close($con);
+         $result = mysql_query($sql,$con) or die('Não foi possível salvar Funcionario no banco de dados: '.mysql_error());
+         mysql_close($con);
     }
 }
 
