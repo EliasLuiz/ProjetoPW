@@ -46,6 +46,7 @@
             $func->setCpf($this->cpf);
             $func->setRg($this->rg);
             $func->setEmail($this->email);
+            $func->setLogin($this->login);
             $func->setSenha($this->senha);
             $func->setCargo($this->cargo);
             $func->setRegistroFuncional($this->registro);

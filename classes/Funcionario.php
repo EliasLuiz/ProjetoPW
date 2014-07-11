@@ -65,16 +65,15 @@ class Funcionario extends Pessoa{
                    "', cargo = '" . $this->cargo . "' WHERE cdPessoa = " . $result['cdPessoa'];
         }
         else{
-            $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->login .
+            $sql = "SELECT cdPessoa FROM TB_Pessoa p WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "'";
             $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
-            
+            $result = mysql_fetch_array($result);
             $sql = "INSERT INTO TB_Funcionario(cdPessoa, registroFuncional, cargo) VALUES (" .
-                   $result['cdPessoa'] . ",'" . $this->registroFuncional . "','" . $this->cargo . "')";
+                   $result[0] . ",'" . $this->registroFuncional . "','" . $this->cargo . "')";
         }
-        
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql,$con) or die('Não foi possível salvar Funcionario no banco de dados: '.mysql_error());
+        $result = mysql_query($sql) or die('<hr>Não foi possível salvar Funcionario no banco de dados: '.mysql_error());
         mysql_close($con);
     }
 }
