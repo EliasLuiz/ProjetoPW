@@ -21,18 +21,15 @@ class AlteraEmail {
     //Métodos de Banco de Dados
     public function salvaMySQL($login, $senha){
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        mysql_select_db('mydb') or die('falha ao selecionar o banco');
         
         //Gera SQL para atualizar Email da Pessoa no banco
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $login .
                "' and p.senha = '" . $senha . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
+        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
+        $result = mysql_fetch_array($result);
+        if($result["email"]==$this->email){
             $sql = "UPDATE TB_Pessoa p SET p.email = '" . $this->email . "'";
         }
         else{
@@ -40,12 +37,8 @@ class AlteraEmail {
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível salvar pessoa no banco de dados: '.mysql_error());
-        }
-        
-        mysql_close($con);
+        $result = mysql_query($sql,$con) or die('Não foi possível salvar Funcionario no banco de dados: '.mysql_error());
+         mysql_close($con);
     }
 }
 
