@@ -42,7 +42,7 @@ class Cliente extends Pessoa {
         return $this->complementoEnd;
     }
     public function setMedicamentos($m){
-        $this->medicamentos = m;
+        $this->medicamentos = $m;
     }
     public function getMedicamentos(){
         return $this->medicamentos;
@@ -99,10 +99,10 @@ class Cliente extends Pessoa {
         }
         else{
             //Busca chave de pessoa e de bairro para inserir em cliente
-            $sql = "SELECT * FROM TB_Pessoa p, TB_Bairro b WHERE p.login = '" . $this->login .
+            $sql = "SELECT cdPessoa, cdBairro FROM TB_Pessoa p, TB_Bairro b WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "' and b.cdBairro = " . $this->bairro->getCdBairro();
-            
             $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
+            $result = mysql_fetch_array($result);
             $sql = "INSERT INTO TB_Cliente(cdPessoa, cdBairro, rua, numeroEnd, complementoEnd, medicamentos) "
                    . "VALUES (" . $result['cdPessoa'] . ",". $result['cdBairro'] . ",'" . $this->rua . "','" .
                    $this->numeroEnd . "','" . $this->complementoEnd . "','" . $this->medicamentos . "')";
