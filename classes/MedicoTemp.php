@@ -29,40 +29,28 @@ class MedicoTemp {
     public function carregaMySQL($crm){
         
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
         
         //Gera SQL e busca MedicoTemp no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Medico_temp m WHERE m.crm = '" . $crm . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
+        $result = mysql_query($sql, $con) or die('Não foi possível carregar Pessoa do banco de dados: '.mysql_error());
             $result = mysql_fetch_array($result);
-            
             $this->nome = $result['nmMedico'];
             $this->crm = $result['crm'];
-        }
-        else{
-            die('Não foi possível carregar MedicoTemp do banco de dados: '.mysql_error());
-        }
         
         mysql_close($con);
     }
     public function salvaMySQL(){
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
         
         //Gera SQL para salvar/atualizar MedicoTemp no banco
         $sql = "SELECT * FROM TB_Medico_temp m WHERE m.crm = '" . $crm . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
+        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
+        $result = mysql_fetch_array($result);
+        if($result["nmMedico"]==$this->nome){
             $sql = "UPDATE TB_Medico_temp m SET m.nmMedico = '" . $this->nome .
                    "', m.crm = '" . $this->crm . "'";
         }
@@ -72,11 +60,7 @@ class MedicoTemp {
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível salvar Medico_temp no banco de dados: '.mysql_error());
-        }
-        
+        $result = mysql_query($sql,$con) or die('Não foi possível salvar Funcionario no banco de dados: '.mysql_error());
         mysql_close($con);
     }
 }

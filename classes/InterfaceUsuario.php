@@ -55,11 +55,11 @@
         public function gera(){
             
             //if(!$this->valida){ ERRO }
-            
-            if($this->usuario == "paciente"){
+            $user;
+            if($this->usuario == "Paciente"){
                 $user = new Cliente();
             }
-            else if($this->usuario == "medico"){
+            else if($this->usuario == "Medico"){
                 $user = new Medico();
             }
                 $user->setNome($this->nome);
@@ -68,9 +68,10 @@
                 $user->setCpf($this->cpf);
                 $user->setRg($this->rg);
                 $user->setEmail($this->email);
+                $user->setLogin($this->login);
                 $user->setSenha($this->senha);
             
-            if($this->usuario == "paciente"){
+            if($this->usuario == "Paciente"){
                 $user->setRua($this->rua);
                 $user->setNumeroEnd($this->numero);
                 $user->setComplementoEnd($this->complemento);

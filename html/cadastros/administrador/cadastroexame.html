@@ -43,11 +43,11 @@
             return true;
     }
     function alfanumerico(texto){
-        var Exp = /^[0-9a-z]+$/i;
+        var Exp = /^[0-9a-z\s]+$/i;
         return (Exp.test(texto));
     }
     function alfanumerico2(texto){
-        var Exp = /^[0-9a-z]*$/i;
+        var Exp = /^[0-9a-z\s]*$/i;
         return (Exp.test(texto));
     }
     function numerico(texto){

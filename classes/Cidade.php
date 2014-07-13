@@ -18,6 +18,10 @@ class Cidade {
         return $this->nome;
     }
     
+    function __construct() {
+        echo "<hr>chamou os construtor de cidade";
+    }
+    
     //Metodos de Banco de Dados
     public function carregaMySQL($cdCidade){
         
@@ -44,10 +48,7 @@ class Cidade {
     }
     public function salvaMySQL(){
         //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
+        $con = mysql_connect("localhost:3306","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
         mysql_select_db("mydb", $con);
         
         //Gera SQL para salvar/atualizar Cidade no banco
@@ -63,10 +64,7 @@ class Cidade {
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível salvar cidade no banco de dados: '.mysql_error());
-        }
+        $result = mysql_query($sql, $con) or die('Não foi possível salvar cidade no banco de dados: '.mysql_error());
         
         mysql_close($con);
     }

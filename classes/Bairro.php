@@ -6,7 +6,7 @@
  * @author Elias
  */
 
-include_once 'Cidade.php';
+require_once 'Cidade.php';
 
 class Bairro {
     
@@ -15,6 +15,7 @@ class Bairro {
     
     //Construtor
     function __construct() {
+        echo "<hr>chamou os construtor de bairro";
         $this->cidade = new Cidade();
     }
     
@@ -31,7 +32,8 @@ class Bairro {
     public function getCidade(){
         return $this->cidade;
     }
-    
+
+
     //Metodos de Banco de Dados
     public function carregaMySQL($cdBairro){
         
@@ -67,7 +69,7 @@ class Bairro {
         mysql_select_db("mydb", $con);
         
         //Gera SQL para salvar/atualizar Bairro no banco
-        $sql = "SELECT * FROM TB_Bairro b, TB_Cidade c WHERE b.nmBairro = '" . $this->nome . "' and "
+        $sql = "SELECT cdBairro, cdCidade FROM TB_Bairro b, TB_Cidade c WHERE b.nmBairro = '" . $this->nome . "' and "
                . "c.cdCidade = b.cdCidade and c.nmCidade = '" . $this->cidade->getNome() . "'";
         $result = mysql_query($sql, $con);
         if($result){
@@ -105,6 +107,7 @@ class Bairro {
         }
         mysql_select_db("mydb", $con);
         
+        var_dump($this->cidade);
         $sql = "SELECT * FROM TB_Bairro b, TB_Cidade c WHERE b.nmBairro = '" . $this->nome . "' and "
                . "b.cdCidade = c.cdCidade and c.nmCidade = '" . $this->cidade->getNome() . "'";
         $result = mysql_query($sql, $con);

@@ -48,11 +48,11 @@
             return true;
     }
     function alfanumerico(texto){
-        var Exp = /^[0-9a-z]+$/i;
+        var Exp = /^[0-9a-z\s]+$/i;
         return (Exp.test(texto));
     }
     function alfabetico(texto){
-        var Exp = /^[a-z]*$/i;
+        var Exp = /^[a-z\s]*$/i;
         return (Exp.test(texto));
     }
     function numerico(texto){
