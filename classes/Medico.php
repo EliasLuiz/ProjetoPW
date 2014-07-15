@@ -61,7 +61,7 @@ class Medico extends Pessoa{
             $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "'";
             $result = mysql_query($sql) or die('Não foi possível buscar Medico no banco de dados: '.  mysql_error());
-            
+            $result = mysql_fetch_array($result);
             $sql = "INSERT INTO TB_Medico(cdPessoa, crm) VALUES (" .
                    $result['cdPessoa'] . ",'" . $this->crm . "')";
         }
