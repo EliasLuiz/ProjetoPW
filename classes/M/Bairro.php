@@ -57,38 +57,36 @@ class Bairro {
     public function salva(){
         
         //Vê se Bairro já está no banco
-        $sql = "SELECT cdBairro, cdCidade, nmBairro FROM TB_Bairro b, TB_Cidade c " .
+        $sql = "SELECT cdBairro, cdCidade FROM TB_Bairro b, TB_Cidade c " .
                 "WHERE b.nmBairro = '" . $this->nome . "' and c.cdCidade = b.cdCidade" .
                 " and c.nmCidade = '" . $this->cidade->getNome() . "'";
         $result = mysql_query($sql, $this->con) or die('Não foi possível carregar' .
                 ' cidade do banco de dados: '.mysql_error());
         $result = mysql_fetch_array($result);
         
-        //Gera SQL para atualizar Bairro no banco
-        if($result["nmBairro"] == $this->nome){
-            $sql = "UPDATE TB_Bairro SET nmBairro = '" . $this->nome .
-                    "' WHERE cdBairro = " . $result['cdBairro'];
-        }
-        
         //Gera SQL para inserir Bairro
-        else{
+        if(!isset($result["cdBairro"])){
+            
             //Busca chave de Cidade no banco
             $sql = "SELECT cdCidade FROM TB_Cidade WHERE nmCidade = '" . 
                     $this->cidade->getNome() . "'";
+            
             $result = mysql_query($sql, $this->con) or die('Não foi possível carregar' .
                     ' cidade do banco de dados: '.mysql_error());
             $result = mysql_fetch_array($result);
             
             $sql = "INSERT INTO TB_Bairro(cdBairro,nmBairro,cdCidade)" . 
                    " VALUES ('','" . $this->nome . "','" . $result['cdCidade'] . "')";
+            
+            //Executa SQL e testa sucesso
+            mysql_query($sql, $this->con) or die('Não foi possível salvar ' .
+                    'bairro no banco de dados: '.mysql_error());
         }
-        
-        //Executa SQL e testa sucesso
-        mysql_query($sql, $this->con) or die('Não foi possível salvar ' .
-                'bairro no banco de dados: '.mysql_error());
     }
     public function remove() {
-        $sql = "UPDATE TB_Bairro SET status = 0 WHERE cdBairro = " . $result['cdBairro'];
+        $sql = "UPDATE TB_Bairro b, TB_Cidade c SET status = 0 WHERE nmBairro = '" . 
+                $this->nome . "' and b.cdCidade = c.cdCidade and nmcidade = '" .
+                $this->cidade->getNome() . "'";
         mysql_query($sql, $this->con) or die('Não foi possível remover' .
                 ' bairro do banco de dados: '.mysql_error());
     }
