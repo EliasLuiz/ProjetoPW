@@ -6,7 +6,11 @@
  * @author Elias
  */
 
+include_once 'MySQL.php';
+
 class Pessoa {
+    
+    use MySQL;
     
     protected $nome;
     protected $cpf;
@@ -17,6 +21,14 @@ class Pessoa {
     protected $telefone;
     protected $email;
     
+    //Construtor e Destrutor
+    function __construct() {
+        $this->con = $this->abreConexao();
+    }
+    function __destruct() {
+        $this->fechaConexao();
+    }
+
     //Set's e Get's
     public function setNome($n){
         $this->nome = $n;    
@@ -68,15 +80,12 @@ class Pessoa {
     }
     
     //Métodos de Banco de Dados
-    public function carregaMySQL($cdPessoa){
-        
-        //Estabelece conexão
-        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
+    public function carrega($cdPessoa){
         
         //Gera SQL e busca Pessoa no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.cdPessoa = " . $cdPessoa;
-        $result = mysql_query($sql, $con) or die('Não foi possível carregar Pessoa do banco de dados: '.mysql_error());
+        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar' .
+                ' Pessoa do banco de dados: '.mysql_error());
             $result = mysql_fetch_array($result);
             
             $this->nome = $result['nmPessoa'];
@@ -87,19 +96,16 @@ class Pessoa {
             $this->sexo = $result['sexo'];
             $this->telefone = $result['telefone'];
             $this->email = $result['email'];
-        
-        mysql_close($con);
     }
-    
-    public function salvaMySQL(){
-        //Estabelece conexão
-        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        mysql_select_db('mydb') or die('falha ao selecionar o banco');
+    public function salva(){
         
-        //Gera SQL para salvar/atualizar Pessoa no banco
+        //Vê se Pessoa já está no banco
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->login . "'";
-        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
+        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa '
+                . 'no banco de dados: '.  mysql_error());
         $result = mysql_fetch_array($result);
+        
+        //Gera SQL para atualizar Pessoa no banco
         if($result["senha"]==$this->senha){
             $sql = "UPDATE TB_Pessoa p SET p.nmPessoa = '" . $this->nome .
                    "', p.cpf = '" . $this->cpf . "', p.rg = '" . $this->rg .
@@ -107,19 +113,26 @@ class Pessoa {
                    "', p.email = '" . $this->email . "' WHERE p.login = '" . $this->login .
                    "'and p.senha = '" . $this->senha . "'";
         }
+        
+        //Gera SQL para inserir Pessoa
         else if(!isset($result["cdPessoa"])){
             $sql = "INSERT INTO TB_Pessoa(cdPessoa,nmPessoa,cpf,rg,login,senha,sexo,telefone,email)" . 
                    " VALUES ('','" . $this->nome . "','" . $this->cpf . "','" . $this->rg . "','" . 
                    $this->login . "','" . $this->senha . "','" . $this->sexo . "','" . 
                    $this->telefone . "','" . $this->email . "')";
         }
+        
         else{
             die("Login j&aacute; existente");
         }
         
         //Executa SQL e testa sucesso
-       $result = mysql_query($sql) or die($sql.'<hr>Não foi possível salvar Pessoa no banco de dados: '.mysql_error());
-       mysql_close($con);
+       $result = mysql_query($sql) or die($sql.'<hr>Não foi possível salvar' .
+               ' Pessoa no banco de dados: '.mysql_error());
+    }
+    public function remove() {
+        $sql = "UPDATE TB_Pessoa SET status = 0 WHERE login = " . $this->login;
+        mysql_query($sql, $this->con);
     }
 }
 
