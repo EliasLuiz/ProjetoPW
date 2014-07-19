@@ -84,18 +84,19 @@ class Pessoa {
         
         //Gera SQL e busca Pessoa no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.cdPessoa = " . $cdPessoa;
+        
         $result = mysql_query($sql, $this->con) or die('Não foi possível carregar' .
                 ' Pessoa do banco de dados: '.mysql_error());
-            $result = mysql_fetch_array($result);
+        $result = mysql_fetch_array($result);
             
-            $this->nome = $result['nmPessoa'];
-            $this->cpf = $result['cpf'];
-            $this->rg = $result['rg'];
-            $this->login = $result['login'];
-            $this->senha = $result['senha'];
-            $this->sexo = $result['sexo'];
-            $this->telefone = $result['telefone'];
-            $this->email = $result['email'];
+        $this->nome = $result['nmPessoa'];
+        $this->cpf = $result['cpf'];
+        $this->rg = $result['rg'];
+        $this->login = $result['login'];
+        $this->senha = $result['senha'];
+        $this->sexo = $result['sexo'];
+        $this->telefone = $result['telefone'];
+        $this->email = $result['email'];
     }
     public function salva(){
         

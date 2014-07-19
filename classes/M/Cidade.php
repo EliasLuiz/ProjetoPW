@@ -8,6 +8,8 @@
 
 class Cidade {
     
+    use MySQL;
+    
     protected $nome;
     
     //Set's e Get's
@@ -18,12 +20,17 @@ class Cidade {
         return $this->nome;
     }
     
+    //Construtor e Destrutor
     function __construct() {
-        echo "<hr>chamou os construtor de cidade";
+        $this->abreConexao();
     }
-    
+    function __destruct() {
+        $this->fechaConexao();
+    }
+
+
     //Metodos de Banco de Dados
-    public function carregaMySQL($cdCidade){
+    public function carrega($cdCidade){
         
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
@@ -46,7 +53,7 @@ class Cidade {
         
         mysql_close($con);
     }
-    public function salvaMySQL(){
+    public function salva(){
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
         mysql_select_db("mydb", $con);
