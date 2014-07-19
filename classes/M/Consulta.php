@@ -6,21 +6,27 @@
  * @author Daniel
  */
 
+include_once 'MySQL.php';
 include_once 'Cliente.php';
 include_once 'Medico.php';
 
 class Consulta {
     
+    use MySQL;
+    
     protected $data;
     protected $cliente;
     protected $medico;
 
-    //Construtor
+    //Construtor e Destrutor
     function __construct() {
         $this->cliente = new Cliente();
         $this->medico = new Medico();
+        $this->abreConexao();
     }
-
+    function __destruct() {
+        $this->fechaConexao();
+    }
 
     //Set's e Get's
     public function setData($d){
@@ -43,77 +49,59 @@ class Consulta {
     }
     
     //Métodos de Banco de Dados
-    public function carregaMySQL($cdConsulta){
-        
-        //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+    public function carrega($cdConsulta){
         
         //Gera SQL e busca Consulta no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Consulta c WHERE c.cdConsulta = '" . $cdConsulta . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
+        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar Consulta'
+                . ' do banco de dados: '.mysql_error());;
+        $result = mysql_fetch_array($result);
             
-            $this->data = $result['dtConsulta'];
-            $this->cliente->carregaMySQL($result['cdCliente']);
-            $this->medico->carregaMySQL($result['cdMedico']);
-        }
-        else{
-            die('Não foi possível carregar Consulta do banco de dados: '.mysql_error());
-        }
-        
-        mysql_close($con);
+        $this->data = $result['dtConsulta'];
+        $this->cliente->carrega($result['cdCliente']);
+        $this->medico->carrega($result['cdMedico']);
     }
-    public function salvaMySQL(){
-        //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+    public function salva(){
         
         //Gera SQL para salvar/atualizar Consulta no banco
         
         //Busca cdCliente
-        $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->cliente->getLogin() . "'";
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível carregar pessoa do banco de dados: '.mysql_error());
-        }        
+        $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . 
+                $this->cliente->getLogin() . "'";
+        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar'
+                . ' pessoa do banco de dados: '.mysql_error());
         $result = mysql_fetch_array($result);
         $cdCliente = $result['cdPessoa'];
+        
         //Busca cdMedico
-        $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->medico->getLogin() . "'";
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível carregar pessoa do banco de dados: '.mysql_error());
-        }        
+        $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" .
+                $this->medico->getLogin() . "'";
+        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar pessoa'
+                . ' do banco de dados: '.mysql_error());
         $result = mysql_fetch_array($result);
         $cdMedico = $result['cdPessoa'];
-        //Gera SQL e salva consulta
-        $sql = "SELECT * FROM TB_Consulta WHERE cdCliente = " . $cdCliente . " and cdMedico = "
-               . $cdMedico . " and dtConsulta = '" . $this->data . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
-            $sql = "UPDATE TB_Consulta c SET c.dtConsulta = '" . $this->data . "'";
-        }
-        else{
-            $sql = "INSERT INTO TB_Consulta(cdConsulta, cdCliente, cdMedico, dtConsulta) VALUES"
-                   . "(''," . $cdCliente . ", " . $cdMedico . ", '" . $this->data . "'";
-        }
         
-        //Executa SQL e testa sucesso
+        //Vê se Consulta já está armazenada no BD
+        $sql = "SELECT cdConsulta FROM TB_Consulta WHERE cdCliente = " .
+                $cdCliente . " and cdMedico = " . $cdMedico . " and dtConsulta = '" .
+                $this->data . "'";
         $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível salvar Consulta no banco de dados: '.mysql_error());
-        }
+        $result = mysql_fetch_array($result);
         
-        mysql_close($con);
+        //Se não estiver insere
+        if(!isset($result["cdConsulta"])){
+            $sql = "INSERT INTO TB_Consulta(cdConsulta, cdCliente, cdMedico, dtConsulta)"
+                    . " VALUES(''," . $cdCliente . ", " . $cdMedico . ", '" . $this->data . "'";
+            mysql_query($sql, $this->con) or die('Não foi possível salvar Consulta'
+                    . ' no banco de dados: '.mysql_error());
+        }
+    }
+    public function remove() {
+        $sql = "UPDATE TB_Consulta co, TB_Cliente c, TB_Medico m, TB_Pessoa p SET status = 0 "
+                . "WHERE c.cdCliente = co.cdCliente and m.cdMedico = co.cdMedico and "
+                . "c.cdPessoa = p.cdPessoa and p.cpf = '" . $this->cliente->getCpf() . "' and "
+                . "m.crm = '" . $this->medico->getCrm() . "'and co.data = '" . $this->data . "'";
+        mysql_query($sql, $this->con);
     }
 }
 
