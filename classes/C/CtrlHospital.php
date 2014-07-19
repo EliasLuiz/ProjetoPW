@@ -1,18 +1,12 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of InterfaceHospital
  *
  * @author Elias
  */
     
-    class InterfaceHospital{
+    class CtrlHospital{
     
         protected $nmhospital;
         protected $telefone;

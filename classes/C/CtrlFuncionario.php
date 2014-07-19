@@ -6,7 +6,7 @@
  * @author Elias
  */
     
-    class InterfaceFuncionario{
+    class CtrlFuncionario{
         protected $nome;
         protected $sexo;
         protected $telefone;

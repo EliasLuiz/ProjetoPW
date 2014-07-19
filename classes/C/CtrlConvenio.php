@@ -7,7 +7,7 @@
  */
 
     
-    class InterfaceConvenio{
+    class CtrlConvenio{
         protected $nome;
         protected $responsavel;
         

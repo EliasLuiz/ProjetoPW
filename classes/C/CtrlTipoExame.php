@@ -6,7 +6,7 @@
  * @author Elias
  */
     
-    class InterfaceTipoExame{
+    class CtrlTipoExame{
     
         protected $nome;
         protected $coletadomicilio;
