@@ -19,6 +19,15 @@ trait MySQL {
     public function fechaConexao(){
         mysql_close($this->con);
     }
+    public function query($sql){
+        return mysql_query($sql, $this->con);
+    }
+    public function fetch_array($result){
+        return mysql_fetch_array($result);
+    }
+    public function erro(){
+        return mysql_error();
+    }
     abstract public function salva();
     abstract public function carrega($cdPrimario);
     abstract public function remove();
