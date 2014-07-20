@@ -23,7 +23,7 @@ class Pessoa {
     
     //Construtor e Destrutor
     function __construct() {
-        $this->con = $this->abreConexao();
+        $this->abreConexao();
     }
     function __destruct() {
         $this->fechaConexao();
@@ -128,12 +128,13 @@ class Pessoa {
         }
         
         //Executa SQL e testa sucesso
-       $result = mysql_query($sql) or die($sql.'<hr>Não foi possível salvar' .
+       $result = mysql_query($sql) or die('Não foi possível salvar' .
                ' Pessoa no banco de dados: '.mysql_error());
     }
     public function remove() {
         $sql = "UPDATE TB_Pessoa SET status = 0 WHERE login = " . $this->login;
-        mysql_query($sql, $this->con);
+        mysql_query($sql, $this->con) or die('Não foi possível remover' .
+               ' Pessoa no banco de dados: '.mysql_error());
     }
 }
 

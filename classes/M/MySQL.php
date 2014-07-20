@@ -11,10 +11,9 @@ trait MySQL {
     protected $con; // Usado para controlar a conexão com o BD
     
     public function abreConexao(){
-        $con = mysql_connect("localhost","root","") or die('Não foi possível '
+        $this->con = mysql_connect("localhost","root","") or die('Não foi possível '
                 . 'estabelecer conexão com o banco de dados: '.mysql_error());
         mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
-        return $con;
     }
     public function fechaConexao(){
         mysql_close($this->con);
@@ -25,7 +24,7 @@ trait MySQL {
     public function fetch_array($result){
         return mysql_fetch_array($result);
     }
-    public function erro(){
+    public function dberror(){
         return mysql_error();
     }
     abstract public function salva();

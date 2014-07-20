@@ -15,6 +15,14 @@ class Convenio {
     protected $nome;
     protected $responsavel;
     
+    //Construtor e Destrutor
+    function __construct() {
+        $this->abreConexao();
+    }
+    function __destruct() {
+        $this->fechaConexao();
+    }
+    
     //Set's e Get's
     public function setNome($n){
         $this->nome = $n;    
@@ -34,7 +42,7 @@ class Convenio {
         
         //Gera SQL e busca Convenio no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Convenio c WHERE c.cdConvenio = '" . $cdConvenio . "'";
-        $result = mysql_query($sql, $con) or die('Não foi possível carregar Convenio'
+        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar Convenio'
                 . ' do banco de dados: '.mysql_error());
         $result = mysql_fetch_array($result);
         
@@ -45,9 +53,9 @@ class Convenio {
         
         //Gera SQL para salvar/atualizar Pessoa no banco
         $sql = "SELECT * FROM TB_Convenio c WHERE c.nmConvenio = '" . $this->nome . "'";
-        //$result = mysqli_query($con, $sql);
-        $result = mysql_query($sql) or die($this->nome);
+        $result = mysql_query($sql, $this->con) or die($this->nome);
         $result = mysql_fetch_array($result);
+        
         if($result["nmConvenio"]==$this->nome){
             $sql = "UPDATE TB_Convenio  SET responsavel = '" . $this->responsavel .
                     "' WHERE cdConvenio = " . $result["cdConvenio"];
@@ -58,12 +66,14 @@ class Convenio {
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql,$con) or die('Não foi possível salvar Convenio'
+        $result = mysql_query($sql,  $this->con) or die('Não foi possível salvar Convenio'
                 . ' no banco de dados: '.mysql_error());
     }
     public function remove() {
             $sql = "UPDATE TB_Convenio SET status = 0 WHERE nmConvenio = '" . $this->nome .
                    "', responsavel = '" . $this->responsavel . "'";
+           mysql_query($sql, $this->con) or die('Não foi possível remover Convenio'
+                . ' no banco de dados: '.mysql_error());
     }
 }
 
