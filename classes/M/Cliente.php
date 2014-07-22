@@ -66,14 +66,15 @@ class Cliente extends Pessoa {
         
         //Gera SQL e busca Cliente no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Cliente WHERE cdPessoa = " . $cdCliente;
-        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar Pessoa do banco de dados: '.mysql_error());
-            $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar Pessoa'
+                . ' do banco de dados: '.$this->dberror());
+        $result = $this->fetch_array($result);
             
-            $this->rua = $result['rua'];
-            $this->numeroEnd = $result['numeroEnd'];
-            $this->complementoEnd = $result['complementoEnd'];
-            $this->medicamentos = $result['medicamentos'];
-            $this->bairro->carregaMySQL($result['cdBairro']);
+        $this->rua = $result['rua'];
+        $this->numeroEnd = $result['numeroEnd'];
+        $this->complementoEnd = $result['complementoEnd'];
+        $this->medicamentos = $result['medicamentos'];
+        $this->bairro->carregaMySQL($result['cdBairro']);
     }
     public function salva(){
         
@@ -84,9 +85,9 @@ class Cliente extends Pessoa {
         $sql = "SELECT * FROM TB_Pessoa p, TB_Cliente c WHERE p.login = '" . 
                 $this->login . "' and p.senha = '" . $this->senha . 
                 "' and p.cdPessoa = c.cdPessoa";
-        $result = mysql_query($sql,$this->con) or die('Não foi possível buscar Pessoa' .
-                ' no banco de dados: '.  mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa' .
+                ' no banco de dados: '.  $this->dberror());
+        $result = $this->fetch_array($result);
         
         //Gera SQL para atualizar Cliente no banco
         if($result["nmPessoa"]==$this->nome){
@@ -102,9 +103,9 @@ class Cliente extends Pessoa {
             $sql = "SELECT cdPessoa, cdBairro FROM TB_Pessoa p, TB_Bairro b "
                     . "WHERE p.login = '" . $this->login . "' and p.senha = '" . $this->senha .
                     "' and b.cdBairro = " . $this->bairro->getCdBairro();
-            $result = mysql_query($sql,$this->con) or die('Não foi possível buscar Pessoa' .
-                    ' no banco de dados: '.  mysql_error());
-            $result = mysql_fetch_array($result);
+            $result = $this->query($sql) or die('Não foi possível buscar Pessoa' .
+                    ' no banco de dados: '.  $this->error());
+            $result = $this->fetch_array($result);
             
             $sql = "INSERT INTO TB_Cliente(cdPessoa, cdBairro, rua, numeroEnd," .
                     " complementoEnd, medicamentos) VALUES (" . $result['cdPessoa'] .
@@ -113,8 +114,8 @@ class Cliente extends Pessoa {
         }
         
         //Executa SQL e testa sucesso
-        mysql_query($sql,$this->con) or die('Não foi possível salvar Funcionario no' .
-                ' banco de dados: '.mysql_error());
+        $this->query($sql) or die('Não foi possível salvar Funcionario no' .
+                ' banco de dados: '.$this->error());
     }
 }
 
