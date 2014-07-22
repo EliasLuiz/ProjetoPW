@@ -53,9 +53,9 @@ class Consulta {
         
         //Gera SQL e busca Consulta no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Consulta c WHERE c.cdConsulta = '" . $cdConsulta . "'";
-        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar Consulta'
-                . ' do banco de dados: '.mysql_error());;
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar Consulta'
+                . ' do banco de dados: '.$this->dberror());;
+        $result = $this->fetch_array($result);
             
         $this->data = $result['dtConsulta'];
         $this->cliente->carrega($result['cdCliente']);
@@ -68,32 +68,32 @@ class Consulta {
         //Busca cdCliente
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . 
                 $this->cliente->getLogin() . "'";
-        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar'
-                . ' pessoa do banco de dados: '.mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar'
+                . ' pessoa do banco de dados: '.$this->dberror());
+        $result = $this->fetch_array($result);
         $cdCliente = $result['cdPessoa'];
         
         //Busca cdMedico
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" .
                 $this->medico->getLogin() . "'";
-        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar pessoa'
-                . ' do banco de dados: '.mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar pessoa'
+                . ' do banco de dados: '.$this->dberror());
+        $result = $this->fetch_array($result);
         $cdMedico = $result['cdPessoa'];
         
         //Vê se Consulta já está armazenada no BD
         $sql = "SELECT cdConsulta FROM TB_Consulta WHERE cdCliente = " .
                 $cdCliente . " and cdMedico = " . $cdMedico . " and dtConsulta = '" .
                 $this->data . "'";
-        $result = mysql_query($sql, $con);
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
         
         //Se não estiver insere
         if(!isset($result["cdConsulta"])){
             $sql = "INSERT INTO TB_Consulta(cdConsulta, cdCliente, cdMedico, dtConsulta)"
                     . " VALUES(''," . $cdCliente . ", " . $cdMedico . ", '" . $this->data . "'";
-            mysql_query($sql, $this->con) or die('Não foi possível salvar Consulta'
-                    . ' no banco de dados: '.mysql_error());
+            $this->query($sql) or die('Não foi possível salvar Consulta'
+                    . ' no banco de dados: '.$this->dberror());
         }
     }
     public function remove() {
@@ -101,7 +101,7 @@ class Consulta {
                 . "WHERE c.cdCliente = co.cdCliente and m.cdMedico = co.cdMedico and "
                 . "c.cdPessoa = p.cdPessoa and p.cpf = '" . $this->cliente->getCpf() . "' and "
                 . "m.crm = '" . $this->medico->getCrm() . "'and co.data = '" . $this->data . "'";
-        mysql_query($sql, $this->con);
+        $this->query($sql);
     }
 }
 
