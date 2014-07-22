@@ -85,9 +85,9 @@ class Pessoa {
         //Gera SQL e busca Pessoa no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.cdPessoa = " . $cdPessoa;
         
-        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar' .
-                ' Pessoa do banco de dados: '.mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar' .
+                ' Pessoa do banco de dados: '.$this->dberror());
+        $result = $this->fetch_array($result);
             
         $this->nome = $result['nmPessoa'];
         $this->cpf = $result['cpf'];
@@ -102,9 +102,9 @@ class Pessoa {
         
         //Vê se Pessoa já está no banco
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->login . "'";
-        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa '
-                . 'no banco de dados: '.  mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa '
+                . 'no banco de dados: '.  $this->dberror());
+        $result = $this->fetch_array($result);
         
         //Gera SQL para atualizar Pessoa no banco
         if($result["senha"]==$this->senha){
@@ -128,13 +128,13 @@ class Pessoa {
         }
         
         //Executa SQL e testa sucesso
-       $result = mysql_query($sql) or die('Não foi possível salvar' .
-               ' Pessoa no banco de dados: '.mysql_error());
+       $result = $this->query($sql) or die('Não foi possível salvar' .
+               ' Pessoa no banco de dados: '.$this->dberror());
     }
     public function remove() {
         $sql = "UPDATE TB_Pessoa SET status = 0 WHERE login = " . $this->login;
-        mysql_query($sql, $this->con) or die('Não foi possível remover' .
-               ' Pessoa no banco de dados: '.mysql_error());
+        $this->query($sql, $this->con) or die('Não foi possível remover' .
+               ' Pessoa no banco de dados: '.$this->dberror());
     }
 }
 
