@@ -47,7 +47,7 @@ class Bairro {
         $sql = "SELECT * FROM TB_Bairro b, TB_Cidade c WHERE b.cdBairro = '" . $cdBairro . "' and "
                . "b.cdCidade = c.cdCidade";
         
-        $result = $this->query($sql, $this->con) or die('Não foi possível carregar' .
+        $result = $this->query($sql) or die('Não foi possível carregar' .
                 ' cidade do banco de dados: '.$this->dberror());
         $result = $this->fetch_array($result);
         
@@ -60,7 +60,7 @@ class Bairro {
         $sql = "SELECT cdBairro, cdCidade FROM TB_Bairro b, TB_Cidade c " .
                 "WHERE b.nmBairro = '" . $this->nome . "' and c.cdCidade = b.cdCidade" .
                 " and c.nmCidade = '" . $this->cidade->getNome() . "'";
-        $result = $this->query($sql, $this->con) or die('Não foi possível carregar' .
+        $result = $this->query($sql) or die('Não foi possível carregar' .
                 ' cidade do banco de dados: '.$this->dberror());
         $result = $this->fetch_array($result);
         
@@ -71,7 +71,7 @@ class Bairro {
             $sql = "SELECT cdCidade FROM TB_Cidade WHERE nmCidade = '" . 
                     $this->cidade->getNome() . "'";
             
-            $result = $this->query($sql, $this->con) or die('Não foi possível carregar' .
+            $result = $this->query($sql) or die('Não foi possível carregar' .
                     ' cidade do banco de dados: '.$this->dberror());
             $result = $this->fetch_array($result);
             
@@ -79,7 +79,7 @@ class Bairro {
                    " VALUES ('','" . $this->nome . "','" . $result['cdCidade'] . "')";
             
             //Executa SQL e testa sucesso
-            $this->query($sql, $this->con) or die('Não foi possível salvar ' .
+            $this->query($sql) or die('Não foi possível salvar ' .
                     'bairro no banco de dados: '.$this->dberror());
         }
     }
@@ -87,7 +87,7 @@ class Bairro {
         $sql = "UPDATE TB_Bairro b, TB_Cidade c SET status = 0 WHERE nmBairro = '" . 
                 $this->nome . "' and b.cdCidade = c.cdCidade and nmcidade = '" .
                 $this->cidade->getNome() . "'";
-        $this->query($sql, $this->con) or die('Não foi possível remover' .
+        $this->query($sql) or die('Não foi possível remover' .
                 ' bairro do banco de dados: '.$this->dberror());
     }
     
@@ -96,7 +96,7 @@ class Bairro {
                 $this->nome . "' and b.cdCidade = c.cdCidade and c.nmCidade = '" . 
                 $this->cidade->getNome() . "'";
         
-        $result = $this->query($sql, $this->con) or die('Não foi possível carregar' .
+        $result = $this->query($sql) or die('Não foi possível carregar' .
                 ' bairro do banco de dados: '.$this->dberror());
         $result = $this->fetch_array($result);
         
