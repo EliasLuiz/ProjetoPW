@@ -18,6 +18,16 @@ class Mensagem {
     protected $data;
     protected $cliente;
     protected $medico;
+    
+    //Construtor e Destrutor
+    function __construct() {
+        $this->cliente = new Cliente();
+        $this->medico = new Medico();
+        $this->abreConexao();
+    }
+    function __destruct() {
+        $this->fechaConexao();
+    }
 
 
     //Set's e Get's
@@ -45,93 +55,98 @@ class Mensagem {
     public function getMedico(){
         return $this->medico;
     }
- 
-    //Construtor
-    function __construct() {
-        $this->cliente = new Cliente();
-        $this->medico = new Medico();
-    }
-
 
     //Métodos de Banco de Dados
-    public function carregaMySQL($cdMensagem){
-        
-        //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+    public function carrega($cdMensagem){
         
         //Gera SQL e busca Mensagem no banco, carregando se não houver erro
-        $sql = "SELECT * FROM TB_Mensagem m WHERE m.cdMensagem = '" . $cdMensagem . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
+        $sql = "SELECT * FROM TB_Mensagem WHERE cdMensagem = '" . $cdMensagem . "'";
+        $result = $this->query($sql) or die('Não foi possível carregar Mensagem'
+                . ' do banco de dados: '.  $this->dberror());
+        $result = $this->fetch_array($result);
             
-            $this->texto = $result['txtMensagem'];
-            $this->data = $result['dtMensagem'];
-            $this->cliente->carregaMySQL($result['cdCliente']);
-            $this->medico->carregaMySQL($result['cdMedico']);
-        }
-        else{
-            die('Não foi possível carregar Mensagem do banco de dados: '.mysql_error());
-        }
-        
-        mysql_close($con);
+        $this->texto = $result['txtMensagem'];
+        $this->data = $result['dtMensagem'];
+        $this->cliente->carregaMySQL($result['cdCliente']);
+        $this->medico->carregaMySQL($result['cdMedico']);
     }
-    public function salvaMySQL(){
-        //Estabelece conexão
-        $con = mysql_connect("localhost:3306","root","");
-        if(!$con){
-            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        }
-        mysql_select_db("mydb", $con);
+    public function salva(){
         
         //busca cdcliente
-        $sql = "SELECT * FROM TB_Cliente c, TB_Pessoa WHERE p.cdPessoa = c.cdPessoa and"
+        $sql = "SELECT cdPessoa FROM TB_Cliente c, TB_Pessoa p WHERE p.cdPessoa = c.cdPessoa and"
                . " p.login = '" . $this->cliente->getLogin() . "'";
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível carregar cliente do banco de dados: '.mysql_error());
-        }
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql)or die('Não foi possível carregar Cliente'
+                . ' do banco de dados: '.$this->error());
+        $result = $this->fetch_array($result);
         $cdCliente = $result['cdPessoa'];
         
         //busca cdmedico
-        $sql = "SELECT * FROM TB_Medico m, TB_Pessoa WHERE p.cdPessoa = m.cdPessoa and"
+        $sql = "SELECT cdPessoa FROM TB_Medico m, TB_Pessoa WHERE p.cdPessoa = m.cdPessoa and"
                . " p.login = '" . $this->medico->getLogin() . "'";
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível carregar medico do banco de dados: '.mysql_error());
-        }
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar Medico'
+                . ' do banco de dados: '.$this->dberror());
+        $result = $this->fetch_array($result);
         $cdMedico = $result['cdPessoa'];
         
-        //Gera SQL para salvar/atualizar Mensagem no banco
+        //busca mensagens no banco
         $sql = "SELECT * FROM TB_Mensagem m WHERE m.cdCliente = " . $cdCliente . " and m.cdMedico = "
-                . $cdMedico . " and txtMensagem = '" . $this->texto . "' and dtMensagem = '" .
-                $this->data . "'";
-        $result = mysql_query($sql, $con);
-        if($result){
-            $result = mysql_fetch_array($result);
-            $sql = "UPDATE TB_Mensagem m SET m.txtMensagem = '" . $this->texto .
-                   "', m.dtMensagem = '" . $this->data . "' WHERE cdMensagem = ". $result['cdMensagem'];
-        }
-        else{
-            //insert into
-            $sql = "INSERT INTO TB_Mensagem(cdMensagem, cdCliente, cdMedico, txtMensagem, dtMensagem)"
-                   . "VALUES ('', " . $cdCliente . ", " . $cdMedico . ", '" . $this->texto . "', '" . 
-                   $this->data . "')";
+                . $cdMedico;
+        $result = $this->query($sql);
+        
+        //Gera SQL para salvar Mensagem no banco
+        $sql = "INSERT INTO TB_Mensagem(cdMensagem, cdCliente, cdMedico, txtMensagem, dtMensagem)"
+                . "VALUES ('', " . $cdCliente . ", " . $cdMedico . ", '" . $this->texto . "', '" . 
+                $this->data . "')";
+        
+        //se mensagem já existir gera sql para editar
+        while($row = $this->fetch_array($result)){
+            if($row["data"] == $this->data){
+                $sql = "UPDATE TB_Mensagem SET txtMensagem = '" . $this->texto
+                        . "', dtMensagem = '" . $this->data
+                        . "', edit = 1 WHERE cdMensagem = ". $result['cdMensagem'];
+            }
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql, $con);
-        if(!$result){
-            die('Não foi possível salvar Mensagem no banco de dados: '.mysql_error());
+        $this->query($sql) or die('Não foi possível salvar Mensagem'
+                . ' no banco de dados: '.  $this->dberror());
+    }
+    public function remove() {
+        
+        //busca cdcliente
+        $sql = "SELECT cdPessoa FROM TB_Cliente c, TB_Pessoa p WHERE p.cdPessoa = c.cdPessoa and"
+               . " p.login = '" . $this->cliente->getLogin() . "'";
+        $result = $this->query($sql)or die('Não foi possível carregar Cliente'
+                . ' do banco de dados: '.$this->error());
+        $result = $this->fetch_array($result);
+        $cdCliente = $result['cdPessoa'];
+        
+        //busca cdmedico
+        $sql = "SELECT cdPessoa FROM TB_Medico m, TB_Pessoa WHERE p.cdPessoa = m.cdPessoa and"
+               . " p.login = '" . $this->medico->getLogin() . "'";
+        $result = $this->query($sql) or die('Não foi possível carregar Medico'
+                . ' do banco de dados: '.$this->dberror());
+        $result = $this->fetch_array($result);
+        $cdMedico = $result['cdPessoa'];
+        
+        //busca mensagens no banco
+        $sql = "SELECT * FROM TB_Mensagem m WHERE m.cdCliente = " . $cdCliente . " and m.cdMedico = "
+                . $cdMedico;
+        $result = $this->query($sql);
+        
+        //busca cdMensagem
+        while($row = $this->fetch_array($result)){
+            if($row["data"] == $this->data){
+                $cdMensagem = $row["cdMensagem"];
+                break;
+            }
         }
         
-        mysql_close($con);
+        $sql = "UPDATE TB_Mensagem SET status = 0 WHERE cdMensagem = ". $cdMensagem;
+        
+        //Executa SQL e testa sucesso
+        $this->query($sql) or die('Não foi possível remover Mensagem'
+                . ' do banco de dados: '.  $this->dberror());
     }
 }
 

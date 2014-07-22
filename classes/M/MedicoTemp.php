@@ -15,6 +15,14 @@ class MedicoTemp {
     protected $nome;
     protected $crm;
     
+    //Construtor e Destrutor
+    function __construct() {
+        $this->abreConexao();
+    }
+    function __destruct() {
+        $this->fechaConexao();
+    }
+    
     //Set's e Get's
     public function setNome($n){
         $this->nome = $n;    
