@@ -42,9 +42,9 @@ class Convenio {
         
         //Gera SQL e busca Convenio no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Convenio c WHERE c.cdConvenio = '" . $cdConvenio . "'";
-        $result = mysql_query($sql, $this->con) or die('Não foi possível carregar Convenio'
-                . ' do banco de dados: '.mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar Convenio'
+                . ' do banco de dados: '.  $this->dberror());
+        $result = $this->fetch_array($result);
         
         $this->nome = $result['nmConvenio'];
         $this->responsavel = $result['responsavel'];
@@ -53,8 +53,9 @@ class Convenio {
         
         //Gera SQL para salvar/atualizar Pessoa no banco
         $sql = "SELECT * FROM TB_Convenio c WHERE c.nmConvenio = '" . $this->nome . "'";
-        $result = mysql_query($sql, $this->con) or die($this->nome);
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar Convenio'
+                . ' do banco de dados: '.  $this->dberror());
+        $result = $this->fetch_array($result);
         
         if($result["nmConvenio"]==$this->nome){
             $sql = "UPDATE TB_Convenio  SET responsavel = '" . $this->responsavel .
@@ -66,14 +67,14 @@ class Convenio {
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql,  $this->con) or die('Não foi possível salvar Convenio'
-                . ' no banco de dados: '.mysql_error());
+        $this->query($sql,  $this->con) or die('Não foi possível salvar Convenio'
+                . ' no banco de dados: '. $this->dberror());
     }
     public function remove() {
             $sql = "UPDATE TB_Convenio SET status = 0 WHERE nmConvenio = '" . $this->nome .
                    "', responsavel = '" . $this->responsavel . "'";
-           mysql_query($sql, $this->con) or die('Não foi possível remover Convenio'
-                . ' no banco de dados: '.mysql_error());
+            $this->query($sql) or die('Não foi possível remover Convenio'
+                . ' no banco de dados: '.$this->dberror());
     }
 }
 
