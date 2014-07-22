@@ -128,13 +128,20 @@ class Pessoa {
         }
         
         //Executa SQL e testa sucesso
-       $result = $this->query($sql) or die('Não foi possível salvar' .
+       $this->query($sql) or die('Não foi possível salvar' .
                ' Pessoa no banco de dados: '.$this->dberror());
     }
     public function remove() {
         $sql = "UPDATE TB_Pessoa SET status = 0 WHERE login = " . $this->login;
         $this->query($sql, $this->con) or die('Não foi possível remover' .
                ' Pessoa no banco de dados: '.$this->dberror());
+    }
+    public function alteraSenha(){
+        $sql = "UPDATE TB_Pessoa SET senha = '" . $this->senha . "' 
+                WHERE login = '" . $this->login . "'";
+        $this->query($sql) or die('Não foi possível salvar' .
+                ' Pessoa no banco de dados: '.$this->dberror());
+                
     }
 }
 
