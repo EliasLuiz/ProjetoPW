@@ -38,9 +38,9 @@ class Funcionario extends Pessoa{
         
         //Gera SQL e busca Funcionario no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Funcionario f WHERE f.cdPessoa = " . $cdFuncionario;
-        $result = mysql_query($sql, $con) or die('Não foi possível carregar Pessoa' .
-                ' do banco de dados: '.mysql_error());
-            $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar Pessoa' .
+                ' do banco de dados: '.$this->dberror());
+            $result = $this->fetch_array($result);
             $this->registroFuncional = $result['registroFuncional'];
             $this->cargo = $result['cargo'];
     }
@@ -52,9 +52,9 @@ class Funcionario extends Pessoa{
         //Vê se Funcionario já está no banco
         $sql = "SELECT * FROM TB_Pessoa p, TB_Funcionario f WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "' and p.cdPessoa = f.cdPessoa";
-        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco' .
-                ' de dados: '.  mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa no banco' .
+                ' de dados: '.  $this->dberror());
+        $result = $this->fetch_array($result);
         
         //Gera SQL para atualizar Funcionario no banco
         if($result["nmPessoa"]==$this->nome){
@@ -67,17 +67,17 @@ class Funcionario extends Pessoa{
             //Busca chave de pessoa para inserir em Funcionario
             $sql = "SELECT cdPessoa FROM TB_Pessoa p WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "'";
-            $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no' .
-                    ' banco de dados: '.  mysql_error());
-            $result = mysql_fetch_array($result);
+            $result = $this->query($sql) or die('Não foi possível buscar Pessoa no' .
+                    ' banco de dados: '.  $this->dberror());
+            $result = $this->fetch_array($result);
             
             $sql = "INSERT INTO TB_Funcionario(cdPessoa, registroFuncional, cargo)" .
                     " VALUES (" . $result['cdPessoa'] . ",'" . $this->registroFuncional .
                     "','" . $this->cargo . "')";
         }
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql) or die('<hr>Não foi possível salvar Funcionario' .
-                ' no banco de dados: '.mysql_error());
+        $result = $this->query($sql) or die('<hr>Não foi possível salvar Funcionario' .
+                ' no banco de dados: '.$this->dberror());
     }
 }
 
