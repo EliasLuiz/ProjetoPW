@@ -31,10 +31,10 @@ class Medico extends Pessoa{
         
         //Gera SQL e busca Medico no banco, carregando se não houver erro
         $sql = "SELECT * TB_Medico WHERE cdPessoa = " . $cdMedico;
-        $result = mysql_query($sql, $con) or die('Não foi possível carregar Pessoa' .
-                ' do banco de dados: '.mysql_error());
-            $result = mysql_fetch_array($result);
-            $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar Pessoa' .
+                ' do banco de dados: '.$this->dberror());
+            $result = $this->fetch_array($result);
+            $result = $this->fetch_array($result);
             $this->crm = $result['crm'];
     }
     public function salva(){
@@ -45,9 +45,9 @@ class Medico extends Pessoa{
         //Vê se Medico já está no banco
         $sql = "SELECT * FROM TB_Pessoa p, TB_Medico m WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "' and p.cdPessoa = m.cdPessoa";
-        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no' .
-                ' banco de dados: '.  mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa no' .
+                ' banco de dados: '.  $this->dberror());
+        $result = $this->fetch_array($result);
         
         //Gera SQL para atualizar Medico no banco
         if($result["nmPessoa"]==$this->nome){
@@ -60,17 +60,17 @@ class Medico extends Pessoa{
             //Busca chave de pessoa e para inserir em Medico
             $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "'";
-            $result = mysql_query($sql) or die('Não foi possível buscar Medico no' .
-                    ' banco de dados: '.  mysql_error());
-            $result = mysql_fetch_array($result);
+            $result = $this->query($sql) or die('Não foi possível buscar Medico no' .
+                    ' banco de dados: '.  $this->dberror());
+            $result = $this->fetch_array($result);
             
             $sql = "INSERT INTO TB_Medico(cdPessoa, crm) VALUES (" .
                    $result['cdPessoa'] . ",'" . $this->crm . "')";
         }
         
         //Executa SQL e testa sucesso
-       $result = mysql_query($sql,$con) or die('Não foi possível salvar Medico' .
-                ' no banco de dados: '.mysql_error());
+       $result = $this->query($sql,$con) or die('Não foi possível salvar Medico' .
+                ' no banco de dados: '.$this->dberror());
     }
 }
 
