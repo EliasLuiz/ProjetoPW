@@ -63,8 +63,9 @@ class TipoExame {
         
         //Gera SQL e busca Exame no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_TipoExame t WHERE t.cdTipoExame = '" . $cdExame . "'";
-        $result = mysql_query($sql, $con) or die('Não foi possível carregar TipoExame do banco de dados: '.mysql_error());
-        $result = mysql_fetch_array($result);
+        $result = $this->query($sql) or die('Não foi possível carregar TipoExame'
+                . ' do banco de dados: '.$this->dberror());
+        $result = $this->fetch_array($result);
             
         $this->nome = $result['nmTipoExame'];
         $this->coletadomicilio = $result['coletaDomicilio'];
@@ -77,7 +78,7 @@ class TipoExame {
         //Gera SQL para salvar/atualizar Exame no banco
         $sql = "SELECT * FROM TB_TipoExame t WHERE t.nmTipoExame = '" . $this->nome . "'";
         $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
-                . ' no banco de dados: '.mysql_error());
+                . ' no banco de dados: '.$this->dberror());
         $result = $this->fetch_array($result);
         
         if($result["nmTipoExame"]==$this->nome){
