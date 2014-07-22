@@ -123,10 +123,6 @@ class Pessoa {
                    $this->telefone . "','" . $this->email . "')";
         }
         
-        else{
-            die("Login j&aacute; existente");
-        }
-        
         //Executa SQL e testa sucesso
        $this->query($sql) or die('Não foi possível salvar' .
                ' Pessoa no banco de dados: '.$this->dberror());
