@@ -6,10 +6,13 @@
  * @author Daniel
  */
 
+include_once 'MySQL.php';
 include_once 'Cliente.php';
 include_once 'Medico.php';
 
 class Mensagem {
+    
+    use MySQL;
     
     protected $texto;
     protected $data;

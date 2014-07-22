@@ -3,7 +3,7 @@
 /**
  * Description of Exame
  *
- * @author Daniel gatim
+ * @author Daniel
  */
 
 class TipoExame {

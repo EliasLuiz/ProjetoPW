@@ -30,10 +30,10 @@ class MedicoTemp {
     }
     
     //Métodos de Banco de Dados
-    public function carregaMySQL($crm){
+    public function carrega($crm){
         
         //Gera SQL e busca MedicoTemp no banco, carregando se não houver erro
-        $sql = "SELECT nmMedico FROM TB_Medico_temp m WHERE m.crm = '" . $crm . "'";
+        $sql = "SELECT nmMedico FROM TB_Medico_temp WHERE crm = '" . $crm . "'";
         $result = $this->query($sql) or die('Não foi possível carregar Medico'
                 . ' do banco de dados: '.  $this->dberror());
         $result = $this->fetch_array($result);
@@ -42,18 +42,16 @@ class MedicoTemp {
         $this->crm = $crm;
         
     }
-    public function salvaMySQL(){
-        //Estabelece conexão
-        $con = mysql_connect("localhost","root","") or die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
-        mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
+    public function salva(){
         
         //Gera SQL para salvar/atualizar MedicoTemp no banco
-        $sql = "SELECT * FROM TB_Medico_temp m WHERE m.crm = '" . $crm . "'";
-        $result = mysql_query($sql) or die('Não foi possível buscar Pessoa no banco de dados: '.  mysql_error());
-        $result = mysql_fetch_array($result);
-        if($result["nmMedico"]==$this->nome){
-            $sql = "UPDATE TB_Medico_temp m SET m.nmMedico = '" . $this->nome .
-                   "', m.crm = '" . $this->crm . "'";
+        $sql = "SELECT * FROM TB_Medico_temp WHERE crm = '" . $this->crm . "'";
+        $result = $this->query($sql) or die('Não foi possível buscar Medico'
+                . ' no banco de dados: '. $this->dberror());
+        $result = $this->fetch_array($result);
+        if($result["crm"]==$this->crm){
+            $sql = "UPDATE TB_Medico_temp SET nmMedico = '" . $this->nome . "'"
+                    . "WHERE crm = '" . $this->crm . "'";
         }
         else{
             $sql = "INSERT INTO TB_Medico_temp(cdMedico_temp,nmMedico,crm)" . 
@@ -61,8 +59,13 @@ class MedicoTemp {
         }
         
         //Executa SQL e testa sucesso
-        $result = mysql_query($sql,$con) or die('Não foi possível salvar Funcionario no banco de dados: '.mysql_error());
-        mysql_close($con);
+        $result = $this->query($sql) or die('Não foi possível salvar Medico'
+                . ' no banco de dados: '.  $this->dberror());
+    }
+    public function remove() {
+        $sql = "UPDATE TB_Medico_temp SET status = 0 WHERE crm = '" . $this->crm . "'";
+        $this->query($sql) or die('Não foi possível remover Medico'
+                . ' do banco de dados: '.  $this->dberror());;
     }
 }
 

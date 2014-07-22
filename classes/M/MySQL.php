@@ -10,21 +10,21 @@ trait MySQL {
     
     protected $con; // Usado para controlar a conexão com o BD
     
-    public function abreConexao(){
+    protected function abreConexao(){
         $this->con = mysql_connect("localhost","root","") or die('Não foi possível '
                 . 'estabelecer conexão com o banco de dados: '.mysql_error());
         mysql_select_db('mydb') or die('Não foi possível selecionar o banco' . mysql_error());
     }
-    public function fechaConexao(){
+    protected function fechaConexao(){
         mysql_close($this->con);
     }
-    public function query($sql){
+    protected function query($sql){
         return mysql_query($sql, $this->con);
     }
-    public function fetch_array($result){
+    protected function fetch_array($result){
         return mysql_fetch_array($result);
     }
-    public function dberror(){
+    protected function dberror(){
         return mysql_error();
     }
     abstract public function salva();
