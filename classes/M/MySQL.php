@@ -30,4 +30,5 @@ trait MySQL {
     abstract public function salva();
     abstract public function carrega($cdPrimario);
     abstract public function remove();
+    //abstract public function lista();
 }

@@ -72,6 +72,15 @@ class Medico extends Pessoa{
        $result = $this->query($sql,$con) or die('Não foi possível salvar Medico' .
                 ' no banco de dados: '.$this->dberror());
     }
+    public function lista(){
+        $sql = "SELECT cdPessoa, nmPessoa FROM TB_Medico m, TB_Pessoa p "
+            . "WHERE m.cdPessoa = p.cdPessoa";
+        $result = $this->query($sql);
+        while($row = $this->fetch_array($result)){
+            $medicos[$row['nmPessoa']] = $row['cdPessoa'];
+        }
+        return $medicos;
+    }
 }
 
 ?>

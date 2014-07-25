@@ -1,90 +1,52 @@
 <?php
 
 /**
- * Interface para cadastro de usuario e alteração das paradas
+ * Description of CtrlUsuario
  *
- * @author Elias
+ * @author Elias Luiz
  */
 
+include_once 'Pessoa.php';
+include_once 'Cliente.php';
+include_once 'Medico.php';
+include_once 'Funcionario.php';
+
+class CtrlUsuario {
     
-    class CtrlUsuario{
-        protected $nome;
-        protected $sexo;
-        protected $telefone;
-        protected $cpf;
-        protected $rg;
-        protected $email;
-        protected $login;
-        protected $senha;
-        protected $usuario;
-        protected $crm;
-        protected $rua;
-        protected $numero;
-        protected $complemento;
-        protected $bairro;
-        protected $cidade;
-        protected $medicamentos;
-        
-        function __construct() {
-            
-            //tirar daqui e fazer um get separado pra cada um
-            $this->nome = $_POST["nome"];
-            $this->sexo = $_POST["sexo"];
-            $this->telefone = $_POST["ddd"] . $_POST["telefone"];
-            $this->cpf = $_POST["CPF"];
-            $this->rg = $_POST["RG"];
-            $this->email = $_POST["email"];
-            $this->login = $_POST["login"];
-            $this->senha = $_POST["senha"];
-            $this->usuario = $_POST["usuario"];
-            if($this->usuario == 'paciente'){
-                $this->rua = $_POST["rua"];
-                $this->numero = $_POST["numero"];
-                $this->complemento = $_POST["complemento"];
-                $this->bairro = $_POST["bairro"];
-                $this->cidade = $_POST["cidade"];
-                $this->medicamentos = $_POST["medicamentos"];
-            }
-            else{
-                $this->crm = $_POST["crm"];
-            }
+    protected $usuario;
+    
+    function login($login, $senha){
+        $usuarios = new Pessoa();
+        $usuarios = $usuarios->listaLogin();
+        if($usuarios[$login]['tipo'] == 'C'){
+            $usuario = new Cliente();
         }
-        
-        //Funções para validação aqui
-        
-        public function gera(){
-            
-            //if(!$this->valida){ ERRO }
-            $user;
-            if($this->usuario == "Paciente"){
-                $user = new Cliente();
-            }
-            else if($this->usuario == "Medico"){
-                $user = new Medico();
-            }
-                $user->setNome($this->nome);
-                $user->setSexo($this->sexo);
-                $user->setTelefone($this->telefone);
-                $user->setCpf($this->cpf);
-                $user->setRg($this->rg);
-                $user->setEmail($this->email);
-                $user->setLogin($this->login);
-                $user->setSenha($this->senha);
-            
-            if($this->usuario == "Paciente"){
-                $user->setRua($this->rua);
-                $user->setNumeroEnd($this->numero);
-                $user->setComplementoEnd($this->complemento);
-                $bairro = new Bairro();
-                $bairro->setNome($this->bairro);
-                $bairro->setCidade($this->cidade);
-                $user->setBairro($bairro);
-                $user->setMedicamentos($this->medicamentos);
-            }
-            else {
-                $user->setCrm($this->crm);
-            }
-            
-            return $user;
+        else if($usuarios[$login]['tipo'] == 'M'){
+            $usuario = new Medico();
+        }
+        else if($usuarios[$login]['tipo'] == 'F'){
+            $usuario = new Funcionario();
+        }
+        else{
+            die("Login nao existente");
+        }
+        $cd = $usuarios[$login]['cdPessoa'];
+        $usuario->carrega($cd);
+        if($usuario->getSenha() == $senha){
+            session_start();
+            //$_COOKIE['cd'] = $cd;
+            $_SESSION['cd'] = $cd;
+            echo '<hr>'.$usuario->getNome();
+        }
+        else{
+            die("Senha incorreta");
         }
     }
+    
+    function logout(){
+        //unset($_COOKIE['cd']);
+        session_destroy();
+    }
+}
+
+?>
