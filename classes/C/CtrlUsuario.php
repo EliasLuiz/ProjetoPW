@@ -6,10 +6,10 @@
  * @author Elias Luiz
  */
 
-include_once 'Pessoa.php';
-include_once 'Cliente.php';
-include_once 'Medico.php';
-include_once 'Funcionario.php';
+include_once '../M/Pessoa.php';
+include_once '../M/Cliente.php';
+include_once '../M/Medico.php';
+include_once '../M/Funcionario.php';
 
 class CtrlUsuario {
     

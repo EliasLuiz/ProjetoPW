@@ -7,7 +7,7 @@
  */
 
     
-    class CtrlUsuario{
+    class IUsuario{
         protected $nome;
         protected $sexo;
         protected $telefone;

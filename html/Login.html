@@ -15,7 +15,7 @@ and open the template in the editor.
                     alert("O Campo login \351 obrigat\363rio!");
                     return false;
                 }
-                else if(!alfabetico(document.forms.cadastro.login.value))
+                else if(!alfanumerico(document.forms.cadastro.login.value))
                 {
                     alert("O Campo login possui caracteres inv\341lidos!");
                     return false;
@@ -31,6 +31,10 @@ and open the template in the editor.
             function alfabetico(texto){
                 var Exp = /^[a-z\s]+$/i;
                 return (Exp.test(texto));
+            }
+            function alfanumerico(texto){
+            var Exp = /^[0-9a-z\s]+$/i;
+            return (Exp.test(texto));
             }
             //Fim do JavaScript que validar� os campos obrigat�rios!
             </script>
