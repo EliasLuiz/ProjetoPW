@@ -33,6 +33,7 @@ class CtrlUsuario {
         $cd = $usuarios[$login]['cdPessoa'];
         $usuario->carrega($cd);
         if($usuario->getSenha() == $senha){
+            session_start();
             //$_COOKIE['cd'] = $cd;
             $_SESSION['cd'] = $cd;
         }
