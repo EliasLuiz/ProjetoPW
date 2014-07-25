@@ -16,6 +16,7 @@ class CtrlUsuario {
     protected $usuario;
     
     function login($login, $senha){
+        echo '<hr>controle.login';
         $usuarios = new Pessoa();
         $usuarios = $usuarios->listaLogin();
         if($usuarios[$login]['tipo'] == 'C'){
@@ -30,6 +31,7 @@ class CtrlUsuario {
         else{
             die("Login nao existente");
         }
+        echo '<hr>controle.login pt2';
         $cd = $usuarios[$login]['cdPessoa'];
         $usuario->carrega($cd);
         if($usuario->getSenha() == $senha){
