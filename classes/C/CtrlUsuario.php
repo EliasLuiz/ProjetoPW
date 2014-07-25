@@ -36,6 +36,7 @@ class CtrlUsuario {
             session_start();
             //$_COOKIE['cd'] = $cd;
             $_SESSION['cd'] = $cd;
+            echo '<hr>'.$usuario->getNome();
         }
         else{
             die("Senha incorreta");
@@ -44,7 +45,6 @@ class CtrlUsuario {
     
     function logout(){
         //unset($_COOKIE['cd']);
-        unset($_SESSION['cd']);
         session_destroy();
     }
 }
