@@ -139,6 +139,54 @@ class Pessoa {
                 ' Pessoa no banco de dados: '.$this->dberror());
                 
     }
+    public function lista(){
+        $sql = "SELECT cdPessoa, nmPessoa FROM TB_Cliente c, TB_Pessoa p "
+            . "WHERE c.cdPessoa = p.cdPessoa";
+        $resultc = $this->query($sql);
+        $sql = "SELECT cdPessoa, nmPessoa FROM TB_Medico m, TB_Pessoa p "
+            . "WHERE m.cdPessoa = p.cdPessoa";
+        $resultm = $this->query($sql);
+        $sql = "SELECT cdPessoa, nmPessoa FROM TB_Medico m, TB_Pessoa p "
+            . "WHERE m.cdPessoa = p.cdPessoa";
+        $resultf = $this->query($sql);
+        while($row = $this->fetch_array($resultc)){
+            $pessoas[$row['nmPessoa']] = array( 'cdPessoa' => $row['cdPessoa'],
+                                                 'tipo' => 'C');
+        }
+        while($row = $this->fetch_array($resultm)){
+            $pessoas[$row['nmPessoa']] = array( 'cdPessoa' => $row['cdPessoa'],
+                                                 'tipo' => 'M');
+        }
+        while($row = $this->fetch_array($resultf)){
+            $pessoas[$row['nmPessoa']] = array( 'cdPessoa' => $row['cdPessoa'],
+                                                 'tipo' => 'F');
+        }
+        return $pessoas;
+    }
+    public function listaLogin(){
+        $sql = "SELECT cdPessoa, login FROM TB_Cliente c, TB_Pessoa p "
+            . "WHERE c.cdPessoa = p.cdPessoa";
+        $resultc = $this->query($sql);
+        $sql = "SELECT cdPessoa, login FROM TB_Medico m, TB_Pessoa p "
+            . "WHERE m.cdPessoa = p.cdPessoa";
+        $resultm = $this->query($sql);
+        $sql = "SELECT cdPessoa, login FROM TB_Medico m, TB_Pessoa p "
+            . "WHERE m.cdPessoa = p.cdPessoa";
+        $resultf = $this->query($sql);
+        while($row = $this->fetch_array($resultc)){
+            $pessoas[$row['login']] = array( 'cdPessoa' => $row['cdPessoa'],
+                                                 'tipo' => 'C');
+        }
+        while($row = $this->fetch_array($resultm)){
+            $pessoas[$row['login']] = array( 'cdPessoa' => $row['cdPessoa'],
+                                                 'tipo' => 'M');
+        }
+        while($row = $this->fetch_array($resultf)){
+            $pessoas[$row['login']] = array( 'cdPessoa' => $row['cdPessoa'],
+                                                 'tipo' => 'F');
+        }
+        return $pessoas;
+    }
 }
 
 ?>

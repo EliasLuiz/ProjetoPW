@@ -117,6 +117,15 @@ class Cliente extends Pessoa {
         $this->query($sql) or die('Não foi possível salvar Funcionario no' .
                 ' banco de dados: '.$this->error());
     }
+    public function lista(){
+        $sql = "SELECT cdPessoa, nmPessoa FROM TB_Cliente c, TB_Pessoa p "
+            . "WHERE c.cdPessoa = p.cdPessoa";
+        $result = $this->query($sql);
+        while($row = $this->fetch_array($result)){
+            $clientes[$row['nmPessoa']] = $row['cdPessoa'];
+        }
+        return $clientes;
+    }
 }
 
 ?>
