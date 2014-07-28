@@ -18,6 +18,7 @@
             <li><a href="alteraMedicamento.php">Alteração de Medicamentos</a></li>
             <li><a href="alteraSenha.php">Alteração de Senha</a></li>
             <li><a href="removeMedico.php">Remoção de Médicos</a></li>
+            <li><a href="Login.php">Login</a></li>
         </ul>
     </body>
 </html>

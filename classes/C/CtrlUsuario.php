@@ -6,17 +6,17 @@
  * @author Elias Luiz
  */
 
-include_once '../M/Pessoa.php';
-include_once '../M/Cliente.php';
-include_once '../M/Medico.php';
-include_once '../M/Funcionario.php';
+include_once '/../M/Pessoa.php';
+include_once '/../M/Cliente.php';
+include_once '/../M/Medico.php';
+include_once '/../M/Funcionario.php';
 
 class CtrlUsuario {
     
     protected $usuario;
     
     function login($login, $senha){
-        echo '<hr>controle.login';
+        //echo '<hr>controle.login';
         $usuarios = new Pessoa();
         $usuarios = $usuarios->listaLogin();
         if($usuarios[$login]['tipo'] == 'C'){
@@ -31,14 +31,12 @@ class CtrlUsuario {
         else{
             die("Login nao existente");
         }
-        echo '<hr>controle.login pt2';
         $cd = $usuarios[$login]['cdPessoa'];
         $usuario->carrega($cd);
         if($usuario->getSenha() == $senha){
             session_start();
             //$_COOKIE['cd'] = $cd;
             $_SESSION['cd'] = $cd;
-            echo '<hr>'.$usuario->getNome();
         }
         else{
             die("Senha incorreta");

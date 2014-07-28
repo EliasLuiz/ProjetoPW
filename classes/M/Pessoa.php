@@ -164,14 +164,14 @@ class Pessoa {
         return $pessoas;
     }
     public function listaLogin(){
-        $sql = "SELECT cdPessoa, login FROM TB_Cliente c, TB_Pessoa p "
+        $sql = "SELECT p.cdPessoa, login FROM TB_Cliente c, TB_Pessoa p "
             . "WHERE c.cdPessoa = p.cdPessoa";
         $resultc = $this->query($sql);
-        $sql = "SELECT cdPessoa, login FROM TB_Medico m, TB_Pessoa p "
+        $sql = "SELECT p.cdPessoa, login FROM TB_Medico m, TB_Pessoa p "
             . "WHERE m.cdPessoa = p.cdPessoa";
         $resultm = $this->query($sql);
-        $sql = "SELECT cdPessoa, login FROM TB_Medico m, TB_Pessoa p "
-            . "WHERE m.cdPessoa = p.cdPessoa";
+        $sql = "SELECT p.cdPessoa, login FROM TB_Funcionario f, TB_Pessoa p "
+            . "WHERE f.cdPessoa = p.cdPessoa";
         $resultf = $this->query($sql);
         while($row = $this->fetch_array($resultc)){
             $pessoas[$row['login']] = array( 'cdPessoa' => $row['cdPessoa'],
