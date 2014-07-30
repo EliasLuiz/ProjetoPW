@@ -79,6 +79,15 @@ class Funcionario extends Pessoa{
         $result = $this->query($sql) or die('<hr>Não foi possível salvar Funcionario' .
                 ' no banco de dados: '.$this->dberror());
     }
+    public function lista(){
+        $sql = "SELECT cdPessoa, nmPessoa FROM TB_Funcionario f, TB_Pessoa p "
+            . "WHERE f.cdPessoa = p.cdPessoa";
+        $result = $this->query($sql);
+        while($row = $this->fetch_array($result)){
+            $funcionarios[$row['nmPessoa']] = $row['cdPessoa'];
+        }
+        return $funcionarios;
+    }
 }
 
 ?>
