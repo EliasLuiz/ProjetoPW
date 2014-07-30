@@ -100,6 +100,11 @@ class Bairro {
                 ' bairro do banco de dados: '.$this->dberror());
         $result = $this->fetch_array($result);
         
+        if(empty($result['cdBairro'])){
+            $this->salva();
+            $result['cdBairro'] = $this->getCdBairro();
+        }
+        
         return $result['cdBairro'];
     }
 }
