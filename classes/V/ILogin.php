@@ -6,10 +6,6 @@ class ILogin{
         protected $login;
         protected $senha;
         
-        public function getLogin(){
-        return $this->login;
-        }
-        
         function __construct($login, $senha) {
             
             //tirar daqui e fazer um get separado pra cada um
