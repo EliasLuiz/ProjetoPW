@@ -1,25 +1,27 @@
 <?php
 
 include_once '/../C/CtrlUsuario.php';
+
 class IAlteraEndereco {
-    
-    protected $rua;
-    protected $numeroEnd;
-    protected $complementoEnd;
-    protected $bairro;
-    protected $cidade;
-    
-    function __construct($rua, $numeroEnd, $complementoEnd, $bairro, $cidade) {
-        $this->rua = $rua;
-        $this->numeroEnd = $numeroEnd;
-        $this->complementoEnd = $complementoEnd;
-        $this->bairro = $bairro;
-        $this->cidade = $cidade;
+
+    protected $ddd;
+    protected $telefone;
+
+    function __construct($ddd, $telefone) {
+        $this->ddd = $ddd;
+        $this->telefone = $telefone;
+        $this->valida();
     }
-    
-    public function alteraEndereco(){
+
+    public function valida() {
+        if(empty($this->ddd) || empty($this->telefone)){
+            die("Campo obrigat&oacute;rio vazio");
+        }
+    }
+
+    public function alteraEndereco() {
         $ctrl = new CtrlUsuario();
-        $ctrl->alteraEndereco($rua, $numeroEnd, $complementoEnd, $bairro, $cidade);
+        $ctrl->alteraTelefone($this->ddd.$this->telefone);
     }
 
 }

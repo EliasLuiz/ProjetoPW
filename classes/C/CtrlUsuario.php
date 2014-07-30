@@ -16,18 +16,9 @@ class CtrlUsuario {
     
     public function login($login, $senha){
         //echo '<hr>controle.login';
-        $usuarios = new Pessoa();
+        $usuario = new Pessoa();
         $usuarios = $usuarios->listaLogin();
-        if($usuarios[$login]['tipo'] == 'C'){
-            $usuario = new Cliente();
-        }
-        else if($usuarios[$login]['tipo'] == 'M'){
-            $usuario = new Medico();
-        }
-        else if($usuarios[$login]['tipo'] == 'F'){
-            $usuario = new Funcionario();
-        }
-        else{
+        if(empty($usuarios[$login])){
             die("Login nao existente");
         }
         $cd = $usuarios[$login]['cdPessoa'];
@@ -62,15 +53,8 @@ class CtrlUsuario {
     }
     
     public function alteraEmail($email){
-        if($_SESSION['tipo'] == 'C'){
-            $usuario = new Cliente();
-        }
-        else if($_SESSION['tipo'] == 'M'){
-            $usuario = new Medico();
-        }
-        else if($_SESSION['tipo'] == 'F'){
-            $usuario = new Funcionario();
-        }
+        $usuario = new Pessoa();
+        $usuario->carrega($_SESSION['cd']);
         $usuario->setEmail($email);
         $usuario->salva();
     }
@@ -82,8 +66,15 @@ class CtrlUsuario {
         $usuario->salva();
     }
     
+    public function alteraTelefone($telefone){
+        $usuario = new Pessoa();
+        $usuario->carrega($_SESSION['cd']);
+        $usuario->setTelefone($telefone);
+        $usuario->salva();
+    }
+    
     public function alteraSenha($senha){
-        $usuario = new Cliente();
+        $usuario = new Pessoa();
         $usuario->carrega($_SESSION['cd']);
         $usuario->setSenha($senha);
         $usuario->alteraSenha($senha);
