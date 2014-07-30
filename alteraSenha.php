@@ -6,11 +6,9 @@
     
     //criar classe de interface depois
     
-    if(isset($_POST["rua"])){
-        $interf = new IAlteraEndereco($_POST['rua'],
-                $_POST['numero'], $_POST['complemento'],
-                $_POST['bairro'], $_POST['cidade']);
-        $interf->alteraEndereco();
+    if(isset($_POST["senha"])){
+        $interf = new IAlteraSenha($_POST['senha'], $_POST['senha2']);
+        $interf->alteraSenha();
     }
 
 ?>

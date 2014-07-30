@@ -3,23 +3,25 @@
 include_once '/../C/CtrlUsuario.php';
 class IAlteraEndereco {
     
-    protected $rua;
-    protected $numeroEnd;
-    protected $complementoEnd;
-    protected $bairro;
-    protected $cidade;
+    protected $senha;
+    protected $senha2;
     
-    function __construct($rua, $numeroEnd, $complementoEnd, $bairro, $cidade) {
-        $this->rua = $rua;
-        $this->numeroEnd = $numeroEnd;
-        $this->complementoEnd = $complementoEnd;
-        $this->bairro = $bairro;
-        $this->cidade = $cidade;
+    function __construct($senha, $senha2) {
+        $this->senha = $senha;
+        $this->senha2 = $senha2;
+        $this->valida();
     }
     
-    public function alteraEndereco(){
+    public function valida(){
+        //adicionar conferencia de senha antiga
+        if($this->senha != $this->senha2){
+            die("Senhas n&atilde;o conferem");
+        }
+    }
+
+    public function alteraSenha(){
         $ctrl = new CtrlUsuario();
-        $ctrl->alteraEndereco($rua, $numeroEnd, $complementoEnd, $bairro, $cidade);
+        $ctrl->alteraSenha($this->senha);
     }
 
 }

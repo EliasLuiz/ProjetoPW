@@ -81,6 +81,13 @@ class CtrlUsuario {
         $usuario->setMedicamentos($medicamentos);
         $usuario->salva();
     }
+    
+    public function alteraSenha($senha){
+        $usuario = new Cliente();
+        $usuario->carrega($_SESSION['cd']);
+        $usuario->setSenha($senha);
+        $usuario->alteraSenha($senha);
+    }
 }
 
 ?>
