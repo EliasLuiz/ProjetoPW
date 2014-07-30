@@ -1,17 +1,14 @@
 <?php
 
-    include_once 'classes/Pessoa.php';
+    include_once 'classes/V/IAlteraEmail.php';
 
-    require_once 'html/cadastros/configuracoes/alteraemail.html';
+    require_once 'html/alteraEmail.html';
     
     //criar classe de interface depois
     
     if(isset($_POST["email"])){
-        $cdPessoa = $_COOKIE["cd"];
-        $pessoa = new Pessoa();
-        $pessoa->carregaMySQL($cdPessoa);
-        $pessoa->setEmail($_POST["email"]);
-        $pessoa->salvaMySQL();
+        $interf = new IAlteraEmail($_POST['email']);
+        $interf->alteraEmail();
     }
-    
+
 ?>

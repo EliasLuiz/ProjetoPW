@@ -1,19 +1,16 @@
 <?php
 
-    require_once 'classes/Pessoa.php';
+    include_once 'classes/V/IAlteraSenha.php';
 
-    require_once 'html/cadastros/configuracoes/alterasenha.html';
+    require_once 'html/alteraSenha.html';
     
     //criar classe de interface depois
-
-    if(isset($_POST["senha"])){
-        $cdPessoa = $_COOKIE["cd"];
-        $pessoa = new Pessoa();
-        if($pessoa->getSenha() == $_POST["senha"]){
-            $pessoa->carregaMySQL($cdPessoa);
-            $pessoa->setSenha($_POST["senha2"]);
-            $pessoa->salvaMySQL();
-        }
+    
+    if(isset($_POST["rua"])){
+        $interf = new IAlteraEndereco($_POST['rua'],
+                $_POST['numero'], $_POST['complemento'],
+                $_POST['bairro'], $_POST['cidade']);
+        $interf->alteraEndereco();
     }
 
 ?>

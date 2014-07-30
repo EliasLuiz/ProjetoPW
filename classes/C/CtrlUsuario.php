@@ -14,8 +14,6 @@ include_once '/../M/Bairro.php';
 
 class CtrlUsuario {
     
-    protected $usuario;
-    
     public function login($login, $senha){
         //echo '<hr>controle.login';
         $usuarios = new Pessoa();
@@ -38,6 +36,7 @@ class CtrlUsuario {
             session_start();
             //$_COOKIE['cd'] = $cd;
             $_SESSION['cd'] = $cd;
+            $_SESSION['tipo'] = $usuarios[$login]['tipo'];
         }
         else{
             die("Senha incorreta");
@@ -59,6 +58,20 @@ class CtrlUsuario {
         $usuario->setComplementoEnd($complementoEnd);
         $usuario->setRua($rua);
         $usuario->setNumeroEnd($numeroEnd);
+        $usuario->salva();
+    }
+    
+    public function alteraEmail($email){
+        if($_SESSION['tipo'] == 'C'){
+            $usuario = new Cliente();
+        }
+        else if($_SESSION['tipo'] == 'M'){
+            $usuario = new Medico();
+        }
+        else if($_SESSION['tipo'] == 'F'){
+            $usuario = new Funcionario();
+        }
+        $usuario->setEmail($email);
         $usuario->salva();
     }
 }

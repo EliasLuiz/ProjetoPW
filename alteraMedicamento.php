@@ -1,18 +1,16 @@
 <?php
 
-    require_once 'classes/Cliente.php';
+    include_once 'classes/V/IAlteraMedicamentos.php';
 
-    require_once 'html/cadastros/configuracoes/alteramedicamento.html';
+    require_once 'html/alteraMedicamentos.html';
     
     //criar classe de interface depois
-
-    if(isset($_POST["medicamentos"])){
-        $cdPessoa = $_COOKIE["cd"];
-        $pessoa = new Cliente();
-        $pessoa->carregaMySQL($cdPessoa);
-        $pessoa->setMedicamentos($_POST["medicamentos"]);
-        $pessoa->salvaMySQL();
+    
+    if(isset($_POST["rua"])){
+        $interf = new IAlteraEndereco($_POST['rua'],
+                $_POST['numero'], $_POST['complemento'],
+                $_POST['bairro'], $_POST['cidade']);
+        $interf->alteraEndereco();
     }
-    
-    
+
 ?>

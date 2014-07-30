@@ -19,8 +19,7 @@ class IAlteraEndereco {
     
     public function alteraEndereco(){
         $ctrl = new CtrlUsuario();
-        $ctrl->alteraEndereco($this->rua, $this->numeroEnd,
-                $this->complementoEnd, $this->bairro, $this->cidade);
+        $ctrl->alteraEndereco($rua, $numeroEnd, $complementoEnd, $bairro, $cidade);
     }
 
 }

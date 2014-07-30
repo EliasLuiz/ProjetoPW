@@ -1,17 +1,16 @@
 <?php
 
-    require_once 'Pessoa.php';
+    include_once 'classes/V/IAlteraTelefone.php';
 
-    require_once 'html/cadastros/configuracoes/alteratelefone.html';
+    require_once 'html/alteraTelefone.html';
     
     //criar classe de interface depois
     
-    if(isset($_POST["ddd"])){
-        $cdPessoa = $_COOKIE["cd"];
-        $pessoa = new Pessoa();
-        $pessoa->carregaMySQL($cdPessoa);
-        $pessoa->setTelefone($_POST["ddd"] . $_POST["telefone"]);
-        $pessoa->salvaMySQL();
+    if(isset($_POST["rua"])){
+        $interf = new IAlteraEndereco($_POST['rua'],
+                $_POST['numero'], $_POST['complemento'],
+                $_POST['bairro'], $_POST['cidade']);
+        $interf->alteraEndereco();
     }
 
 ?>
