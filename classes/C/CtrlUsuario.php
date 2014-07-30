@@ -74,6 +74,13 @@ class CtrlUsuario {
         $usuario->setEmail($email);
         $usuario->salva();
     }
+    
+    public function alteraMedicamentos($medicamentos){
+        $usuario = new Cliente();
+        $usuario->carrega($_SESSION['cd']);
+        $usuario->setMedicamentos($medicamentos);
+        $usuario->salva();
+    }
 }
 
 ?>
