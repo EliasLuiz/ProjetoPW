@@ -64,32 +64,17 @@ class Consulta {
     public function salva(){
         
         //Gera SQL para salvar/atualizar Consulta no banco
-        
-        //Busca cdCliente
-        $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . 
-                $this->cliente->getLogin() . "'";
-        $result = $this->query($sql) or die('Não foi possível carregar'
-                . ' pessoa do banco de dados: '.$this->dberror());
-        $result = $this->fetch_array($result);
-        $cdCliente = $result['cdPessoa'];
-        
-        //Busca cdMedico
-        $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" .
-                $this->medico->getLogin() . "'";
-        $result = $this->query($sql) or die('Não foi possível carregar pessoa'
-                . ' do banco de dados: '.$this->dberror());
-        $result = $this->fetch_array($result);
-        $cdMedico = $result['cdPessoa'];
-        
+        //
         //Vê se Consulta já está armazenada no BD
         $sql = "SELECT cdConsulta FROM TB_Consulta WHERE cdCliente = " .
-                $cdCliente . " and cdMedico = " . $cdMedico . " and dtConsulta = '" .
+                $this->cliente->getCdPessoa() . " and cdMedico = " . 
+                $this->medico->getCdPessoa() . " and dtConsulta = '" .
                 $this->data . "'";
         $result = $this->query($sql);
         $result = $this->fetch_array($result);
         
         //Se não estiver insere
-        if(!isset($result["cdConsulta"])){
+        if(empty($result["cdConsulta"])){
             $sql = "INSERT INTO TB_Consulta(cdConsulta, cdCliente, cdMedico, dtConsulta)"
                     . " VALUES(''," . $cdCliente . ", " . $cdMedico . ", '" . $this->data . "'";
             $this->query($sql) or die('Não foi possível salvar Consulta'
@@ -102,6 +87,16 @@ class Consulta {
                 . "c.cdPessoa = p.cdPessoa and p.cpf = '" . $this->cliente->getCpf() . "' and "
                 . "m.crm = '" . $this->medico->getCrm() . "'and co.data = '" . $this->data . "'";
         $this->query($sql);
+    }
+    public function getCdConsulta(){
+        $sql = "SELECT cdConsulta FROM TB_Consulta co, TB_Cliente c, TB_Medico m, TB_Pessoa p "
+                . "WHERE c.cdCliente = co.cdCliente and m.cdMedico = co.cdMedico and "
+                . "c.cdPessoa = p.cdPessoa and p.cpf = '" . $this->cliente->getCpf() . "' and "
+                . "m.crm = '" . $this->medico->getCrm() . "'and co.data = '" . $this->data . "'";
+        $result = $this->query($sql) or die('Não foi possível carregar Consulta'
+                    . ' do banco de dados: '.$this->dberror());;
+        $result = $this->fetch_array($result);
+        return $result['cdConsulta'];
     }
 }
 

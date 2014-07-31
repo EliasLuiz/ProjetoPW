@@ -191,6 +191,13 @@ class Pessoa {
         }
         return $pessoas;
     }
+    public function getCdPessoa(){
+        $sql = "SELECT cdPessoa FROM TB_Pessoa p WHERE p.login = '" . $this->login . "'";
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa '
+                        . 'no banco de dados: ' . $this->dberror());
+        $result = $this->fetch_array($result);
+        return $result['cdPessoa'];
+    }
 }
 
 ?>

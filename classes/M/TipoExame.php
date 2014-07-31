@@ -100,12 +100,16 @@ class TipoExame {
                 . ' no banco de dados: '. $this->dberror());
     }
     public function remove() {
-        $sql = "UPDATE TB_TipoExame t SET t.coletaDomicilio = '" . $this->coletadomicilio
-                    . "', t.requisitos = '" . $this->requisitos .
-                    "', t.informacoes = '" . $this->info . "', t.preco = " . $this->preco 
-                    . " WHERE nmTipoExame = " . $this->nome;
+        $sql = "UPDATE TB_TipoExame SET status = 0 WHERE nmTipoExame = " . $this->nome;
         $this->query($sql) or die('Não foi possível remover TipoExame'
                 . ' do banco de dados: '. $this->dberror());
+    }
+    public function getCdTipoExame(){
+        $sql = "SELECT cdTipoExame FROM TB_TipoExame WHERE nmTipoExame = '" . $this->nome . "'";
+        $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
+                . ' no banco de dados: '.$this->dberror());
+        $result = $this->fetch_array($result);
+        return $result['cdTipoExame'];
     }
 }
 

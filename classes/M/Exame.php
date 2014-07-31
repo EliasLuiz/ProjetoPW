@@ -9,7 +9,9 @@
 require_once 'MySQL.php';
 require_once 'Cliente.php';
 require_once 'Medico.php';
+require_once 'Consulta.php';
 require_once 'Convenio.php';
+require_once 'TipoExame.php';
 
 class Exame {
     use MySQL;
@@ -17,7 +19,10 @@ class Exame {
     protected $cliente;
     protected $medico;
     protected $consulta;
+    protected $tipoExame;
+    protected $convenio;
     protected $dataExame;
+    protected $coleta;
     protected $dataColeta;
     protected $url;
 
@@ -27,6 +32,8 @@ class Exame {
         $this->cliente = new Cliente();
         $this->medico = new Medico();
         $this->consulta = new Consulta();
+        $this->tipoExame = new TipoExame();
+        $this->convenio = new Convenio();
     }
     function __destruct() {
         $this->fechaConexao();
@@ -42,8 +49,17 @@ class Exame {
     public function getConsulta() {
         return $this->consulta;
     }
+    public function getTipoExame() {
+        return $this->tipoExame;
+    }
+    public function getConvenio() {
+        return $this->convenio;
+    }
     public function getDataExame() {
         return $this->dataExame;
+    }
+    public function getColeta() {
+        return $this->coleta;
     }
     public function getDataColeta() {
         return $this->dataColeta;
@@ -60,8 +76,17 @@ class Exame {
     public function setConsulta($consulta) {
         $this->consulta = $consulta;
     }
+    public function setTipoExame($tipoExame) {
+        $this->tipoExame = $tipoExame;
+    }
+    public function setConvenio($convenio) {
+        $this->convenio = $convenio;
+    }
     public function setDataExame($dataExame) {
         $this->dataExame = $dataExame;
+    }
+    public function setColeta($coleta) {
+        $this->coleta = $coleta;
     }
     public function setDataColeta($dataColeta) {
         $this->dataColeta = $dataColeta;
@@ -73,22 +98,83 @@ class Exame {
     
     //Métodos de Banco de Dados
     public function carrega($cdExame) {
-        
-        //Gera SQL e busca Pessoa no banco, carregando se não houver erro
+        //Gera SQL e busca Exame no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Exame WHERE cdExame = " . $cdExame;
-
         $result = $this->query($sql) or die('Não foi possível carregar' .
                         ' Exame do banco de dados: ' . $this->dberror());
         $result = $this->fetch_array($result);
 
-        $this->nome = $result['nmPessoa'];
-        $this->cpf = $result['cpf'];
-        $this->rg = $result['rg'];
-        $this->login = $result['login'];
-        $this->senha = $result['senha'];
-        $this->sexo = $result['sexo'];
-        $this->telefone = $result['telefone'];
-        $this->email = $result['email'];
+        $this->cliente->carrega($result['cdCliente']);
+        $this->medico->carrega($result['cdMedico']);
+        $this->consulta->carrega($result['cdConsulta']);
+        $this->tipoExame->carrega($result['cdTipoExame']);
+        $this->convenio->carrega($result['cdConvenio']);
+        $this->dataExame = $result['dtExame'];
+        $this->coleta = $result['coleta'];
+        $this->dataColeta = $result['dtColetaDom'];
+        $this->url = $result['URLExame'];
     }
-
+    public function salva() {
+        //Insere Exame no banco. Não tem opção de atualizar porque não tem nada que vale ser alterado
+        //Se achar ruim depois muda
+        $sql = "INSERT INTO TB_Exame(cdExame, cdCliente, cdMedico, cdConsulta, cdTipoExame, cdConvenio,"
+                . " dtExame, coletaDom, dtColetaDom, URLExame) VALUES "
+                . "('', ".$this->cliente->getCdPessoa().",".$this->medico->getCdPessoa().","
+                . $this->consulta->getCdConsulta().",".$this->tipoExame->getCdTipoExame().","
+                . $this->convenio->getCdConvenio().",'".$this->dataExame."',".$this->coleta.","
+                . ",'".$this->dataColeta."','.".$this->url."')";
+        $this->query($sql) or die('Não foi possível salvar' .
+                        ' Exame do banco de dados: ' . $this->dberror());
+    }
+    public function remove() {
+    }
+    //Porrada de listagem por tudo quanto é tipo de condição
+    public function listaTudo(){
+        $sql = "SELECT * FROM TB_Exame";
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
+        return $result;
+    }
+    public function listaCliente(){
+        $sql = "SELECT * FROM TB_Exame WHERE cdCliente = ".$this->cliente->getCdPessoa();
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
+        return $result;
+    }
+    public function listaMedico(){
+        $sql = "SELECT * FROM TB_Exame WHERE cdMedico = ".$this->medico->getCdPessoa();
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
+        return $result;
+    }
+    public function listaConsulta(){
+        $sql = "SELECT * FROM TB_Exame WHERE cdConsulta = ".$this->consulta->getCdConsulta();
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
+        return $result;
+    }
+    public function listaTipoExame(){
+        $sql = "SELECT * FROM TB_Exame WHERE cdTipoExame = ".$this->tipoExame->getCdTipoExame();
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
+        return $result;
+    }
+    public function listaConvenio(){
+        $sql = "SELECT * FROM TB_Exame WHERE cdConvenio = ".$this->convenio->getCdConvenio();
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
+        return $result;
+    }
+    public function listaDataExame(){
+        $sql = "SELECT * FROM TB_Exame WHERE dtExame = '".$this->dataExame."'";
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
+        return $result;
+    }
+    public function listaDataColeta(){
+        $sql = "SELECT * FROM TB_Exame WHERE dtExame = '".$this->dataColeta."'";
+        $result = $this->query($sql);
+        $result = $this->fetch_array($result);
+        return $result;
+    }
 }

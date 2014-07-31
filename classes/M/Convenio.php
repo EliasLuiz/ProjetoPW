@@ -51,7 +51,7 @@ class Convenio {
     }
     public function salva(){
         
-        //Gera SQL para salvar/atualizar Pessoa no banco
+        //Gera SQL para salvar/atualizar Convenio no banco
         $sql = "SELECT * FROM TB_Convenio c WHERE c.nmConvenio = '" . $this->nome . "'";
         $result = $this->query($sql) or die('Não foi possível carregar Convenio'
                 . ' do banco de dados: '.  $this->dberror());
@@ -75,6 +75,13 @@ class Convenio {
                    "', responsavel = '" . $this->responsavel . "'";
             $this->query($sql) or die('Não foi possível remover Convenio'
                 . ' no banco de dados: '.$this->dberror());
+    }
+    public function getCdConvenio(){
+        $sql = "SELECT * FROM TB_Convenio c WHERE c.nmConvenio = '" . $this->nome . "'";
+        $result = $this->query($sql) or die('Não foi possível carregar Convenio'
+                . ' do banco de dados: '.  $this->dberror());
+        $result = $this->fetch_array($result);
+        return $result['cdConvenio'];
     }
 }
 
