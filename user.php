@@ -6,7 +6,7 @@
         <title></title>
     </head>
     <body>
-        <h2><pre>   Cadastros</pre></h2>
+        <h2><pre>   Coisas de usuario</pre></h2>
         <ul>
             <li><a href="alteraEmail.php">Alterar Email</a></li>
             <li><a href="alteraEndereco.php">Alterar Endereco</a></li>

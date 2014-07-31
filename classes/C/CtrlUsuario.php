@@ -15,7 +15,6 @@ include_once '/../M/Bairro.php';
 class CtrlUsuario {
     
     public function login($login, $senha){
-        //echo '<hr>controle.login';
         $usuario = new Pessoa();
         $usuarios = $usuarios->listaLogin();
         if(empty($usuarios[$login])){
@@ -26,8 +25,10 @@ class CtrlUsuario {
         if($usuario->getSenha() == $senha){
             session_start();
             //$_COOKIE['cd'] = $cd;
+            //$_COOKIE['tipo'] = $usuarios[$login]['tipo'];
             $_SESSION['cd'] = $cd;
             $_SESSION['tipo'] = $usuarios[$login]['tipo'];
+            header("Location: user.php");
         }
         else{
             die("Senha incorreta");
@@ -36,6 +37,7 @@ class CtrlUsuario {
     
     public function logout(){
         //unset($_COOKIE['cd']);
+        //unset($_COOKIE['tipo']);
         session_destroy();
     }
     
