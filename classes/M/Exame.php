@@ -132,49 +132,49 @@ class Exame {
     public function listaTudo(){
         $sql = "SELECT * FROM TB_Exame";
         $result = $this->query($sql);
-        $result = $this->fetch_array($result);
+        //$result = $this->fetch_array($result);
         return $result;
     }
     public function listaCliente(){
         $sql = "SELECT * FROM TB_Exame WHERE cdCliente = ".$this->cliente->getCdPessoa();
         $result = $this->query($sql);
-        $result = $this->fetch_array($result);
+        //$result = $this->fetch_array($result);
         return $result;
     }
     public function listaMedico(){
         $sql = "SELECT * FROM TB_Exame WHERE cdMedico = ".$this->medico->getCdPessoa();
         $result = $this->query($sql);
-        $result = $this->fetch_array($result);
+        //$result = $this->fetch_array($result);
         return $result;
     }
     public function listaConsulta(){
         $sql = "SELECT * FROM TB_Exame WHERE cdConsulta = ".$this->consulta->getCdConsulta();
         $result = $this->query($sql);
-        $result = $this->fetch_array($result);
+        //$result = $this->fetch_array($result);
         return $result;
     }
     public function listaTipoExame(){
         $sql = "SELECT * FROM TB_Exame WHERE cdTipoExame = ".$this->tipoExame->getCdTipoExame();
         $result = $this->query($sql);
-        $result = $this->fetch_array($result);
+        //$result = $this->fetch_array($result);
         return $result;
     }
     public function listaConvenio(){
         $sql = "SELECT * FROM TB_Exame WHERE cdConvenio = ".$this->convenio->getCdConvenio();
         $result = $this->query($sql);
-        $result = $this->fetch_array($result);
+        //$result = $this->fetch_array($result);
         return $result;
     }
     public function listaDataExame(){
         $sql = "SELECT * FROM TB_Exame WHERE dtExame = '".$this->dataExame."'";
         $result = $this->query($sql);
-        $result = $this->fetch_array($result);
+        //$result = $this->fetch_array($result);
         return $result;
     }
     public function listaDataColeta(){
         $sql = "SELECT * FROM TB_Exame WHERE dtExame = '".$this->dataColeta."'";
         $result = $this->query($sql);
-        $result = $this->fetch_array($result);
+        //$result = $this->fetch_array($result);
         return $result;
     }
 }

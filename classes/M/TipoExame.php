@@ -111,6 +111,12 @@ class TipoExame {
         $result = $this->fetch_array($result);
         return $result['cdTipoExame'];
     }
+    public function listaTipoExame(){
+        $sql = "SELECT * FROM TB_TipoExame";
+        $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
+                . ' no banco de dados: '.$this->dberror());
+        return $result['cdTipoExame'];
+    }
 }
 
 ?>
