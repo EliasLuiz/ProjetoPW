@@ -127,13 +127,30 @@ class Cliente extends Pessoa {
         return $clientes;
     }
     public function listaMedicos(){
-        $sql = "SELECT p.cdMedico, p.nmPessoa FROM TB_Pessoa p, TB_Cliente_has_TB_Medico "
+        $sql = "SELECT p.cdMedico FROM TB_Pessoa p, TB_Cliente_has_TB_Medico "
                 . "cm WHERE cm.cdCliente = " . $this->getCdPessoa() . " and p.cdPessoa = cm.cdMedico";
         $result = $this->query($sql);
         while($row = $this->fetch_array($result)){
-            $medicos[$row['nmPessoa']] = $row['cdPessoa'];
+            $medicos[] = $row['cdPessoa'];
         }
         return $medicos;
+    }
+    public function listaConsultas($cdMedico){
+        $sql = "SELECT cdConsulta FROM TB_Consulta WHERE cdCliente = " . $this->getCdPessoa()
+                . " and cdMedico = " . $cdMedico;
+        while($row = $this->fetch_array($result)){
+            $consultas[] = $row['cdConsulta'];
+        }
+        return $consultas;
+    }
+    public function listaConvenios(){
+        $sql = "SELECT c.cdConvenio FROM TB_Convenio c, TB_Cliente_has_TB_Convenio "
+                . "cc WHERE cc.cdCliente = " . $this->getCdPessoa() . " and c.cdConvenio = cd.cdConvenio";
+        $result = $this->query($sql);
+        while($row = $this->fetch_array($result)){
+            $convenios[] = $row['cdConvenio'];
+        }
+        return $convenios;
     }
 }
 

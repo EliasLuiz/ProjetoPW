@@ -22,7 +22,7 @@
                     </li>
                     <?php
                         $interf = new IMarcacaoExame();
-                        $texames = $interf->listaMedicoCliente();
+                        $texames = $interf->listaMedicoCliente($_SESSION['cd']);
                     ?>
                     <li id="li_2" >
                         <label for="ddd">cdMedico </label>
@@ -32,7 +32,7 @@
                     </li>
                     <?php
                         $interf = new IMarcacaoExame();
-                        $texames = $interf->listaTipoExame();
+                        $texames = $interf->listaConvenioCliente($_SESSION['cd']);
                     ?>
                     <li id="li_3" >
                         <label for="ddd">cdConvenio </label>
@@ -42,7 +42,7 @@
                     </li>
                     <?php
                         $interf = new IMarcacaoExame();
-                        $texames = $interf->listaTipoExame();
+                        $texames = $interf->listaConsultaCliente($_SESSION['cd']);
                     ?>
                     <li id="li_4" >
                         <label for="ddd">cdConsulta </label>
@@ -76,6 +76,6 @@
 <?php
     if(isset($_POST['cd'])){
         $interf = new IMarcacaoExame();
-        $interf->marcaExame($_SESSION['cd'], );
+        //$interf->marcaExame($_SESSION['cd'], );
     }
 ?>
