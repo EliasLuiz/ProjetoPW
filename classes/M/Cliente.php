@@ -126,6 +126,15 @@ class Cliente extends Pessoa {
         }
         return $clientes;
     }
+    public function listaMedicos(){
+        $sql = "SELECT p.cdMedico, p.nmPessoa FROM TB_Pessoa p, TB_Cliente_has_TB_Medico "
+                . "cm WHERE cm.cdCliente = " . $this->getCdPessoa() . " and p.cdPessoa = cm.cdMedico";
+        $result = $this->query($sql);
+        while($row = $this->fetch_array($result)){
+            $medicos[$row['nmPessoa']] = $row['cdPessoa'];
+        }
+        return $medicos;
+    }
 }
 
 ?>

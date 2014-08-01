@@ -132,49 +132,121 @@ class Exame {
     public function listaTudo(){
         $sql = "SELECT * FROM TB_Exame";
         $result = $this->query($sql);
-        //$result = $this->fetch_array($result);
-        return $result;
+        while ($row = $this->fetch_array($result)) {
+            $exames[$row['cdTipoExame']] = array('cdCliente' => 'cdCliente',
+                'cdMedico' => $row['cdMedico'],
+                'cdConsulta' => $row['cdConsulta'],
+                'cdTipoExame' => $row['cdTipoExame'],
+                'cdConvenio' => $row['cdConvenio'],
+                'dataExame' => $row['dtExame'],
+                'dataColeta' => $row['dtColetaDom'],
+                'url' => $row['URLExame']);
+        }
+        return $exames;
     }
     public function listaCliente(){
         $sql = "SELECT * FROM TB_Exame WHERE cdCliente = ".$this->cliente->getCdPessoa();
         $result = $this->query($sql);
-        //$result = $this->fetch_array($result);
-        return $result;
+        while ($row = $this->fetch_array($result)) {
+            $exames[$row['cdTipoExame']] = array('cdCliente' => 'cdCliente',
+                'cdMedico' => $row['cdMedico'],
+                'cdConsulta' => $row['cdConsulta'],
+                'cdTipoExame' => $row['cdTipoExame'],
+                'cdConvenio' => $row['cdConvenio'],
+                'dataExame' => $row['dtExame'],
+                'dataColeta' => $row['dtColetaDom'],
+                'url' => $row['URLExame']);
+        }
+        return $exames;
     }
     public function listaMedico(){
         $sql = "SELECT * FROM TB_Exame WHERE cdMedico = ".$this->medico->getCdPessoa();
         $result = $this->query($sql);
-        //$result = $this->fetch_array($result);
-        return $result;
+        while ($row = $this->fetch_array($result)) {
+            $exames[$row['cdTipoExame']] = array('cdCliente' => 'cdCliente',
+                'cdMedico' => $row['cdMedico'],
+                'cdConsulta' => $row['cdConsulta'],
+                'cdTipoExame' => $row['cdTipoExame'],
+                'cdConvenio' => $row['cdConvenio'],
+                'dataExame' => $row['dtExame'],
+                'dataColeta' => $row['dtColetaDom'],
+                'url' => $row['URLExame']);
+        }
+        return $exames;
     }
     public function listaConsulta(){
         $sql = "SELECT * FROM TB_Exame WHERE cdConsulta = ".$this->consulta->getCdConsulta();
         $result = $this->query($sql);
-        //$result = $this->fetch_array($result);
-        return $result;
+        while ($row = $this->fetch_array($result)) {
+            $exames[$row['cdTipoExame']] = array('cdCliente' => 'cdCliente',
+                'cdMedico' => $row['cdMedico'],
+                'cdConsulta' => $row['cdConsulta'],
+                'cdTipoExame' => $row['cdTipoExame'],
+                'cdConvenio' => $row['cdConvenio'],
+                'dataExame' => $row['dtExame'],
+                'dataColeta' => $row['dtColetaDom'],
+                'url' => $row['URLExame']);
+        }
+        return $exames;
     }
     public function listaTipoExame(){
         $sql = "SELECT * FROM TB_Exame WHERE cdTipoExame = ".$this->tipoExame->getCdTipoExame();
         $result = $this->query($sql);
-        //$result = $this->fetch_array($result);
-        return $result;
+        while ($row = $this->fetch_array($result)) {
+            $exames[$row['cdTipoExame']] = array('cdCliente' => 'cdCliente',
+                'cdMedico' => $row['cdMedico'],
+                'cdConsulta' => $row['cdConsulta'],
+                'cdTipoExame' => $row['cdTipoExame'],
+                'cdConvenio' => $row['cdConvenio'],
+                'dataExame' => $row['dtExame'],
+                'dataColeta' => $row['dtColetaDom'],
+                'url' => $row['URLExame']);
+        }
+        return $exames;
     }
     public function listaConvenio(){
         $sql = "SELECT * FROM TB_Exame WHERE cdConvenio = ".$this->convenio->getCdConvenio();
         $result = $this->query($sql);
-        //$result = $this->fetch_array($result);
-        return $result;
+        while ($row = $this->fetch_array($result)) {
+            $exames[$row['cdTipoExame']] = array('cdCliente' => 'cdCliente',
+                'cdMedico' => $row['cdMedico'],
+                'cdConsulta' => $row['cdConsulta'],
+                'cdTipoExame' => $row['cdTipoExame'],
+                'cdConvenio' => $row['cdConvenio'],
+                'dataExame' => $row['dtExame'],
+                'dataColeta' => $row['dtColetaDom'],
+                'url' => $row['URLExame']);
+        }
+        return $exames;
     }
     public function listaDataExame(){
         $sql = "SELECT * FROM TB_Exame WHERE dtExame = '".$this->dataExame."'";
         $result = $this->query($sql);
-        //$result = $this->fetch_array($result);
-        return $result;
+        while ($row = $this->fetch_array($result)) {
+            $exames[$row['cdTipoExame']] = array('cdCliente' => 'cdCliente',
+                'cdMedico' => $row['cdMedico'],
+                'cdConsulta' => $row['cdConsulta'],
+                'cdTipoExame' => $row['cdTipoExame'],
+                'cdConvenio' => $row['cdConvenio'],
+                'dataExame' => $row['dtExame'],
+                'dataColeta' => $row['dtColetaDom'],
+                'url' => $row['URLExame']);
+        }
+        return $exames;
     }
     public function listaDataColeta(){
         $sql = "SELECT * FROM TB_Exame WHERE dtExame = '".$this->dataColeta."'";
         $result = $this->query($sql);
-        //$result = $this->fetch_array($result);
-        return $result;
+        while ($row = $this->fetch_array($result)) {
+            $exames[$row['cdTipoExame']] = array('cdCliente' => 'cdCliente',
+                'cdMedico' => $row['cdMedico'],
+                'cdConsulta' => $row['cdConsulta'],
+                'cdTipoExame' => $row['cdTipoExame'],
+                'cdConvenio' => $row['cdConvenio'],
+                'dataExame' => $row['dtExame'],
+                'dataColeta' => $row['dtColetaDom'],
+                'url' => $row['URLExame']);
+        }
+        return $exames;
     }
 }

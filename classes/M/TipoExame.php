@@ -115,7 +115,14 @@ class TipoExame {
         $sql = "SELECT * FROM TB_TipoExame";
         $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
                 . ' no banco de dados: '.$this->dberror());
-        return $result['cdTipoExame'];
+        while ($row = $this->fetch_array($result)) {
+            $texames[$row['cdTipoExame']] = array('nome' => 'nmTipoExame',
+                'requisitos' => $row['requisitos'],
+                'informacoes' => $row['informacoes'],
+                'preco' => $row['preco'],
+                'coletaDomicilio' => $row['coletaDomicilio']);
+        }
+        return $texames['cdTipoExame'];
     }
 }
 
