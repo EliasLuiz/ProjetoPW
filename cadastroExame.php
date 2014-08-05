@@ -1,13 +1,15 @@
 <?php
 
-    require_once 'classes/TipoExame.php';
-    require_once 'classes/InterfaceTipoExame.php';
-    require_once 'html/cadastros/administrador/cadastroexame.html';
+    require_once '/classes/M/TipoExame.php';
+    require_once '/classes/V/ITipoExame.php';
+    require_once '/html/cadastros/administrador/cadastroexame.html';
 
     if(isset($_POST["nomeexame"])){
-        $interf = new InterfaceTipoExame();
+        echo $_POST["nomeexame"];
+        $interf = new ITipoExame();
         $texame = $interf->gera();
-        $texame->salvaMySQL();
+        echo $texame->getPreco();
+        $texame->salva();
     }
     
 ?>

@@ -22,7 +22,7 @@
                     <li id="li_1" >
                         <label for="ddd">cdTipoExame </label>
                         <div>
-                            <input name="cdTipoExame" type="text" id="cdTipoExame" size="6" maxlength="3" value="DDD"/>
+                            <input name="cdTipoExame" type="text" id="cdTipoExame" size="6" maxlength="3"/>
                         </div> 
                     </li>
                     <?php

@@ -1,12 +1,12 @@
 <?php
-
+require_once '/../M/TipoExame.php';
 /**
  * Description of InterfaceExame
  *
  * @author Elias
  */
     
-    class CtrlTipoExame{
+    class ITipoExame{
     
         protected $nome;
         protected $coletadomicilio;

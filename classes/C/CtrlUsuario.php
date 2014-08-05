@@ -16,7 +16,7 @@ class CtrlUsuario {
     
     public function login($login, $senha){
         $usuario = new Pessoa();
-        $usuarios = $usuarios->listaLogin();
+        $usuarios = $usuario->listaLogin();
         if(empty($usuarios[$login])){
             die("Login nao existente");
         }

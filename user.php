@@ -13,6 +13,7 @@
             <li><a href="alteraMedicamento.php">Alterar Medicamentos</a></li>
             <li><a href="alteraSenha.php">Alterar Senha</a></li>
             <li><a href="alteraTelefone.php">Alterar Telefone</a></li>
+            <li><a href="MarcacaoExameUsuario.php">Marcar Exame</a></li>
             <li><a href="Logout.php">Logout</a></li>
         </ul>
     </body>
