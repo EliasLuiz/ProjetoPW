@@ -1,3 +1,8 @@
+<?php
+    require_once 'classes/V/IMarcacaoExame.php';
+    $interf = new IMarcacaoExame();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,6 +81,8 @@
 <?php
     if(isset($_POST['cd'])){
         $interf = new IMarcacaoExame();
-        //$interf->marcaExame($_SESSION['cd'], );
+        $interf->marcaExame($_SESSION['cd'], $_POST['cdMedico'], $_POST['cdConsulta'], 
+                $_POST['cdTipoExame'], $_POST['cdConvenio'], $_POST['dataExame'], 
+                $_POST['dataColeta']);
     }
 ?>

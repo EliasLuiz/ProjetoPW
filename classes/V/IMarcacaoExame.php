@@ -12,7 +12,6 @@ require_once '/../M/Convenio.php';
  * @author Elias
  */
 class IMarcacaoExame {
-    //put your code here
     public function listaTipoExame(){
         $texame = new TipoExame();
         $texames = $texame->listaTipoExame();
@@ -76,10 +75,13 @@ class IMarcacaoExame {
                   </div>';
         }
     }
-    /*public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
+    public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
             $cdConvenio, $dtExame, $dtColeta){
-        return;
-    }*/
+        //valida(...)
+        $ctrl = new CtrlExame();
+        $ctrl->marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
+            $cdConvenio, $dtExame, $dtColeta);
+    }
 }
 
 ?>
