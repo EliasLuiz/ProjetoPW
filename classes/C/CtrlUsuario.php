@@ -41,6 +41,19 @@ class CtrlUsuario {
         session_destroy();
     }
     
+    public function cadastraCliente($cliente){
+        $user = new Cliente();
+        $user = $cliente;
+        $user->salva();
+    }
+    
+    public function cadastraMedico($medico){
+        $user = new Medico();
+        $user = $medico;
+        $user->salva();
+    }
+
+
     public function alteraEndereco($rua,$numeroEnd,$complementoEnd,$bairro, $cidade){
         $usuario = new Cliente();
         $usuario->carrega($_SESSION['cd']);
