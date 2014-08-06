@@ -6,19 +6,26 @@
  * @author Elias
  */
     
+require_once '/../C/CtrlHospital.php';
+
     class CtrlHospital{
     
         protected $nmhospital;
         protected $telefone;
         
-        function __construct() {
+        function carregaPost() {
             $this->nmhospital = $_POST["nomehosp"];
             $this->telefone = $_POST["ddd"] . $_POST["telefone"];
         }
         
         //Funções para validação aqui
         
-        public function gera(){
+        public function cadastra($nome, $telefone) {
+            $ctrl = new CtrlHospital();
+            $ctrl->cadastra($nome, $telefone);
+        }
+        
+        public function salva(){
             
             //if(!$this->valida){ ERRO }
             
