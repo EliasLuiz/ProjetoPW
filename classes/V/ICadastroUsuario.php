@@ -58,13 +58,11 @@ class ICadastroUsuario {
     public function salva() {
 
         //if(!$this->valida){ ERRO }
-        
-        var $user;
         $ctrl = new CtrlUsuario();
         if ($this->usuario == "Paciente") {
             $user = new Cliente();
         } 
-        else if ($this->usuario == "Medico") {
+        else{
             $user = new Medico();
         }
         
