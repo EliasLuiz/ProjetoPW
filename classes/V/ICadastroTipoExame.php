@@ -7,6 +7,7 @@
  */
 
 require_once '/../M/TipoExame.php';
+require_once '/../C/CtrlTipoExame.php';
 
 class ICadastroTipoExame {
 

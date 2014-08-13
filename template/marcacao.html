@@ -1,0 +1,48 @@
+<div id="content">
+    <div id="left">
+        <div id="welcome" align="center">
+            <h2> MARCAÇÃO DE EXAME</h2>
+            <div class="clear"></div><br>
+
+            <div id="form_contact">
+                <br />
+                <form method="post" action="contact.php" border="0">
+                    <fieldset><legend class="texte_legende"></legend>
+                        <table cellpadding=5 cellspacing=0 border="0">
+                            <tr>
+                                <td>Exame:</td>
+                                <td><select name="estado" id="estado">
+                                <option>Selecione...</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Data</td>
+                                <td><input name="dia" type="text" id="dia" size="2" maxlength="2" />/
+                                    <input name="mes" type="text" id="mes" size="2" maxlength="2" />/
+                                    <input name="ano" type="text" id="ano" size="4" maxlength="4" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Horários Disponíveis:</td>
+                                <td><select name="horario" id="horario">
+                                <option>Selecione...</option>
+                                    </select></td>
+                            </tr>
+                        </div>
+                        </table>
+                    </fieldset>
+                    <br>
+
+                    <table cellpadding=0 cellspacing=0 border="0">
+                        <tr>
+                            <td colspan="2" align="center"><input type="submit" value="Marcar Exame"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

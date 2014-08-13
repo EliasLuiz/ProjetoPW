@@ -92,7 +92,7 @@ class TipoExame {
                     . "requisitos,informacoes,preco)" 
                     . " VALUES ('','" . $this->nome . "','" . $this->coletadomicilio 
                     . "','" . $this->requisitos . "','" 
-                    . $this->info . "','" . $this->preco . "')";
+                    . $this->info . "'," . $this->preco . ")";
         }
         
         //Executa SQL e testa sucesso
