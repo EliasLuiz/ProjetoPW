@@ -7,25 +7,30 @@
  */
 
 require_once '/../C/CtrlFuncionario.php';
+require_once 'Regexp.php';
 
 class ICadastroFuncionario {
+    
+    use Regexp;
 
     protected $nome;
     protected $sexo;
+    protected $ddd;
     protected $telefone;
     protected $cpf;
     protected $rg;
     protected $email;
     protected $login;
     protected $senha;
-    protected $usuario;
+    //protected $usuario;
     protected $cargo;
     protected $registro;
 
     function carregaPost() {
         $this->nome = $_POST["nome"];
         $this->sexo = $_POST["sexo"];
-        $this->telefone = $_POST["ddd"] . $_POST["telefone"];
+        $this->ddd = $_POST["ddd"];
+        $this->telefone = $_POST["telefone"];
         $this->cpf = $_POST["CPF"];
         $this->rg = $_POST["RG"];
         $this->email = $_POST["email"];
@@ -45,7 +50,7 @@ class ICadastroFuncionario {
         $func = new Funcionario();
         $func->setNome($this->nome);
         $func->setSexo($this->sexo);
-        $func->setTelefone($this->telefone);
+        $func->setTelefone($this->ddd.$this->telefone);
         $func->setCpf($this->cpf);
         $func->setRg($this->rg);
         $func->setEmail($this->email);

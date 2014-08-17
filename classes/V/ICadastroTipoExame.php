@@ -8,8 +8,11 @@
 
 require_once '/../M/TipoExame.php';
 require_once '/../C/CtrlTipoExame.php';
+require_once 'Regexp.php';
 
 class ICadastroTipoExame {
+    
+    use Regexp;
 
     protected $nome;
     protected $coletadomicilio;

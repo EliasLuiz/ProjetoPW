@@ -8,11 +8,15 @@
 require_once '/../C/CtrlUsuario.php';
 require_once '/../M/Medico.php';
 require_once '/../M/Cliente.php';
+require_once 'Regexp.php';
 
 class ICadastroUsuario {
+    
+    use Regexp;
 
     protected $nome;
     protected $sexo;
+    protected $ddd;
     protected $telefone;
     protected $cpf;
     protected $rg;
@@ -33,7 +37,8 @@ class ICadastroUsuario {
         //tirar daqui e fazer um get separado pra cada um
         $this->nome = $_POST["nome"];
         $this->sexo = $_POST["sexo"];
-        $this->telefone = $_POST["ddd"] . $_POST["telefone"];
+        $this->ddd = $_POST["ddd"];
+        $this->telefone = $_POST["telefone"];
         $this->cpf = $_POST["CPF"];
         $this->rg = $_POST["RG"];
         $this->email = $_POST["email"];
@@ -69,7 +74,7 @@ class ICadastroUsuario {
         //Coisas comuns a Pessoa
         $user->setNome($this->nome);
         $user->setSexo($this->sexo);
-        $user->setTelefone($this->telefone);
+        $user->setTelefone($this->ddd.$this->telefone);
         $user->setCpf($this->cpf);
         $user->setRg($this->rg);
         $user->setEmail($this->email);

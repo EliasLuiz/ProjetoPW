@@ -7,8 +7,11 @@
  */
     
 require_once '/../C/CtrlHospital.php';
+require_once 'Regexp.php';
 
     class CtrlHospital{
+    
+    use Regexp;
     
         protected $nmhospital;
         protected $telefone;
