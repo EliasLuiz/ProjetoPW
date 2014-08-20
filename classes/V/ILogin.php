@@ -1,6 +1,6 @@
 <?php
 
-include_once '/../C/CtrlUsuario.php';
+include_once './../C/CtrlUsuario.php';
 
 class ILogin {
 

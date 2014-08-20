@@ -28,7 +28,7 @@ class CtrlUsuario {
             //$_COOKIE['tipo'] = $usuarios[$login]['tipo'];
             $_SESSION['cd'] = $cd;
             $_SESSION['tipo'] = $usuarios[$login]['tipo'];
-            header("Location: user.php");
+            header("Location: html/cliente.html");
         }
         else{
             die("Senha incorreta");

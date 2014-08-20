@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
@@ -20,5 +21,10 @@
             <li><a href="removeMedico.php">Remoção de Médicos</a></li>
             <li><a href="Login.php">Login</a></li>
         </ul>
+        
     </body>
 </html>
+-->
+<?php
+//require_once './html/index.htm';
+header("location:html/index.htm");

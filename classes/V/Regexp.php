@@ -5,7 +5,7 @@
  *
  * @author Elias
  */
-class Regexp {
+trait Regexp {
     // Retorna True se só contém letras. False se não
     public function validaAlfabetico($subject){
         $pattern = "/^[A-z]{1,}$/";
