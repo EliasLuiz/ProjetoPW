@@ -1,0 +1,153 @@
+
+<div id="content">
+    <div id="left">
+        <div id="welcome" align="center">
+            <h2> CADASTRO</h2>
+            <div class="clear"></div><br>
+
+            <div id="form_contact">
+                <br />
+                <form method="post" action="contact.php" border="0">
+                    <fieldset><legend class="texte_legende"></legend>
+                        <table cellpadding=5 cellspacing=0 border="0">
+                            <tr>
+                                <td>Nome Completo:</td>
+                                <td><input class="champ" type="text" name="nome" id="nome"></td>
+                            </tr>
+                            <tr>
+                                <td>Sexo:</td>
+                                <td><input name="sexo" type="radio" value="Masculino" checked="checked" />
+                                Masculino
+                                <input name="sexo" type="radio" value="Feminino" />
+                                Feminino
+                            </tr>
+                            <tr>
+                                <td>
+                                    (DDD)Telefone:</td>
+                                <td><input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
+                                <input name="telefone" type="text" id="telefone" size="16" maxlength="9"/>
+                                </td>
+                            </tr>
+                            <tr>
+                            <td>CPF:</td>
+                            <td width="546"><input name="CPF" type="text" id="CPF" size="15" maxlength="11" />
+                            </tr>
+                            <tr>
+                            <td>RG:</td>
+                            <td width="546"><input name="RG" type="text" id="RG" size="15" maxlength="15" />
+                            </tr>
+                            <tr>
+                            <td>Email:</td>
+                            <td><input name="email" type="text" id="email" size="30" maxlength="60" />
+                            </tr>
+
+                            <tr>
+                            <td>Login:</td>
+                            <td><input name="login" type="text" id="login" maxlength="12" />
+                            </tr>
+                            <tr>
+                            <td>Senha:</td>
+                            <td><input name="senha" type="password" id="senha" maxlength="12" />
+                            </tr>
+                            <tr>
+                            <td>Confirmar Senha:</td>
+                            <td><input name="senha2" type="password" id="senha2" maxlength="12" />
+                            </tr>
+                            <tr>
+                            <td>Usu&aacute;rio:</td>
+                            <td>
+                            <input id="paciente" name="usuario" type="radio" value="Paciente"
+                                   checked="checked"/>
+                            Paciente
+                            <input id="medico" name="usuario" type="radio" value="Medico" />
+                            M&eacute;dico
+                            </td>
+                            </tr>
+                            <div id="medicoDiv">
+                            <tr>
+                              <td width="69">CRM:</td>
+                              <td width="546"><input name="crm" type="text" id="crm" size="20" maxlength="20" />
+                            </tr>
+                            </div>
+                            <div id="pacienteDiv" style="display:none;">
+                            <tr>
+                              <td>Rua:</td>
+                              <td><input name="rua" type="text" id="rua" size="50" maxlength="70" />
+                            </tr>
+                            <tr>
+                              <td>N&uacute;mero:</td>
+                              <td><input name="numero" type="text" id="numero" size="8" maxlength="8" />
+                            </tr>
+                            <tr>
+                              <td>Complemento:</td>
+                              <td><input name="complemento" type="text" id="complemento" size="20" maxlength="20" />
+                            </tr>
+                            <tr>
+                              <td>Bairro:</td>
+                              <td><input name="bairro" type="text" id="bairro" size="30" maxlength="50" />
+                            </tr>
+                            <tr>
+                              <td>Cidade:</td>
+                              <td><input name="cidade" type="text" id="cidade" maxlength="20" />
+                            </tr>
+                            <tr>
+                              <td>Estado:</td>
+                              <td><select name="estado" id="estado">
+                                <option>Selecione...</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="ES">ES</option>
+                                <option value="DF">DF</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                                  </select>
+                            </tr>
+                            <tr>
+                              <td>Faz uso de medicamento controlado?</td>
+                              <td><input name="medicamento" type="radio" value="medicamento" checked="checked" />
+                                sim
+                                <input name="medicamento" type="radio" value="medicamento" />
+                                n&atilde;o
+                            </tr>
+                            <tr>
+                              <td>Nome medicamentos:</td>
+                              <td><textarea name="nomemedicamentos" type="text" id="nomemedicamentos" rows="5" cols="50" />
+                                  </textarea></td>
+                            </tr>
+                        </div>
+                        </table>
+                    </fieldset>
+                    <br>
+
+                    <table cellpadding=0 cellspacing=0 border="0">
+                        <tr>
+                            <td colspan="2" align="center"><input class="button_send" type="submit" value="Enviar"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

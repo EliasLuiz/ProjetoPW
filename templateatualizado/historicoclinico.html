@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+    jQuery(function($) {
+        $( "#calendario" ).datepicker({
+        dateFormat: 'dd-mm-yy',
+        showOn: "button",
+        buttonImage: "images/calendario.jpg",
+        buttonImageOnly: true
+    });
+
+
+
+    });
+
+</script>
+<div id="content">
+    <div id="left">
+        <div id="welcome" align="center">
+            <h2> Histórico Clínico</h2>
+            <div class="clear"></div><br>
+
+            <div style="font-family: arial,sans-serif;">
+                <p>Data: <input type="text" id="calendario" size="8"/>&nbsp;
+                    <script>
+                        $(function() {
+                            // $("#calendario").datepicker();
+                        });
+                    </script>
+                    
+                </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
