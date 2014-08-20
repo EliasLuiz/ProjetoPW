@@ -60,7 +60,7 @@ class ICadastroUsuario {
 
     public function valida(){
         $valido = TRUE;
-        $valido = $valido && $this->validaAlfabetico($this->nome);
+        $valido = $valido && $this->validaAlfabeticoEspaco($this->nome);
         $valido = $valido && $this->validaSexo($this->sexo);
         $valido = $valido && $this->validaTelefone($this->ddd, $this->telefone);
         $valido = $valido && $this->validaCpf($this->cpf);

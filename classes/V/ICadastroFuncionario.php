@@ -25,6 +25,22 @@ class ICadastroFuncionario {
     //protected $usuario;
     protected $cargo;
     protected $registro;
+    
+    public function valida(){
+        $valido = TRUE;
+        $valido = $valido && $this->validaAlfabeticoEspaco($this->nome);
+        $valido = $valido && $this->validaSexo($this->sexo);
+        $valido = $valido && $this->validaTelefone($this->ddd, $this->telefone);
+        $valido = $valido && $this->validaCpf($this->cpf);
+        $valido = $valido && $this->validaRg($this->rg);
+        $valido = $valido && $this->validaEmail($this->email);
+        $valido = $valido && $this->validaAlfabeticoSimbolo($this->login);
+        $valido = $valido && $this->validaAlfabeticoSimbolo($this->senha);
+        $valido = $valido && $this->validaAlfabetico($this->cargo);
+        $valido = $valido && $this->validaAlfanumerico($this->registro);
+        
+        return $valido;
+    }
 
     function carregaPost() {
         $this->nome = $_POST["nome"];
@@ -46,7 +62,9 @@ class ICadastroFuncionario {
     public function salva() {
 
         //if(!$this->valida){ ERRO }
-
+        if(!$this->valida()){
+            die('Dados Inv&aacute;lidos');
+        }
         $func = new Funcionario();
         $func->setNome($this->nome);
         $func->setSexo($this->sexo);

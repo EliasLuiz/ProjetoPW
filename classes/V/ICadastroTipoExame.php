@@ -19,6 +19,15 @@ class ICadastroTipoExame {
     protected $requisitos;
     protected $info;
     protected $preco;
+    
+    public function valida(){
+        $valido = TRUE;
+        $valido = $valido && $this->validaAlfabeticoEspaco($this->nome);
+        $valido = $valido && $this->validaAlfanumerico($this->requisitos);
+        $valido = $valido && $this->validaAlfanumerico($this->info);
+        $valido = $valido && $this->validaDinheiro($this->preco);
+        return $valido;
+    }
 
     function carregaPost() {
         $this->nome = $_POST["nomeexame"];
@@ -33,7 +42,10 @@ class ICadastroTipoExame {
     public function salva() {
 
         //if(!$this->valida){ ERRO }
-
+        if(!$this->valida()){
+            die('Dados Inv&aacute;lidos');
+        }
+        
         $texame = new TipoExame();
 
         $texame->setNome($this->nome);
