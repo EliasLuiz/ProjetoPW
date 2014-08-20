@@ -1,0 +1,79 @@
+<div id="content">
+    <div id="left">
+        <div id="welcome" align="center">
+            <h2> Cadastro de Funcionário</h2>
+            <div class="clear"></div><br>
+
+            <div id="form_contact">
+                <br />
+                <form id="funcionario" name="funcionario" method="post" action="cadastroFuncionario.php" border="0">
+                    <fieldset><legend class="texte_legende"></legend>
+                        <table cellpadding=5 cellspacing=0 border="0">
+                            <tr>
+                                <td width="69">Nome:</td>
+                                <td width="546"><input name="nome" type="text" id="nome" size="70" maxlength="60" />
+                            </tr>
+                            <tr>
+                                <td>Sexo:</td>
+                                <td><input name="sexo" type="radio" value="Masculino" checked="checked" />
+                                    Masculino
+                                    <input name="sexo" type="radio" value="Feminino" />
+                                    Feminino
+                            </tr>
+                            <tr>
+                                <td>DDD:</td>
+                                <td><input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
+                                    Telefone:
+                                    <input name="telefone" type="text" id="telefone" maxlength="9"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="69">CPF:</td>
+                                <td width="546"><input name="CPF" type="text" id="CPF" size="11" maxlength="11" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="69">RG:</td>
+                                <td width="546"><input name="RG" type="text" id="RG" size="15" maxlength="15" />
+                            </tr>
+                            <tr>
+                                <td>E-mail:</td>
+                                <td><input name="email" type="text" id="email" size="70" maxlength="60" />
+                            </tr>
+
+                            <tr>
+                                <td>Login:</td>
+                                <td><input name="login" type="text" id="login" maxlength="12" />
+                            </tr>
+                            <tr>
+                                <td>Senha:</td>
+                                <td><input name="senha" type="password" id="senha" maxlength="12" />
+                            </tr>
+                            <tr>
+                                <td>Confirme a Senha:</td>
+                                <td><input name="senha2" type="password" id="senha2" maxlength="12" />
+                            </tr>
+                            <tr>
+                                <td>Cargo:</td>
+                                <td><input name="cargo" type="text" id="cargo" size="70" maxlength="60" />
+                            </tr>
+                            <tr>
+                                <td>Registro Funcional:</td>
+                                <td><input name="registro" type="text" id="registro" size="40" maxlength="40" />
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <br>
+
+                    <table cellpadding=0 cellspacing=0 border="0">
+                        <tr>
+                            <td colspan="2" align="center"><input class="button_send" type="submit" value="Concluir"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

@@ -1,13 +1,10 @@
 <?php
 
-    require_once '/classes/M/TipoExame.php';
-    require_once '/classes/V/ICadastroTipoExame.php';
-    require_once '/html/cadastros/administrador/cadastroexame.html';
+require_once '/classes/V/ICadastroTipoExame.php';
 
-    if(isset($_POST["nomeexame"])){
-        $interf = new ICadastroTipoExame();
-        $interf->carregaPost();
-        $interf->salva();
-    }
-    
+if (isset($_POST["nomeexame"])) {
+    $interf = new ICadastroTipoExame();
+    $interf->carregaPost();
+    $interf->salva();
+}
 ?>

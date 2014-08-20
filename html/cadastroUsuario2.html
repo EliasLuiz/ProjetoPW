@@ -1,0 +1,92 @@
+  
+<script type="text/javascript" src="js/jquery.min"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#palco > div").hide();
+        $("#sel-sexo").change(function() {
+            $("#palco > div").hide();
+            $('#' + $(this).val()).show('fast');
+        });
+        $("input[name='rd-sexo']").click(function() {
+            $("#palco > div").hide();
+            $('#' + $(this).val()).show('fast');
+        });
+    });
+</script>
+<div id="content">
+    <div id="left">
+        <div id="welcome" align="center">
+            <h2> CADASTRO</h2>
+            <div id="form_contact">
+                <form method="post" action="cadastroCliente.php" border="0">
+                    <fieldset><legend class="texte_legende"></legend>
+                        <table cellpadding=5 cellspacing=0 border="0">
+                            <tr>
+                                <td>Nome Completo:</td>
+                                <td><input class="champ" type="text" name="nome" id="nome"></td>
+                            </tr>
+                            <tr>
+                                <td>Sexo:</td>
+                                <td><input name="sexo" type="radio" value="Masculino" checked="checked" />
+                                    Masculino
+                                    <input name="sexo" type="radio" value="Feminino" />
+                                    Feminino
+                            </tr>
+                            <tr>
+                                <td>
+                                    (DDD)Telefone:</td>
+                                <td><input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
+                                    <input name="telefone" type="text" id="telefone" size="16" maxlength="9"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CPF:</td>
+                                <td width="546"><input name="CPF" type="text" id="CPF" size="15" maxlength="11" />
+                            </tr>
+                            <tr>
+                                <td>RG:</td>
+                                <td width="546"><input name="RG" type="text" id="RG" size="15" maxlength="15" />
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input name="email" type="text" id="email" size="30" maxlength="60" />
+                            </tr>
+
+                            <tr>
+                                <td>Login:</td>
+                                <td><input name="login" type="text" id="login" maxlength="12" />
+                            </tr>
+                            <tr>
+                                <td>Senha:</td>
+                                <td><input name="senha" type="password" id="senha" maxlength="12" />
+                            </tr>
+                            <tr>
+                                <td>Confirmar Senha:</td>
+                                <td><input name="senha2" type="password" id="senha2" maxlength="12" />
+                            </tr>
+
+
+                            <tr>
+                                <td><label><input type="radio" name="rd-sexo" value="Feminino" />Paciente</label></td>
+                                <td><label><input type="radio" name="rd-sexo" value="Masculino" />Médico</label></td>
+                            </tr>
+
+                        </table>
+                        <div id="palco" >
+                            <div id="Masculino"><p>CRM:<input name="crm" type="text" id="crm" size="20" maxlength="20" /></p></div>
+                            <div id="Feminino"><p>Rua:
+                                    <input name="rua" type="text" id="rua" size="50" maxlength="70" /></p></div>
+                        </div>
+
+                    </fieldset>
+                    <table cellpadding=0 cellspacing=0 border="0">
+                        <tr>
+                            <td colspan="2" align="center"><input class="button_send" type="submit" value="Enviar"></td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

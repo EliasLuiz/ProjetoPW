@@ -1,38 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" lang="pt-br"/>
-        <title>Altera&ccedil;&atilde;o de Senha</title>
-        <!--<link rel="stylesheet" type="text/css" href="view.css" media="all">
-        <script type="text/javascript" src="view.js"></script>
-        -->
-    </head>
-    <body id="main_body" >
-        <div id="form_container">
+<div id="content">
+    <div id="left">
+        <div id="welcome" align="center">
+            <h2> Altera Senha</h2>
+            <div class="clear"></div><br>
 
-            <form id="alteraSenha" method="post" action="alteraSenha.php">
-                <div class="form_description">
-                    <h2>Altera&ccedil;&atilde;o de Senha</h2>
-                </div>						
-                <ul >
+            <div id="form_contact">
+                <br />
+                <form id="convenios" name="convenios" method="post" action="contact.php" border="0">
+                    <fieldset><legend class="texte_legende"></legend>
+                        <table cellpadding=5 cellspacing=0 border="0">
+                            <tr>
+                              <td>Senha:</td>
+                              <td><input id="senha" name="senha" type="password" maxlength="15" size="30"/> 
+                            </tr>
+                            <tr>
+                              <td>Confirmar Senha:</td>
+                              <td><input id="senha2" name="senha2" type="password" maxlength="15" size="30"/>
+                            </tr>
+                            
+                        </table>
+                    </fieldset>
+                    <br>
 
-                    <li id="li_1" >
-                        <label for="rua">Nova Senha </label>
-                        <div>
-                            <input id="senha" name="senha" type="text" maxlength="15" size="30"/> 
-                        </div> 
-                    </li>
-                    <li id="li_2" >
-                        <label for="rua">Confirmar Senha </label>
-                        <div>
-                            <input id="senha2" name="senha2" type="text" maxlength="15" size="30"/> 
-                        </div> 
-                    </li>
-                    <input id="saveForm" type="submit" name="submit" value="Enviar" />
-                    <input id="resetForm" type="reset" name="submit" value="Cancelar" />
-                    </li>
-                </ul>
-            </form>	
+                    <table cellpadding=0 cellspacing=0 border="0">
+                        <tr>
+                            <td colspan="2" align="center"><input class="button_send" type="submit" value="Concluir"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="clear"></div>
         </div>
-    </body>
-</html>
+    </div>
+    <div class="clear"></div>
+</div>

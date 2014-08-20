@@ -1,11 +1,9 @@
 <?php
 
-    require_once 'classes/M/Convenio.php';
-    require_once 'classes/V/ICadastroConvenio.php';
-    require_once 'html/cadastros/administrador/cadastroconvenios.html';
+require_once 'classes/V/ICadastroConvenio.php';
 
-    if(isset($_POST["nomeconvenio"])){
-        $interf = new ICadastroConvenio();
-        $interf->cadastra($_POST['nomeconvenio'], $_POST['responsavel']);
-    }
+if (isset($_POST["nomeconvenio"])) {
+    $interf = new ICadastroConvenio();
+    $interf->cadastra($_POST['nomeconvenio'], $_POST['responsavel']);
+}
 ?>
