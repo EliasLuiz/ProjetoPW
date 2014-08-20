@@ -7,43 +7,43 @@
  */
 class Regexp {
     // Retorna True se só contém letras. False se não
-    public function alfabetico($subject){
+    public function validaAlfabetico($subject){
         $pattern = "/^[A-z]{1,}$/";
         return preg_match($pattern, $subject);
     }
     // Retorna True se só contém letras ou espaços. False se não
-    public function alfabeticoEspaco($subject){
+    public function validaAlfabeticoEspaco($subject){
         $pattern = "/^[A-z\s]{1,}$/";
         return preg_match($pattern, $subject);
     }
     // Retorna True se só contém letras, espaços ou símbolos. False se não
-    public function alfabeticoSimbolo($subject){
+    public function validaAlfabeticoSimbolo($subject){
         $pattern = "/^[A-z_\.\-\s]{1,}$/";
         return preg_match($pattern, $subject);
     }
     // Retorna True se tem valor alfanumerico. False se não
-    public function alfanumerico($subject){
+    public function validaAlfanumerico($subject){
         $pattern = "/^[A-z0-9_\.\-\s]{1,}$/";
         return preg_match($pattern, $subject);
     }
     // Retorna True se só contém números. False se não
-    public function numerico($subject){
+    public function validaNumerico($subject){
         $pattern = "/^[0-9]{1,}$/";
         return preg_match($pattern, $subject);
     }
     // Retorna True se segue formato de cpf. False se não
-    public function cpf($subject){
-        $pattern = "/^  $/";
+    public function validaCpf($subject){
+        $pattern = "/^ [0-9]{11} $/";
         return preg_match($pattern, $subject);
     }
     // Retorna True se segue formato de rg. False se não
-    public function rg($subject){
-        $pattern = "/^  $/";
+    public function validaRg($subject){
+        $pattern = "/^ [A-Z]{1|2}[0-9]{7|8} $/";
         return preg_match($pattern, $subject);
     }
     // Retorna True se ddd e telefonem tem a quantidade de caracteres esperada. False se não
     // Se sim concatena os 2 substituindo o valor de telefone
-    public function telefone($ddd, &$telefone){
+    public function validaTelefone($ddd, &$telefone){
         $pattern1 = "/^ [0-9]{2} $/";
         $pattern2 = "/^ [0-9]{8|9} $/";
         if(preg_match($pattern1, $ddd) && preg_match($pattern2, $telefone)){
@@ -55,21 +55,32 @@ class Regexp {
         }
     }
     // Retorna True se segue formato de email. False se não
-    public function email($subject){
+    public function validaEmail($subject){
         $pattern = "/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/";
         return preg_match($pattern, $subject);
     }
+    
+    /*
+    
+     * -------- EM OBRAS ---------
+    
     // Retorna True se segue formato de crm. False se não
-    public function crm($subject){
+    public function validaCrm($subject){
         $pattern = "/^  $/";
         return preg_match($pattern, $subject);
     }
+    
+    
+    */
+    
     // Retorna True se segue formato monetario (ex: 15.00 ; 15,00). False se não.
     // Caso o valor use ',' para separar o valor decimal, será substituido por '.' .
-    public function dinheiro(&$subject){
+    public function validaDinheiro(&$subject){
         $pattern = "/^[^0-9]*[\.][0-9]{2}$/";
         $pattern2 = "/^[^0-9]*[,][0-9]{2}$/";
         if(preg_match($pattern, $subject)){
+            //Converte para tipo double
+            $subject += 0.0;
             return TRUE;
         }
         else if(preg_match($pattern2, $subject)){
@@ -79,6 +90,7 @@ class Regexp {
             $subject = preg_replace($replacementPattern, $replacement, $subject);
             //Converte para tipo double
             $subject += 0.0;
+            return TRUE;
         }
         else{
             return FALSE;
@@ -87,6 +99,11 @@ class Regexp {
     // Retorna True se a senha é forte. False se não
     public function forcaSenha($subject){
         $pattern = "/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/";
+        return preg_match($pattern, $subject);
+    }
+    // Retorna True se só contém letras. False se não
+    public function validaSexo($subject){
+        $pattern = "/^[MFmf]{1}$/";
         return preg_match($pattern, $subject);
     }
 }

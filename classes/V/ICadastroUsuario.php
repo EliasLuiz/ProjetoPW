@@ -58,11 +58,37 @@ class ICadastroUsuario {
         }
     }
 
-    //Funções para validação aqui
+    public function valida(){
+        $valido = TRUE;
+        $valido = $valido && $this->validaAlfabetico($this->nome);
+        $valido = $valido && $this->validaSexo($this->sexo);
+        $valido = $valido && $this->validaTelefone($this->ddd, $this->telefone);
+        $valido = $valido && $this->validaCpf($this->cpf);
+        $valido = $valido && $this->validaRg($this->rg);
+        $valido = $valido && $this->validaEmail($this->email);
+        $valido = $valido && $this->validaAlfabeticoSimbolo($this->login);
+        $valido = $valido && $this->validaAlfabeticoSimbolo($this->senha);
+        if($this->usuario == 'paciente'){
+            $valido = $valido && $this->validaAlfabeticoEspaco($this->rua);
+            $valido = $valido && $this->validaNumerico($this->numero);
+            $valido = $valido && $this->validaAlfabeticoEspaco($this->complemento);
+            $valido = $valido && $this->validaAlfabeticoEspaco($this->bairro);
+            $valido = $valido && $this->validaAlfabeticoEspaco($this->cidade);
+            if($this->medicamentos){
+                $valido = $valido && $this->validaAlfabeticoEspaco($this->medicamentos);
+            }
+        }
+        else{
+            //$valido = $valido && $this->validaCrm($this->crm);
+        }
+        return $valido;
+    }
 
     public function salva() {
 
-        //if(!$this->valida){ ERRO }
+        if(!$this->valida()){
+            die('Dados Inv&aacute;lidos');
+        }
         $ctrl = new CtrlUsuario();
         if ($this->usuario == "Paciente") {
             $user = new Cliente();

@@ -1,8 +1,10 @@
 <?php
 
-include_once '/../C/CtrlUsuario.php';
+require_once '/../C/CtrlUsuario.php';
 
 class IAlteraEndereco {
+    
+    use Regexp;
 
     protected $ddd;
     protected $telefone;

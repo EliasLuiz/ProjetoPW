@@ -12,6 +12,9 @@ require_once '/../M/Convenio.php';
  * @author Elias
  */
 class IMarcacaoExame {
+    
+    use Regexp;
+    
     public function listaTipoExame(){
         $texame = new TipoExame();
         $texames = $texame->listaTipoExame();
