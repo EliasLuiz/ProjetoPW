@@ -6,7 +6,7 @@
  * @author Daniel
  */
 
-include_once 'MySQL.php';
+require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
 
 class Convenio {
     

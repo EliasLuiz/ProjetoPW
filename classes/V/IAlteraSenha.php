@@ -1,7 +1,7 @@
 <?php
 
-require_once '/../C/CtrlUsuario.php';
-require_once 'Regexp.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlUsuario.php';
+require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
 
 class IAlteraSenha {
 

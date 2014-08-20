@@ -1,6 +1,6 @@
 <?php
 
-require_once 'classes/V/ICadastroConvenio.php';
+require_once $GLOBALS["HOME"] . 'classes/V/ICadastroConvenio.php';
 
 if (isset($_POST["nomeconvenio"])) {
     $interf = new ICadastroConvenio();

@@ -1,6 +1,6 @@
 <?php
 
-require_once '/../M/Convenio.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Convenio.php';
 
 /**
  * Description of CtrlConvenio

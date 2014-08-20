@@ -1,10 +1,10 @@
 <?php
 
-require_once '/../C/CtrlExame.php';
-require_once '/../M/TipoExame.php';
-require_once '/../M/Cliente.php';
-require_once '/../M/Medico.php';
-require_once '/../M/Convenio.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlExame.php';
+require_once $GLOBALS["HOME"] . 'classes/M/TipoExame.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Convenio.php';
 
 /**
  * Description of IMarcacaoExame

@@ -1,6 +1,7 @@
 <?php
 
-include_once './../C/CtrlUsuario.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlUsuario.php';
+require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
 
 class ILogin {
 

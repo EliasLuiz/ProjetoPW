@@ -6,9 +6,9 @@
  * @author Elias
  */
 
-require_once '/../M/TipoExame.php';
-require_once '/../C/CtrlTipoExame.php';
-require_once 'Regexp.php';
+require_once $GLOBALS["HOME"] . 'classes/M/TipoExame.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlTipoExame.php';
+require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
 
 class ICadastroTipoExame {
     

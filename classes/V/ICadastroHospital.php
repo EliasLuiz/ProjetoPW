@@ -5,8 +5,8 @@
  *
  * @author Elias
  */
-require_once '/../C/CtrlHospital.php';
-require_once 'Regexp.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlHospital.php';
+require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
 
 class CtrlHospital {
 
