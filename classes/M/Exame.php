@@ -153,7 +153,7 @@ class Exame {
     //Versão util das funcoes abaixo
 
     public function listaTudo() {
-        $sql = "SELECT * FROM TB_Exame";
+        $sql = "SELECT cdExame FROM TB_Exame";
         $result = $this->query($sql);
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdTipoExame'];
@@ -162,64 +162,64 @@ class Exame {
     }
 
     public function listaCliente() {
-        $sql = "SELECT * FROM TB_Exame WHERE cdCliente = " . $this->cliente->getCdPessoa();
+        $sql = "SELECT cdExame FROM TB_Exame WHERE cdCliente = " . $this->cliente->getCdPessoa();
         $result = $this->query($sql);
         while ($row = $this->fetch_array($result)) {
-            $exames[] = $row['cdTipoExame'];
+            $exames[] = $row['cdExame'];
         }
         return $exames;
     }
 
     public function listaMedico() {
-        $sql = "SELECT * FROM TB_Exame WHERE cdMedico = " . $this->medico->getCdPessoa();
+        $sql = "SELECT cdExame FROM TB_Exame WHERE cdMedico = " . $this->medico->getCdPessoa();
         $result = $this->query($sql);
         while ($row = $this->fetch_array($result)) {
-            $exames[] = $row['cdTipoExame'];
+            $exames[] = $row['cdExame'];
         }
         return $exames;
     }
 
     public function listaConsulta() {
-        $sql = "SELECT * FROM TB_Exame WHERE cdConsulta = " . $this->consulta->getCdConsulta();
+        $sql = "SELECT cdExame FROM TB_Exame WHERE cdConsulta = " . $this->consulta->getCdConsulta();
         $result = $this->query($sql);
         while ($row = $this->fetch_array($result)) {
-            $exames[] = $row['cdTipoExame'];
+            $exames[] = $row['cdExame'];
         }
         return $exames;
     }
 
     public function listaTipoExame() {
-        $sql = "SELECT * FROM TB_Exame WHERE cdTipoExame = " . $this->tipoExame->getCdTipoExame();
+        $sql = "SELECT cdExame FROM TB_Exame WHERE cdTipoExame = " . $this->tipoExame->getCdTipoExame();
         $result = $this->query($sql);
         while ($row = $this->fetch_array($result)) {
-            $exames[] = $row['cdTipoExame'];
+            $exames[] = $row['cdExame'];
         }
         return $exames;
     }
 
     public function listaConvenio() {
-        $sql = "SELECT * FROM TB_Exame WHERE cdConvenio = " . $this->convenio->getCdConvenio();
+        $sql = "SELECT cdExame FROM TB_Exame WHERE cdConvenio = " . $this->convenio->getCdConvenio();
         $result = $this->query($sql);
         while ($row = $this->fetch_array($result)) {
-            $exames[] = $row['cdTipoExame'];
+            $exames[] = $row['cdExame'];
         }
         return $exames;
     }
 
     public function listaDataExame() {
-        $sql = "SELECT * FROM TB_Exame WHERE dtExame = '" . $this->dataExame . "'";
+        $sql = "SELECT cdExame FROM TB_Exame WHERE dtExame = '" . $this->dataExame . "'";
         $result = $this->query($sql);
         while ($row = $this->fetch_array($result)) {
-            $exames[] = $row['cdTipoExame'];
+            $exames[] = $row['cdExame'];
         }
         return $exames;
     }
 
     public function listaDataColeta() {
-        $sql = "SELECT * FROM TB_Exame WHERE dtExame = '" . $this->dataColeta . "'";
+        $sql = "SELECT cdExame FROM TB_Exame WHERE dtExame = '" . $this->dataColeta . "'";
         $result = $this->query($sql);
         while ($row = $this->fetch_array($result)) {
-            $exames[] = $row['cdTipoExame'];
+            $exames[] = $row['cdExame'];
         }
         return $exames;
     }
