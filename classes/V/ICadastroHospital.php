@@ -5,8 +5,8 @@
  *
  * @author Elias
  */
-require_once '/../C/CtrlHospital.php';
-require_once 'Regexp.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlHospital.php';
+require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
 
 class CtrlHospital {
 
@@ -14,6 +14,13 @@ class CtrlHospital {
 
     protected $nmhospital;
     protected $telefone;
+    
+    public function valida(){
+        $valido = TRUE;
+        $valido = $valido && $this->validaAlfanumerico($this->nmhospital);
+        $valido = $valido && $this->validaAlfanumerico($this->telefone);
+        return $valido;
+    }
 
     function carregaPost() {
         $this->nmhospital = $_POST["nomehosp"];
@@ -23,6 +30,9 @@ class CtrlHospital {
     //Funções para validação aqui
 
     public function cadastra($nome, $telefone) {
+        if(!$this->valida()){
+            die('Dados Inv&aacute;lidos');
+        }
         $ctrl = new CtrlHospital();
         $ctrl->cadastra($nome, $telefone);
     }

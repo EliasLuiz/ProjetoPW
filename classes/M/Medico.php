@@ -6,8 +6,8 @@
  * @author Elias
  */
 
-include_once 'MySQL.php';
-include_once 'Pessoa.php';
+require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Pessoa.php';
 
 class Medico extends Pessoa{
     

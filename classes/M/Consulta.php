@@ -6,9 +6,9 @@
  * @author Daniel
  */
 
-include_once 'MySQL.php';
-include_once 'Cliente.php';
-include_once 'Medico.php';
+require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
 
 class Consulta {
     

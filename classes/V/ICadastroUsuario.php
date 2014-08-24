@@ -5,10 +5,10 @@
  *
  * @author Elias
  */
-require_once '/../C/CtrlUsuario.php';
-require_once '/../M/Medico.php';
-require_once '/../M/Cliente.php';
-require_once 'Regexp.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlUsuario.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
+require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
 
 class ICadastroUsuario {
     
@@ -60,7 +60,7 @@ class ICadastroUsuario {
 
     public function valida(){
         $valido = TRUE;
-        $valido = $valido && $this->validaAlfabetico($this->nome);
+        $valido = $valido && $this->validaAlfabeticoEspaco($this->nome);
         $valido = $valido && $this->validaSexo($this->sexo);
         $valido = $valido && $this->validaTelefone($this->ddd, $this->telefone);
         $valido = $valido && $this->validaCpf($this->cpf);

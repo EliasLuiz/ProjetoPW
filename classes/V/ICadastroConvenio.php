@@ -5,7 +5,8 @@
  *
  * @author Elias
  */
-require_once '/../C/CtrlConvenio.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlConvenio.php';
+require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
 
 class ICadastroConvenio {
 
@@ -13,7 +14,14 @@ class ICadastroConvenio {
 
     protected $nome;
     protected $responsavel;
-
+    
+    public function valida(){
+        $valido = TRUE;
+        $valido = $valido && $this->validaAlfabeticoEspaco($this->nome);
+        $valido = $valido && $this->validaAlfabeticoEspaco($this->responsavel);
+        return $valido;
+    }
+    
     function carregaPost() {
         $this->nome = $_POST["nomeconvenio"];
         $this->responsavel = $_POST["responsavel"];
@@ -24,6 +32,9 @@ class ICadastroConvenio {
     public function cadastra($nome, $responsavel) {
 
         //if(!$this->valida){ ERRO }
+        if(!$this->valida()){
+            die('Dados Inv&aacute;lidos');
+        }
         $ctrl = new CtrlConvenio();
         $ctrl->cadastra($nome, $responsavel);
     }

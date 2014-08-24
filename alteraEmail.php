@@ -1,14 +1,13 @@
 <?php
 
-    include_once 'classes/V/IAlteraEmail.php';
+require_once $GLOBALS["HOME"] . 'classes/V/IAlteraEmail.php';
 
-    require_once 'html/alteraEmail.html';
-    
-    //criar classe de interface depois
-    
-    if(isset($_POST["email"])){
-        $interf = new IAlteraEmail($_POST['email']);
-        $interf->alteraEmail();
-    }
+require_once $GLOBALS["HOME"] . 'alteraEmail.html';
 
+//criar classe de interface depois
+
+if (isset($_POST["email"])) {
+    $interf = new IAlteraEmail($_POST['email']);
+    $interf->alteraEmail();
+}
 ?>

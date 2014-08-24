@@ -6,12 +6,12 @@
  * @author Elias
  */
 
-require_once 'MySQL.php';
-require_once 'Cliente.php';
-require_once 'Medico.php';
-require_once 'Consulta.php';
-require_once 'Convenio.php';
-require_once 'TipoExame.php';
+require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Consulta.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Convenio.php';
+require_once $GLOBALS["HOME"] . 'classes/M/TipoExame.php';
 
 class Exame {
     use MySQL;

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'classes/V/IMarcacaoExame.php';
+require_once $GLOBALS["HOME"] . 'classes/V/IMarcacaoExame.php';
 
 if (isset($_POST['cd'])) {
     $interf = new IMarcacaoExame();

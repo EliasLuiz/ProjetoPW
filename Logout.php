@@ -1,6 +1,6 @@
 <?php
 
-require_once 'classes/C/CtrlUsuario.php';
+require_once $GLOBALS["HOME"] . 'classes/C/CtrlUsuario.php';
 
 $ctrl = new CtrlUsuario();
 $ctrl->logout();

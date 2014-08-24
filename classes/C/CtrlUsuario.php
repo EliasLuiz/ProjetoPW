@@ -6,11 +6,11 @@
  * @author Elias Luiz
  */
 
-include_once '/../M/Pessoa.php';
-include_once '/../M/Cliente.php';
-include_once '/../M/Medico.php';
-include_once '/../M/Funcionario.php';
-include_once '/../M/Bairro.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Pessoa.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Funcionario.php';
+require_once $GLOBALS["HOME"] . 'classes/M/Bairro.php';
 
 class CtrlUsuario {
     
@@ -28,7 +28,7 @@ class CtrlUsuario {
             //$_COOKIE['tipo'] = $usuarios[$login]['tipo'];
             $_SESSION['cd'] = $cd;
             $_SESSION['tipo'] = $usuarios[$login]['tipo'];
-            header("Location: user.php");
+            header("Location: " . $GLOBALS["HOME"] . "cliente.html");
         }
         else{
             die("Senha incorreta");
