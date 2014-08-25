@@ -116,4 +116,11 @@ trait Regexp {
         return preg_match($pattern, $subject);
     }
 
+    // Converte data para oo formato YYYY-MM-DD HH:MM:SS.
+    public function validaData($subject) {
+        $timestamp = strtotime($subject) or die();
+        $data = date('Y-m-d H:i:s', $timestamp);
+        return $data;
+    }
+
 }
