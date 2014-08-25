@@ -27,6 +27,10 @@ trait MySQL {
     protected function dberror(){
         return mysql_error();
     }
+    protected function escape_string($string){
+        return mysql_real_escape_string($string);
+    }
+
     abstract public function salva();
     abstract public function carrega($cdPrimario);
     abstract public function remove();

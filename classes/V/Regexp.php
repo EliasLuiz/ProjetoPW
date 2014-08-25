@@ -10,8 +10,7 @@ trait Regexp {
 
     // Retorna True se só contém letras. False se não
     public function validaAlfabetico($subject) {
-        $pattern = "/^[A-z]{1,}$/";
-        return preg_match($pattern, $subject);
+        return ctype_alpha($subject);
     }
 
     // Retorna True se só contém letras ou espaços. False se não
@@ -34,8 +33,7 @@ trait Regexp {
 
     // Retorna True se só contém números. False se não
     public function validaNumerico($subject) {
-        $pattern = "/^[0-9]{1,}$/";
-        return preg_match($pattern, $subject);
+        return is_numeric($subject);
     }
 
     // Retorna True se segue formato de cpf. False se não

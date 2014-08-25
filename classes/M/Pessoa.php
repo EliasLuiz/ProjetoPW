@@ -55,28 +55,28 @@ class Pessoa {
         return $this->email;
     }
     public function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = $this->escape_string($nome);
     }
     public function setCpf($cpf) {
-        $this->cpf = $cpf;
+        $this->cpf = $this->escape_string($cpf);
     }
     public function setRg($rg) {
-        $this->rg = $rg;
+        $this->rg = $this->escape_string($rg);
     }
     public function setLogin($login) {
-        $this->login = $login;
+        $this->login = $this->escape_string($login);
     }
     public function setSenha($senha) {
-        $this->senha = $senha;
+        $this->senha = $this->escape_string($senha);
     }
     public function setSexo($sexo) {
-        $this->sexo = $sexo;
+        $this->sexo = $this->escape_string($sexo);
     }
     public function setTelefone($telefone) {
-        $this->telefone = $telefone;
+        $this->telefone = $this->escape_string($telefone);
     }
     public function setEmail($email) {
-        $this->email = $email;
+        $this->email = $this->escape_string($email);
     }
 
     
