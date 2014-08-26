@@ -50,9 +50,11 @@ session_start();
                 <div id="logo"><span class="logoBlanc"><img src="images/logo.png" width="275px" valign="top"></span></div>
                 <div id="menu_haut">
                     <!--<img src="images/spacer.gif" width="1" height="50" /><br /><a href="javascript:showPage('_faq.htm', '');" class="lienHaut">FAQ</a>  |  <a href="javascript:showPage('_about.htm', '');" class="lienHaut">ABOUT US</a>  |  <a href="javascript:showPage('cadastroUsuario.htm', '');" class="lienHaut">CADASTRE-SE</a>-->
-                    <form style="margin-top: 15px ">
+                    
                         <h2>Seja Bem-Vindo Administrador<!--php--></h2><br>
-                            <input class="button_send" type="button" value="Sair">
+                            <form action="Logout.php" method="post">
+                            <input class="button_send" type="submit" value="Sair">
+                            </form>
                                 </div>
                                 <div id="menu_img">
                                     <img src="images/index.jpg" width="918" height="246">
