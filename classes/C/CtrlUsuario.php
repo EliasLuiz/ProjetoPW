@@ -15,6 +15,9 @@ require_once $GLOBALS["HOME"] . 'classes/M/Bairro.php';
 class CtrlUsuario {
     
     public function login($login, $senha){
+        if ($login=='admin' && $senha=='admin') {
+                header("Location: " . $GLOBALS["HOME"] . "administrador.php");
+            }
         $usuario = new Pessoa();
         $usuarios = $usuario->listaLogin();
         if(empty($usuarios[$login])){
@@ -27,8 +30,19 @@ class CtrlUsuario {
             //$_COOKIE['cd'] = $cd;
             //$_COOKIE['tipo'] = $usuarios[$login]['tipo'];
             $_SESSION['cd'] = $cd;
+            $_SESSION['nome'] = $usuario->getNome();
             $_SESSION['tipo'] = $usuarios[$login]['tipo'];
-            header("Location: " . $GLOBALS["HOME"] . "cliente.html");
+            
+            if ($_SESSION['tipo']=='C') {
+                header("Location: " . $GLOBALS["HOME"] . "cliente.php");
+            }
+            if ($_SESSION['tipo']=='F') {
+                header("Location: " . $GLOBALS["HOME"] . "funcionario.php");
+            }
+            if ($_SESSION['tipo']=='M') {
+                header("Location: " . $GLOBALS["HOME"] . "medico.php");
+            }
+            
         }
         else{
             die("Senha incorreta");

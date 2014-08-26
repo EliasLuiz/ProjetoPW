@@ -1,8 +1,11 @@
+<?php 
+session_start(); 
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <title>Area M�dica</title>
+        <title>Administrador</title>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <link href="css/pages.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="js/AC_RunActiveContent.js"></script>
@@ -39,7 +42,7 @@
                      background: -ms-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
                      background: -moz-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
                      background: -webkit-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
-                     "><small><p>Copyright <b>BIOCESP Laboratório</b> - &copy; 2014 - Todos os direitos reservados</p></small></div>
+                     "><small><p>Copyright <b>BIOCESP Laborat�rio</b> - &copy; 2014 - Todos os direitos reservados</p></small></div>
 
             </div>	
             <!--END OF TERMS OF USE-->
@@ -47,8 +50,8 @@
                 <div id="logo"><span class="logoBlanc"><img src="images/logo.png" width="275px" valign="top"></span></div>
                 <div id="menu_haut">
                     <!--<img src="images/spacer.gif" width="1" height="50" /><br /><a href="javascript:showPage('_faq.htm', '');" class="lienHaut">FAQ</a>  |  <a href="javascript:showPage('_about.htm', '');" class="lienHaut">ABOUT US</a>  |  <a href="javascript:showPage('cadastroUsuario.htm', '');" class="lienHaut">CADASTRE-SE</a>-->
-                    <form style="margin-top: 15px "  method="post">
-                        <h2>Seja Bem-Vindo <!--PHP--></h2><br>
+                    <form style="margin-top: 15px ">
+                        <h2>Seja Bem-Vindo Administrador<!--php--></h2><br>
                             <input class="button_send" type="button" value="Sair">
                                 </div>
                                 <div id="menu_img">
@@ -60,11 +63,14 @@
 
                                 </div>
                                 <div id="menu">
-                                    <ul id="navigation">
-                                        <li style="width: 275px;"></li>
-                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('', '');" title="aller � la section 1"><br />HIST�RICO DOS PACIENTES</a></li>
-                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('requisicaoexame.html', '');" title="aller � la section 2"><br />REQUISITAR EXAME</a></li>
-                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('', '');" title="aller � la section 3"><br />MENSAGENS</a></li><!--
+                                    <ul id="navigation" >
+                                        <li style="width: 190px;"></li>
+                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('cadastroconvenios.html', '');" title="aller � la section 1"><br />CADASTRAR CONV&Ecirc;NIO</a></li>
+                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('cadastrohospitais.html', '');" title="aller � la section 2"><br />CADASTRAR CL&Iacute;NICA OU HOSPITAL</a></li>
+                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('cadastrofuncionario.html', '');" title="aller � la section 3"><br />CADASTRAR FUNCION&Aacute;RIO</a></li>
+                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('cadastrotipoexame.html', '');" title="aller � la section 4"><br />CADASTRAR EXAME</a></li>
+
+                                        <!--<li style="background: url(images/b2.gif) no-repeat; background-position: 0px 12px;"><a class="m5" href="javascript:showPage('_services.htm', '');" title="aller � la section 5"><br />SERVICES</a></li>
                                         <li style="background: url(images/b2.gif) no-repeat; background-position: 0px 12px;"><a class="m6" href="javascript:showPage('_products.htm', '');" title="aller � la section 6"><br />PRODUCTS</a></li>
                                         <li style="background: url(images/b2.gif) no-repeat; background-position: 0px 12px;"><a class="m7" href="javascript:showPage('_careers.htm', '');" title="aller � la section 7"><br />CAREERS</a></li>-->
                                     </ul>
