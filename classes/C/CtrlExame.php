@@ -5,6 +5,8 @@
  *
  * @author Elias
  */
+require_once $GLOBALS["HOME"] . '/classes/M/Exame.php';
+
 class CtrlExame {
     public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
             $cdConvenio, $dtExame, $dtColeta){
@@ -34,6 +36,16 @@ class CtrlExame {
             $exame->setColeta(FALSE);
         }
         $exame->salva();
+    }
+    public function listaExameData($data){
+        $exame = new Exame();
+        $exame->setDataExame($data);
+        $lista = $exame->listaDataExame();
+        foreach ($lista as $ex){
+            $exame->carrega($ex);
+            $exames[] = $exame;
+        }
+        return $exames;
     }
 }
 
