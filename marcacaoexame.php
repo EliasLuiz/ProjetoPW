@@ -50,6 +50,18 @@ src="js/jquery.maskedinput.js"></script>
             }
         });}
     </script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+             <script type="text/javascript">
+                 $(document).ready(function () {
+                     $('#div1').hide('fast');
+                    $('#id_radio1').click(function () {
+                       $('#div1').hide('fast');
+                });
+                $('#id_radio2').click(function () {
+                      $('#div1').show('fast');
+                 });
+               });
+</script>
 <div id="content">
     <div id="left">
         <div id="welcome" align="center">
@@ -61,17 +73,18 @@ src="js/jquery.maskedinput.js"></script>
                 <form id="marcacaoexame" name="marcacaoexame" method="post" action="marcacaoExameUsuario.php" border="0" method="post">
                     <fieldset><legend class="texte_legende"></legend>
                         <table cellpadding=5 cellspacing=0 border="0">
-                            <tr>
+                            <thead>
                                 <td>Exame:</td>
 
-                                <td><select name="exames1" id="exames1" onclick="displayVals()">
+                                <td><select name="exames1" id="exames1" onclick="displayVals()"><option>Selecione</option>
                                         <?php
                                         foreach ($tipos as $exames) {
                                             echo '<option value=' . $exames['codigo'] . '>' . $exames['nome'] . '</option>';
                                         }
                                         ?>
-                                    </select> <p class="dados"></p></td>
-                            </tr>
+                                    </select></td>
+                            </thead>
+                            <thead id="exibe"></thead>
                             <tr>
                                 <td>Data:</td>
                                 <td><input name="data" type="text" id="data" size="8"/>
@@ -89,16 +102,16 @@ src="js/jquery.maskedinput.js"></script>
                                         <option>Selecione...</option>
                                     </select></td>
                             </tr>
-                            <p id="exibe"></p>
+                            
                               
                             <tr>
-                                <td><input type="radio" checked="checked" name="pagamento" value="particular">Particular</td>
-                                <td><input type="radio" name="pagamento" value="convenio">Convênio</td>
+                                <td><input type="radio" id="id_radio1" checked="checked" name="pagamento" value="particular">Particular</td>
+                                <td><input type="radio" id="id_radio2" name="pagamento" value="convenio">Convênio</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <div>
+                                    <div id="div1">
                                         <select name="convenio" id="convenio">
                                             <?php
                                             $convenio = new Convenio(); //roda essa pagina agora

@@ -9,7 +9,7 @@ switch ($acao) {
         $exame->carrega($_POST["cod"]);
         echo "<tr><td>Requisitos:</td><td>".$exame->getRequisitos()." </td></tr>"
                 . "<tr><td>Informações:</td><td> ".$exame->getInfo()."</td></tr>"
-                . "<tr><td>Preço: R$</td><td>".$exame->getPreco()."</td></tr>";
+                . "<tr><td>Preço: </td><td>R$ ".$exame->getPreco()."</td></tr>";
         
         break;
     default:
