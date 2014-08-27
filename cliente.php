@@ -68,7 +68,7 @@ session_start();
                                 <div id="menu">
                                     <ul id="navigation">
                                         <li style="width: 145px;"></li>
-                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('marcacaoexame.html', '');" title="aller � la section 1"><br />MARCA&Ccedil;&Atilde;O DE EXAME</a></li>
+                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('marcacaoexame.php', '');" title="aller � la section 1"><br />MARCA&Ccedil;&Atilde;O DE EXAME</a></li>
                                         <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('historicoclinico.html', '');" title="aller � la section 2"><br />HIST&Oacute;RICO CL&Iacute;NICO</a></li>
                                         <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('', '');" title="aller � la section 3"><br />VISUALIZAR CONSULTAS</a></li>
                                         <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('', '');" title="aller � la section 4"><br />MENSAGENS</a></li>
