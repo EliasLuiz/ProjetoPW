@@ -1,6 +1,8 @@
+
 <?php
 //session_start();
 require_once './classes/M/TipoExame.php';
+require_once './classes/M/Convenio.php';
 ?>
 <script language="JavaScript" type="text/javascript"
 src="js/jquery-2.1.1.js"></script>
@@ -33,7 +35,7 @@ src="js/jquery.maskedinput.js"></script>
                                         $tipoExame = new TipoExame(); //roda essa pagina agora
                                         $tipos = $tipoExame->listaTipoExame();
                                         foreach ($tipos as $exames) {
-                                        echo '<option value>' . $exames['nome'] . '</option>';   
+                                            echo '<option>' . $exames['nome'] . '</option>';
                                         }
                                         ?>
                                     </select></td>
@@ -66,17 +68,21 @@ src="js/jquery.maskedinput.js"></script>
                                 <td><!--requisitos aki--></td>
                             </tr>
                             <tr>
-                                <td><input type="radio" checked="checked" name="particular" value="particular">Particular</td>
-                                <td>
-                                    <input type="radio" name="convenio" value="convenio">Convênio
-                                </td>
+                                <td><input type="radio" checked="checked" name="pagamento" value="particular">Particular</td>
+                                <td><input type="radio" name="pagamento" value="convenio">Convênio</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
                                     <div>
                                         <select name="convenio" id="convenio">
-                                            <option>Selecione...</option>
+                                            <?php
+                                            $convenio = new Convenio(); //roda essa pagina agora
+                                            $tipos = $convenio->listaConvenio();
+                                            foreach ($tipos as $convenios) {
+                                                echo '<option value>' . $convenios['nome'] . '</option>';
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </td>
