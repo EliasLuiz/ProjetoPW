@@ -1,4 +1,24 @@
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 
+<script>
+$(document).ready(function() {
+ 
+$('input[name=valor]:radio').click(function() {
+ 
+if($(this).val()=="Paciente") {
+$('#div1').show();
+$('#div2,#div3').hide();
+} else {
+$('#div1').hide();
+$('#div2,#div3').show();
+}
+ 
+});
+ 
+});
+</script>
+</head>
 <div id="content">
     <div id="left">
         <div id="welcome" align="center">
@@ -63,6 +83,7 @@
                             M&eacute;dico
                             </td>
                             </tr>
+                            <div id="div1">1</div>
                             <div id="medicoDiv">
                             <tr>
                               <td width="69">CRM:</td>

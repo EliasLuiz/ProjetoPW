@@ -1,21 +1,55 @@
-
 <?php
 //session_start();
 require_once './classes/M/TipoExame.php';
 require_once './classes/M/Convenio.php';
+//require_once './classes/V/FuncoesAJAX.php';
+
+$tipoExame = new TipoExame(); //roda essa pagina agora
+$tipos = $tipoExame->listaTipoExame();
 ?>
 <script language="JavaScript" type="text/javascript"
 src="js/jquery-2.1.1.js"></script>
 <script language="JavaScript" type="text/javascript"
 src="js/jquery.maskedinput.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    function showUser(str) {
+        if (str == "") {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else { // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("POST", "FuncoesAJAX.php?q=" + str, true);
+        xmlhttp.send();
+    }
+</script>
 <script type="text/javascript">
 
     jQuery(function($) {
         $("#data").mask("99/99/9999");
-
-    });
-
-</script>
+    });</script>
+<script> function displayVals() {
+        var value = $("#exames1").val();
+        
+        $.ajax({
+            url: 'FuncoesAJAX.php',
+            data: {acao: 'dadosTipoExame', cod: value},
+            type: 'POST',
+            success: function(output) {
+                $('#exibe').html(output);
+            }
+        });}
+    </script>
 <div id="content">
     <div id="left">
         <div id="welcome" align="center">
@@ -30,15 +64,13 @@ src="js/jquery.maskedinput.js"></script>
                             <tr>
                                 <td>Exame:</td>
 
-                                <td><select name="exames1" id="exames1">
+                                <td><select name="exames1" id="exames1" onclick="displayVals()">
                                         <?php
-                                        $tipoExame = new TipoExame(); //roda essa pagina agora
-                                        $tipos = $tipoExame->listaTipoExame();
                                         foreach ($tipos as $exames) {
-                                            echo '<option>' . $exames['nome'] . '</option>';
+                                            echo '<option value=' . $exames['codigo'] . '>' . $exames['nome'] . '</option>';
                                         }
                                         ?>
-                                    </select></td>
+                                    </select> <p class="dados"></p></td>
                             </tr>
                             <tr>
                                 <td>Data:</td>
@@ -57,16 +89,8 @@ src="js/jquery.maskedinput.js"></script>
                                         <option>Selecione...</option>
                                     </select></td>
                             </tr>
-                            <tr>
-                                <td>
-                                    Informações:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Requisitos:</td>
-                                <td><!--requisitos aki--></td>
-                            </tr>
+                            <p id="exibe"></p>
+                              
                             <tr>
                                 <td><input type="radio" checked="checked" name="pagamento" value="particular">Particular</td>
                                 <td><input type="radio" name="pagamento" value="convenio">Convênio</td>
@@ -90,11 +114,7 @@ src="js/jquery.maskedinput.js"></script>
                             <tr>
                                 <td><input type="checkbox" name="coleta" value="coleta">Coleta domiciliar</td>
                             </tr>
-                            <tr>
-                                <td>
-                                    Preço:</td>
-                                <td><!--requisitos aki--></td>
-                            </tr>
+                            
                         </table>
                     </fieldset>
                     <br>
