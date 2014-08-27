@@ -1,8 +1,11 @@
+<?php 
+session_start(); 
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <title>Funcionário</title>
+        <title>Funcion&aacute;rio</title>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <link href="css/pages.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="js/AC_RunActiveContent.js"></script>
@@ -42,7 +45,7 @@
                      background: -ms-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
                      background: -moz-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
                      background: -webkit-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
-                     "><small><p>Copyright <b>BIOCESP Laboratório</b> - &copy; 2014 - Todos os direitos reservados</p></small></div>
+                     "><small><p>Copyright <b>BIOCESP Laborat&oacute;rio</b> - &copy; 2014 - Todos os direitos reservados</p></small></div>
 
             </div>	
             <!--END OF TERMS OF USE-->
@@ -50,9 +53,11 @@
                 <div id="logo"><span class="logoBlanc"><img src="images/logo.png" width="275px" valign="top"></span></div>
                 <div id="menu_haut">
                     <!--<img src="images/spacer.gif" width="1" height="50" /><br /><a href="javascript:showPage('_faq.htm', '');" class="lienHaut">FAQ</a>  |  <a href="javascript:showPage('_about.htm', '');" class="lienHaut">ABOUT US</a>  |  <a href="javascript:showPage('cadastroUsuario.htm', '');" class="lienHaut">CADASTRE-SE</a>-->
-                    <form style="margin-top: 15px " method="post">
-                        <h2>Seja Bem-Vindo <!--php--></h2><br>
-                            <input class="button_send" type="button" value="Sair">
+                    
+                        <h2>Seja Bem-Vindo <?=$_SESSION['nome'] ?><!--php--></h2><br>
+                            <form action="Logout.php" method="post">
+                            <input class="button_send" type="submit" value="Sair">
+                            </form>
                                 </div>
                                 <div id="menu_img">
                                     <img src="images/index.jpg" width="918" height="246">

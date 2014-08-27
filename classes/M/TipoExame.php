@@ -6,11 +6,13 @@
  * @author Daniel
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
+//require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php'; 
+require_once '/opt/lampp/htdocs/ProjetoPW/classes/M/Conexao.php';
+
 
 class TipoExame {
     
-    use MySQL;
+    use Conexao;
     
     protected $nome;
     protected $coletadomicilio;
@@ -112,17 +114,21 @@ class TipoExame {
         return $result['cdTipoExame'];
     }
     public function listaTipoExame(){
+        $texames = array();
         $sql = "SELECT * FROM TB_TipoExame";
         $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
                 . ' no banco de dados: '.$this->dberror());
+        
         while ($row = $this->fetch_array($result)) {
-            $texames[$row['cdTipoExame']] = array('nome' => 'nmTipoExame',
+            $texames[$row["cdTipoExame"]] = array(
+                'codigo' => $row["cdTipoExame"],
+                'nome' => $row['nmTipoExame'],
                 'requisitos' => $row['requisitos'],
                 'informacoes' => $row['informacoes'],
                 'preco' => $row['preco'],
                 'coletaDomicilio' => $row['coletaDomicilio']);
-        }
-        return $texames['cdTipoExame'];
+        }        
+        return $texames; 
     }
 }
 

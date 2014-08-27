@@ -1,3 +1,9 @@
+
+<?php
+//session_start();
+require_once './classes/M/TipoExame.php';
+require_once './classes/M/Convenio.php';
+?>
 <script language="JavaScript" type="text/javascript"
 src="js/jquery-2.1.1.js"></script>
 <script language="JavaScript" type="text/javascript"
@@ -23,8 +29,15 @@ src="js/jquery.maskedinput.js"></script>
                         <table cellpadding=5 cellspacing=0 border="0">
                             <tr>
                                 <td>Exame:</td>
-                                <td><select name="" id="estado">
-                                <option>Selecione...</option>
+
+                                <td><select name="exames1" id="exames1">
+                                        <?php
+                                        $tipoExame = new TipoExame(); //roda essa pagina agora
+                                        $tipos = $tipoExame->listaTipoExame();
+                                        foreach ($tipos as $exames) {
+                                            echo '<option>' . $exames['nome'] . '</option>';
+                                        }
+                                        ?>
                                     </select></td>
                             </tr>
                             <tr>
@@ -41,13 +54,13 @@ src="js/jquery.maskedinput.js"></script>
                                 <td>
                                     Horários Disponíveis:</td>
                                 <td><select name="horario" id="horario">
-                                <option>Selecione...</option>
+                                        <option>Selecione...</option>
                                     </select></td>
                             </tr>
                             <tr>
                                 <td>
                                     Informações:</td>
-                                <td><!--informaçoes aki--></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td>
@@ -55,19 +68,23 @@ src="js/jquery.maskedinput.js"></script>
                                 <td><!--requisitos aki--></td>
                             </tr>
                             <tr>
-                                <td><input type="radio" checked="checked" name="particular" value="particular">Particular</td>
-                                <td>
-                                <input type="radio" name="convenio" value="convenio">Convênio
-                                </td>
+                                <td><input type="radio" checked="checked" name="pagamento" value="particular">Particular</td>
+                                <td><input type="radio" name="pagamento" value="convenio">Convênio</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                <div>
-                                <select name="convenio" id="convenio">
-                                <option>Selecione...</option>
-                                    </select>
-                                </div>
+                                    <div>
+                                        <select name="convenio" id="convenio">
+                                            <?php
+                                            $convenio = new Convenio(); //roda essa pagina agora
+                                            $tipos = $convenio->listaConvenio();
+                                            foreach ($tipos as $convenios) {
+                                                echo '<option value>' . $convenios['nome'] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>

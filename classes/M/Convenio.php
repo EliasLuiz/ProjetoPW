@@ -6,11 +6,12 @@
  * @author Daniel
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
+//require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
+require_once '/opt/lampp/htdocs/ProjetoPW/classes/M/Conexao.php';
 
 class Convenio {
     
-    use MySQL;
+    use Conexao;
     
     protected $nome;
     protected $responsavel;
@@ -82,6 +83,20 @@ class Convenio {
                 . ' do banco de dados: '.  $this->dberror());
         $result = $this->fetch_array($result);
         return $result['cdConvenio'];
+    }
+    public function listaConvenio(){
+        $tconvenios = array();
+        $sql = "SELECT * FROM TB_Convenio";
+        $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
+                . ' no banco de dados: '.$this->dberror());
+        
+        while ($row = $this->fetch_array($result)) {
+            $tconvenios[$row["cdConvenio"]] = array(
+                'codigo' => $row["cdConvenio"],
+                'nome' => $row['nmConvenio'],
+                'responsavel' => $row['responsavel']);
+        }        
+        return $tconvenios; 
     }
 }
 
