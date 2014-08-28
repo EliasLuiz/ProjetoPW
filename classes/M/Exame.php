@@ -23,6 +23,7 @@ class Exame {
     protected $tipoExame;
     protected $convenio;
     protected $dataExame;
+    protected $horaExame;
     protected $coleta;
     protected $dataColeta;
     protected $url;
@@ -66,6 +67,10 @@ class Exame {
         return $this->dataExame;
     }
 
+    public function getHoraExame() {
+        return $this->horaExame;
+    }
+
     public function getColeta() {
         return $this->coleta;
     }
@@ -102,6 +107,10 @@ class Exame {
         $this->dataExame = $dataExame;
     }
 
+    public function setHoraExame($horaExame) {
+        $this->horaExame = $horaExame;
+    }
+
     public function setColeta($coleta) {
         $this->coleta = $coleta;
     }
@@ -128,6 +137,7 @@ class Exame {
         $this->tipoExame->carrega($result['cdTipoExame']);
         $this->convenio->carrega($result['cdConvenio']);
         $this->dataExame = $result['dtExame'];
+        $this->horaExame = $result['hrExame'];
         $this->coleta = $result['coleta'];
         $this->dataColeta = $result['dtColetaDom'];
         $this->url = $result['URLExame'];
@@ -137,11 +147,11 @@ class Exame {
         //Insere Exame no banco. Não tem opção de atualizar porque não tem nada que vale ser alterado
         //Se achar ruim depois muda
         $sql = "INSERT INTO TB_Exame(cdExame, cdCliente, cdMedico, cdConsulta, cdTipoExame, cdConvenio,"
-                . " dtExame, coletaDom, dtColetaDom, URLExame) VALUES "
+                . " dtExame, hrExame, coletaDom, dtColetaDom, URLExame) VALUES "
                 . "('', " . $this->cliente->getCdPessoa() . "," . $this->medico->getCdPessoa() . ","
                 . $this->consulta->getCdConsulta() . "," . $this->tipoExame->getCdTipoExame() . ","
-                . $this->convenio->getCdConvenio() . ",'" . $this->dataExame . "'," . $this->coleta . ","
-                . ",'" . $this->dataColeta . "','." . $this->url . "')";
+                . $this->convenio->getCdConvenio() . ",'" . $this->dataExame . "',"  . $this->horaExame . "'," 
+                . $this->coleta . "," . ",'" . $this->dataColeta . "','." . $this->url . "')";
         $this->query($sql) or die('Não foi possível salvar' .
                         ' Exame do banco de dados: ' . $this->dberror());
     }

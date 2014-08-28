@@ -9,7 +9,7 @@ require_once __DIR__ . '/../M/Exame.php';
 
 class CtrlExame {
     public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
-            $cdConvenio, $dtExame, $dtColeta){
+            $cdConvenio, $dtExame, $hrExame, $dtColeta){
         $cliente=new Cliente();
         $cliente->carrega($cdCliente);
         $medico=new Medico();
@@ -28,6 +28,7 @@ class CtrlExame {
         $exame->setTipoExame($tipoExame);
         $exame->setConvenio($convenio);
         $exame->setDataExame($dtExame);
+        $exame->setHoraExame($hrExame);
         if(isset($dtColeta)){
             $exame->setColeta(TRUE);
             $exame->setDataColeta($dtColeta);

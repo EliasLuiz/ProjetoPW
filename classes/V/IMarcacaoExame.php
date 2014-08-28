@@ -5,6 +5,7 @@ require_once __DIR__ . '/../M/TipoExame.php';
 require_once __DIR__ . '/../M/Cliente.php';
 require_once __DIR__ . '/../M/Medico.php';
 require_once __DIR__ . '/../M/Convenio.php';
+require_once __DIR__ . '/../M/Outros.php';
 
 /**
  * Description of IMarcacaoExame
@@ -75,14 +76,30 @@ class IMarcacaoExame {
             echo '<option value>' . $c['nome'] . '</option>';
         }
     }
+    
+    public function listaHorarios(){
+        
+    }
 
     public function comboboxHorariosDisponiveis($data) {
         $ex = new CtrlExame();
-        $cliente = new Cliente();
-        $cliente->carrega($cdCliente);
-        $convenios = $cliente->listaConvenios();
-        foreach ($convenios as $c) {
-            echo '<option value>' . $c['nome'] . '</option>';
+        $listaEx = $ex->listaExameData($data);
+        foreach ($listaEx as $e){
+            $horOcupados[] = $e->getHoraExame();
+        }
+        
+        $out = new Outros();
+        $listaHor = $out->listaHorarios();
+        
+        foreach ($horOcupados as $h){
+            $key = array_search($h,$listaHor);
+            if($key!==false){
+                unset($listaHor[$key]);
+            }
+        }
+        
+        foreach ($listaHor as $h) {
+            echo '<option value>' . $h . '</option>';
         }
     }
 

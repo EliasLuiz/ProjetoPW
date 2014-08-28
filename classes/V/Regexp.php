@@ -114,10 +114,17 @@ trait Regexp {
         return preg_match($pattern, $subject);
     }
 
-    // Converte data para oo formato YYYY-MM-DD HH:MM:SS.
+    // Converte data para o formato YYYY-MM-DD.
     public function validaData($subject) {
         $timestamp = strtotime($subject) or die();
-        $data = date('Y-m-d H:i:s', $timestamp);
+        $data = date('Y-m-d', $timestamp);
+        return $data;
+    }
+
+    // Converte hora para o formato HH:MM:SS.
+    public function validaHora($subject) {
+        $timestamp = strtotime($subject) or die();
+        $data = date('H:i:s', $timestamp);
         return $data;
     }
 
