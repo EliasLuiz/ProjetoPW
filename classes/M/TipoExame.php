@@ -130,6 +130,17 @@ class TipoExame {
         }        
         return $texames; 
     }
+    public function listaCdTipoExame(){
+        $texames = array();
+        $sql = "SELECT * FROM TB_TipoExame";
+        $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
+                . ' no banco de dados: '.$this->dberror());
+        
+        while ($row = $this->fetch_array($result)) {
+            $texames[] = $row["cdTipoExame"];
+        }        
+        return $texames; 
+    }
 }
 
 ?>

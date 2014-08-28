@@ -144,6 +144,18 @@ class Cliente extends Pessoa {
         return $consultas;
     }
     public function listaConvenios(){
+        $sql = "SELECT * FROM TB_Convenio c, TB_Cliente_has_TB_Convenio "
+                . "cc WHERE cc.cdCliente = " . $this->getCdPessoa() . " and c.cdConvenio = cd.cdConvenio";
+        $result = $this->query($sql);
+        while($row = $this->fetch_array($result)){
+            $convenios['cdConvenio'] = array(
+                'codigo' => $row["cdConvenio"],
+                'nome' => $row['nmConvenio'],
+                'responsavel' => $row['responsavel']);
+        }
+        return $convenios;
+    }
+    public function listaCdConvenios(){
         $sql = "SELECT c.cdConvenio FROM TB_Convenio c, TB_Cliente_has_TB_Convenio "
                 . "cc WHERE cc.cdCliente = " . $this->getCdPessoa() . " and c.cdConvenio = cd.cdConvenio";
         $result = $this->query($sql);

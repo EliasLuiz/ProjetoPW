@@ -3,6 +3,7 @@
 //session_start();
 require_once './classes/M/TipoExame.php';
 require_once './classes/M/Convenio.php';
+    $interf = new IMarcacaoExame();
 ?>
 <script language="JavaScript" type="text/javascript"
 src="js/jquery-2.1.1.js"></script>
@@ -19,7 +20,7 @@ src="js/jquery.maskedinput.js"></script>
 <div id="content">
     <div id="left">
         <div id="welcome" align="center">
-            <h2> MARCAÇÃO DE EXAME</h2>
+            <h2> MARCA&Ccedil;&Atilde;O DE EXAME</h2>
             <div class="clear"></div><br>
 
             <div id="form_contact">
@@ -32,11 +33,7 @@ src="js/jquery.maskedinput.js"></script>
 
                                 <td><select name="exames1" id="exames1">
                                         <?php
-                                        $tipoExame = new TipoExame(); //roda essa pagina agora
-                                        $tipos = $tipoExame->listaTipoExame();
-                                        foreach ($tipos as $exames) {
-                                            echo '<option>' . $exames['nome'] . '</option>';
-                                        }
+                                        $interf->comboboxTipoExame();
                                         ?>
                                     </select></td>
                             </tr>
@@ -52,14 +49,14 @@ src="js/jquery.maskedinput.js"></script>
                             </tr>
                             <tr>
                                 <td>
-                                    Horários Disponíveis:</td>
+                                    Hor&aacute;rios Dispon&iacute;veis:</td>
                                 <td><select name="horario" id="horario">
                                         <option>Selecione...</option>
                                     </select></td>
                             </tr>
                             <tr>
                                 <td>
-                                    Informações:</td>
+                                    Informa&ccedil;&otilde;es:</td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -69,7 +66,7 @@ src="js/jquery.maskedinput.js"></script>
                             </tr>
                             <tr>
                                 <td><input type="radio" checked="checked" name="pagamento" value="particular">Particular</td>
-                                <td><input type="radio" name="pagamento" value="convenio">Convênio</td>
+                                <td><input type="radio" name="pagamento" value="convenio">Conv&ecirc;nio</td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -77,11 +74,7 @@ src="js/jquery.maskedinput.js"></script>
                                     <div>
                                         <select name="convenio" id="convenio">
                                             <?php
-                                            $convenio = new Convenio(); //roda essa pagina agora
-                                            $tipos = $convenio->listaConvenio();
-                                            foreach ($tipos as $convenios) {
-                                                echo '<option value>' . $convenios['nome'] . '</option>';
-                                            }
+                                            $interf->comboboxConvenioCliente($_SESSION['cd']);
                                             ?>
                                         </select>
                                     </div>
@@ -92,7 +85,7 @@ src="js/jquery.maskedinput.js"></script>
                             </tr>
                             <tr>
                                 <td>
-                                    Preço:</td>
+                                    Pre&ccedil;o:</td>
                                 <td><!--requisitos aki--></td>
                             </tr>
                         </table>
