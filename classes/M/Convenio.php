@@ -11,7 +11,7 @@ require_once __DIR__ . '/MySQL.php';
 
 class Convenio {
     
-    use Conexao;
+    use MySQL;
     
     protected $nome;
     protected $responsavel;

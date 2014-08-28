@@ -7,6 +7,8 @@ require_once __DIR__ . '/../M/Medico.php';
 require_once __DIR__ . '/../M/Convenio.php';
 require_once __DIR__ . '/../M/Outros.php';
 
+require_once __DIR__ . '/../V/Regexp.php';
+
 /**
  * Description of IMarcacaoExame
  *

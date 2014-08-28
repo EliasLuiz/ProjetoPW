@@ -12,7 +12,7 @@ require_once __DIR__ . '/MySQL.php';
 
 class TipoExame {
     
-    use Conexao;
+    use MySQL;
     
     protected $nome;
     protected $coletadomicilio;

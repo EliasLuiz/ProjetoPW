@@ -2,6 +2,8 @@
 //session_start();
 require_once __DIR__ . '/classes/M/TipoExame.php';
 require_once __DIR__ . '/classes/M/Convenio.php';
+
+require_once __DIR__ . '/classes/V/IMarcacaoExame.php';
     $interf = new IMarcacaoExame();
 //require_once './classes/V/FuncoesAJAX.php';
 
@@ -16,7 +18,7 @@ require_once __DIR__ . '/classes/M/Convenio.php';
 
     jQuery(function($) {
         $( "#data" ).datepicker({
-        dateFormat: 'dd-mm-yy',
+        dateFormat: 'dd/mm/yy',
     });
 
 
