@@ -8,6 +8,22 @@ require_once __DIR__ . '/classes/M/Convenio.php';
 //$tipoExame = new TipoExame(); //roda essa pagina agora
 //$tipos = $tipoExame->listaTipoExame();
 ?>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+    jQuery(function($) {
+        $( "#data" ).datepicker({
+        dateFormat: 'dd-mm-yy',
+    });
+
+
+
+    });
+
+</script>
 <script language="JavaScript" type="text/javascript"
 src="js/jquery-2.1.1.js"></script>
 <script language="JavaScript" type="text/javascript"
@@ -37,12 +53,12 @@ src="js/jquery.maskedinput.js"></script>
 <script type="text/javascript">
 
     jQuery(function($) {
-        $("#data").mask("99/99/9999");
+        //$("#data").mask("99/99/9999");
     });</script>
 
 <script> function displayVals() {
         var value = $("#exames1").val();
-        
+
         $.ajax({
             url: 'FuncoesAJAX.php',
             data: {acao: 'dadosTipoExame', cod: value},
@@ -50,31 +66,37 @@ src="js/jquery.maskedinput.js"></script>
             success: function(output) {
                 $('#exibe').html(output);
             }
-        });}
-    </script>
+        });
+    }
+</script>
 <script> function displayVals2() {
         var value = $("#data").val();
 
-     $.ajax({
-            url: 'FuncoesAJAX2.php',
+        $.ajax({
+            url: 'FuncoesAJAX.php',
             data: {acao: 'gerahorarios', cod: value},
             type: 'POST',
             success: function(output) {
                 $('#exibe2').html(output);
             }
-        });}
-    </script>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-             <script type="text/javascript">
-                 $(document).ready(function () {
-                     $('#div1').hide('fast');
-                    $('#id_radio1').click(function () {
-                       $('#div1').hide('fast');
-                });
-                $('#id_radio2').click(function () {
-                      $('#div1').show('fast');
-                 });
-               });
+        });
+    }
+</script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#div1').hide('fast');
+        $('#divhorarios').hide('fast');
+        $('#id_radio1').click(function() {
+            $('#div1').hide('fast');
+        });
+        $('#id_radio2').click(function() {
+            $('#div1').show('fast');
+        });
+        $('#data').click(function() {
+            $('#divhorarios').show('fast');
+        });
+    });
 </script>
 <div id="content">
     <div id="left">
@@ -98,7 +120,7 @@ src="js/jquery.maskedinput.js"></script>
                             <thead id="exibe"></thead>
                             <tr>
                                 <td>Data:</td>
-                                <td><input name="data" type="text" id="data" size="8" onblur="displayVals2()"/>
+                                <td><input name="data" type="text" id="data" size="7"  onchange="displayVals2()"/>
                                     <script>
                                         $(function() {
                                             // $("#calendario").datepicker();
@@ -108,12 +130,15 @@ src="js/jquery.maskedinput.js"></script>
                             </tr>
                             <thead id="exibe2"></thead>
                             <tr>
-                                <td>
+                                <td><div id="divhorarios">
                                     Hor&aacute;rios Dispon&iacute;veis:</td>
                                 <td><select name="horario" id="horario">
                                         <option>Selecione...</option>
-                                    </select></td>
+                                </select></div></td>
                             </tr>
+                            
+                            
+                            
                             <tr>
                             </tr>
                             <tr>
@@ -131,6 +156,8 @@ src="js/jquery.maskedinput.js"></script>
                             <tr>
                                 <td><input type="checkbox" name="coleta" value="coleta">Coleta domiciliar</td>
                             </tr>
+                            
+                            
                         </table>
                     </fieldset>
                     <br>
