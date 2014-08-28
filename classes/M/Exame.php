@@ -185,7 +185,6 @@ class Exame {
     public function listaTudo() {
         $sql = "SELECT cdExame FROM TB_Exame";
         $result = $this->query($sql);
-        $exames = [];
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdTipoExame'];
         }
@@ -195,7 +194,6 @@ class Exame {
     public function listaCliente() {
         $sql = "SELECT cdExame FROM TB_Exame WHERE cdCliente = " . $this->cliente->getCdPessoa();
         $result = $this->query($sql);
-        $exames = [];
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }
@@ -205,7 +203,6 @@ class Exame {
     public function listaMedico() {
         $sql = "SELECT cdExame FROM TB_Exame WHERE cdMedico = " . $this->medico->getCdPessoa();
         $result = $this->query($sql);
-        $exames = [];
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }
@@ -215,7 +212,6 @@ class Exame {
     public function listaConsulta() {
         $sql = "SELECT cdExame FROM TB_Exame WHERE cdConsulta = " . $this->consulta->getCdConsulta();
         $result = $this->query($sql);
-        $exames = [];
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }
@@ -225,7 +221,6 @@ class Exame {
     public function listaTipoExame() {
         $sql = "SELECT cdExame FROM TB_Exame WHERE cdTipoExame = " . $this->tipoExame->getCdTipoExame();
         $result = $this->query($sql);
-        $exames = [];
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }
@@ -235,7 +230,6 @@ class Exame {
     public function listaConvenio() {
         $sql = "SELECT cdExame FROM TB_Exame WHERE cdConvenio = " . $this->convenio->getCdConvenio();
         $result = $this->query($sql);
-        $exames = [];
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }
@@ -245,7 +239,6 @@ class Exame {
     public function listaDataExame() {
         $sql = "SELECT cdExame FROM TB_Exame WHERE dtExame = '" . $this->dataExame . "'";
         $result = $this->query($sql);
-        $exames = [];
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }
@@ -255,7 +248,6 @@ class Exame {
     public function listaDataColeta() {
         $sql = "SELECT cdExame FROM TB_Exame WHERE dtExame = '" . $this->dataColeta . "'";
         $result = $this->query($sql);
-        $exames = [];
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }
