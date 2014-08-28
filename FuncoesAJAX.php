@@ -15,6 +15,9 @@ switch ($acao) {
     case 'gerahorarios':
         
         break;
+    
+    case 'gerarelatorio':
+        break;
     default:
         break;
 }
