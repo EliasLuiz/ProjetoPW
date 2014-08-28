@@ -5,7 +5,7 @@
  *
  * @author Elias
  */
-require_once $GLOBALS["HOME"] . '/classes/M/Exame.php';
+require_once __DIR__ . '/../M/Exame.php';
 
 class CtrlExame {
     public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 

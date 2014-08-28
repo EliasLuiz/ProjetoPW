@@ -1,10 +1,10 @@
 <?php
 
-require_once $GLOBALS["HOME"] . 'classes/C/CtrlExame.php';
-require_once $GLOBALS["HOME"] . 'classes/M/TipoExame.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Convenio.php';
+require_once __DIR__ . '/../C/CtrlExame.php';
+require_once __DIR__ . '/../M/TipoExame.php';
+require_once __DIR__ . '/../M/Cliente.php';
+require_once __DIR__ . '/../M/Medico.php';
+require_once __DIR__ . '/../M/Convenio.php';
 
 /**
  * Description of IMarcacaoExame

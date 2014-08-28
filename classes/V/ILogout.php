@@ -5,7 +5,7 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . 'classes/C/CtrlUsuario.php';
+require_once __DIR__ . '/../C/CtrlUsuario.php';
 
 class ILogout {
     

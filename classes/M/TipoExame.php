@@ -7,7 +7,7 @@
  */
 
 //require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php'; 
-require_once '/opt/lampp/htdocs/ProjetoPW/classes/M/Conexao.php';
+require_once __DIR__ . '/Conexao.php';
 
 
 class TipoExame {

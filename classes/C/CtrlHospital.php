@@ -6,7 +6,7 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/Hospital.php';
+require_once __DIR__ . '/../M/Hospital.php';
 
 class CtrlHospital {
     public function cadastra($nome, $telefone){

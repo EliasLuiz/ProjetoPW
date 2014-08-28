@@ -6,12 +6,12 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Consulta.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Convenio.php';
-require_once $GLOBALS["HOME"] . 'classes/M/TipoExame.php';
+require_once __DIR__ . '/MySQL.php';
+require_once __DIR__ . '/Cliente.php';
+require_once __DIR__ . '/Medico.php';
+require_once __DIR__ . '/Consulta.php';
+require_once __DIR__ . '/Convenio.php';
+require_once __DIR__ . '/TipoExame.php';
 
 class Exame {
 

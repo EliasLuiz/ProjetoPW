@@ -6,7 +6,7 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
+require_once __DIR__ . '/MySQL.php';
 
 class Pessoa {
 

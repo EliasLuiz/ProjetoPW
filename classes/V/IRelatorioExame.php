@@ -5,8 +5,8 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . '/classes/V/Regexp.php';
-require_once $GLOBALS["HOME"] . '/classes/C/CtrlExame.php';
+require_once __DIR__ . '/Regexp.php';
+require_once __DIR__ . '/../C/CtrlExame.php';
 
 class IRelatorioExame {
     

@@ -6,8 +6,8 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . 'classes/C/CtrlFuncionario.php';
-require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
+require_once __DIR__ . '/../C/CtrlFuncionario.php';
+require_once __DIR__ . '/Regexp.php';
 
 class ICadastroFuncionario {
     

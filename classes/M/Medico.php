@@ -6,8 +6,8 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Pessoa.php';
+require_once __DIR__ . '/MySQL.php';
+require_once __DIR__ . '/Pessoa.php';
 
 class Medico extends Pessoa{
     

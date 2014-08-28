@@ -6,9 +6,9 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Pessoa.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Bairro.php';
+require_once __DIR__ . '/MySQL.php';
+require_once __DIR__ . '/Pessoa.php';
+require_once __DIR__ . '/Bairro.php';
 
 class Cliente extends Pessoa {
     

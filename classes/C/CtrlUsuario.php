@@ -6,11 +6,11 @@
  * @author Elias Luiz
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/Pessoa.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Funcionario.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Bairro.php';
+require_once __DIR__ . '/../M/Pessoa.php';
+require_once __DIR__ . '/../M/Cliente.php';
+require_once __DIR__ . '/../M/Medico.php';
+require_once __DIR__ . '/../M/Funcionario.php';
+require_once __DIR__ . '/../M/Bairro.php';
 
 class CtrlUsuario {
     

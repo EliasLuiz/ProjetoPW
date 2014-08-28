@@ -5,8 +5,8 @@
  *
  * @author Elias
  */
-require_once $GLOBALS["HOME"] . 'classes/C/CtrlConvenio.php';
-require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
+require_once __DIR__ . '/../C/CtrlConvenio.php';
+require_once __DIR__ . '/Regexp.php';
 
 class ICadastroConvenio {
 

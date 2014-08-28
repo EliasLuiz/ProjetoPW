@@ -6,7 +6,7 @@
  * @author Elias
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/Cidade.php';
+require_once __DIR__ . '/Cidade.php';
 
 class Bairro {
     

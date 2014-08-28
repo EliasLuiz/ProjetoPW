@@ -6,9 +6,9 @@
  * @author Daniel
  */
 
-require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
+require_once __DIR__ . '/MySQL.php';
+require_once __DIR__ . '/Cliente.php';
+require_once __DIR__ . '/Medico.php';
 
 class Consulta {
     

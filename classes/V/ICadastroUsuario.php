@@ -5,10 +5,10 @@
  *
  * @author Elias
  */
-require_once $GLOBALS["HOME"] . 'classes/C/CtrlUsuario.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Medico.php';
-require_once $GLOBALS["HOME"] . 'classes/M/Cliente.php';
-require_once $GLOBALS["HOME"] . 'classes/V/Regexp.php';
+require_once __DIR__ . '/../C/CtrlUsuario.php';
+require_once __DIR__ . '/../M/Medico.php';
+require_once __DIR__ . '/../M/Cliente.php';
+require_once __DIR__ . '/Regexp.php';
 
 class ICadastroUsuario {
     
