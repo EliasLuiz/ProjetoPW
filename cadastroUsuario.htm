@@ -1,23 +1,76 @@
 <head>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-
-<script>
-$(document).ready(function() {
- 
-$('input[name=valor]:radio').click(function() {
- 
-if($(this).val()=="Paciente") {
-$('#div1').show();
-$('#div2,#div3').hide();
-} else {
-$('#div1').hide();
-$('#div2,#div3').show();
-}
- 
-});
- 
-});
+<script language="JavaScript" type="text/javascript"
+src="js/jquery-2.1.1.js"></script>
+<script language="JavaScript" type="text/javascript"
+src="js/jquery.maskedinput.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+                 $(document).ready(function () {
+                     $('#div11').hide('fast');
+                     $('#div2').show('fast');
+                     $('#comum3').hide('fast');
+                $('#id_radio2').click(function () {
+                      $('#div2').hide('fast');
+                      $('#div11').show('fast');
+                      
+                      $('#comum3').hide('fast');
+                 });
+                 $('#id_radio1').click(function () {
+                       $('#div11').hide('fast');
+                       $('#div2').show('fast');
+                });
+                $('#id_radio3').click(function () {
+                       $('#comum3').show('fast');
+                });
+                $('#id_radio4').click(function () {
+                      $('#comum3').hide('fast');
+                 });
+               });
 </script>
+<style type="text/css">
+body{
+text-align:center;
+}
+
+#div11{
+text-align:left;
+position:relative;
+width:700px;
+height:30px;
+margin-right: 0px;
+}
+#div3{
+text-align:left;
+position:relative;
+width:700px;
+height:335px;
+margin-right: 0px;
+}
+#div2{
+text-align:left;
+position:relative;
+width:700px;
+height:240px;
+margin-right: 0px;
+}
+#comum{
+margin-top: 10px;
+}
+#comum2{
+margin-top: 10px;
+height: 50px;
+}
+#comum3{
+    
+text-align:left;
+position:relative;
+width:700px;
+height:120px;
+margin-right: 0px;
+margin-top: 10px;
+}
+</style> 
 </head>
 <div id="content">
     <div id="left">
@@ -30,90 +83,103 @@ $('#div2,#div3').show();
                 <form method="post" action="cadastroCliente.php" border="0">
                     <fieldset><legend class="texte_legende"></legend>
                         <table cellpadding=5 cellspacing=0 border="0">
-                            <tr>
-                                <td>Nome Completo:</td>
-                                <td><input class="champ" type="text" name="nome" id="nome"></td>
-                            </tr>
-                            <tr>
-                                <td>Sexo:</td>
-                                <td><input name="sexo" type="radio" value="Masculino" checked="checked" />
+                            <div id="div3">
+                            <div id="comum">
+                                Nome Completo:
+                                <input class="champ" type="text" name="nome" id="nome">
+                            </div>
+                            <div id="comum">
+                                Sexo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input name="sexo" type="radio" value="Masculino" checked="checked" />
                                 Masculino
                                 <input name="sexo" type="radio" value="Feminino" />
                                 Feminino
-                            </tr>
-                            <tr>
-                                <td>
-                                    (DDD)Telefone:</td>
-                                <td><input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
-                                <input name="telefone" type="text" id="telefone" size="16" maxlength="9"/>
-                                </td>
-                            </tr>
-                            <tr>
-                            <td>CPF:</td>
-                            <td width="546"><input name="CPF" type="text" id="CPF" size="15" maxlength="11" />
-                            </tr>
-                            <tr>
-                            <td>RG:</td>
-                            <td width="546"><input name="RG" type="text" id="RG" size="15" maxlength="10" />
-                            </tr>
-                            <tr>
-                            <td>Email:</td>
-                            <td><input name="email" type="text" id="email" size="30" maxlength="60" />
-                            </tr>
-
-                            <tr>
-                            <td>Login:</td>
-                            <td><input name="login" type="text" id="login" maxlength="12" />
-                            </tr>
-                            <tr>
-                            <td>Senha:</td>
-                            <td><input name="senha" type="password" id="senha" maxlength="12" />
-                            </tr>
-                            <tr>
-                            <td>Confirmar Senha:</td>
-                            <td><input name="senha2" type="password" id="senha2" maxlength="12" />
-                            </tr>
-                            <tr>
-                            <td>Usu&aacute;rio:</td>
-                            <td>
-                            <input id="paciente" name="usuario" type="radio" value="Paciente"
-                                   checked="checked"/>
-                            Paciente
-                            <input id="medico" name="usuario" type="radio" value="Medico" />
-                            M&eacute;dico
-                            </td>
-                            </tr>
-                            <div id="div1">1</div>
-                            <div id="medicoDiv">
-                            <tr>
-                              <td width="69">CRM:</td>
-                              <td width="546"><input name="crm" type="text" id="crm" size="20" maxlength="20" />
-                            </tr>
                             </div>
-                            <div id="pacienteDiv" style="display:none;">
-                            <tr>
-                              <td>Rua:</td>
-                              <td><input name="rua" type="text" id="rua" size="50" maxlength="70" />
-                            </tr>
-                            <tr>
-                              <td>N&uacute;mero:</td>
-                              <td><input name="numero" type="text" id="numero" size="8" maxlength="8" />
-                            </tr>
-                            <tr>
-                              <td>Complemento:</td>
-                              <td><input name="complemento" type="text" id="complemento" size="20" maxlength="20" />
-                            </tr>
-                            <tr>
-                              <td>Bairro:</td>
-                              <td><input name="bairro" type="text" id="bairro" size="30" maxlength="50" />
-                            </tr>
-                            <tr>
-                              <td>Cidade:</td>
-                              <td><input name="cidade" type="text" id="cidade" maxlength="20" />
-                            </tr>
-                            <tr>
-                              <td>Estado:</td>
-                              <td><select name="estado" id="estado">
+                            <div id="comum">
+                                    (DDD)Telefone:&nbsp;&nbsp;&nbsp;
+                                <input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
+                                <input name="telefone" type="text" id="telefone" size="16" maxlength="9"/>
+                                
+                            </div>
+                            <div id="comum">
+                            CPF:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input name="CPF" type="text" id="CPF" size="15" maxlength="11" />
+                            </div>
+                            <div id="comum">
+                            RG:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input name="RG" type="text" id="RG" size="15" maxlength="10" />
+                            </div>
+                            <div id="comum">
+                            Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input name="email" type="text" id="email" size="30" maxlength="60" />
+                            </div>
+
+                            <div id="comum">
+                            Login:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input name="login" type="text" id="login" maxlength="12" />
+                            </div>
+                            <div id="comum">
+                            Senha:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input name="senha" type="password" id="senha" maxlength="12" />
+                            </div>
+                            <div id="comum">
+                            Confirmar Senha:
+                            <input name="senha2" type="password" id="senha2" maxlength="12" />
+                            </div>
+                            <div id="comum">
+                            Usu&aacute;rio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
+                            <input id="id_radio1" name="usuario" type="radio" value="Paciente" checked="checked"/>
+                            Paciente
+                            <input id="id_radio2" name="usuario" type="radio" value="Medico" />
+                            M&eacute;dico
+                            
+                            </div>
+                            </div>
+                            <div id="div11">
+                                <div >
+                                    CRM:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input name="crm" type="text" id="crm" size="20" maxlength="20" />
+                                </div>
+                            </div>
+                            <div id="div2">
+                            <div>Rua:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+                              <input name="rua" type="text" id="rua" size="50" maxlength="70" />
+                            </div>
+                            
+                            <div id="comum">
+                              N&uacute;mero:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="numero" type="text" id="numero" size="8" maxlength="8" />
+                            </div>
+                            <div id="comum">
+                              Complemento:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="complemento" type="text" id="complemento" size="20" maxlength="20" />
+                            </div>
+                            <div id="comum">
+                              Bairro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="bairro" type="text" id="bairro" size="30" maxlength="50" />
+                            </div>
+                                <div id="comum">
+                              Cidade:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="cidade" type="text" id="cidade" maxlength="20" />
+                            </div>
+                                <div id="comum">
+                              Estado:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <select name="estado" id="estado">
                                 <option>Selecione...</option>
                                 <option value="AC">AC</option>
                                 <option value="AL">AL</option>
@@ -142,19 +208,22 @@ $('#div2,#div3').show();
                                 <option value="SE">SE</option>
                                 <option value="TO">TO</option>
                                   </select>
-                            </tr>
-                            <tr>
-                              <td>Faz uso de medicamento controlado?</td>
-                              <td><input name="medicamento" type="radio" value="medicamento" checked="checked" />
+                            </div>
+                            <div id="comum">
+                                Faz uso de medicamento<br> controlado?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="medicamento" type="radio" value="medicamento" id="id_radio3"/>
                                 sim
-                                <input name="medicamento" type="radio" value="medicamento" />
+                                <input name="medicamento" type="radio" value="medicamento" checked="checked" id="id_radio4"/>
                                 n&atilde;o
-                            </tr>
-                            <tr>
-                              <td>Nome medicamentos:</td>
-                              <td><textarea name="nomemedicamentos" type="text" id="nomemedicamentos" rows="5" cols="50" />
-                                  </textarea></td>
-                            </tr>
+                            </div>
+                            
+                            </div>
+                            <div id="comum3">
+                                Nome dos Medicamentos: 
+                              <textarea name="nomemedicamentos" type="text" id="nomemedicamentos" rows="5" cols="50" />
+                                  </textarea>
+                            
                         </div>
                         </table>
                     </fieldset>
