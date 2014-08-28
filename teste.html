@@ -1,32 +1,217 @@
-<html>
-       <head>
-             <title>show-hide-div-on-click-using-jquery</title>
-             <script src="http://code.jquery.com/jquery-latest.js"></script>
-             <script type="text/javascript">
+<head>
+<script language="JavaScript" type="text/javascript"
+src="js/jquery-2.1.1.js"></script>
+<script language="JavaScript" type="text/javascript"
+src="js/jquery.maskedinput.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
                  $(document).ready(function () {
-                    $('#id_radio1').click(function () {
-                       $('#div2').hide('fast');
-                       $('#div1').show('fast');
-                });
+                     $('#div11').hide('fast');
+                     $('#div2').show('fast');
                 $('#id_radio2').click(function () {
-                      $('#div1').hide('fast');
-                      $('#div2').show('fast');
+                      $('#div2').hide('fast');
+                      $('#div11').show('fast');
                  });
+                 $('#id_radio1').click(function () {
+                       $('#div11').hide('fast');
+                       $('#div2').show('fast');
+                });
                });
 </script>
+<style type="text/css">
+body{
+text-align:center;
+}
+
+#div11{
+text-align:left;
+position:relative;
+width:500px;
+height:50px;
+margin-right: 400px;
+top:1000px;
+}
+#div3{
+text-align:left;
+position:relative;
+width:700px;
+height:335px;
+margin-right: 0px;
+margin-top: 50px;
+}
+#div2{
+text-align:left;
+position:relative;
+width:700px;
+height:400px;
+margin-right: 0px;
+}
+#comum{
+margin-top: 10px;
+}
+#comum2{
+margin-top: 10px;
+height: 50px;
+}
+</style> 
 </head>
- 
-<body>
-     <center>
-             <h2>show hide div on click using jquery</h2>
-              <div style="padding:25px;width: 100px;">
-                   <input id="id_radio1" type="radio" name="name_radio1" value="value_radio1" />Radio1
-                   <input id="id_radio2" type="radio" name="name_radio1" value="value_radio2" />Radio2
-              </div>
-              <div align="center" style="padding:25px;width: 300px;">
-                   <div id="div1">This is First (1st) division</div>
-                   <div id="div2">This is Second (2nd) division</div>
-              </div>
-     </center>
-</body>
-</html>
+<div id="content">
+    <div id="left">
+        <div id="welcome" align="center">
+            <h2> CADASTRO</h2>
+            <div class="clear"></div><br>
+
+            <div id="form_contact">
+                <br />
+                <form method="post" action="cadastroCliente.php" border="0">
+                    <fieldset><legend class="texte_legende"></legend>
+                        <table cellpadding=5 cellspacing=0 border="0">
+                            <div id="div3">
+                            <div id="comum">
+                                Nome Completo:
+                                <input class="champ" type="text" name="nome" id="nome">
+                            </div>
+                            <div id="comum">
+                                Sexo:
+                                <input name="sexo" type="radio" value="Masculino" checked="checked" />
+                                Masculino
+                                <input name="sexo" type="radio" value="Feminino" />
+                                Feminino
+                            </div>
+                            <div id="comum">
+                                    (DDD)Telefone:
+                                <input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
+                                <input name="telefone" type="text" id="telefone" size="16" maxlength="9"/>
+                                
+                            </div>
+                            <div id="comum">
+                            CPF:
+                            <input name="CPF" type="text" id="CPF" size="15" maxlength="11" />
+                            </div>
+                            <div id="comum">
+                            RG:
+                            <input name="RG" type="text" id="RG" size="15" maxlength="10" />
+                            </div>
+                            <div id="comum">
+                            Email:
+                            <input name="email" type="text" id="email" size="30" maxlength="60" />
+                            </div>
+
+                            <div id="comum">
+                            Login:
+                            <input name="login" type="text" id="login" maxlength="12" />
+                            </div>
+                            <div id="comum">
+                            Senha:
+                            <input name="senha" type="password" id="senha" maxlength="12" />
+                            </div>
+                            <div id="comum">
+                            Confirmar Senha:
+                            <input name="senha2" type="password" id="senha2" maxlength="12" />
+                            </div>
+                            <div id="comum">
+                            Usu&aacute;rio:
+                            
+                            <input id="id_radio1" name="usuario" type="radio" value="Paciente" checked="checked"/>
+                            Paciente
+                            <input id="id_radio2" name="usuario" type="radio" value="Medico" />
+                            M&eacute;dico
+                            
+                            </div>
+                            </div>
+                            <div id="div11">
+                                <div >
+                                    CRM:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input name="crm" type="text" id="crm" size="20" maxlength="20" />
+                                </div>
+                            </div>
+                            <div id="div2">
+                            <div>Rua:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;
+                              <input name="rua" type="text" id="rua" size="50" maxlength="70" />
+                            </div>
+                            
+                            <div id="comum">
+                              N&uacute;mero:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="numero" type="text" id="numero" size="8" maxlength="8" />
+                            </div>
+                            <div id="comum">
+                              Complemento:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="complemento" type="text" id="complemento" size="20" maxlength="20" />
+                            </div>
+                            <div id="comum">
+                              Bairro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="bairro" type="text" id="bairro" size="30" maxlength="50" />
+                            </div>
+                                <div id="comum">
+                              Cidade:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="cidade" type="text" id="cidade" maxlength="20" />
+                            </div>
+                                <div id="comum">
+                              Estado:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <select name="estado" id="estado">
+                                <option>Selecione...</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="ES">ES</option>
+                                <option value="DF">DF</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                                  </select>
+                            </div>
+                            <div id="comum">
+                                Faz uso de <br>medicamento<br> controlado?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input name="medicamento" type="radio" value="medicamento" checked="checked" />
+                                sim
+                                <input name="medicamento" type="radio" value="medicamento" />
+                                n&atilde;o
+                            </div>
+                            <div id="comum2">
+                                Nome dos Medicamentos: 
+                              <textarea name="nomemedicamentos" type="text" id="nomemedicamentos" rows="5" cols="50" />
+                                  </textarea>
+                            
+                        </div>
+                        </table>
+                    </fieldset>
+                    <br>
+
+                    <table cellpadding=0 cellspacing=0 border="0">
+                        <tr>
+                            <td colspan="2" align="center"><input class="button_send" type="submit" value="Enviar"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
