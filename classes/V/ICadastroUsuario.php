@@ -38,11 +38,14 @@ class ICadastroUsuario {
         $this->nome = $_POST["nome"];
         $this->sexo = $_POST["sexo"];
         $this->ddd = $_POST["ddd"];
-        $this->telefone = $_POST["telefone"];
+        $this->telefone = $_POST["telefone"]."";
         $this->cpf = $_POST["CPF"];
         $this->rg = $_POST["RG"];
         $this->email = $_POST["email"];
         $this->login = $_POST["login"];
+        if($_POST["senha"] != $_POST["senha2"]){
+            die("Senhas nao batem");
+        }
         $this->senha = $_POST["senha"];
         $this->usuario = $_POST["usuario"];
         if ($this->usuario == 'paciente') {
@@ -68,8 +71,8 @@ class ICadastroUsuario {
         $valido = $valido && $this->validaCpf($this->cpf);
         $valido = $valido && $this->validaRg($this->rg);
         $valido = $valido && $this->validaEmail($this->email);
-        $valido = $valido && $this->validaAlfabeticoSimbolo($this->login);
-        $valido = $valido && $this->validaAlfabeticoSimbolo($this->senha);
+        $valido = $valido && $this->validaAlfanumerico($this->login);
+        $valido = $valido && $this->validaAlfanumerico($this->senha);
         if($this->usuario == 'paciente'){
             $valido = $valido && $this->validaAlfabeticoEspaco($this->rua);
             $valido = $valido && $this->validaNumerico($this->numero);

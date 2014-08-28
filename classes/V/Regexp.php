@@ -38,21 +38,21 @@ trait Regexp {
 
     // Retorna True se segue formato de cpf. False se não
     public function validaCpf($subject) {
-        $pattern = "/^ [0-9]{11} $/";
+        $pattern = "/^[0-9]{11}$/";
         return preg_match($pattern, $subject);
     }
 
     // Retorna True se segue formato de rg. False se não
     public function validaRg($subject) {
-        $pattern = "/^ [A-Z]{1|2}[0-9]{7|8} $/";
+        $pattern = "/^[A-z]{1,2}[0-9]{7,8}$/";
         return preg_match($pattern, $subject);
     }
 
     // Retorna True se ddd e telefonem tem a quantidade de caracteres esperada. False se não
     // Se sim concatena os 2 substituindo o valor de telefone
     public function validaTelefone($ddd, &$telefone) {
-        $pattern1 = "/^ [0-9]{2} $/";
-        $pattern2 = "/^ [0-9]{8|9} $/";
+        $pattern1 = "/^[0-9]{2}$/";
+        $pattern2 = "/^[0-9]{8,9}$/";
         if (preg_match($pattern1, $ddd) && preg_match($pattern2, $telefone)) {
             $telefone = '(' . $ddd . ') ' . substr($telefone, 0, 4) . '-' . substr($telefone, 4, 5);
             return TRUE;
