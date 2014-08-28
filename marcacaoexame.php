@@ -126,7 +126,7 @@ src="js/jquery.maskedinput.js"></script>
                                 <td></td>
                                 <td>
                                     <div id="div1">
-                                        <select name="convenio" id="convenio">
+                                        <select name="convenio" id="convenio"><option>Selecione</option>
                                             <?php
                                             $convenio = new Convenio(); //roda essa pagina agora
                                             $tipos = $convenio->listaConvenio();
