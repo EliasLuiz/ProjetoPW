@@ -38,6 +38,7 @@ src="js/jquery.maskedinput.js"></script>
     jQuery(function($) {
         $("#data").mask("99/99/9999");
     });</script>
+
 <script> function displayVals() {
         var value = $("#exames1").val();
         
@@ -47,6 +48,18 @@ src="js/jquery.maskedinput.js"></script>
             type: 'POST',
             success: function(output) {
                 $('#exibe').html(output);
+            }
+        });}
+    </script>
+<script> function displayVals2() {
+        var value = $("#data").val();
+
+     $.ajax({
+            url: 'FuncoesAJAX2.php',
+            data: {acao: 'gerahorarios', cod: value},
+            type: 'POST',
+            success: function(output) {
+                $('#exibe2').html(output);
             }
         });}
     </script>
@@ -87,7 +100,7 @@ src="js/jquery.maskedinput.js"></script>
                             <thead id="exibe"></thead>
                             <tr>
                                 <td>Data:</td>
-                                <td><input name="data" type="text" id="data" size="8"/>
+                                <td><input name="data" type="text" id="data" size="8" onblur="displayVals2()"/>
                                     <script>
                                         $(function() {
                                             // $("#calendario").datepicker();
@@ -95,6 +108,7 @@ src="js/jquery.maskedinput.js"></script>
                                     </script>
                                 </td>
                             </tr>
+                            <thead id="exibe2"></thead>
                             <tr>
                                 <td>
                                     Horários Disponíveis:</td>
