@@ -146,11 +146,31 @@ class Exame {
     public function salva() {
         //Insere Exame no banco. Não tem opção de atualizar porque não tem nada que vale ser alterado
         //Se achar ruim depois muda
+        
+        
+        //Trata o caso dos argumentos optativos
+        if(isset($this->medico)){
+            $medico = $this->medico->getCdPessoa();
+        }else{
+            $medico = "";
+        }
+        if(isset($this->consulta)){
+            $consulta = $this->consulta->getCdConsulta();
+        }else{
+            $consulta = "";
+        }
+        if(isset($this->convenio)){
+            $convenio = $this->convenio->getCdConvenio();
+        }else{
+            $convenio = "";
+        }
+        
+        
         $sql = "INSERT INTO TB_Exame(cdExame, cdCliente, cdMedico, cdConsulta, cdTipoExame, cdConvenio,"
                 . " dtExame, hrExame, coletaDom, dtColetaDom, URLExame) VALUES "
-                . "('', " . $this->cliente->getCdPessoa() . "," . $this->medico->getCdPessoa() . ","
-                . $this->consulta->getCdConsulta() . "," . $this->tipoExame->getCdTipoExame() . ","
-                . $this->convenio->getCdConvenio() . ",'" . $this->dataExame . "',"  . $this->horaExame . "'," 
+                . "('', " . $this->cliente->getCdPessoa() . "," . $medico . ","
+                . $consulta . "," . $this->tipoExame->getCdTipoExame() . ","
+                . $convenio . ",'" . $this->dataExame . "',"  . $this->horaExame . "'," 
                 . $this->coleta . "," . ",'" . $this->dataColeta . "','." . $this->url . "')";
         $this->query($sql) or die('Não foi possível salvar' .
                         ' Exame do banco de dados: ' . $this->dberror());

@@ -74,7 +74,7 @@ class Medico extends Pessoa{
     }
     public function lista(){
         $sql = "SELECT cdPessoa, nmPessoa FROM TB_Medico m, TB_Pessoa p "
-            . "WHERE m.cdPessoa = p.cdPessoa";
+            . "WHERE m.cdPessoa = p.cdPessoa and p.status=1 ORDER BY nmPessoa ASC";
         $result = $this->query($sql);
         while($row = $this->fetch_array($result)){
             $medicos[$row['nmPessoa']] = $row['cdPessoa'];

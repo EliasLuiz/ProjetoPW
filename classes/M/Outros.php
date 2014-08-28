@@ -8,7 +8,7 @@ require_once __DIR__ . 'MySQL.php';
  * @author Elias
  */
 class Outros {
-    //put your code here
+    
     use MySQL;
     
     public function __construct() {

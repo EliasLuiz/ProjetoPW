@@ -7,7 +7,7 @@
  */
 
 //require_once $GLOBALS["HOME"] . 'classes/M/MySQL.php'; 
-require_once __DIR__ . '/Conexao.php';
+require_once __DIR__ . '/MySQL.php';
 
 
 class TipoExame {
@@ -115,7 +115,7 @@ class TipoExame {
     }
     public function listaTipoExame(){
         $texames = array();
-        $sql = "SELECT * FROM TB_TipoExame";
+        $sql = "SELECT * FROM TB_TipoExame ORDER BY nmTipoExame ASC";
         $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
                 . ' no banco de dados: '.$this->dberror());
         
@@ -132,7 +132,7 @@ class TipoExame {
     }
     public function listaCdTipoExame(){
         $texames = array();
-        $sql = "SELECT * FROM TB_TipoExame";
+        $sql = "SELECT cdTipoExame FROM TB_TipoExame";
         $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
                 . ' no banco de dados: '.$this->dberror());
         

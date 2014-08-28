@@ -12,14 +12,23 @@ class CtrlExame {
             $cdConvenio, $dtExame, $hrExame, $dtColeta){
         $cliente=new Cliente();
         $cliente->carrega($cdCliente);
-        $medico=new Medico();
-        $medico->carrega($cdMedico);
-        $consulta=new Consulta();
-        $consulta->carrega($cdConsulta);
         $tipoExame=new TipoExame();
         $tipoExame->carrega($cdTipoExame);
-        $convenio=new Convenio();
-        $convenio->carrega($cdConvenio);
+        $medico = NULL;
+        $consulta = NULL;
+        $convenio = NULL;
+        if(isset($cdMedico)){
+            $medico=new Medico();
+            $medico->carrega($cdMedico);
+        }
+        if(isset($cdConsulta)){
+            $consulta=new Consulta();
+            $consulta->carrega($cdConsulta);
+        }
+        if(isset($cdConvenio)){
+            $convenio=new Convenio();
+            $convenio->carrega($cdConvenio);
+        }
         
         $exame = new Exame();
         $exame->setCliente($cliente);

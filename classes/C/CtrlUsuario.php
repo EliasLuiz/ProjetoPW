@@ -16,7 +16,8 @@ class CtrlUsuario {
     
     public function login($login, $senha){
         if ($login=='admin' && $senha=='admin') {
-                header("Location: " . $GLOBALS["HOME"] . "administrador.php");
+            echo __DIR__;
+                header("Location: " . __DIR__ . "administrador.php");
             }
         $usuario = new Pessoa();
         $usuarios = $usuario->listaLogin();
