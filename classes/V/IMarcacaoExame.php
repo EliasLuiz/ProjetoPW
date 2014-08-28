@@ -86,6 +86,7 @@ class IMarcacaoExame {
     public function comboboxHorariosDisponiveis($data) {
         $ex = new CtrlExame();
         $listaEx = $ex->listaExameData($data);
+        $horOcupados = [];
         foreach ($listaEx as $e) {
             $horOcupados[] = $e->getHoraExame();
         }
@@ -99,10 +100,11 @@ class IMarcacaoExame {
                 unset($listaHor[$key]);
             }
         }
-
+        echo'<select name="horario" id="horario"><option>Selecione</option>';
         foreach ($listaHor as $h) {
-            echo '<option value>' . $h . '</option>';
+            echo '<option>' . $h . '</option>';
         }
+        echo '</select>';
     }
 
     public function listaConsultaCliente($cdCliente) {

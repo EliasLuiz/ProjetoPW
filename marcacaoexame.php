@@ -1,10 +1,11 @@
 <?php
-//session_start();
+session_start();
 require_once __DIR__ . '/classes/M/TipoExame.php';
 require_once __DIR__ . '/classes/M/Convenio.php';
 
 require_once __DIR__ . '/classes/V/IMarcacaoExame.php';
     $interf = new IMarcacaoExame();
+    
 //require_once './classes/V/FuncoesAJAX.php';
 
 //$tipoExame = new TipoExame(); //roda essa pagina agora
@@ -112,7 +113,7 @@ src="js/jquery.maskedinput.js"></script>
                     <fieldset><legend class="texte_legende"></legend>
                         <table cellpadding=5 cellspacing=0 border="0">
                             <thead>
-                                <td>Exame:</td>
+                            <td>Exame:</td>
                                 <td><select name="exames1" id="exames1" onclick="displayVals()"><option>Selecione</option>
                                         <?php
                                         $interf->comboboxTipoExame();
@@ -130,18 +131,16 @@ src="js/jquery.maskedinput.js"></script>
                                     </script>
                                 </td>
                             </tr>
-                            <thead id="exibe2"></thead>
                             <tr>
-                                <td><div id="divhorarios">
-                                    Hor&aacute;rios Dispon&iacute;veis:</td>
-                                <td><select name="horario" id="horario">
-                                        <option>Selecione...</option>
-                                </select></div></td>
+                                <td><div id="divhorarios">Hor&aacute;rios Dispon&iacute;veis:</div></td>
+                                <td><div id="divhorarios"><div id="exibe2"></div></div>
+                                </td>
                             </tr>
                             
                             
                             
-                            <tr>
+                            <tr><td><input type="radio" name="pagamento" id="id_radio1">Particular</td>
+                                <td><input type="radio" name="pagamento" id="id_radio2">Convênio</td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -149,7 +148,11 @@ src="js/jquery.maskedinput.js"></script>
                                     <div id="div1">
                                         <select name="convenio" id="convenio"><option>Selecione</option>
                                             <?php
-                                            $interf->comboboxConvenioCliente($_SESSION['cd']);
+                                            $interf2 = new Convenio();
+                                            $convenios = $interf2->listaConvenio();
+                                            foreach ($convenios as $c) {
+                                            echo '<option value>' . $c['nome'] . '</option>';
+                                            }
                                             ?>
                                         </select>
                                     </div>

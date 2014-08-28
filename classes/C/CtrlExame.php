@@ -50,6 +50,7 @@ class CtrlExame {
     public function listaExameData($data){
         $exame = new Exame();
         $exame->setDataExame($data);
+        $exames = [];
         $lista = $exame->listaDataExame();
         foreach ($lista as $ex){
             $exame->carrega($ex);

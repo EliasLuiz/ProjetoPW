@@ -16,11 +16,10 @@ switch ($acao) {
         
         $myDateTime = DateTime::createFromFormat('d/m/Y', $_POST["cod"]);
         $newDateString = $myDateTime->format('Y-m-d');
-        echo $newDateString;
         require_once './classes/V/IMarcacaoExame.php';
         
         $data = new IMarcacaoExame();
-        $data->comboboxHorariosDisponiveis($_POST["cod"]);
+        $data->comboboxHorariosDisponiveis($newDateString);
 
         
         break;
