@@ -51,7 +51,9 @@ class ICadastroUsuario {
             $this->complemento = $_POST["complemento"];
             $this->bairro = $_POST["bairro"];
             $this->cidade = $_POST["cidade"];
-            $this->medicamentos = $_POST["medicamentos"];
+            if($_POST["medicamento"]){
+                $this->medicamentos = $_POST["nomemedicamentos"];
+            }
         } 
         else {
             $this->crm = $_POST["crm"];
@@ -71,11 +73,13 @@ class ICadastroUsuario {
         if($this->usuario == 'paciente'){
             $valido = $valido && $this->validaAlfabeticoEspaco($this->rua);
             $valido = $valido && $this->validaNumerico($this->numero);
-            $valido = $valido && $this->validaAlfabeticoEspaco($this->complemento);
+            $valido = $valido && ($this->validaAlfabeticoEspaco($this->complemento)
+                    || empty($this->complemento) );
             $valido = $valido && $this->validaAlfabeticoEspaco($this->bairro);
             $valido = $valido && $this->validaAlfabeticoEspaco($this->cidade);
-            if($this->medicamentos){
-                $valido = $valido && $this->validaAlfabeticoEspaco($this->medicamentos);
+            if(isset($this->medicamentos)){
+                $valido = $valido && ($this->validaAlfabeticoEspaco($this->medicamentos)
+                    || empty($this->medicamentos) );
             }
         }
         else{

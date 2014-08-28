@@ -26,6 +26,5 @@
 </html>
 -->
 <?php
-$GLOBALS["HOME"] = __DIR__;
 //require_once './html/index.htm';
 header("location:index.htm");
