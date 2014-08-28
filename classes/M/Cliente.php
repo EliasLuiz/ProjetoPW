@@ -104,7 +104,7 @@ class Cliente extends Pessoa {
                     . "WHERE p.login = '" . $this->login . "' and p.senha = '" . $this->senha .
                     "' and b.cdBairro = " . $this->bairro->getCdBairro();
             $result = $this->query($sql) or die('Não foi possível buscar Pessoa' .
-                    ' no banco de dados: '.  $this->error());
+                    ' no banco de dados: '.  $this->dberror());
             $result = $this->fetch_array($result);
             
             $sql = "INSERT INTO TB_Cliente(cdPessoa, cdBairro, rua, numeroEnd," .
@@ -113,13 +113,16 @@ class Cliente extends Pessoa {
                     "','" . $this->complementoEnd . "','" . $this->medicamentos . "')";
         }
         
+        var_dump($sql);
+        echo '<br>';
+        
         //Executa SQL e testa sucesso
-        $this->query($sql) or die('Não foi possível salvar Funcionario no' .
-                ' banco de dados: '.$this->error());
+        $this->query($sql) or die('Não foi possível salvar Cliente no' .
+                ' banco de dados: '.$this->dberror());
     }
     public function lista(){
         $sql = "SELECT cdPessoa, nmPessoa FROM TB_Cliente c, TB_Pessoa p "
-            . "WHERE c.cdPessoa = p.cdPessoa";
+            . "WHERE c.cdPessoa = p.cdPessoa and p.status=1";
         $result = $this->query($sql);
         while($row = $this->fetch_array($result)){
             $clientes[$row['nmPessoa']] = $row['cdPessoa'];

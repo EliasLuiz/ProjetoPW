@@ -48,13 +48,13 @@ class ICadastroUsuario {
         }
         $this->senha = $_POST["senha"];
         $this->usuario = $_POST["usuario"];
-        if ($this->usuario == 'paciente') {
+        if ($this->usuario == 'Paciente') {
             $this->rua = $_POST["rua"];
             $this->numero = $_POST["numero"];
             $this->complemento = $_POST["complemento"];
             $this->bairro = $_POST["bairro"];
             $this->cidade = $_POST["cidade"];
-            if($_POST["medicamento"]){
+            if($_POST["medicamento"] == 'sim'){
                 $this->medicamentos = $_POST["nomemedicamentos"];
             }
         } 
@@ -107,7 +107,7 @@ class ICadastroUsuario {
         //Coisas comuns a Pessoa
         $user->setNome($this->nome);
         $user->setSexo($this->sexo);
-        $user->setTelefone($this->ddd.$this->telefone);
+        $user->setTelefone($this->telefone);
         $user->setCpf($this->cpf);
         $user->setRg($this->rg);
         $user->setEmail($this->email);
@@ -120,7 +120,9 @@ class ICadastroUsuario {
             $user->setComplementoEnd($this->complemento);
             $bairro = new Bairro();
             $bairro->setNome($this->bairro);
-            $bairro->setCidade($this->cidade);
+            $cidade = new Cidade();
+            $cidade->setNome($this->cidade);
+            $bairro->setCidade($cidade);
             $user->setBairro($bairro);
             $user->setMedicamentos($this->medicamentos);
             $ctrl->cadastraCliente($user);

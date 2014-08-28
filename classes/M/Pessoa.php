@@ -145,13 +145,13 @@ class Pessoa {
     }
     public function lista() {
         $sql = "SELECT p.cdPessoa, nmPessoa FROM TB_Cliente c, TB_Pessoa p "
-                . "WHERE c.cdPessoa = p.cdPessoa";
+                . "WHERE c.cdPessoa = p.cdPessoa and p.status=1";
         $resultc = $this->query($sql);
         $sql = "SELECT p.cdPessoa, nmPessoa FROM TB_Medico m, TB_Pessoa p "
-                . "WHERE m.cdPessoa = p.cdPessoa";
+                . "WHERE m.cdPessoa = p.cdPessoa and p.status=1";
         $resultm = $this->query($sql);
         $sql = "SELECT p.cdPessoa, nmPessoa FROM TB_Medico m, TB_Pessoa p "
-                . "WHERE m.cdPessoa = p.cdPessoa";
+                . "WHERE m.cdPessoa = p.cdPessoa and p.status=1";
         $resultf = $this->query($sql);
         while ($row = $this->fetch_array($resultc)) {
             $pessoas[$row['nmPessoa']] = array('cdPessoa' => $row['cdPessoa'],
@@ -169,13 +169,13 @@ class Pessoa {
     }
     public function listaLogin() {
         $sql = "SELECT p.cdPessoa, login FROM TB_Cliente c, TB_Pessoa p "
-                . "WHERE c.cdPessoa = p.cdPessoa";
+                . "WHERE c.cdPessoa = p.cdPessoa and p.status=1";
         $resultc = $this->query($sql);
         $sql = "SELECT p.cdPessoa, login FROM TB_Medico m, TB_Pessoa p "
-                . "WHERE m.cdPessoa = p.cdPessoa";
+                . "WHERE m.cdPessoa = p.cdPessoa and p.status=1";
         $resultm = $this->query($sql);
         $sql = "SELECT p.cdPessoa, login FROM TB_Funcionario f, TB_Pessoa p "
-                . "WHERE f.cdPessoa = p.cdPessoa";
+                . "WHERE f.cdPessoa = p.cdPessoa and p.status=1";
         $resultf = $this->query($sql);
         while ($row = $this->fetch_array($resultc)) {
             $pessoas[$row['login']] = array('cdPessoa' => $row['cdPessoa'],

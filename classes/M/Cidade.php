@@ -47,7 +47,8 @@ class Cidade {
         $result = $this->query($sql);
         $result = $this->fetch_array($result);
         
-        if(!isset($result["cdCidade"])){
+        if(empty($result["cdCidade"])){
+            
             $sql = "INSERT INTO TB_Cidade(cdCidade,nmCidade)" . " VALUES ('','" .
                     $this->nome . "')";
             

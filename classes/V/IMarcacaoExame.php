@@ -76,6 +76,16 @@ class IMarcacaoExame {
         }
     }
 
+    public function comboboxHorariosDisponiveis($data) {
+        $ex = new CtrlExame();
+        $cliente = new Cliente();
+        $cliente->carrega($cdCliente);
+        $convenios = $cliente->listaConvenios();
+        foreach ($convenios as $c) {
+            echo '<option value>' . $c['nome'] . '</option>';
+        }
+    }
+
     public function listaConsultaCliente($cdCliente) {
         $consulta = new Consulta();
         $cliente = new Cliente();

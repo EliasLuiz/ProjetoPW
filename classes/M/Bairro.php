@@ -56,16 +56,20 @@ class Bairro {
     }
     public function salva(){
         
+        $this->cidade->salva();
+        
         //Vê se Bairro já está no banco
         $sql = "SELECT cdBairro, cdCidade FROM TB_Bairro b, TB_Cidade c " .
                 "WHERE b.nmBairro = '" . $this->nome . "' and c.cdCidade = b.cdCidade" .
                 " and c.nmCidade = '" . $this->cidade->getNome() . "'";
-        $result = $this->query($sql) or die('Não foi possível carregar' .
-                ' cidade do banco de dados: '.$this->dberror());
+        $result = $this->query($sql) /*or die('Não foi possível carregar' .
+                ' bairro do banco de dados: '.$this->dberror())*/;
         $result = $this->fetch_array($result);
         
+        var_dump($result);
+        
         //Gera SQL para inserir Bairro
-        if(!isset($result["cdBairro"])){
+        if(empty($result["cdBairro"])){
             
             //Busca chave de Cidade no banco
             $sql = "SELECT cdCidade FROM TB_Cidade WHERE nmCidade = '" . 
