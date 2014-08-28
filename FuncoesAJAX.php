@@ -12,6 +12,9 @@ switch ($acao) {
                 . "<tr><td>Preço: </td><td>R$ ".$exame->getPreco()."</td></tr>";
         
         break;
+    case 'gerahorarios':
+        
+        break;
     default:
         break;
 }
