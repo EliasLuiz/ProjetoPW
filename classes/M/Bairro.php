@@ -92,6 +92,7 @@ class Bairro {
     }
     
     public function getCdBairro(){
+        
         $sql = "SELECT cdBairro FROM TB_Bairro b, TB_Cidade c WHERE b.nmBairro = '" . 
                 $this->nome . "' and b.cdCidade = c.cdCidade and c.nmCidade = '" . 
                 $this->cidade->getNome() . "'";

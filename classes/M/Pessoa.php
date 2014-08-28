@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /**
  * Description of Pessoa
@@ -100,7 +100,7 @@ class Pessoa {
         $this->email = $result['email'];
     }
     public function salva() {
-
+        
         //Vê se Pessoa já está no banco
         $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->login . "'";
         $result = $this->query($sql) or die('Não foi possível buscar Pessoa '
