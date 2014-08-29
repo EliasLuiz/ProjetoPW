@@ -128,4 +128,11 @@ trait Regexp {
         return $data;
     }
 
+    // Converte hora para o formato HH:MM.
+    public function retiraSegundo($subject) {
+        $timestamp = strtotime($subject) or die();
+        $data = date('H:i', $timestamp);
+        return $data;
+    }
+
 }

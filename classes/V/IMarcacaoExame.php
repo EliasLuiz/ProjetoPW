@@ -102,7 +102,7 @@ class IMarcacaoExame {
         }
         echo'<select name="horario" id="horario"><option>Selecione</option>';
         foreach ($listaHor as $h) {
-            echo '<option>' . $h . '</option>';
+            echo '<option>' . $this->retiraSegundo($h) . '</option>';
         }
         echo '</select>';
     }
