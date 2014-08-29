@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once __DIR__ . '/classes/V/IMarcacaoExame.php';
 
 if (isset($_POST['exames1'])) {

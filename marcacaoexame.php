@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require_once __DIR__ . '/classes/M/TipoExame.php';
 require_once __DIR__ . '/classes/M/Convenio.php';
 
