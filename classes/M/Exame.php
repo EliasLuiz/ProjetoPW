@@ -132,15 +132,15 @@ class Exame {
         $result = $this->fetch_array($result);
 
         $this->cliente->carrega($result['cdCliente']);
-        $this->medico->carrega($result['cdMedico']);
-        $this->consulta->carrega($result['cdConsulta']);
+        //$this->medico->carrega($result['cdMedico']);
+        //$this->consulta->carrega($result['cdConsulta']);
         $this->tipoExame->carrega($result['cdTipoExame']);
         $this->convenio->carrega($result['cdConvenio']);
         $this->dataExame = $result['dtExame'];
         $this->horaExame = $result['hrExame'];
         $this->coleta = $result['coleta'];
-        $this->dataColeta = $result['dtColetaDom'];
-        $this->url = $result['URLExame'];
+        //$this->dataColeta = $result['dtColetaDom'];
+        //$this->url = $result['URLExame'];
     }
 
     public function salva() {
