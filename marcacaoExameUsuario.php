@@ -8,4 +8,6 @@ if (isset($_POST['exames1'])) {
             $_POST['exames1'], $_POST['convenio'], $_POST['data'], 
             $_POST['horario'], $_POST['dataColeta']);
 }
+
+header("Location: " . __DIR__ . "/../../cliente.php");
 ?>
