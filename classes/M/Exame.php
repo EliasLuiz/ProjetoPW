@@ -138,7 +138,7 @@ class Exame {
         $this->convenio->carrega($result['cdConvenio']);
         $this->dataExame = $result['dtExame'];
         $this->horaExame = $result['hrExame'];
-        $this->coleta = $result['coleta'];
+        $this->coleta = $result['dtColetaDom'];
         //$this->dataColeta = $result['dtColetaDom'];
         //$this->url = $result['URLExame'];
     }
