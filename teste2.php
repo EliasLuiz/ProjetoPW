@@ -66,7 +66,7 @@ session_start();
                 <div id="menu_haut">
                     <!--<img src="images/spacer.gif" width="1" height="50" /><br /><a href="javascript:showPage('_faq.htm', '');" class="lienHaut">FAQ</a>  |  <a href="javascript:showPage('_about.htm', '');" class="lienHaut">ABOUT US</a>  |  <a href="javascript:showPage('cadastroUsuario.htm', '');" class="lienHaut">CADASTRE-SE</a>-->
 
-                    <h2>Seja Bem-Vindo <?= $_SESSION['nome'] ?><!--php--></h2><br>
+                    <h2>Seja Bem-Vindo<!--php--></h2><br>
                         <form action="Logout.php" method="post">
                             <input class="button_send" type="submit" value="Sair">
                         </form>
@@ -74,13 +74,13 @@ session_start();
                 <div id="menu_img">
                     <div style="position: relative;">
 
-                        <div id="slider">
+                        <div id="slider" >
                             <ul>				
-                                <li><a href="http://templatica.com/preview/30"><img src="images/01.jpg" alt="Css Template Preview" /></a></li>
-                                <li><a href="http://templatica.com/preview/7"><img src="images/comp4.jpg" alt="Css Template Preview" /></a></li>
-                                <li><a href="http://templatica.com/preview/25"><img src="images/03.jpg" alt="Css Template Preview" /></a></li>
-                                <li><a href="http://templatica.com/preview/26"><img src="images/04.jpg" alt="Css Template Preview" /></a></li>
-                                <li><a href="http://templatica.com/preview/27"><img src="images/05.jpg" alt="Css Template Preview" /></a></li>			
+                                
+                                <li><a href="http://templatica.com/preview/7"><img src="images/02.jpg" alt="Css Template Preview" width="900px" height="220px"/></a></li>
+                                <li><a href="http://templatica.com/preview/25"><img src="images/03.jpg" alt="Css Template Preview" width="900px" height="220px"/></a></li>
+                                <li><a href="http://templatica.com/preview/26"><img src="images/04.jpg" alt="Css Template Preview" width="900px" height="220px"/></a></li>
+                                <li><a href="http://templatica.com/preview/27"><img src="images/05.jpg" alt="Css Template Preview" width="900px" height="220px"/></a></li>			
                             </ul>
                         </div>
 
