@@ -96,7 +96,7 @@ class IMarcacaoExame {
 
         foreach ($horOcupados as $h) {
             $key = array_search($h, $listaHor);
-            if ($key !== false) {
+            if ($key !== NULL) {
                 unset($listaHor[$key]);
             }
         }
