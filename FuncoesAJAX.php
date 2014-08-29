@@ -13,13 +13,10 @@ switch ($acao) {
         
         break;
     case 'gerahorarios':
-        
-        $myDateTime = DateTime::createFromFormat('d/m/Y', $_POST["cod"]);
-        $newDateString = $myDateTime->format('Y-m-d');
         require_once './classes/V/IMarcacaoExame.php';
         
         $data = new IMarcacaoExame();
-        $data->comboboxHorariosDisponiveis($newDateString);
+        $data->comboboxHorariosDisponiveis($_POST["cod"]);
 
         
         break;
