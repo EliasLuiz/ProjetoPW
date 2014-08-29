@@ -139,7 +139,12 @@ class IMarcacaoExame {
             die("Dados invalidos");
         }
         
+        echo '<br> validou';
+        
         $ctrl = new CtrlExame();
+        
+        echo '<br> vai chamar funcao de ctrl';
+        
         $ctrl->marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
                 $cdConvenio, $dtExame, $hrExame, $dtColeta);
         
