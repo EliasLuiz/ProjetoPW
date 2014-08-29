@@ -138,7 +138,8 @@ class Exame {
         $this->convenio->carrega($result['cdConvenio']);
         $this->dataExame = $result['dtExame'];
         $this->horaExame = $result['hrExame'];
-        $this->coleta = $result['dtColetaDom'];
+        $this->coleta = $result['coletaDom'];
+        $this->dataColeta = $result['dtColetaDom'];
         //$this->dataColeta = $result['dtColetaDom'];
         //$this->url = $result['URLExame'];
     }
@@ -147,35 +148,45 @@ class Exame {
         //Insere Exame no banco. Não tem opção de atualizar porque não tem nada que vale ser alterado
         //Se achar ruim depois muda
         
-        echo '<br> iniciou Exame.salva';
         
         //Trata o caso dos argumentos optativos
-        if(isset($this->medico)){
+        /*if(isset($this->medico)){
             $medico = $this->medico->getCdPessoa();
-        }else{
-            $medico = "";
-        }
-        if(isset($this->consulta)){
+        }else{*/
+            $medico = "''";
+        //}
+       /* if(isset($this->consulta)){
             $consulta = $this->consulta->getCdConsulta();
-        }else{
-            $consulta = "";
+        }else{*/
+            $consulta = "''";
+        //}
+            //$convenio = "";
+        $this->url = "";
+        echo '<br>Exame:';
+        var_dump($this);
+        
+        
+        if(isset($this->dataColeta)){
+            $this->coleta = 1;
+        } else {
+            $this->coleta = 0;
         }
-        if(isset($this->convenio)){
+        
+        /*if(empty($this->convenio->getCdConvenio())){*/
+            $convenio = "''";/*
+        } else {
             $convenio = $this->convenio->getCdConvenio();
-        }else{
-            $convenio = "";
-        }
-        
-        
+        }*/
+        echo '<br><br>';
         $sql = "INSERT INTO TB_Exame(cdExame, cdCliente, cdMedico, cdConsulta, cdTipoExame, cdConvenio,"
                 . " dtExame, hrExame, coletaDom, dtColetaDom, URLExame) VALUES "
                 . "('', " . $this->cliente->getCdPessoa() . "," . $medico . ","
                 . $consulta . "," . $this->tipoExame->getCdTipoExame() . ","
-                . $convenio . ",'" . $this->dataExame . "',"  . $this->horaExame . "'," 
-                . $this->coleta . "," . ",'" . $this->dataColeta . "','." . $this->url . "')";
+                . $convenio . ",'" . $this->dataExame . "','"  . $this->horaExame . "'," 
+                . $this->coleta . ",'" . $this->dataColeta . "','" . $this->url . "')";
+        var_dump($sql);
         $this->query($sql) or die('Não foi possível salvar' .
                         ' Exame do banco de dados: ' . $this->dberror());
-        
         echo '<br> terminou Exame.salva';
     }
 

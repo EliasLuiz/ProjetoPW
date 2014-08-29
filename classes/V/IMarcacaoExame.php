@@ -68,13 +68,11 @@ class IMarcacaoExame {
               </div>';
     }
 
-    public function comboboxConvenioCliente($cdCliente) {
+    public function comboboxConvenio() {
         $convenio = new Convenio();
-        $cliente = new Cliente();
-        $cliente->carrega($cdCliente);
-        $convenios = $cliente->listaConvenios();
+        $convenios = $convenio->listaConvenio();
         foreach ($convenios as $c) {
-            echo '<option value>' . $c['nome'] . '</option>';
+            echo '<option value=' . $c['codigo'] .'>' . $c['nome'] . '</option>';
         }
     }
 
@@ -84,12 +82,12 @@ class IMarcacaoExame {
 
     public function comboboxHorariosDisponiveis($data) {
         $ex = new CtrlExame();
-        $listaEx = $ex->listaExameData($data);
+        $data = $this->validaData($data);
+        $listaEx = $ex->listaDataExame($data);
         $horOcupados = [];
         foreach ($listaEx as $e) {
             $horOcupados[] = $e->getHoraExame();
         }
-
         $out = new Outros();
         $listaHor = $out->listaHorarios();
 
@@ -128,51 +126,31 @@ class IMarcacaoExame {
         }
     }
 
-    public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $nmTipoExame,
-            $cdConvenio, $dtExame, $hrExame, $dtColeta) {
-        
-        echo '<br> iniciou IMarcacaoExame.marcaExame';
-        
-        /*if(!$this->valida($cdCliente, $cdMedico, $cdConsulta, $nmTipoExame, 
-                $cdConvenio, $dtExame, $hrExame, $dtColeta)){
+    public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, $cdConvenio, $dtExame, $hrExame, $dtColeta) {
+
+        if (!$this->valida($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, $cdConvenio, $dtExame, $hrExame, $dtColeta)) {
             die("Dados invalidos");
-        }*/
-        
-        echo '<br> validou';
-        
+        }
+
         $ctrl = new CtrlExame();
-        
-        echo '<br> vai chamar funcao de ctrl';
-        
-        $te = new TipoExame();
-        $te->setNome($nmTipoExame);
-        $cdTipoExame = $te->getCdTipoExame();
-        
-        $ctrl->marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
-                $cdConvenio, $dtExame, $hrExame, $dtColeta);
-        
-        echo '<br> terminou IMarcacaoExame.marcaExame';
+
+        $ctrl->marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, $cdConvenio, $dtExame, $hrExame, $dtColeta);
     }
-    
-    public function valida($cdCliente, $cdMedico, $cdConsulta, $nmTipoExame,
-            $cdConvenio, &$dtExame, &$hrExame, &$dtColeta){
-        
-        echo '<br> iniciou valida';
-        
+
+    public function valida($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, $cdConvenio, &$dtExame, &$hrExame, &$dtColeta) {
+
         $valido = TRUE;
         $valido = $valido && $this->validaNumerico($cdCliente);
         //$valido = $valido && ($this->validaNumerico($cdMedico) || empty($cdMedico));
         //$valido = $valido && ($this->validaNumerico($cdConsulta) || empty($cdConsulta));
-        $valido = $valido && $this->validaAlfanumerico($nmTipoExame);
+        $valido = $valido && $this->validaNumerico($cdTipoExame);
         $valido = $valido && ($this->validaNumerico($cdConvenio) || empty($cdConvenio));
-        $valido = $valido && $this->validaData($dtExame);
-        $valido = $valido && $this->validaHora($hrExame);
+        $valido = $valido && isset($dtExame);
+        $valido = $valido && isset($hrExame);
         //$valido = $valido && ($this->validaData($dtColeta) || empty($dtColeta));
-        
         //$dtColeta = $this->validaData($dtColeta);
         $dtExame = $this->validaData($dtExame);
         $hrExame = $this->validaHora($hrExame);
-        echo '<br> termina valida';
         return $valido;
     }
 

@@ -19,7 +19,7 @@ require_once __DIR__ . '/classes/V/IMarcacaoExame.php';
 
     jQuery(function($) {
         $( "#data" ).datepicker({
-        dateFormat: 'dd/mm/yy',
+        dateFormat: 'dd-mm-yy',
     });
 
 
@@ -148,11 +148,7 @@ src="js/jquery.maskedinput.js"></script>
                                     <div id="div1">
                                         <select name="convenio" id="convenio"><option>Selecione</option>
                                             <?php
-                                            $interf2 = new Convenio();
-                                            $convenios = $interf2->listaConvenio();
-                                            foreach ($convenios as $c) {
-                                            echo '<option value>' . $c['nome'] . '</option>';
-                                            }
+                                            $interf->comboboxConvenio();
                                             ?>
                                         </select>
                                     </div>
