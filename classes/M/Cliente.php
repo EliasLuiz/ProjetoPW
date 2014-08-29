@@ -70,11 +70,11 @@ class Cliente extends Pessoa {
                 . ' do banco de dados: '.$this->dberror());
         $result = $this->fetch_array($result);
             
-        $this->rua = $result['rua'];
-        $this->numeroEnd = $result['numeroEnd'];
-        $this->complementoEnd = $result['complementoEnd'];
+        $this->rua = $result['ruaCliente'];
+        $this->numeroEnd = $result['nEndCliente'];
+        $this->complementoEnd = $result['complementoEndCliente'];
         $this->medicamentos = $result['medicamentos'];
-        $this->bairro->carregaMySQL($result['cdBairro']);
+        $this->bairro->carrega($result['cdBairro']);
     }
     public function salva(){
         
