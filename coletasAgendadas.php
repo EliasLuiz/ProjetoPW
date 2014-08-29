@@ -36,15 +36,21 @@
             <div class="clear"></div><br>
 
             <div style="font-family: arial,sans-serif;">
-                <p>Data: <input type="text" id="calendario" size="8" onchange="displayVals3()"/>&nbsp;
+                
+                <table cellpadding=5 cellspacing=0>
+                    <tr>
+                <td>Data: <input type="text" id="calendario" size="8" onchange="displayVals3()"/>&nbsp;
                     <script>
                         $(function() {
                             // $("#calendario").datepicker();
                         });
                     </script>
                     
-                </p>
-                <p id="exibe3"></p>
+                </td>
+                    <tr>
+                        </table>
+                <div id="exibe3"></div>
+                
 
             </div>
             <div class="clear"></div>

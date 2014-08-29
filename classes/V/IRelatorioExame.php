@@ -17,8 +17,9 @@ class IRelatorioExame {
         $ctrl = new CtrlExame();
         $lista = $ctrl->listaExameData($date);
         //imprime a data
-        echo '<table> <tr> <td> Nome do Cliente </td> <td> Exame </td>'
-        . ' <td> Hor&aacute;rio </td> <td> Conv&ecirc;nio </td> </tr>';
+        
+        echo '<table border="1px" bordercolor="#3333FF"> <tr> <td><b><font size="3"> Nome do Cliente </font></b></td> <td><b><font size="3"> Exame </font></b></td>'
+        . ' <td><b><font size="3"> Hor&aacute;rio </font></b></td> <td><b><font size="3"> Conv&ecirc;nio </font></b></td> </tr>';
         foreach ($lista as $e){
             echo '<tr> <td>'. $e->getCliente()->getNome() .'</td>'
                     .'<td>'. $e->getTipoExame()->getNome()  . ' </td>'

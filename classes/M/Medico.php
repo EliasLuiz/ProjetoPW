@@ -31,7 +31,7 @@ class Medico extends Pessoa{
         
         //Gera SQL e busca Medico no banco, carregando se não houver erro
         $sql = "SELECT * TB_Medico WHERE cdPessoa = " . $cdPessoa;
-        $result = $this->query($sql) or die('Não foi possível carregar Pessoa' .
+        $result = $this->query($sql) or die('Não foi possível carregar Medico' .
                 ' do banco de dados: '.$this->dberror());
             $result = $this->fetch_array($result);
             $result = $this->fetch_array($result);
@@ -45,7 +45,7 @@ class Medico extends Pessoa{
         //Vê se Medico já está no banco
         $sql = "SELECT * FROM TB_Pessoa p, TB_Medico m WHERE p.login = '" . $this->login .
                "' and p.senha = '" . $this->senha . "' and p.cdPessoa = m.cdPessoa";
-        $result = $this->query($sql) or die('Não foi possível buscar Pessoa no' .
+        $result = $this->query($sql) or die('Não foi possível buscar Medico no' .
                 ' banco de dados: '.  $this->dberror());
         $result = $this->fetch_array($result);
         

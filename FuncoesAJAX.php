@@ -22,6 +22,9 @@ switch ($acao) {
         break;
     
     case 'gerarelatorio':
+        require_once './classes/V/IRelatorioExame.php';
+        $exames = new IRelatorioExame();
+        $exames->listaExameData($_POST["cod"]);
         break;
     default:
         break;

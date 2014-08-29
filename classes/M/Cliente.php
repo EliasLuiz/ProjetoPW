@@ -63,7 +63,6 @@ class Cliente extends Pessoa {
         
         //Busca a parte de Cliente que pertence a Pessoa no Banco
         parent::carrega($cdCliente);
-        
         //Gera SQL e busca Cliente no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Cliente WHERE cdPessoa = " . $cdCliente;
         $result = $this->query($sql) or die('Não foi possível carregar Pessoa'

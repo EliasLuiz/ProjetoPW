@@ -133,10 +133,10 @@ class IMarcacaoExame {
         
         echo '<br> iniciou IMarcacaoExame.marcaExame';
         
-        if(!$this->valida($cdCliente, $cdMedico, $cdConsulta, $nmTipoExame, 
+        /*if(!$this->valida($cdCliente, $cdMedico, $cdConsulta, $nmTipoExame, 
                 $cdConvenio, $dtExame, $hrExame, $dtColeta)){
             die("Dados invalidos");
-        }
+        }*/
         
         echo '<br> validou';
         
@@ -161,18 +161,18 @@ class IMarcacaoExame {
         
         $valido = TRUE;
         $valido = $valido && $this->validaNumerico($cdCliente);
-        $valido = $valido && ($this->validaNumerico($cdMedico) || empty($cdMedico));
-        $valido = $valido && ($this->validaNumerico($cdConsulta) || empty($cdConsulta));
+        //$valido = $valido && ($this->validaNumerico($cdMedico) || empty($cdMedico));
+        //$valido = $valido && ($this->validaNumerico($cdConsulta) || empty($cdConsulta));
         $valido = $valido && $this->validaAlfanumerico($nmTipoExame);
         $valido = $valido && ($this->validaNumerico($cdConvenio) || empty($cdConvenio));
         $valido = $valido && $this->validaData($dtExame);
         $valido = $valido && $this->validaHora($hrExame);
-        $valido = $valido && ($this->validaData($dtColeta) || empty($dtColeta));
+        //$valido = $valido && ($this->validaData($dtColeta) || empty($dtColeta));
         
-        $dtColeta = $this->validaData($dtColeta);
+        //$dtColeta = $this->validaData($dtColeta);
         $dtExame = $this->validaData($dtExame);
         $hrExame = $this->validaHora($hrExame);
-        
+        echo '<br> termina valida';
         return $valido;
     }
 

@@ -13,6 +13,7 @@ class CtrlExame {
         echo '<br> iniciou CtrlExame.marcaExame';
         $cliente=new Cliente();
         $cliente->carrega($cdCliente);
+        echo '<br>cdcliente'.$cdCliente;
         echo '<br> carregou cliente: '. var_dump($cliente->getNome());
         $tipoExame=new TipoExame();
         $tipoExame->carrega($cdTipoExame);
@@ -55,6 +56,7 @@ class CtrlExame {
     public function listaExameData($data){
         $exame = new Exame();
         $exame->setDataExame($data);
+        $cont = 0;
         $exames = [];
         $lista = $exame->listaDataExame();
         foreach ($lista as $ex){
