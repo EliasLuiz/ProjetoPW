@@ -6,7 +6,6 @@ require_once __DIR__ . '/../M/Cliente.php';
 require_once __DIR__ . '/../M/Medico.php';
 require_once __DIR__ . '/../M/Convenio.php';
 require_once __DIR__ . '/../M/Outros.php';
-
 require_once __DIR__ . '/../V/Regexp.php';
 
 /**
@@ -129,12 +128,12 @@ class IMarcacaoExame {
         }
     }
 
-    public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame,
+    public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $nmTipoExame,
             $cdConvenio, $dtExame, $hrExame, $dtColeta) {
         
         echo '<br> iniciou IMarcacaoExame.marcaExame';
         
-        if(!$this->valida($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
+        if(!$this->valida($cdCliente, $cdMedico, $cdConsulta, $nmTipoExame, 
                 $cdConvenio, $dtExame, $hrExame, $dtColeta)){
             die("Dados invalidos");
         }
@@ -145,20 +144,26 @@ class IMarcacaoExame {
         
         echo '<br> vai chamar funcao de ctrl';
         
+        $te = new TipoExame();
+        $te->setNome($nmTipoExame);
+        $cdTipoExame = $te->getCdTipoExame();
+        
         $ctrl->marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
                 $cdConvenio, $dtExame, $hrExame, $dtColeta);
         
         echo '<br> terminou IMarcacaoExame.marcaExame';
     }
     
-    public function valida($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame,
+    public function valida($cdCliente, $cdMedico, $cdConsulta, $nmTipoExame,
             $cdConvenio, &$dtExame, &$hrExame, &$dtColeta){
+        
+        echo '<br> iniciou valida';
         
         $valido = TRUE;
         $valido = $valido && $this->validaNumerico($cdCliente);
         $valido = $valido && ($this->validaNumerico($cdMedico) || empty($cdMedico));
         $valido = $valido && ($this->validaNumerico($cdConsulta) || empty($cdConsulta));
-        $valido = $valido && $this->validaNumerico($cdTipoExame);
+        $valido = $valido && $this->validaAlfanumerico($nmTipoExame);
         $valido = $valido && ($this->validaNumerico($cdConvenio) || empty($cdConvenio));
         $valido = $valido && $this->validaData($dtExame);
         $valido = $valido && $this->validaHora($hrExame);
