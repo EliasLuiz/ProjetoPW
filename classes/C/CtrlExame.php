@@ -32,19 +32,19 @@ class CtrlExame {
         
         $exame = new Exame();
         $exame->setCliente($cliente);
-        $exame->setMedico($medico);
-        $exame->setConsulta($consulta);
+        //$exame->setMedico($medico);
+        //$exame->setConsulta($consulta);
         $exame->setTipoExame($tipoExame);
         $exame->setConvenio($convenio);
         $exame->setDataExame($dtExame);
         $exame->setHoraExame($hrExame);
-        if(isset($dtColeta)){
+        /*if(isset($dtColeta)){
             $exame->setColeta(TRUE);
             $exame->setDataColeta($dtColeta);
         }
-        else{
+        else{*/
             $exame->setColeta(FALSE);
-        }
+        //}
         $exame->salva();
     }
     public function listaExameData($data){

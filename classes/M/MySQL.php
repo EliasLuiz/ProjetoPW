@@ -25,10 +25,6 @@ trait MySQL {
         return mysql_fetch_array($result);
     }
     protected function dberror(){
-        var_dump($this->con);
-        echo '<br>';
-        echo 'erro: ' . mysql_error();
-        echo '<br>';
         return mysql_error();
     }
     protected function escape_string($string){

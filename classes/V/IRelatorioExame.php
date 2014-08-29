@@ -18,11 +18,12 @@ class IRelatorioExame {
         $lista = $ctrl->listaExameData($date);
         //imprime a data
         echo '<table> <tr> <td> Nome do Cliente </td> <td> Exame </td>'
-        . ' <td> Horário </td> </tr>';
+        . ' <td> Hor&aacute;rio </td> <td> Conv&ecirc;nio </td> </tr>';
         foreach ($lista as $e){
             echo '<tr> <td>'. $e->getCliente()->getNome() .'</td>'
                     .'<td>'. $e->getTipoExame()->getNome()  . ' </td>'
-                    .'<td>'. $e->getHoraExame() .'</td> </tr>';
+                    .'<td>'. $e->getHoraExame() .'</td> '
+                    .'<td>'. $e->getConvenio()->getNome() .'</td> </tr>';
         }
         echo '</table>';
     }
