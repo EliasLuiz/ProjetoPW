@@ -147,6 +147,7 @@ class Exame {
         //Insere Exame no banco. Não tem opção de atualizar porque não tem nada que vale ser alterado
         //Se achar ruim depois muda
         
+        echo '<br> iniciou Exame.salva';
         
         //Trata o caso dos argumentos optativos
         if(isset($this->medico)){
@@ -174,6 +175,8 @@ class Exame {
                 . $this->coleta . "," . ",'" . $this->dataColeta . "','." . $this->url . "')";
         $this->query($sql) or die('Não foi possível salvar' .
                         ' Exame do banco de dados: ' . $this->dberror());
+        
+        echo '<br> terminou Exame.salva';
     }
 
     public function remove() {

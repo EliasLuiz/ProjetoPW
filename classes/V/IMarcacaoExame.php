@@ -132,6 +132,8 @@ class IMarcacaoExame {
     public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame,
             $cdConvenio, $dtExame, $hrExame, $dtColeta) {
         
+        echo '<br> iniciou IMarcacaoExame.marcaExame';
+        
         if(!$this->valida($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
                 $cdConvenio, $dtExame, $hrExame, $dtColeta)){
             die("Dados invalidos");
@@ -140,6 +142,8 @@ class IMarcacaoExame {
         $ctrl = new CtrlExame();
         $ctrl->marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
                 $cdConvenio, $dtExame, $hrExame, $dtColeta);
+        
+        echo '<br> terminou IMarcacaoExame.marcaExame';
     }
     
     public function valida($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame,
