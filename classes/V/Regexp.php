@@ -120,6 +120,7 @@ trait Regexp {
         $data = date('Y-m-d', $timestamp);
         return $data;
     }
+        
 
     // Converte hora para o formato HH:MM:SS.
     public function validaHora($subject) {

@@ -244,6 +244,9 @@ class Exame {
                 . "ORDER BY hrExame ASC";
         $result = $this->query($sql);
         $exames = [];
+        if(empty($result)){
+            return NULL;
+        }
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }
@@ -251,8 +254,12 @@ class Exame {
     }
 
     public function listaDataColeta() {
-        $sql = "SELECT cdExame FROM TB_Exame WHERE dtExame = '" . $this->dataColeta . "'";
+        $exames=[];
+        $sql = "SELECT cdExame FROM TB_Exame WHERE dtColetaDom = '" . $this->dataColeta . "'";
         $result = $this->query($sql);
+        if(empty($result)){
+            return NULL;
+        }
         while ($row = $this->fetch_array($result)) {
             $exames[] = $row['cdExame'];
         }

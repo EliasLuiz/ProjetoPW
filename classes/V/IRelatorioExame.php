@@ -40,6 +40,9 @@ class IRelatorioExame {
         
     }
     public function listaExameDataColeta($data){
+        $date = $this->validaData($data);
+        $ctrl = new CtrlExame();
+        $ctrl->listaExameDataColeta($date);
         
     }
 }

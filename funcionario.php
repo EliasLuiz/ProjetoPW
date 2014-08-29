@@ -72,7 +72,7 @@ session_start();
                                         <li style="width: 265px;"></li>
                                         <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('cadastroresultados.html', '');" title="aller � la section 1"><br />CADASTRAR RESULTADO</a></li>
                                         <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('coletasAgendadas.php', '');" title="aller � la section 2"><br />COLETAS AGENDADAS</a></li>
-                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('examesMarcados.php', '');" title="aller � la section 3"><br />EXAMES AGENDADOS</a></li>
+                                        <li style="background: url(images/azulclaro3.jpg) no-repeat; background-position: 0px 12px;"><a class="m1" href="javascript:showPage('examesmarcados.php', '');" title="aller � la section 3"><br />EXAMES AGENDADOS</a></li>
 
                                         <!--<li style="background: url(images/b2.gif) no-repeat; background-position: 0px 12px;"><a class="m5" href="javascript:showPage('_services.htm', '');" title="aller � la section 5"><br />SERVICES</a></li>
                                         <li style="background: url(images/b2.gif) no-repeat; background-position: 0px 12px;"><a class="m6" href="javascript:showPage('_products.htm', '');" title="aller � la section 6"><br />PRODUCTS</a></li>
