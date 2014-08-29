@@ -30,7 +30,7 @@ class Medico extends Pessoa{
         parent::carrega($cdPessoa);
         
         //Gera SQL e busca Medico no banco, carregando se não houver erro
-        $sql = "SELECT * TB_Medico WHERE cdPessoa = " . $cdMedico;
+        $sql = "SELECT * TB_Medico WHERE cdPessoa = " . $cdPessoa;
         $result = $this->query($sql) or die('Não foi possível carregar Pessoa' .
                 ' do banco de dados: '.$this->dberror());
             $result = $this->fetch_array($result);
