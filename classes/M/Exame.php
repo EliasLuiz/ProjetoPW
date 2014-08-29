@@ -125,7 +125,7 @@ class Exame {
 
     //Métodos de Banco de Dados
     public function carrega($cdExame) {
-        //Gera SQL e busca Exame no banco, carregando se não houver erro
+        //Gera SQL e busca Exame no banco, carregando se não houver erro... diga o erro nao ta la kra... o erro ta aki...
         $sql = "SELECT * FROM TB_Exame WHERE cdExame = " . $cdExame;
         $result = $this->query($sql) or die('Não foi possível carregar' .
                         ' Exame do banco de dados: ' . $this->dberror());

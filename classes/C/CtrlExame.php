@@ -54,15 +54,32 @@ class CtrlExame {
         $exame->salva();
     }
     public function listaExameData($data){
+        
         $exame = new Exame();
         $exame->setDataExame($data);
         $cont = 0;
         $exames = [];
         $lista = $exame->listaDataExame();
+        echo '<table border="1px" bordercolor="#3333FF"> <tr> <td><b><font size="3"> Nome do Cliente </font></b></td> <td><b><font size="3"> Exame </font></b></td>'
+        . ' <td><b><font size="3"> Hor&aacute;rio </font></b></td> <td><b><font size="3"> Conv&ecirc;nio </font></b></td><td><b><font size="3"> Rua </font></b></td><td><b><font size="3"> Numero </font></b></td><td><b><font size="3"> Bairro </font></b></td><td><b><font size="3"> Cidade </font></b></td></tr>';
+        
         foreach ($lista as $ex){
             $exame->carrega($ex);
-            $exames[] = $exame;
+            $exames[$cont] = $exame;
+            
+            echo '<tr> <td>'. $exames[$cont]->getCliente()->getNome() .'</td>'
+                    .'<td>'. $exames[$cont]->getTipoExame()->getNome()  . ' </td>'
+                    .'<td>'. $exames[$cont]->getHoraExame() .'</td> '
+                    .'<td>'. $exames[$cont]->getConvenio()->getNome() .'</td> '
+                    .'<td>'. $exames[$cont]->getCliente()->getRua() .'</td>'
+                    .'<td>'. $exames[$cont]->getCliente()->getNumeroEnd() .'</td>'
+                    .'<td>'. $exames[$cont]->getCliente()->getBairro()->getNome() .'</td>'
+                    .'<td>'. $exames[$cont]->getCliente()->getBairro()->getCidade()->getNome() .'</td></tr>';
+        
+            $cont++;
         }
+        
+        echo '</table>';
         return $exames;
     }
 }
