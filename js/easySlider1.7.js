@@ -72,9 +72,9 @@
 			$("ul", obj).css('width',s*w);			
 			
 			if(options.continuous){
-				$("ul", obj).prepend($("ul li:last-child", obj).clone().css("margin-left","-"+ w +"px"));
+			/*	$("ul", obj).prepend($("ul li:last-child", obj).clone().css("margin-left","-"+ w +"px"));
 				$("ul", obj).append($("ul li:nth-child(2)", obj).clone());
-				$("ul", obj).css('width',(s+1)*w);
+				$("ul", obj).css('width',(s+1)*w);*/
 			};				
 			
 			if(!options.vertical) $("li", obj).css('float','left');
@@ -87,7 +87,7 @@
 					if(options.firstShow) html += '<span id="'+ options.firstId +'"><a href=\"javascript:void(0);\">'+ options.firstText +'</a></span>';
 					html += ' <span id="'+ options.prevId +'"><a href=\"javascript:void(0);\">'+ options.prevText +'</a></span>';
 					html += ' <span id="'+ options.nextId +'"><a href=\"javascript:void(0);\">'+ options.nextText +'</a></span>';
-					if(options.lastShow) html += ' <span id="'+ options.lastId +'"><a href=\"javascript:void(0);\">'+ options.lastText +'</a></span>';				
+					if(options.lastShow) html += ' <span id="'+ options.lastId +'"><a href=\"javascript:void(0);\">'+ options.lastText +'</a><span>';				
 				};
 				
 				html += options.controlsAfter;						
@@ -104,7 +104,7 @@
 							animate($("a",$(this)).attr('rel'),true);
 						}); 												
 				};							
-			} else {
+			} else {/*
 				$("a","#"+options.nextId).click(function(){		
 					animate("next",true);
 				});
@@ -116,7 +116,7 @@
 				});				
 				$("a","#"+options.lastId).click(function(){		
 					animate("last",true);				
-				});				
+				});	*/			
 			};
 			
 			function setCurrent(i){
