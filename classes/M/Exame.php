@@ -237,7 +237,8 @@ class Exame {
     }
 
     public function listaDataExame() {
-        $sql = "SELECT cdExame FROM TB_Exame WHERE dtExame = '" . $this->dataExame . "'";
+        $sql = "SELECT cdExame FROM TB_Exame WHERE dtExame = '" . $this->dataExame . "'"
+                . "ORDER BY hrExame ASC";
         $result = $this->query($sql);
         $exames = [];
         while ($row = $this->fetch_array($result)) {

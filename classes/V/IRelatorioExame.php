@@ -17,6 +17,14 @@ class IRelatorioExame {
         $ctrl = new CtrlExame();
         $lista = $ctrl->listaExameData($date);
         //imprime a data
+        echo '<table> <tr> <td> Nome do Cliente </td> <td> Exame </td>'
+        . ' <td> Horário </td> </tr>';
+        foreach ($lista as $e){
+            echo '<tr> <td>'. $e->getCliente()->getNome() .'</td>'
+                    .'<td>'. $e->getTipoExame()->getNome()  . ' </td>'
+                    .'<td>'. $e->getHoraExame() .'</td> </tr>';
+        }
+        echo '</table>';
     }
     public function listaExameCliente($cliente){
         

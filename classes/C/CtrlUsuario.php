@@ -35,13 +35,13 @@ class CtrlUsuario {
             $_SESSION['tipo'] = $usuarios[$login]['tipo'];
             
             if ($_SESSION['tipo']=='C') {
-                header("Location: " . __DIR__ . "/../../cliente.php");
+                header("Location: cliente.php");
             }
             if ($_SESSION['tipo']=='F') {
-                header("Location: " . __DIR__ . "/../../funcionario.php");
+                header("Location: funcionario.php");
             }
             if ($_SESSION['tipo']=='M') {
-                header("Location: " . __DIR__ . "/../../medico.php");
+                header("Location: medico.php");
             }
             
         }
@@ -54,7 +54,7 @@ class CtrlUsuario {
         //unset($_COOKIE['cd']);
         //unset($_COOKIE['tipo']);
         session_destroy();
-        header("Location: " . __DIR__ . "/../../index.htm");
+        header("Location: index.htm");
     }
     
     public function cadastraCliente($cliente){
