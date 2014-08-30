@@ -100,7 +100,15 @@ div#content {
 }
 
 div#content2 {
-	padding: 0em 0em 30em; /* bottom padding for footer */
+	padding: 0em 0em 20em; /* bottom padding for footer */
+	/*background: url("images/fond_contenu.gif") repeat-x;*/
+	/*color: #333;*/
+	text-align: center;
+	clear: left;
+}
+
+div#content3 {
+        padding: 0em 0em 30em; /* bottom padding for footer */
 	/*background: url("images/fond_contenu.gif") repeat-x;*/
 	/*color: #333;*/
 	text-align: center;
