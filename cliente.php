@@ -22,7 +22,18 @@ session_start();
         <script src="js/lightbox/js/prototype.js" type="text/javascript"></script>
         <script src="js/lightbox/js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
         <script src="js/lightbox/js/lightbox.js" type="text/javascript"></script>
-
+        <link href="css/jquery.bxslider.css" rel="stylesheet" />
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/easySlider1.7.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#slider").easySlider({
+                    auto: true,
+                    continuous: true
+                });
+            });
+        </script>
+         <link href="css/screen.css" rel="stylesheet" type="text/css" media="screen" />	
 
         <!--BEGIN OF TERMS OF USE. DO NOT EDIT OR DELETE THESE LINES. IF YOU EDIT OR DELETE THESE LINES AN ALERT MESSAGE MAY APPEAR WHEN TEMPLATE WILL BE ONLINE-->
         <!--<style>#free-flash-header a,#free-flash-header a:hover {color:#b9b9b9;}#free-flash-header a:hover {text-decoration:none}</style>-->
@@ -52,16 +63,46 @@ session_start();
                 <div id="menu_haut">
                     <!--<img src="images/spacer.gif" width="1" height="50" /><br /><a href="javascript:showPage('_faq.htm', '');" class="lienHaut">FAQ</a>  |  <a href="javascript:showPage('_about.htm', '');" class="lienHaut">ABOUT US</a>  |  <a href="javascript:showPage('cadastroUsuario.htm', '');" class="lienHaut">CADASTRE-SE</a>-->
                     
-                        <h2>Seja Bem-Vindo <?=$_SESSION['nome'] ?><!--PHP--></h2><br>
+                    <h2>Seja Bem-Vindo <?=$_SESSION['nome'] ?><br><p style="font-size: 14px;">Hoje &eacute; 
+                        <?php
+                        $dia = jddayofweek ( cal_to_jd(CAL_GREGORIAN, date("m"),date("d"), date("Y")) , 1 );
+                        if($dia == 'Monday'){
+                            echo 'Segunda-Feira';
+                        }
+                        if($dia == 'Tuesday'){
+                            echo 'Terça-Feira';
+                        }
+                        if($dia == 'Wednesday'){
+                            echo 'Quarta-Feira';
+                        }
+                        if($dia == 'Thursday'){
+                            echo 'Quinta-Feira';
+                        }
+                        if($dia == 'Friday'){
+                            echo 'Sexta-Feira';
+                        }
+                        if($dia == 'Saturday'){
+                            echo 'S&aacutebado';
+                        }
+                        if($dia == 'Sunday'){
+                            echo 'Domingo';
+                        }
+                        echo', '.date("d/m/Y");
+                        ?></p></h2><br>
                             <form action="Logout.php" method="post">
                             <input class="button_send" type="submit" value="Sair" >
                             </form>
                                 </div>
                                 <div id="menu_img">
-                                    <img src="images/index.jpg" width="918" height="246">
-                                        <!--<img src="images/spacer.gif" width="100" height="5" />-->
-                                        <div id="header_id"></div>
-
+                                    <div id="slider" >
+                            <ul>				
+                                
+                                <li><img src="images/02.jpg" alt="Css Template Preview" width="900px" height="220px"/></li>
+                                <li><img src="images/03.jpg" alt="Css Template Preview" width="900px" height="220px"/></li>
+                                <li><img src="images/04.jpg" alt="Css Template Preview" width="900px" height="220px"/></li>
+                                <li><img src="images/05.jpg" alt="Css Template Preview" width="900px" height="220px"/></li>			
+                            </ul>
+                        </div>
 
 
                                 </div>
