@@ -12,10 +12,9 @@ session_start();
         <script src="js/jquery142.js" type="text/javascript"></script>
         <script src="js/sound.js" type="text/javascript"></script>
         <script src="js/main.js" type="text/javascript"></script>
-        <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="js/jquery-1.8.2.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-        <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+        <script src="js/jquery-ui.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 
         <link rel="stylesheet" href="js/lightbox/css/lightbox.css" type="text/css" media="screen" />
