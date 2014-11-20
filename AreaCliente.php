@@ -115,7 +115,7 @@
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                                     </div>
                                 </div>
-                                <div class="col-md-2 offset1"><label>Pesquisar por Médico Solicitante:</label></div>
+                                <div class="col-md-2 offset1"><label>Pesquisar por Médico:</label></div>
                                 <div class="col-md-3" style="margin-top: 2px;">
                                     <div class="input-group">
                                         <select class="form-control" id="medico" name="medico">
