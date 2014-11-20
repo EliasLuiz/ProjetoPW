@@ -169,36 +169,68 @@
                                             </div>
                                         </div>
 
-                                        <div role="tabpanel" class="tab-pane" id="enviadas">...
+                                        <div role="tabpanel" class="tab-pane" id="enviadas">
+                                            <div class="container-fluid" style="margin-top: 20px;">
+                                                <div>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal10">
+                                                        <div class="row list-group-item active">
+                                                            <div class="col-md-6">
+                                                                Assunto: Pare de comer doces!
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                Doutora: Ana Souza
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                Data: 28/02/2015
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                                    <h4 class="modal-title" id="myModalLabel">Pare de comer doces!</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Você está comendo muitos doces. Pare com isso agora. Sua glicose está alta!!
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div style="height:30px; text-align:center; padding-top:15px; background: linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
-             background: -o-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
-             background: -ms-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
-             background: -moz-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
-             background: -webkit-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%); margin-top: 80px;
-             "><small><p>Copyright <b>BIOCESP Laboratório</b> - &copy; 2014 - Todos os direitos reservados</p></small></div>
+            <div style="height:30px; text-align:center; padding-top:15px; background: linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
+                 background: -o-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
+                 background: -ms-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
+                 background: -moz-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
+                 background: -webkit-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%); margin-top: 80px;
+                 "><small><p>Copyright <b>BIOCESP Laboratório</b> - &copy; 2014 - Todos os direitos reservados</p></small></div>
 
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery-1.8.2.js"></script>
-        <script src="js/jquery-ui.js"></script>
-        <script>
-            $(function () {
-                $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
-            });
-        </script>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="js/jquery.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery-1.8.2.js"></script>
+            <script src="js/jquery-ui.js"></script>
+            <script>
+                $(function () {
+                    $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
+                });
+            </script>
 
     </body>
 </html>

@@ -84,9 +84,9 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
                             <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>
                             <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
 
@@ -226,7 +226,7 @@
                             <div role="tabpanel" class="tab-pane" id="mensagens">
                                 <div class="container-fluid" style="margin-top: 20px;">
                                     <div>
-                                        <a href="#" data-toggle="modal" data-target="#myModal">
+                                        <a href="#" data-toggle="modal" data-target="#myModal10">
                                             <div class="row list-group-item active">
                                                 <div class="col-md-7">
                                                     Assunto: Pare de comer doces!
@@ -239,7 +239,7 @@
                                                 </div>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
