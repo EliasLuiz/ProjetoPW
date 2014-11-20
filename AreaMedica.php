@@ -87,10 +87,15 @@
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="historico"   style="margin-top: 15px;">
-                                <div class="col-md-2"><label>Pesquisar por Data:</label></div>
+                                <div class="col-md-2"><label>Pesquisar por Exame:</label></div>
                                 <div class="col-md-3" style="margin-top: 2px;">
                                     <div class="input-group">
-                                        <input class="form-control" type="text" id="calendario" value="Selecione">
+                                        <select class="form-control" id="exame" name="exame">
+                                            <option>Selecione</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                                     </div>
                                 </div>
