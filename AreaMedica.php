@@ -174,11 +174,8 @@
                                                 <div>
                                                     <a href="#" data-toggle="modal" data-target="#myModal10">
                                                         <div class="row list-group-item active">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-9">
                                                                 Assunto: Pare de comer doces!
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                Doutora: Ana Souza
                                                             </div>
                                                             <div class="col-md-3">
                                                                 Data: 28/02/2015

@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="css/example.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/jquery-ui.css" />
-
+        <script src="js/jquery.min.js"></script>
+       
 
         <style>
         </style>
@@ -105,7 +106,7 @@
                                 <div class="col-md-2" style="margin-top: 0px;"><label>Pesquisar por Exame:</label></div>
                                 <div class="col-md-3" style="margin-top: 2px;">
                                     <div class="input-group">
-                                        <select class="form-control" id="pacientes" name="exame">
+                                        <select class="form-control" id="exame" name="exame" onclick="displayVals()">
                                             <option>Selecione</option>
                                             <option>3</option>
                                             <option>4</option>
@@ -117,7 +118,7 @@
                                 <div class="col-md-2 offset1"><label>Pesquisar por Médico Solicitante:</label></div>
                                 <div class="col-md-3" style="margin-top: 2px;">
                                     <div class="input-group">
-                                        <select class="form-control" id="pacientes" name="paciente">
+                                        <select class="form-control" id="medico" name="medico">
                                             <option>Selecione</option>
                                             <option>3</option>
                                             <option>4</option>
@@ -126,6 +127,7 @@
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                                     </div>
                                 </div>
+                                <div id="ExibeExameNome"></div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="exames">
                                 <div class="container-fluid" style="margin-top: 30px;">
@@ -499,32 +501,35 @@
 
     </div>
 
-    <script src="js/jquery.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.slides.min.js"></script>
     <script>
-        $(function () {
-            $('#slides').slidesjs({
-                width: 940,
-                height: 200,
-                play: {
-                    active: true,
-                    auto: true,
-                    interval: 4000,
-                    swap: true
-                }
-            });
-        });
+                                            $(function () {
+                                                $('#slides').slidesjs({
+                                                    width: 940,
+                                                    height: 200,
+                                                    play: {
+                                                        active: true,
+                                                        auto: true,
+                                                        interval: 4000,
+                                                        swap: true
+                                                    }
+                                                });
+                                            });
     </script>
+
 
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script>
-        $(function () {
-            $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
-        });
+                                            $(function () {
+                                                $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
+                                            });
     </script>
     <script>
         $(function () {
@@ -546,6 +551,7 @@
             });
         });
     </script>
+
 
 </body>
 </html>
