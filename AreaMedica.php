@@ -65,15 +65,15 @@
                 </a>-->
             </div>
             <div class="row" style="margin-top: 10px;">
-                <div class="col-md-7 col-md-offset-2" style="margin-left: 300px;">
+                <div class="col-md-7 col-md-offset-2" style="margin-left: 290px;">
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
-                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">Notificações</a></li>
-                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">Histórico dos Pacientes</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">Requisição de Exames</a></li>
-                            <li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">Mensagens</a></li>
+                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;Histórico dos Pacientes&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;Requisição de Exames&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Mensagens&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -158,8 +158,10 @@
                                             <div class="container-fluid" style="margin-top: 30px;">
                                                 <div class="row">
                                                     <form>
-                                                        <div class="col-md-2 col-md-offset-1" style="margin-top: 7px;"><label>Nome do Paciente:</label></div>
-                                                        <div class="col-md-6"><select class="form-control" id="medicos">Médicos</select></div>
+                                                        <div class="col-md-2 col-md-offset-1" ><label>Nome do Paciente:</label></div>
+                                                        <div class="col-md-6" style="margin-top: 2px;"><select class="form-control" id="medicos" value="Selecione">
+                                                                <option>Selecione</option>
+                                                            </select></div>
                                                         <div class="col-md-10 col-md-offset-1" style="margin-top: 20px;"><textarea class="form-control" rows="5">Digite sua Mensagem</textarea></div>
                                                         <div class="col-md-1 col-md-offset-5" style="margin-top: 20px; margin-bottom: 20px;"><button type="button" class="btn btn-info">Enviar</button></div>
                                                     </form>
