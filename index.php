@@ -78,17 +78,16 @@
                 </a>-->
             </div>
             <div class="row">
-                <div class="col-md-9 col-md-offset-1" style="margin-left: 170px; margin-top: 10px;">
+                <div class="col-md-8 col-md-offset-2"  style="margin-top: 10px; margin-left: 230px;">
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
-                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">Notificações</a></li>
-                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">Histórico Clínico</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">Marcação de Exames</a></li>
-                            <li role="presentation"><a href="#consultas" aria-controls="settings" role="tab" data-toggle="tab">Visualização de Consultas</a></li>
-                            <li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">Mensagens</a></li>
-                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">Configurações</a></li>
+                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -103,10 +102,15 @@
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="historico" style="margin-top: 20px;">
-                                <div class="col-md-2" style="margin-top: 7px;"><label>Pesquisar por Data:</label></div>
+                                <div class="col-md-2" style="margin-top: 0px;"><label>Pesquisar por Exame:</label></div>
                                 <div class="col-md-3" style="margin-top: 2px;">
                                     <div class="input-group">
-                                        <input class="form-control" type="text" id="calendario" value="Selecione">
+                                        <select class="form-control" id="pacientes" name="exame">
+                                            <option>Selecione</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                                     </div>
                                 </div>
@@ -214,40 +218,44 @@
                                                 <div class="col-md-8" style="margin-top: 2px;"><p>.R$ 53,60</p></div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-md-2 col-md-offset-5" style="margin-top: 40px;"><button type="button" class="btn btn-info">Marcar Exame</button></div>
                                     </form>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="consultas">...</div>
                             <div role="tabpanel" class="tab-pane" id="mensagens">
-                                <div role="tabpanel">
-
-                                    <!-- Nav tabs -->
-                                    <ul class="nav nav-tabs" role="tablist" style="margin-top: 20px;">
-                                        <li role="presentation" class="active"><a href="#escrever" aria-controls="escrever" role="tab" data-toggle="tab">Escrever</a></li>
-                                        <li role="presentation"><a href="#enviadas" aria-controls="profile" role="tab" data-toggle="tab">Enviadas</a></li>
-                                    </ul>
-
-                                    <!-- Tab panes -->
-                                    <div class="tab-content" style=" border-style: solid; border-width: 1px; border-color: #adadad;">
-                                        <div role="tabpanel" class="tab-pane active" id="escrever">
-                                            <div class="container-fluid" style="margin-top: 30px;">
-                                                <div class="row">
-                                                    <form>
-                                                        <div class="col-md-2 col-md-offset-1" style="margin-top: 7px;"><label>Nome do Médico:</label></div>
-                                                        <div class="col-md-6"><select class="form-control" id="medicos">Médicos</select></div>
-                                                        <div class="col-md-10 col-md-offset-1" style="margin-top: 20px;"><textarea class="form-control" rows="5">Digite sua Mensagem</textarea></div>
-                                                        <div class="col-md-1 col-md-offset-5" style="margin-top: 20px; margin-bottom: 20px;"><button type="button" class="btn btn-info">Enviar</button></div>
-                                                    </form>
+                                <div class="container-fluid" style="margin-top: 20px;">
+                                    <div>
+                                        <a href="#" data-toggle="modal" data-target="#myModal">
+                                            <div class="row list-group-item active">
+                                                <div class="col-md-7">
+                                                    Assunto: Pare de comer doces!
+                                                </div>
+                                                <div class="col-md-3">
+                                                    Doutora: Ana Souza
+                                                </div>
+                                                <div class="col-md-2">
+                                                    Data: 28/02/2015
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">Pare de comer doces!</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Você está comendo muitos doces. Pare com isso agora. Sua glicose está alta!!
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div role="tabpanel" class="tab-pane" id="enviadas">...
-                                        </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="configuracoes">
