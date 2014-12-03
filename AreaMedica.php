@@ -23,7 +23,7 @@
                 <div class="col-md-2" style="margin-left: 70px;"><img src="images/logo.jpg" class="img-responsive" alt="Responsive image" style="height: 100px; width: 200px; margin-right: 50px;"></div>
                 <div class="col-md-3 col-md-offset-2" style="margin-left: 220px; margin-top: 30px;"><center><h1 style="color: #0044cc; font-family: Tahoma;">Área do Médico</h1></center></div>
                 <div class="col-md-2 col-md-offset-1" style="margin-top: 15px; margin-left: 180px;"><center><h4 style="color: #5bc0de">Bem-Vindo Dr. Marcos</h4></center></div>
-                <div class="col-md-3 col-md-offset-1" style="margin-left: 120px;"><center><button type="button"  class="btn btn-info btn-sm">Sair</button></center></div>
+                <div class="col-md-3 col-md-offset-1" style="margin-left: 120px;"><center><button type="button"  class="btn btn-primary btn-sm">Sair</button></center></div>
             </div>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: 20px; margin-left: 160px; width: 1000px;">
                 <!-- Indicators-->
@@ -70,10 +70,10 @@
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
-                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;Histórico dos Pacientes&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;Requisição de Exames&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Mensagens&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Histórico dos Pacientes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Requisição de Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <!--<li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Mensagens&nbsp;&nbsp;&nbsp;</a></li>-->
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -143,16 +143,16 @@
                                     <div class="col-md-1 col-md-offset-5" style="margin-top: 70px;"><button type="button" class="btn btn-info">Enviar</button></div>
                                 </form>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="mensagens">
+                            <!--<div role="tabpanel" class="tab-pane" id="mensagens">
                                 <div role="tabpanel">
 
-                                    <!-- Nav tabs -->
+                                    <!-- Nav tabs 
                                     <ul class="nav nav-tabs" role="tablist" style="margin-top: 20px;">
                                         <li role="presentation" class="active"><a href="#escrever" aria-controls="escrever" role="tab" data-toggle="tab">Escrever</a></li>
                                         <li role="presentation"><a href="#enviadas" aria-controls="profile" role="tab" data-toggle="tab">Enviadas</a></li>
                                     </ul>
 
-                                    <!-- Tab panes -->
+                                    <!-- Tab panes 
                                     <div class="tab-content" style=" border-style: solid; border-width: 1px; border-color: #adadad;">
                                         <div role="tabpanel" class="tab-pane active" id="escrever">
                                             <div class="container-fluid" style="margin-top: 30px;">
@@ -204,7 +204,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>

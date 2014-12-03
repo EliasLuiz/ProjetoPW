@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/jquery-ui.css" />
         <script src="js/jquery.min.js"></script>
-       
+
 
         <style>
         </style>
@@ -37,7 +37,7 @@
                 <div class="col-md-2" style="margin-left: 70px;"><img src="images/logo.jpg" class="img-responsive" alt="Responsive image" style="height: 100px; width: 200px; margin-right: 50px;"></div>
                 <div class="col-md-3 col-md-offset-2" style="margin-left: 220px; margin-top: 30px;"><center><h1 style="color: #0044cc; font-family: Tahoma;">Área do Cliente</h1></center></div>
                 <div class="col-md-2 col-md-offset-1" style="margin-top: 15px; margin-left: 180px;"><center><h4 style="color: #5bc0de">Bem-Vinda Ana Souza</h4></center></div>
-                <div class="col-md-3 col-md-offset-1" style="margin-left: 120px;"><center><button type="button"  class="btn btn-info btn-sm">Sair</button></center></div>
+                <div class="col-md-3 col-md-offset-1" style="margin-left: 120px;"><center><button type="button"  class="btn btn-primary btn-sm">Sair</button></center></div>
             </div>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: 20px; margin-left: 160px; width: 1000px;">
                 <!-- Indicators-->
@@ -79,16 +79,16 @@
                 </a>-->
             </div>
             <div class="row">
-                <div class="col-md-8 col-md-offset-2"  style="margin-top: 10px; margin-left: 230px;">
+                <div class="col-md-7 col-md-offset-3"  style="margin-top: 10px; margin-left: 280px;">
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
                             <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;</a></li>
+                            <!--<li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>-->
+                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -183,7 +183,7 @@
                                                         Particular
                                                     </label>
                                                 </div>
-                                                <div class="col-md-1" style="margin-left: 10px;">
+                                                <div class="col-md-1" style="margin-left: 25px;">
                                                     <label>
                                                         <input type="radio" name="convenio" id="simconvenio" value="option2">
                                                         Convênio
@@ -221,11 +221,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-2 col-md-offset-5" style="margin-top: 40px;"><button type="button" class="btn btn-info">Marcar Exame</button></div>
+                                        <div class="col-md-2 col-md-offset-5" style="margin-top: 40px;"><button type="button" class="btn btn-primary">Marcar Exame</button></div>
                                     </form>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="mensagens">
+                            <!--<div role="tabpanel" class="tab-pane" id="mensagens">
                                 <div class="container-fluid" style="margin-top: 20px;">
                                     <div>
                                         <a href="#" data-toggle="modal" data-target="#myModal10">
@@ -259,7 +259,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <div role="tabpanel" class="tab-pane" id="configuracoes">
                                 <h4 style="margin-top: 30px;">Dados Cadastrais</h4>
                                 <div class="container-fluid" style="margin-top: 10px;">
