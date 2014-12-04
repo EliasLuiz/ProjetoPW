@@ -191,6 +191,89 @@
                                     </div>
                                 </form>
                             </div>
+                            <div role="tabpanel" class="tab-pane" id="funcionarios" style="margin-top: 5px;">
+                                <form class="form-horizontal" role="form" id="funcionario" name="funcionario" method="post" action="cadastroFuncionario.php">
+                                    <div class="col-md-7 col-md-offset-2" style="margin-top: 25px;">
+                                        <div class="form-group">
+                                            <label for="inputNome" class="col-sm-2 control-label">Nome Completo:</label>
+                                            <div class="col-sm-10" style="margin-top: 9px;">
+                                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputSexo" class="col-sm-2 control-label">Sexo:</label>
+                                            <div class="col-sm-10">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="sexo" id="inlineRadio1" value="M" checked> Masculino
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="sexo" id="inlineRadio2" value="F"> Feminino
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top: 20px;">
+                                            <label for="inputTelefone" class="col-sm-2 control-label">Telefone:</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="ddd" name="ddd" placeholder="DDD" required>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:24px;">
+                                            <label for="inputCPF" class="col-sm-2 control-label">CPF:</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="CPF" name="CPF" placeholder="CPF" required>
+                                            </div>
+                                            <label for="inputRG" class="col-sm-2 control-label">RG:</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="RG" name="RG" placeholder="RG" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:23px;">
+                                            <label for="inputEmail" class="col-sm-2 control-label">Email:</label>
+                                            <div class="col-sm-7">
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:23px;">
+                                            <label for="inputLogin" class="col-sm-2 control-label">Login:</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" id="login" name="login" placeholder="Login" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:24px;">
+                                            <label for="inputSenha1" class="col-sm-2 control-label">Senha:</label>
+                                            <div class="col-sm-3">
+                                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:13px;">
+                                            <label for="inputSenha2" class="col-sm-2 control-label">Confirmar Senha:</label>
+                                            <div class="col-sm-3" style="margin-top: 11px;">
+                                                <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Senha" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top: 24px;">
+                                            <label for="inputCargo" class="col-sm-2 control-label">Cargo:</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputRegistro" class="col-sm-2 control-label">Registro Funcional:</label>
+                                            <div class="col-sm-7" style="margin-top: 10px;">
+                                                <input type="text" class="form-control" id="registro" name="registro" placeholder="Registro Funcional" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px;">
+                                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
 
                     </div>
@@ -227,36 +310,6 @@
             });
         });
     </script>
-
-
-    <script src="js/jquery-1.8.2.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
-        });
-    </script>
-    <script>
-        $(function () {
-            $("#calendario2").datepicker({dateFormat: 'dd-mm-yy'});
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#divinformacoes').hide('fast');
-            $('#divconvenio2').hide('fast');
-            $('#divconvenio').click(function () {
-                $('#divinformacoes').show('fast');
-            });
-            $('#simconvenio').click(function () {
-                $('#divconvenio2').show('fast');
-            });
-            $('#naoconvenio').click(function () {
-                $('#divconvenio2').hide('fast');
-            });
-        });
-    </script>
-
 
 </body>
 </html>
