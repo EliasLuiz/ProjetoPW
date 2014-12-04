@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" method="post" action="cadastroCliente.php">
             <div class="col-md-7 col-md-offset-2" style="margin-top: 25px;">
                 <div class="form-group">
                     <label for="inputNome" class="col-sm-2 control-label">Nome Completo:</label>
