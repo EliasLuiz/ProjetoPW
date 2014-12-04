@@ -131,10 +131,10 @@
                             </div>
                             <div role="tabpanel" class="tab-pane" id="exames">
                                 <div class="container-fluid" style="margin-top: 30px;">
-                                    <form>
+                                    <form id="marcacaoexame" name="marcacaoexame" method="post" action="marcacaoExameUsuario.php">
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-2"><label>Selecione o Exame:</label></div>
-                                            <div class="col-md-2" style="margin-top: 2px;"><select class="form-control" name="exame">
+                                            <div class="col-md-2" style="margin-top: 2px;"><select class="form-control" name="exames1" id="exames1">
                                                     <option>Selecione</option>
                                                     <option>2</option>
                                                     <option>3</option>
@@ -162,7 +162,7 @@
                                         <div id="divcoleta">
                                             <div class="row" style="margin-top: 5px;">
                                                 <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;"><label>Escolha a Data:</label></div>
-                                                <div class="col-md-2" style="margin-top:10px;"><input class="form-control" type="text" id="calendario2" value="Selecione"></div>
+                                                <div class="col-md-2" style="margin-top:10px;"><input class="form-control" type="text" id="data" name="data" value="Selecione"></div>
                                             </div>
                                             <div class="row" style="margin-top: 5px;" id="divhorarios">
                                                 <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;">
@@ -181,13 +181,13 @@
                                             <div class="radio" id="divconvenio">
                                                 <div class="col-md-1">
                                                     <label>
-                                                        <input type="radio" name="convenio" id="naoconvenio" value="option1">
+                                                        <input type="radio" name="pagamento" id="id_radio1" value="option1">
                                                         Particular
                                                     </label>
                                                 </div>
                                                 <div class="col-md-1" style="margin-left: 25px;">
                                                     <label>
-                                                        <input type="radio" name="convenio" id="simconvenio" value="option2">
+                                                        <input type="radio" name="pagamento" id="id_radio2" value="option2">
                                                         Convênio
                                                     </label>
                                                 </div>
@@ -197,7 +197,7 @@
                                             <div class="col-md-2 col-md-offset-2"><label>Selecione o Convênio: </label></div>
                                             <div class="col-md-2" style="margin-top: 2px;">
                                                 <label>
-                                                    <select class="form-control" name="convenios">
+                                                    <select class="form-control" name="convenio" id="convenio">
                                                         <option>Selecione</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -535,7 +535,7 @@
     </script>
     <script>
         $(function () {
-            $("#calendario2").datepicker({dateFormat: 'dd-mm-yy'});
+            $("#data").datepicker({dateFormat: 'dd-mm-yy'});
         });
     </script>
     <script type="text/javascript">
@@ -546,10 +546,10 @@
             $('#divconvenio').click(function () {
                 $('#divinformacoes').show('fast');
             });
-            $('#simconvenio').click(function () {
+            $('#id_radio2').click(function () {
                 $('#divconvenio2').show('fast');
             });
-            $('#naoconvenio').click(function () {
+            $('#id_radio1').click(function () {
                 $('#divconvenio2').hide('fast');
             });
             $('#sim').click(function () {
