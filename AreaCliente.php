@@ -142,36 +142,38 @@
                                                     <option>5</option>
                                                 </select></div>
                                         </div>
-                                        <div class="row" style="margin-top: 5px;">
-                                            <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;"><label>Escolha a Data:</label></div>
-                                            <div class="col-md-2" style="margin-top:10px;"><input class="form-control" type="text" id="calendario2" value="Selecione"></div>
-                                        </div>
-                                        <div class="row" style="margin-top: 5px;" id="divhorarios">
-                                            <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;">
-                                                <label>Horários Disponíveis:</label></div>
-                                            <div class="col-md-2" style="margin-top: 10px;"><select class="form-control" name="horarios">
-                                                    <option>Selecione</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select></div>
-                                        </div>
                                         <div class="row" style="margin-top: 7px;">
                                             <div class="col-md-2 col-md-offset-2" style="margin-top: 10px;"><label>Coleta a Domicílio: </label></div>
                                             <div class="radio">
-                                                <div class="col-md-1">
+                                                <div class="col-md-1" style="margin-top: 10px;">
                                                     <label>
-                                                        <input type="radio" name="coleta" id="sim" value="option1" checked>
+                                                        <input type="radio" name="coleta" id="sim" value="option1">
                                                         Sim
                                                     </label>
                                                 </div>
-                                                <div class="col-md-1" style="margin-left: 10px;">
+                                                <div class="col-md-1" style="margin-left: 10px; margin-top: 10px;">
                                                     <label>
                                                         <input type="radio" name="coleta" id="nao" value="option2">
                                                         Não
                                                     </label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div id="divcoleta">
+                                            <div class="row" style="margin-top: 5px;">
+                                                <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;"><label>Escolha a Data:</label></div>
+                                                <div class="col-md-2" style="margin-top:10px;"><input class="form-control" type="text" id="calendario2" value="Selecione"></div>
+                                            </div>
+                                            <div class="row" style="margin-top: 5px;" id="divhorarios">
+                                                <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;">
+                                                    <label>Horários Disponíveis:</label></div>
+                                                <div class="col-md-2" style="margin-top: 10px;"><select class="form-control" name="horarios">
+                                                        <option>Selecione</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select></div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-top: 10px;">
@@ -540,6 +542,7 @@
         $(document).ready(function () {
             $('#divinformacoes').hide('fast');
             $('#divconvenio2').hide('fast');
+            $('#divcoleta').hide('fast');
             $('#divconvenio').click(function () {
                 $('#divinformacoes').show('fast');
             });
@@ -548,6 +551,12 @@
             });
             $('#naoconvenio').click(function () {
                 $('#divconvenio2').hide('fast');
+            });
+            $('#sim').click(function () {
+                $('#divcoleta').show('fast');
+            });
+            $('#nao').click(function () {
+                $('#divcoleta').hide('fast');
             });
         });
     </script>
