@@ -274,34 +274,34 @@
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                         <h4 class="modal-title" id="myModalLabel">Endereço</h4>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form role="form">
+                                                    <form role="form" method="post" action="contact.php">
+                                                        <div class="modal-body">
                                                             <div class="form-group col-md-10">
                                                                 <label for="nomerua">Rua</label>
-                                                                <input type="text" class="form-control" id="rua">
+                                                                <input type="text" class="form-control" id="rua" name="rua">
                                                             </div>
                                                             <div class="form-group col-md-2" >
                                                                 <label for="numero">Número</label>
-                                                                <input type="text" class="form-control" id="numero">
+                                                                <input type="text" class="form-control" id="numero" name="numero">
                                                             </div>
                                                             <div class="form-group col-md-6" >
                                                                 <label for="complemento">Complemento</label>
-                                                                <input type="text" class="form-control" id="complemento">
+                                                                <input type="text" class="form-control" id="complemento" name="complemento">
                                                             </div>
                                                             <div class="form-group col-md-6" >
                                                                 <label for=cidade" >Cidade</label>
-                                                                <select class="form-control" id="cidade">Escolha</select>
+                                                                <select class="form-control" id="cidade" name="cidade">Escolha</select>
                                                             </div>
                                                             <div class="form-group col-md-6" >
                                                                 <label for=bairro" >Bairro</label>
-                                                                <select class="form-control" id="bairro">Bairros</select>
+                                                                <select class="form-control" id="bairro" name="bairro">Bairros</select>
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer" style="margin-top:220px;">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
-                                                        <button type="button" class="btn btn-primary">Salvar</button>
-                                                    </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="margin-top:220px;">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,18 +313,18 @@
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                         <h4 class="modal-title" id="myModalLabel">Email</h4>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form role="form">
+                                                    <form role="form" method="post" action="contact.php">
+                                                        <div class="modal-body">
                                                             <div class="form-group col-md-10">
                                                                 <label for="nomeemail">Email</label>
-                                                                <input type="text" class="form-control" id="email">
+                                                                <input type="text" class="form-control" id="email" name="email">
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer" style="margin-top:70px;">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
-                                                        <button type="button" class="btn btn-primary">Salvar</button>
-                                                    </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="margin-top:70px;">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -336,22 +336,22 @@
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                         <h4 class="modal-title" id="myModalLabel">Telefone</h4>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form role="form">
+                                                    <form role="form" method="post" action="contact.php">
+                                                        <div class="modal-body">
                                                             <div class="form-group col-md-2">
                                                                 <label for="DDDtel">DDD</label>
-                                                                <input type="text" class="form-control" id="DDD">
+                                                                <input type="text" class="form-control" id="DDD" name="ddd">
                                                             </div>
                                                             <div class="form-group col-md-5">
                                                                 <label for="telefone">Telefone</label>
-                                                                <input type="text" class="form-control" id="telefone">
+                                                                <input type="text" class="form-control" id="telefone" name="telefone">
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer" style="margin-top:70px;">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
-                                                        <button type="button" class="btn btn-primary">Salvar</button>
-                                                    </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="margin-top:70px;">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -368,19 +368,18 @@
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                         <h4 class="modal-title" id="myModalLabel">Medicamentos</h4>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form role="form">
+                                                    <form role="form"  method="post" action="contact.php" >
+                                                        <div class="modal-body">
                                                             <div class="form-group col-md-11">
                                                                 <label for="medicamentos">Medicamentos:</label>
-                                                                <textarea class="form-control" id="message-text" rows="5"></textarea>
+                                                                <textarea class="form-control" id="medicamentos" name="nomemedicamentos" rows="5"></textarea>
                                                             </div>
-
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer" style="margin-top:150px;">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
-                                                        <button type="button" class="btn btn-primary">Salvar</button>
-                                                    </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="margin-top:150px;">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -392,18 +391,19 @@
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                         <h4 class="modal-title" id="myModalLabel">Adicionar Médico</h4>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form role="form">
+                                                    <form role="form"  method="post" action="contact.php" >
+                                                        <div class="modal-body">
                                                             <div class="form-group col-md-6" >
                                                                 <label for=medico" >Selecione:</label>
-                                                                <select class="form-control" id="medico">Escolha</select>
+                                                                <select class="form-control" id="adicionarmedico" name="adicionarmedico">Escolha</select>
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer" style="margin-top:85px;">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
-                                                        <button type="button" class="btn btn-primary">Salvar</button>
-                                                    </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="margin-top:85px;">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                                        </div>
+                                                    </form>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -415,18 +415,19 @@
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                         <h4 class="modal-title" id="myModalLabel">Remover Médicos</h4>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form role="form">
+
+                                                    <form role="form"  method="post" action="contact.php" >
+                                                        <div class="modal-body">
                                                             <div class="form-group col-md-6" >
                                                                 <label for=medico" >Selecione:</label>
-                                                                <select class="form-control" id="medico">Escolha</select>
+                                                                <select class="form-control" id="removermedico" name="removermedico">Escolha</select>
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer" style="margin-top:85px;">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
-                                                        <button type="button" class="btn btn-primary">Salvar</button>
-                                                    </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="margin-top:85px;">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -443,26 +444,27 @@
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                         <h4 class="modal-title" id="myModalLabel">Senha</h4>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form role="form">
+
+                                                    <form role="form" method="post" action="contact.php" >
+                                                        <div class="modal-body">
                                                             <div class="form-group col-md-10">
                                                                 <label for="senhaantiga">Digite sua Senha:</label>
-                                                                <input type="text" class="form-control" id="senha antiga">
+                                                                <input type="text" class="form-control" id="senhaantiga" name="senhaantiga">
                                                             </div>
                                                             <div class="form-group col-md-10">
                                                                 <label for="senha">Digite sua nova Senha:</label>
-                                                                <input type="text" class="form-control" id="senha">
+                                                                <input type="text" class="form-control" id="senha" name="senha">
                                                             </div>
                                                             <div class="form-group col-md-10">
                                                                 <label for="senha2">Confirme sua Senha:</label>
-                                                                <input type="text" class="form-control" id="senha2">
+                                                                <input type="text" class="form-control" id="senha2" name="senha2">
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer" style="margin-top:230px;">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
-                                                        <button type="button" class="btn btn-primary">Salvar</button>
-                                                    </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="margin-top:230px;">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -529,9 +531,9 @@
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script>
-                                            $(function () {
-                                                $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
-                                            });
+        $(function () {
+            $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
+        });
     </script>
     <script>
         $(function () {
