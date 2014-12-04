@@ -144,7 +144,7 @@
                                         </div>
                                         <div class="row" style="margin-top: 5px;">
                                             <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;"><label>Escolha a Data:</label></div>
-                                            <div class="col-md-2"><input class="form-control" type="text" id="calendario2" value="Selecione"></div>
+                                            <div class="col-md-2" style="margin-top:10px;"><input class="form-control" type="text" id="calendario2" value="Selecione"></div>
                                         </div>
                                         <div class="row" style="margin-top: 5px;" id="divhorarios">
                                             <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;">
