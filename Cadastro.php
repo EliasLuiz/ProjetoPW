@@ -141,11 +141,11 @@
                     <div class="form-group" >
                         <label for="inputRua" class="col-sm-2 control-label">Rua:</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="rua" name="rua" placeholder="Rua">
+                            <input type="text" class="form-control" id="rua" name="rua" placeholder="Rua" required>
                         </div>
                         <label for="inputNumero" class="col-sm-2 control-label">Número:</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="numero" name="numero" placeholder="Numero">
+                            <input type="text" class="form-control" id="numero" name="numero" placeholder="Numero" required>
                         </div>
                     </div>
                     <div class="form-group" style="margin-top:23px;">
@@ -187,7 +187,7 @@
                         <div class="form-group">
                             <label for="inputNomeMedicamento" class="col-sm-2 control-label">Medicamentos:</label>
                             <div class="col-sm-7">
-                                <textarea class="form-control" id="nomemedicamentos" name="nomemedicamentos" placeholder="Nome dos Medicamentos" rows="3"></textarea>
+                                <textarea class="form-control" id="nomemedicamentos" name="nomemedicamentos" placeholder="Nome dos Medicamentos" rows="3" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@
                     <div class="form-group" >
                         <label for="inputCRM" class="col-sm-2 control-label">CRM:</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="crm" name="crm" placeholder="CRM">
+                            <input type="text" class="form-control" id="crm" name="crm" placeholder="CRM" required>
                         </div>
                     </div>
                 </div>

@@ -114,8 +114,82 @@
                                     </div>
                                 </form>
                             </div>
-                            <div role="tabpanel" class="tab-pane active" id="clinicas">
-                                
+                            <div role="tabpanel" class="tab-pane" id="clinicas" style="margin-top: 40px;">
+                                <form class="form-horizontal" role="form" id="hospitais" name="hospitais" method="post" action="cadastroHospital.php">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class="form-group">
+                                            <label for="inputHospital" class="col-sm-2 control-label">Nome:</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="nomehosp" name="nomehosp" placeholder="Nome do Hospital ou Clínica" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
+                                        <div class="form-group">
+                                            <label for="inputTelefone" class="col-sm-2 control-label">Telefone:</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="ddd" name="ddd" placeholder="DDD" required>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 450px;">
+                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="exames" style="margin-top: 40px;">
+                                <form class="form-horizontal" role="form" id="exames" name="exames" method="post" action="cadastroTipoExame.php">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class="form-group">
+                                            <label for="inputExame" class="col-sm-2 control-label">Nome:</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="nomeexame" name="nomeexame" placeholder="Nome do Exame" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
+                                        <div class="form-group">
+                                            <label for="inputRequisitos" class="col-sm-2 control-label">Requisitos:</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="form-control" id="requisitos" name="requisitos" placeholder="Requisitos do Exame" rows="3" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
+                                        <div class="form-group">
+                                            <label for="inputInformacoes" class="col-sm-2 control-label">Informações:</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="form-control" id="informacoes" name="informacoes" placeholder="Informações do Exame" rows="3" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px; margin-left: 170px;">
+                                        <div class="form-group">
+                                            <label for="inputPreco" class="col-sm-2 control-label" style="margin-right:10px;">Preço:</label>
+                                            <div class="input-group col-sm-3">
+                                                <span class="input-group-addon">R$</span>
+                                                <input type="text" class="form-control" id="preco" name="preco" placeholder="Preço">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px; margin-left: 180px;">
+                                        <div class="form-group">
+                                            <label class="checkbox-inline col-md-offset-2">
+                                                <input type="checkbox" id="coletadomicilio" name="coletadomicilio" value="option1"> Exame pode ser realizado em domicílio
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 480px;">
+                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
 
