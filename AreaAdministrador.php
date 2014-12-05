@@ -163,7 +163,7 @@
                                                                 <div class="modal-body">
                                                                     <div class="form-group col-md-10">
                                                                         <label for="nome">Nome:</label>
-                                                                        <input type="text" class="form-control" id="convenio" name="convenio">
+                                                                        <input type="text" class="form-control" id="nomeconvenio" name="nomeconvenio">
                                                                     </div>
                                                                     <div class="form-group col-md-10">
                                                                         <label for="senha">Responsável:</label>

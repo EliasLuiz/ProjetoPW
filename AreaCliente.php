@@ -227,8 +227,8 @@
                                     </form>
                                 </div>
                             </div>
-                            <!--<div role="tabpanel" class="tab-pane" id="mensagens">
-                                <div class="container-fluid" style="margin-top: 20px;">
+                            <div role="tabpanel" class="tab-pane" id="mensagens">
+                                <!--<div class="container-fluid" style="margin-top: 20px;">
                                     <div>
                                         <a href="#" data-toggle="modal" data-target="#myModal10">
                                             <div class="row list-group-item active">
@@ -260,8 +260,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>-->
+                                </div>-->
+                            </div>
                             <div role="tabpanel" class="tab-pane" id="configuracoes">
                                 <h4 style="margin-top: 30px;">Dados Cadastrais</h4>
                                 <div class="container-fluid" style="margin-top: 10px;">
