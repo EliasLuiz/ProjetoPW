@@ -90,57 +90,164 @@
                         </ul>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="convenios">
-                                <form class="form-horizontal" role="form">
-                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 30px;">
-                                        <div class="form-group">
-                                            <label for="inputConvenio" class="col-sm-2 control-label">Nome do Convênio:</label>
-                                            <div class="col-sm-9" style="margin-top:10px;">
-                                                <input type="text" class="form-control" id="nomeconvenio" name="nomeconvenio" placeholder="Nome do Convênio" required>
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-3" style="margin-top: 40px; margin-left: 35px;"  id="Inserirconvenio" >
+                                        <a href="#Inserir" class="thumbnail">
+                                            <img src="images/Incluir.jpg" alt="Incluir">
+                                            <div class="caption">
+                                                <center><h3>Inserir</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Atualizarconvenio">
+                                        <a href="#Atualizar" class="thumbnail">
+                                            <img src="images/Atualizar.png" alt="Atualizar">
+                                            <div class="caption">
+                                                <center><h3>Alterar</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Excluirconvenio">
+                                        <a style="cursor: pointer;" class="thumbnail">
+                                            <img src="images/Excluir.jpg" alt="Excluir">
+                                            <div class="caption">
+                                                <center><h3>Excluir</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div id="Inserir">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="col-md-8 col-md-offset-2" style="margin-top: 20px;">
+                                            <div class="form-group">
+                                                <label for="inputConvenio" class="col-sm-2 control-label">Nome do Convênio:</label>
+                                                <div class="col-sm-9" style="margin-top:10px;">
+                                                    <input type="text" class="form-control" id="nomeconvenio" name="nomeconvenio" placeholder="Nome do Convênio" required>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-8 col-md-offset-1" style="margin-left: 110px;">
-                                        <div class="form-group">
-                                            <label for="inputResponsavel" class="col-sm-3 control-label">Responsável pelo Convênio:</label>
-                                            <div class="col-sm-9" style="margin-top:10px;">
-                                                <input type="text" class="form-control" id="responsavel" name="responsavel" placeholder="Responsável pelo Convênio" required>
+                                        <div class="col-md-8 col-md-offset-1" style="margin-left: 110px;">
+                                            <div class="form-group">
+                                                <label for="inputResponsavel" class="col-sm-3 control-label">Responsável pelo Convênio:</label>
+                                                <div class="col-sm-9" style="margin-top:10px;">
+                                                    <input type="text" class="form-control" id="responsavel" name="responsavel" placeholder="Responsável pelo Convênio" required>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 450px;">
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 450px;">
+                                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
+                                <div id="Atualizar" class="row" style="margin-top: 25px;">
+                                    <label for="inputConvenio" class="col-sm-1 control-label col-sm-offset-4" style="margin-top: 6px;">Convênio:</label>
+                                    <div class="col-sm-2"><select class="form-control" name="convenio" id="convenio" placeholder="Convênio">
+                                            <option>Convênio</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select></div>
+                                </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="clinicas" style="margin-top: 40px;">
-                                <form class="form-horizontal" role="form" id="hospitais" name="hospitais" method="post" action="cadastroHospital.php">
-                                    <div class="col-md-8 col-md-offset-2">
+                            <div role="tabpanel" class="tab-pane" id="clinicas">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-3" style="margin-top: 40px; margin-left: 35px;"  id="Inserirclinica" >
+                                        <a href="#Inserir2" class="thumbnail">
+                                            <img src="images/Incluir.jpg" alt="Incluir">
+                                            <div class="caption">
+                                                <center><h3>Inserir</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Atualizarclinica">
+                                        <a href="#Atualizar2" class="thumbnail">
+                                            <img src="images/Atualizar.png" alt="Atualizar">
+                                            <div class="caption">
+                                                <center><h3>Alterar</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Excluirclinica">
+                                        <a style="cursor: pointer;" class="thumbnail">
+                                            <img src="images/Excluir.jpg" alt="Excluir">
+                                            <div class="caption">
+                                                <center><h3>Excluir</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="Inserir2" style="margin-top: 25px;">
+                                    <form class="form-horizontal" role="form" id="hospitais" name="hospitais" method="post" action="cadastroHospital.php">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <div class="form-group">
+                                                <label for="inputHospital" class="col-sm-2 control-label">Nome:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="nomehosp" name="nomehosp" placeholder="Nome do Hospital ou Clínica" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
+                                            <div class="form-group">
+                                                <label for="inputTelefone" class="col-sm-2 control-label">Telefone:</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" id="ddd" name="ddd" placeholder="DDD" required>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
-                                            <label for="inputHospital" class="col-sm-2 control-label">Nome:</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="nomehosp" name="nomehosp" placeholder="Nome do Hospital ou Clínica" required>
+                                            <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 450px;">
+                                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="Atualizar2" class="row" style="margin-top: 25px;">
+                                    <div role="tabpanel" class="tab-pane active" id="notificacoes">
+                                        <div class="container-fluid" style="margin-top: 20px;">
+                                            <div>
+                                                <a href="#" data-toggle="modal" data-target="#myModal10">
+                                                    <div class="row list-group-item active">
+                                                        <div class="col-md-6">
+                                                            Nome: Hospital Márcio Cunha
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            Responsável: Elias Luiz da Silva Júnior
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <form role="form" method="post" action="contact.php" >
+                                                                <div class="modal-body">
+                                                                    <div class="form-group col-md-10">
+                                                                        <label for="nome">Nome:</label>
+                                                                        <input type="text" class="form-control" id="nomehosp" name="nomehosp">
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <label for="senha">Responsável:</label>
+                                                                        <input type="text" class="form-control" id="responsavel" name="responsavel">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer" style="margin-top:160px;">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                                    <button type="button" class="btn btn-primary">Salvar</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
-                                        <div class="form-group">
-                                            <label for="inputTelefone" class="col-sm-2 control-label">Telefone:</label>
-                                            <div class="col-sm-2">
-                                                <input type="text" class="form-control" id="ddd" name="ddd" placeholder="DDD" required>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 450px;">
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="exames" style="margin-top: 40px;">
                                 <form class="form-horizontal" role="form" id="exames" name="exames" method="post" action="cadastroTipoExame.php">
@@ -310,6 +417,38 @@
             });
         });
     </script>
-
+    <script src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Inserir').hide('fast');
+            $('#Atualizar').hide('fast');
+            $('#Inserir2').hide('fast');
+            $('#Atualizar2').hide('fast');
+            $('#Inserirconvenio').click(function () {
+                $('#Inserir').show('fast');
+                $('#Atualizar').hide('fast');
+            });
+            $('#Inserirclinica').click(function () {
+                $('#Inserir2').show('fast');
+                $('#Atualizar2').hide('fast');
+            });
+            $('#Atualizarconvenio').click(function () {
+                $('#Atualizar').show('fast');
+                $('#Inserir').hide('fast');
+            });
+            $('#Atualizarclinica').click(function () {
+                $('#Atualizar2').show('fast');
+                $('#Inserir2').hide('fast');
+            });
+            $('#Excluirconvenio').click(function () {
+                $('#Atualizar').hide('fast');
+                $('#Inserir').hide('fast');
+            });
+            $('#Excluirclinica').click(function () {
+                $('#Atualizar2').hide('fast');
+                $('#Inserir2').hide('fast');
+            });
+        });
+    </script>
 </body>
 </html>
