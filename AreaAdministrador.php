@@ -143,14 +143,44 @@
                                     </form>
                                 </div>
                                 <div id="Atualizar" class="row" style="margin-top: 25px;">
-                                    <label for="inputConvenio" class="col-sm-1 control-label col-sm-offset-4" style="margin-top: 6px;">Convênio:</label>
-                                    <div class="col-sm-2"><select class="form-control" name="convenio" id="convenio" placeholder="Convênio">
-                                            <option>Convênio</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select></div>
+                                    <div role="tabpanel" class="tab-pane active" id="notificacoes">
+                                        <div class="container-fluid" style="margin-top: 20px;">
+                                            <div>
+                                                <a href="#" data-toggle="modal" data-target="#myModal10">
+                                                    <div class="row list-group-item active">
+                                                        <div class="col-md-6">
+                                                            Nome: UNIMED
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            Responsável: Elias Luiz da Silva Júnior
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <form role="form" method="post" action="contact.php" >
+                                                                <div class="modal-body">
+                                                                    <div class="form-group col-md-10">
+                                                                        <label for="nome">Nome:</label>
+                                                                        <input type="text" class="form-control" id="convenio" name="convenio">
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <label for="senha">Responsável:</label>
+                                                                        <input type="text" class="form-control" id="responsavel" name="responsavel">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer" style="margin-top:160px;">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                                    <button type="button" class="btn btn-primary">Salvar</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="clinicas">
@@ -212,29 +242,30 @@
                                     <div role="tabpanel" class="tab-pane active" id="notificacoes">
                                         <div class="container-fluid" style="margin-top: 20px;">
                                             <div>
-                                                <a href="#" data-toggle="modal" data-target="#myModal10">
+                                                <a href="#" data-toggle="modal" data-target="#myModal110">
                                                     <div class="row list-group-item active">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             Nome: Hospital Márcio Cunha
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            Responsável: Elias Luiz da Silva Júnior
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="myModal110" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <form role="form" method="post" action="contact.php" >
                                                                 <div class="modal-body">
-                                                                    <div class="form-group col-md-10">
+                                                                    <div class="form-group col-md-12">
                                                                         <label for="nome">Nome:</label>
                                                                         <input type="text" class="form-control" id="nomehosp" name="nomehosp">
                                                                     </div>
-                                                                    <div class="form-group col-md-10">
-                                                                        <label for="senha">Responsável:</label>
-                                                                        <input type="text" class="form-control" id="responsavel" name="responsavel">
-                                                                    </div>
+                                                                        <div class="form-group col-md-2">
+                                                                            <label for="DDDtel">DDD:</label>
+                                                                            <input type="text" class="form-control" id="DDD" name="ddd">
+                                                                        </div>
+                                                                        <div class="form-group col-md-5">
+                                                                            <label for="telefone">Telefone:</label>
+                                                                            <input type="text" class="form-control" id="telefone" name="telefone">
+                                                                        </div>
                                                                 </div>
                                                                 <div class="modal-footer" style="margin-top:160px;">
                                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
@@ -422,6 +453,7 @@
         $(document).ready(function () {
             $('#Inserir').hide('fast');
             $('#Atualizar').hide('fast');
+            $('#Atualizar2').hide('fast');
             $('#Inserir2').hide('fast');
             $('#Atualizar2').hide('fast');
             $('#Inserirconvenio').click(function () {
