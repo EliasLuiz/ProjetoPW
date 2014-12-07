@@ -99,6 +99,8 @@
                     <div class="col-sm-4">
                         <input type="text" class="form-control" id="CPF" name="CPF" placeholder="CPF" required>
                     </div>
+                </div>
+                <div class="form-group" style="margin-top:24px;">
                     <label for="inputRG" class="col-sm-2 control-label">RG:</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" id="RG" name="RG" placeholder="RG" required>
@@ -106,13 +108,13 @@
                 </div>
                 <div class="form-group" style="margin-top:23px;">
                     <label for="inputEmail" class="col-sm-2 control-label">Email:</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="form-group" style="margin-top:23px;">
                     <label for="inputLogin" class="col-sm-2 control-label">Login:</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <input type="text" class="form-control" id="login" name="login" placeholder="Login" required>
                     </div>
                 </div>
@@ -121,8 +123,10 @@
                     <div class="col-sm-3">
                         <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
                     </div>
-                    <label for="inputSenha2" class="col-sm-3 control-label">Confirmar Senha:</label>
-                    <div class="col-sm-3">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha2" class="col-sm-2 control-label">Confirmar Senha:</label>
+                    <div class="col-sm-3" style="margin-top: 10px;">
                         <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Senha" required>
                     </div>
                 </div>
@@ -130,7 +134,7 @@
                     <label for="inputUsuario" class="col-sm-2 control-label">Usuário:</label>
                     <div class="col-sm-10">
                         <label class="radio-inline">
-                            <input type="radio" name="usuario" id="inputpaciente" value="paciente"> Paciente
+                                <input type="radio" name="usuario" id="inputpaciente" value="paciente"> Paciente
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="usuario" id="inputmedico" value="medico"> Médico
@@ -211,66 +215,66 @@
              background: -o-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
              background: -ms-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
              background: -moz-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%);
-             background: -webkit-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%); margin-top: 890px;q"><small><p>Copyright <b>BIOCESP Laboratório</b> - &copy; 2014 - Todos os direitos reservados</p></small></div>
+             background: -webkit-linear-gradient(top , rgb(234, 234, 234) , rgb(203, 203, 203) 100%); margin-top: 1010px;q"><small><p>Copyright <b>BIOCESP Laboratório</b> - &copy; 2014 - Todos os direitos reservados</p></small></div>
 
 
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
 
 
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/jquery.slides.min.js"></script>
-    <script>
-        $(function () {
-            $('#slides').slidesjs({
-                width: 940,
-                height: 200,
-                play: {
-                    active: true,
-                    auto: true,
-                    interval: 4000,
-                    swap: true
-                }
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.slides.min.js"></script>
+        <script>
+            $(function () {
+                $('#slides').slidesjs({
+                    width: 940,
+                    height: 200,
+                    play: {
+                        active: true,
+                        auto: true,
+                        interval: 4000,
+                        swap: true
+                    }
+                });
             });
-        });
-    </script>
+        </script>
 
 
-    <script src="js/jquery-1.8.2.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
-        });
-    </script>
-    <script>
-        $(function () {
-            $("#calendario2").datepicker({dateFormat: 'dd-mm-yy'});
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#divmedico').hide('fast');
-            $('#divpaciente').hide('fast');
-            $('#divmedicamento').hide('fast');
-            $('#inputpaciente').click(function () {
-                $('#divpaciente').show('fast');
+        <script src="js/jquery-1.8.2.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
+            });
+        </script>
+        <script>
+            $(function () {
+                $("#calendario2").datepicker({dateFormat: 'dd-mm-yy'});
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
                 $('#divmedico').hide('fast');
-            });
-            $('#inputmedico').click(function () {
-                $('#divmedico').show('fast');
                 $('#divpaciente').hide('fast');
-            });
-            $('#inputmedsim').click(function () {
-                $('#divmedicamento').show('fast');
-            });
-            $('#inputmednao').click(function () {
                 $('#divmedicamento').hide('fast');
+                $('#inputpaciente').click(function () {
+                    $('#divpaciente').show('fast');
+                    $('#divmedico').hide('fast');
+                });
+                $('#inputmedico').click(function () {
+                    $('#divmedico').show('fast');
+                    $('#divpaciente').hide('fast');
+                });
+                $('#inputmedsim').click(function () {
+                    $('#divmedicamento').show('fast');
+                });
+                $('#inputmednao').click(function () {
+                    $('#divmedicamento').hide('fast');
+                });
             });
-        });
-    </script>
+        </script>
 
 
-</body>
+    </body>
 </html>
