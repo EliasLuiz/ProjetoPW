@@ -31,12 +31,12 @@
         <div class="row">
             <div class="container col-md-3 col-md-offset-1" >
                 <div>
-                    <form class="form-signin" role="form">
+                    <form class="form-signin" role="form" action="Login.php" method="post">
                         <h2 class="form-signin-heading" style="color: #0088cc;">Conta do Usuário</h2>
                         <label for="inputEmail" class="sr-only">Usuário</label>
-                        <input type="login" class="form-control" placeholder="Usuário" required>
+                        <input type="login"  id="login" name="login" class="form-control" placeholder="Usuário"  required>
                         <label for="inputPassword" class="sr-only">Senha</label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                        <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" value="remember-me"> Lembrar Senha
