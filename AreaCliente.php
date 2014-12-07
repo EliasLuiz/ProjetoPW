@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="css/jquery-ui.css" />
         <script src="js/jquery.min.js"></script>
 
-
         <style>
         </style>
         <!-- End SlidesJS Optional-->
@@ -134,7 +133,7 @@
                                     <form id="marcacaoexame" name="marcacaoexame" method="post" action="marcacaoExameUsuario.php">
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-2"><label>Selecione o Exame:</label></div>
-                                            <div class="col-md-2" style="margin-top: 2px;"><select class="form-control" name="exames1" id="exames1">
+                                            <div class="col-md-3" style="margin-top: 2px;"><select class="form-control" name="exames1" id="exames1">
                                                     <option>Selecione</option>
                                                     <option>2</option>
                                                     <option>3</option>
@@ -195,7 +194,7 @@
                                         </div>
                                         <div class="row"  id="divconvenio2" style="margin-top: 15px;">
                                             <div class="col-md-2 col-md-offset-2"><label>Selecione o Convênio: </label></div>
-                                            <div class="col-md-2" style="margin-top: 2px;">
+                                            <div class="col-md-3" style="margin-top: 2px;">
                                                 <label>
                                                     <select class="form-control" name="convenio" id="convenio">
                                                         <option>Selecione</option>
@@ -207,7 +206,35 @@
                                                 </label>
                                             </div>
                                         </div>
-
+                                        <div class="row" style="margin-top: 24px;">
+                                            <div class="col-md-2 col-md-offset-2"><label>Médico Solicitante:</label></div>
+                                            <div class="col-md-3" style="margin-top: 2px;" id="medicox"><select class="form-control" name="medico" id="medico">
+                                                    <option>Médicos</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select></div>
+                                        </div>
+                                        <div class="row" style="margin-top: 0px;">
+                                            <div class="radio">
+                                                <div class="col-md-3 col-md-offset-4" style="margin-top: 0px;">
+                                                    <label>
+                                                        <input type="radio" name="outromedico" id="outromedico" value="1" onClick='javascript:travar(1)'  onClick="uncheckRadio(this)">
+                                                        Outro Médico
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 18px;">
+                                            <div class="col-md-3 col-md-offset-4" id="medicos"><select class="form-control" name="mediconovo" id="mediconovo">
+                                                    <option>Outros Médicos</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select></div>
+                                        </div>
                                         <div style="margin-top: 15px; margin-left: 0px;" id="divinformacoes">
                                             <div class="row">
                                                 <div class="col-md-2 col-md-offset-2"><label>Informações: </label></div>
@@ -513,27 +540,27 @@
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.slides.min.js"></script>
     <script>
-                                            $(function () {
-                                                $('#slides').slidesjs({
-                                                    width: 940,
-                                                    height: 200,
-                                                    play: {
-                                                        active: true,
-                                                        auto: true,
-                                                        interval: 4000,
-                                                        swap: true
-                                                    }
-                                                });
-                                            });
+                                                            $(function () {
+                                                                $('#slides').slidesjs({
+                                                                    width: 940,
+                                                                    height: 200,
+                                                                    play: {
+                                                                        active: true,
+                                                                        auto: true,
+                                                                        interval: 4000,
+                                                                        swap: true
+                                                                    }
+                                                                });
+                                                            });
     </script>
 
 
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script>
-        $(function () {
-            $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
-        });
+                                                            $(function () {
+                                                                $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
+                                                            });
     </script>
     <script>
         $(function () {
@@ -545,8 +572,9 @@
             $('#divinformacoes').hide('fast');
             $('#divconvenio2').hide('fast');
             $('#divcoleta').hide('fast');
-            $('#divconvenio').click(function () {
-                $('#divinformacoes').show('fast');
+            $('#medicos').hide('fast');
+            $('#outromedico').click(function () {
+                $('#medicos').show('fast');
             });
             $('#id_radio2').click(function () {
                 $('#divconvenio2').show('fast');
@@ -561,6 +589,19 @@
                 $('#divcoleta').hide('fast');
             });
         });
+    </script>
+    <script>
+        function travar(num) {
+            if (num == 1) {
+                marcacaoexame.medico.disabled = true
+            }
+            else {
+                marcacaoexame.medico.disabled = false
+            }
+        }
+        function uncheckRadio(rbutton) {
+            rbutton.checked = (rbutton.checked) ? false : true;
+        }
     </script>
 
 
