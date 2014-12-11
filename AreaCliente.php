@@ -220,7 +220,7 @@
                                             <div class="radio">
                                                 <div class="col-md-3 col-md-offset-4" style="margin-top: 0px;">
                                                     <label>
-                                                        <input type="radio" name="outromedico" id="outromedico" value="1" onClick='javascript:travar(1)'  onClick="uncheckRadio(this)">
+                                                        <input type="checkbox" name="outromedico" id="outromedico" value="1" onClick='javascript:travar(1)' ondblclick='javascript:travar(2)'>
                                                         Outro Médico
                                                     </label>
                                                 </div>
@@ -567,15 +567,23 @@
             $("#data").datepicker({dateFormat: 'dd-mm-yy'});
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            $('#outromedico').change(function () {
+                if (this.checked)
+                    $('#medicos').fadeIn('slow');
+                else
+                    $('#medicos').fadeOut('slow');
+
+            });
+        });
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#divinformacoes').hide('fast');
             $('#divconvenio2').hide('fast');
             $('#divcoleta').hide('fast');
             $('#medicos').hide('fast');
-            $('#outromedico').click(function () {
-                $('#medicos').show('fast');
-            });
             $('#id_radio2').click(function () {
                 $('#divconvenio2').show('fast');
             });
@@ -589,6 +597,21 @@
                 $('#divcoleta').hide('fast');
             });
         });
+    </script>
+    <script  type="text/javascript">
+
+        function bloqueio()
+        {
+            if (document.getElementById("outromedico").style.display == "none")
+            {
+                document.getElementById("outromedico").style.display = "block";
+            }
+            else
+            {
+                document.getElementById("outromedico").style.display = "none";
+            }
+        }
+
     </script>
     <script>
         function travar(num) {
