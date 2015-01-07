@@ -31,7 +31,7 @@ class ICadastroTipoExame {
 
     function carregaPost() {
         $this->nome = $_POST["nomeexame"];
-        $this->coletadomicilio = $_POST["domicilio"] == "domicilio";
+        $this->coletadomicilio = $_POST["coletadomicilio"] == "TRUE";
         $this->requisitos = $_POST["requisitos"];
         $this->info = $_POST["informacoes"];
         $this->preco = $_POST["preco"];
@@ -43,7 +43,7 @@ class ICadastroTipoExame {
 
         //if(!$this->valida){ ERRO }
         if(!$this->valida()){
-            die('Dados Inv&aacute;lidos');
+            return FALSE;
         }
         
         $texame = new TipoExame();
@@ -56,5 +56,7 @@ class ICadastroTipoExame {
 
         $ctrl = new CtrlTipoExame();
         $ctrl->cadastra($texame);
+        
+        return TRUE;
     }
 }

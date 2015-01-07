@@ -36,7 +36,6 @@ class ICadastroUsuario {
     }
             
     function carregaPost() {
-        //tirar daqui e fazer um get separado pra cada um
         $this->nome = $_POST["nome"];
         $this->sexo = $_POST["sexo"];
         $this->ddd = $_POST["ddd"];
@@ -45,10 +44,8 @@ class ICadastroUsuario {
         $this->rg = $_POST["RG"];
         $this->email = $_POST["email"];
         $this->login = $_POST["login"];
-        if($_POST["senha"] != $_POST["senha2"]){
-            return FALSE;
-        }
         $this->senha = $_POST["senha"];
+        $this->senha2 = $_POST["senha2"];
         $this->usuario = $_POST["usuario"];
         if ($this->usuario == 'paciente') {
             $this->rua = $_POST["rua"];
@@ -63,7 +60,6 @@ class ICadastroUsuario {
         else {
             $this->crm = $_POST["crm"];
         }
-        return TRUE;
     }
 
     public function valida(){
@@ -95,6 +91,10 @@ class ICadastroUsuario {
     }
 
     public function salva() {
+        
+        if(!$this->valida()){
+            return FALSE;
+        }
 
         $ctrl = new CtrlUsuario();
         if ($this->usuario == "paciente") {
@@ -131,5 +131,7 @@ class ICadastroUsuario {
             $user->setCrm($this->crm);
             $ctrl->cadastraMedico($user);
         }
+        
+        return TRUE;
     }
 }

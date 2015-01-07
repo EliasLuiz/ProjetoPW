@@ -118,7 +118,7 @@
                                 </div>
 
                                 <div id="Inserir">
-                                    <form class="form-horizontal" role="form">
+                                    <form class="form-horizontal" role="form" action="cadastroConvenio.php">
                                         <div class="col-md-8 col-md-offset-2" style="margin-top: 20px;">
                                             <div class="form-group">
                                                 <label for="inputConvenio" class="col-sm-2 control-label">Nome do Convênio:</label>
@@ -159,7 +159,7 @@
                                                 <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
-                                                            <form role="form" method="post" action="contact.php" >
+                                                            <form role="form" method="post">
                                                                 <div class="modal-body">
                                                                     <div class="form-group col-md-10">
                                                                         <label for="nome">Nome:</label>
@@ -318,7 +318,7 @@
                                     <div class="col-md-8 col-md-offset-2" style="margin-top:10px; margin-left: 180px;">
                                         <div class="form-group">
                                             <label class="checkbox-inline col-md-offset-2">
-                                                <input type="checkbox" id="coletadomicilio" name="coletadomicilio" value="option1"> Exame pode ser realizado em domicílio
+                                                <input type="checkbox" id="coletadomicilio" name="coletadomicilio" value="TRUE"> Exame pode ser realizado em domicílio
                                             </label>
                                         </div>
                                     </div>

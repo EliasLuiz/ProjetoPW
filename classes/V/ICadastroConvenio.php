@@ -29,19 +29,16 @@ class ICadastroConvenio {
 
     //Funções para validação aqui
 
-    public function cadastra($nome, $responsavel) {
+    public function salva() {
 
-        //if(!$this->valida){ ERRO }
         if(!$this->valida()){
-            die('Dados Inv&aacute;lidos');
+            return FALSE;
         }
+        
         $ctrl = new CtrlConvenio();
-        $ctrl->cadastra($nome, $responsavel);
-    }
-
-    public function cadastraPost() {
-        $this->carregaPost();
-        $this->cadastra($this->nome, $this->responsavel);
+        $ctrl->cadastra($this->nome, $this->responsavel);
+        
+        return TRUE;
     }
 
 }

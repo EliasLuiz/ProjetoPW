@@ -22,6 +22,7 @@ class ICadastroFuncionario {
     protected $email;
     protected $login;
     protected $senha;
+    protected $senha2;
     //protected $usuario;
     protected $cargo;
     protected $registro;
@@ -35,7 +36,12 @@ class ICadastroFuncionario {
         $valido = $valido && $this->validaRg($this->rg);
         $valido = $valido && $this->validaEmail($this->email);
         $valido = $valido && $this->validaAlfabeticoSimbolo($this->login);
-        $valido = $valido && $this->validaAlfabeticoSimbolo($this->senha);
+        if($this->senha == $this->senha2){
+            $valido = $valido && $this->validaAlfabeticoSimbolo($this->senha);
+        }
+        else{
+            return FALSE;
+        }
         $valido = $valido && $this->validaAlfabetico($this->cargo);
         $valido = $valido && $this->validaAlfanumerico($this->registro);
         
@@ -52,6 +58,7 @@ class ICadastroFuncionario {
         $this->email = $_POST["email"];
         $this->login = $_POST["login"];
         $this->senha = $_POST["senha"];
+        $this->senha2 = $_POST["senha2"];
         //$this->usuario = $_POST["usuario"];
         $this->cargo = $_POST["cargo"];
         $this->registro = $_POST["registro"];
@@ -59,12 +66,15 @@ class ICadastroFuncionario {
 
     //Funções para validação aqui
 
+    //Retorna FALSE caso não seja possivel salver (dados invalidos)
+    //        TRUE caso tudo ocorra bem
     public function salva() {
 
         //if(!$this->valida){ ERRO }
         if(!$this->valida()){
-            die('Dados Inv&aacute;lidos');
+            return FALSE;
         }
+        
         $func = new Funcionario();
         $func->setNome($this->nome);
         $func->setSexo($this->sexo);
@@ -79,6 +89,8 @@ class ICadastroFuncionario {
 
         $ctrl = new CtrlFuncionario();
         $ctrl->cadastra($func);
+        
+        return TRUE;
     }
 
 }
