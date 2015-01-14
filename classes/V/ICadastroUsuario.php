@@ -32,9 +32,10 @@ class ICadastroUsuario {
     protected $cidade;
     protected $medicamentos;
 
+    function __construct() {
+    }
+            
     function carregaPost() {
-
-        //tirar daqui e fazer um get separado pra cada um
         $this->nome = $_POST["nome"];
         $this->sexo = $_POST["sexo"];
         $this->ddd = $_POST["ddd"];
@@ -43,12 +44,10 @@ class ICadastroUsuario {
         $this->rg = $_POST["RG"];
         $this->email = $_POST["email"];
         $this->login = $_POST["login"];
-        if($_POST["senha"] != $_POST["senha2"]){
-            die("Senhas nao batem");
-        }
         $this->senha = $_POST["senha"];
+        $this->senha2 = $_POST["senha2"];
         $this->usuario = $_POST["usuario"];
-        if ($this->usuario == 'Paciente') {
+        if ($this->usuario == 'paciente') {
             $this->rua = $_POST["rua"];
             $this->numero = $_POST["numero"];
             $this->complemento = $_POST["complemento"];
@@ -74,14 +73,14 @@ class ICadastroUsuario {
         $valido = $valido && $this->validaAlfanumerico($this->login);
         $valido = $valido && $this->validaAlfanumerico($this->senha);
         if($this->usuario == 'paciente'){
-            $valido = $valido && $this->validaAlfabeticoEspaco($this->rua);
+            $valido = $valido && $this->validaAlfanumerico($this->rua);
             $valido = $valido && $this->validaNumerico($this->numero);
-            $valido = $valido && ($this->validaAlfabeticoEspaco($this->complemento)
+            $valido = $valido && ($this->validaAlfanumerico($this->complemento)
                     || empty($this->complemento) );
-            $valido = $valido && $this->validaAlfabeticoEspaco($this->bairro);
-            $valido = $valido && $this->validaAlfabeticoEspaco($this->cidade);
+            $valido = $valido && $this->validaAlfanumerico($this->bairro);
+            $valido = $valido && $this->validaAlfanumerico($this->cidade);
             if(isset($this->medicamentos)){
-                $valido = $valido && ($this->validaAlfabeticoEspaco($this->medicamentos)
+                $valido = $valido && ($this->validaAlfanumerico($this->medicamentos)
                     || empty($this->medicamentos) );
             }
         }
@@ -92,12 +91,13 @@ class ICadastroUsuario {
     }
 
     public function salva() {
-
+        
         if(!$this->valida()){
-            die('Dados Inv&aacute;lidos');
+            return FALSE;
         }
+
         $ctrl = new CtrlUsuario();
-        if ($this->usuario == "Paciente") {
+        if ($this->usuario == "paciente") {
             $user = new Cliente();
         } 
         else{
@@ -114,7 +114,7 @@ class ICadastroUsuario {
         $user->setLogin($this->login);
         $user->setSenha($this->senha);
 
-        if ($this->usuario == "Paciente") {
+        if ($this->usuario == "paciente") {
             $user->setRua($this->rua);
             $user->setNumeroEnd($this->numero);
             $user->setComplementoEnd($this->complemento);
@@ -131,5 +131,7 @@ class ICadastroUsuario {
             $user->setCrm($this->crm);
             $ctrl->cadastraMedico($user);
         }
+        
+        return TRUE;
     }
 }

@@ -5,7 +5,6 @@
  *
  * @author Elias Luiz
  */
-
 require_once __DIR__ . '/../M/Pessoa.php';
 require_once __DIR__ . '/../M/Cliente.php';
 require_once __DIR__ . '/../M/Medico.php';
@@ -13,64 +12,56 @@ require_once __DIR__ . '/../M/Funcionario.php';
 require_once __DIR__ . '/../M/Bairro.php';
 
 class CtrlUsuario {
-    
-    public function login($login, $senha){
-        if ($login=='admin' && $senha=='admin') {
-            echo __DIR__;
-                header("Location: " . __DIR__ . "administrador.php");
-            }
+
+    public function login($login, $senha) {
         $usuario = new Pessoa();
-        $usuarios = $usuario->listaLogin();
-        if(empty($usuarios[$login])){
-            die("Login nao existente");
+        $_SESSION['tipo'] = $usuario->testaLogin($login, $senha);
+        if($_SESSION['tipo'] == 'A'){
+            $dest = "Location: AreaAdministrador.php";
         }
-        $cd = $usuarios[$login]['cdPessoa'];
-        $usuario->carrega($cd);
-        if($usuario->getSenha() == $senha){
-            session_start();
-            //$_COOKIE['cd'] = $cd;
-            //$_COOKIE['tipo'] = $usuarios[$login]['tipo'];
-            $_SESSION['cd'] = $cd;
-            $_SESSION['nome'] = $usuario->getNome();
-            $_SESSION['tipo'] = $usuarios[$login]['tipo'];
-            
-            if ($_SESSION['tipo']=='C') {
-                header("Location: cliente.php");
-            }
-            if ($_SESSION['tipo']=='F') {
-                header("Location: funcionario.php");
-            }
-            if ($_SESSION['tipo']=='M') {
-                header("Location: medico.php");
-            }
-            
+        else if ($_SESSION['tipo'] == 'C') {
+            $dest = "Location: AreaCliente.php";
+        }
+        else if ($_SESSION['tipo'] == 'F') {
+            $dest = "Location: AreaFuncionario.php";
+        }
+        else if ($_SESSION['tipo'] == 'M') {
+            $dest = "Location: AreaMedica.php";
         }
         else{
-            die("Senha incorreta");
+            $dest = "Location: index.html";
         }
+        
+        if($_SESSION['tipo'] != 'A' && $_SESSION['tipo'] != 'N'){
+            $usuario->setLogin($login);
+            $_SESSION['cd'] = $usuario->getCdPessoa();
+            $usuario->carrega($_SESSION['cd']);
+            $_SESSION['nome'] = $usuario->getNome();
+        }
+        
+        header($dest);
     }
-    
-    public function logout(){
+
+    public function logout() {
         //unset($_COOKIE['cd']);
         //unset($_COOKIE['tipo']);
         session_destroy();
         header("Location: index.htm");
     }
-    
-    public function cadastraCliente($cliente){
+
+    public function cadastraCliente($cliente) {
         $user = new Cliente();
         $user = $cliente;
         $user->salva();
     }
-    
-    public function cadastraMedico($medico){
+
+    public function cadastraMedico($medico) {
         $user = new Medico();
         $user = $medico;
         $user->salva();
     }
 
-
-    public function alteraEndereco($rua,$numeroEnd,$complementoEnd,$bairro, $cidade){
+    public function alteraEndereco($rua, $numeroEnd, $complementoEnd, $bairro, $cidade) {
         $usuario = new Cliente();
         $usuario->carrega($_SESSION['cd']);
         $bairro_ = new Bairro();
@@ -82,34 +73,35 @@ class CtrlUsuario {
         $usuario->setNumeroEnd($numeroEnd);
         $usuario->salva();
     }
-    
-    public function alteraEmail($email){
+
+    public function alteraEmail($email) {
         $usuario = new Pessoa();
         $usuario->carrega($_SESSION['cd']);
         $usuario->setEmail($email);
         $usuario->salva();
     }
-    
-    public function alteraMedicamentos($medicamentos){
+
+    public function alteraMedicamentos($medicamentos) {
         $usuario = new Cliente();
         $usuario->carrega($_SESSION['cd']);
         $usuario->setMedicamentos($medicamentos);
         $usuario->salva();
     }
-    
-    public function alteraTelefone($telefone){
+
+    public function alteraTelefone($telefone) {
         $usuario = new Pessoa();
         $usuario->carrega($_SESSION['cd']);
         $usuario->setTelefone($telefone);
         $usuario->salva();
     }
-    
-    public function alteraSenha($senha){
+
+    public function alteraSenha($senha) {
         $usuario = new Pessoa();
         $usuario->carrega($_SESSION['cd']);
         $usuario->setSenha($senha);
         $usuario->alteraSenha($senha);
     }
+
 }
 
 ?>

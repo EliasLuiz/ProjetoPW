@@ -177,6 +177,8 @@ class Pessoa {
         $sql = "SELECT p.cdPessoa, login FROM TB_Funcionario f, TB_Pessoa p "
                 . "WHERE f.cdPessoa = p.cdPessoa and p.status=1";
         $resultf = $this->query($sql);
+        $sql = "SELECT cdAdmin, login FROM admin WHERE status=1";
+        $resulta = $this->query($sql);
         while ($row = $this->fetch_array($resultc)) {
             $pessoas[$row['login']] = array('cdPessoa' => $row['cdPessoa'],
                 'tipo' => 'C');
@@ -189,6 +191,10 @@ class Pessoa {
             $pessoas[$row['login']] = array('cdPessoa' => $row['cdPessoa'],
                 'tipo' => 'F');
         }
+        while ($row = $this->fetch_array($resulta)) {
+            $pessoas[$row['login']] = array('cdPessoa' => $row['cdAdmin'],
+                'tipo' => 'A');
+        }
         return $pessoas;
     }
     public function getCdPessoa(){
@@ -197,6 +203,81 @@ class Pessoa {
                         . 'no banco de dados: ' . $this->dberror());
         $result = $this->fetch_array($result);
         return $result['cdPessoa'];
+    }
+    public function testaLogin($login, $senha){
+        //Testa se é administrador
+        $sql = "SELECT senha, login FROM admin WHERE login = '" . $login . "' and status=1";
+        $result = $this->query($sql) or die('Não foi possível buscar Administrador '
+                        . 'no banco de dados: ' . $this->dberror());
+        $result = $this->fetch_array($result);
+        if($result['senha'] == $senha){
+            return 'A';
+        }
+        else{
+            return 'N';
+        }
+        
+        $sql = "SELECT cdPessoa, senha FROM TB_Pessoa p WHERE p.login = '" . $this->login . "'";
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa '
+                        . 'no banco de dados: ' . $this->dberror());
+        $result = $this->fetch_array($result);
+        if($result['senha'] == $senha){
+            if($this->isFuncionario($result['cdPessoa'])){
+                return 'F';
+            }
+            if($this->isMedico($result['cdPessoa'])){
+                return 'M';
+            }
+            else{
+                return 'C';
+            }
+        }
+        else{
+            return 'N';
+        }
+        
+    }
+    public function isFuncionario($cdPessoa){
+        $sql = "SELECT p.cdPessoa FROM TB_Funcionario f, TB_Pessoa p "
+                . "WHERE p.cdPessoa = " . $cdPessoa . "f.cdPessoa = p.cdPessoa "
+                . "and p.status=1 and ";
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa '
+                        . 'no banco de dados: ' . $this->dberror());
+        $result = $this->fetch_array($result);
+        if(empty($result)){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    public function isMedico($cdPessoa){
+        $sql = "SELECT p.cdPessoa FROM TB_Medico m, TB_Pessoa p "
+                . "WHERE p.cdPessoa = " . $cdPessoa . "m.cdPessoa = p.cdPessoa "
+                . "and p.status=1 and ";
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa '
+                        . 'no banco de dados: ' . $this->dberror());
+        $result = $this->fetch_array($result);
+        if(empty($result)){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    public function isCliente($cdPessoa){
+        $sql = "SELECT p.cdPessoa FROM TB_Cliente c, TB_Pessoa p "
+                . "WHERE p.cdPessoa = " . $cdPessoa . "c.cdPessoa = p.cdPessoa "
+                . "and p.status=1 and ";
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa '
+                        . 'no banco de dados: ' . $this->dberror());
+        $result = $this->fetch_array($result);
+        if(empty($result)){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
     }
 }
 

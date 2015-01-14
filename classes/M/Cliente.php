@@ -90,8 +90,8 @@ class Cliente extends Pessoa {
         
         //Gera SQL para atualizar Cliente no banco
         if($result["nmPessoa"]==$this->nome){
-            $sql = "UPDATE TB_Cliente SET rua = '" . $this->rua .
-                    "', numeroEnd = " . $this->numeroEnd . ", complementoEnd = '".
+            $sql = "UPDATE TB_Cliente SET ruaCliente = '" . $this->rua .
+                    "', nEndCliente = " . $this->numeroEnd . ", complementoEndCliente = '".
                     $this->complementoEnd . "', medicamentos = '" . $this->medicamentos .
                     "' WHERE cdPessoa = " . $result['cdPessoa'];
         }
@@ -106,14 +106,11 @@ class Cliente extends Pessoa {
                     ' no banco de dados: '.  $this->dberror());
             $result = $this->fetch_array($result);
             
-            $sql = "INSERT INTO TB_Cliente(cdPessoa, cdBairro, rua, numeroEnd," .
-                    " complementoEnd, medicamentos) VALUES (" . $result['cdPessoa'] .
-                    ",". $result['cdBairro'] . ",'" . $this->rua . "','" . $this->numeroEnd .
-                    "','" . $this->complementoEnd . "','" . $this->medicamentos . "')";
+            $sql = "INSERT INTO TB_Cliente(cdPessoa, cdBairro, ruaCliente, nEndCliente," .
+                    " complementoEndCliente, medicamentos) VALUES (" . $result['cdPessoa'] .
+                    ",". $result['cdBairro'] . ",'" . $this->rua . "'," . $this->numeroEnd .
+                    ",'" . $this->complementoEnd . "','" . $this->medicamentos . "')";
         }
-        
-        var_dump($sql);
-        echo '<br>';
         
         //Executa SQL e testa sucesso
         $this->query($sql) or die('Não foi possível salvar Cliente no' .
