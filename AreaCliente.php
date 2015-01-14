@@ -99,10 +99,10 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
                             <!--<li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>-->
-                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                             <!--<li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>-->
-                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -145,32 +145,32 @@
                             </div>
                             <div role="tabpanel" class="tab-pane" id="exames">
                                 <div class="row">
-                                    <div class="col-xs-6 col-md-3" style="margin-top: 40px; margin-left: 35px;"  id="Inserirconvenio" >
+                                    <div class="col-xs-6 col-md-3" style="margin-top: 40px; margin-left: 35px;"  id="Inserirexame" >
                                         <a href="#Inserir" class="thumbnail">
                                             <img src="images/Incluir.jpg" alt="Incluir">
                                             <div class="caption">
-                                                <center><h3>Inserir</h3></center>
+                                                <center><h3>Marcar de Exame</h3></center>
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Atualizarconvenio">
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Atualizarexame">
                                         <a href="#Atualizar" class="thumbnail">
                                             <img src="images/Atualizar.png" alt="Atualizar">
                                             <div class="caption">
-                                                <center><h3>Alterar</h3></center>
+                                                <center><h3>Alterar Exame</h3></center>
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Excluirconvenio">
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Excluirexame">
                                         <a style="cursor: pointer;" class="thumbnail">
                                             <img src="images/Excluir.jpg" alt="Excluir">
                                             <div class="caption">
-                                                <center><h3>Excluir</h3></center>
+                                                <center><h3>Excluir Exame</h3></center>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
-                                <div id="Inserir" style="mergin-top: 20px; margin-left: 50px;">
+                                <div id="Inserir" style="margin-top: 20px; margin-left: 50px;">
                                     <form id="marcacaoexame" name="marcacaoexame" method="post" action="marcacaoExameUsuario.php">
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-2"><label>Selecione o Exame:</label></div>
@@ -295,6 +295,9 @@
 
                                         <div class="col-md-2 col-md-offset-5" style="margin-top: 40px;"><button type="button" class="btn btn-primary">Marcar Exame</button></div>
                                     </form>
+                                </div>
+                                <div id="Atualizar" class="row" style="margin-top: 25px;">
+                                    
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="mensagens">
@@ -538,25 +541,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="#" class="list-group-item" data-toggle="modal" data-target="#myModal5">Não receber lembretes do Sistema</a>
-                                        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                                        <h4 class="modal-title" id="myModalLabel">Aviso</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Você tem certeza que não deseja receber lembretes do Sistema?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                                                        <button type="button" class="btn btn-primary">Sim</button>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -627,6 +611,20 @@
             $('#divconvenio2').hide('fast');
             $('#divcoleta').hide('fast');
             $('#medicos').hide('fast');
+            $('#Inserir').hide('fast');
+            $('#Atualizar').hide('fast');
+            $('#Inserirexame').click(function () {
+                $('#Inserir').show('fast');
+                $('#Atualizar').hide('fast');
+            });
+            $('#Atualizarexame').click(function () {
+                $('#Atualizar').show('fast');
+                $('#Inserir').hide('fast');
+            });
+            $('#Excluirexame').click(function () {
+                $('#Atualizar').hide('fast');
+                $('#Inserir').hide('fast');
+            });
             $('#id_radio2').click(function () {
                 $('#divconvenio2').show('fast');
             });
