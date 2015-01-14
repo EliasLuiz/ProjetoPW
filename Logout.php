@@ -1,6 +1,5 @@
 <?php
-
-require_once $GLOBALS["HOME"] . 'classes/C/CtrlUsuario.php';
+require_once __DIR__ . '/classes/C/CtrlUsuario.php';
 $ctrl = new CtrlUsuario();
 $ctrl->logout();
 header("Location: index.php");

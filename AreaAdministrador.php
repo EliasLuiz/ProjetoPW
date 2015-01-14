@@ -36,7 +36,7 @@
                 <div class="col-md-2" style="margin-left: 70px;"><img src="images/logo.jpg" class="img-responsive" alt="Responsive image" style="height: 100px; width: 200px; margin-right: 50px;"></div>
                 <div class="col-md-3 col-md-offset-2" style="margin-left: 220px; margin-top: 12px;"><center><h1 style="color: #0044cc; font-family: Tahoma;">Área do Administrador</h1></center></div>
                 <div class="col-md-2 col-md-offset-1" style="margin-top: 15px; margin-left: 180px;"><center><h4 style="color: #5bc0de">Bem-Vindo Administrador</h4></center></div>
-                <div class="col-md-3 col-md-offset-1" style="margin-left: 120px;"><center><button type="button"  class="btn btn-primary btn-sm">Sair</button></center></div>
+                <div class="col-md-3 col-md-offset-1" style="margin-left: 120px;"><center><a href="Logout.php"><button type="button"  class="btn btn-primary btn-sm">Sair</button></a></center></div>
             </div>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: 20px; margin-left: 160px; width: 1000px;">
                 <!-- Indicators-->

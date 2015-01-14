@@ -34,12 +34,22 @@
                     <form class="form-signin" role="form" action="Login.php" method="post">
                         <h2 class="form-signin-heading" style="color: #0088cc;">Conta do Usuário</h2>
                         <label for="inputEmail" class="sr-only">Usuário</label>
-                        <input type="login"  id="login" name="login" class="form-control" placeholder="Usuário"  required>
+                        <?php
+                            if(isset($_COOKIE["login"])){
+                                echo '<input type="login"  id="login" name="login" class="form-control" value="' . $_COOKIE["login"] . '"  required>';
+                            }
+                            else{
+                                echo '<input type="login"  id="login" name="login" class="form-control" placeholder="Usuário" required>';
+                        }
+                        ?>
                         <label for="inputPassword" class="sr-only">Senha</label>
                         <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
+                        <!--
+                        <input type="login"  id="login" name="login" class="form-control" placeholder="Usuário"  required>
+                        -->
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" value="remember-me"> Lembrar Senha
+                                <input name="lembrar" type="checkbox" value="TRUE"> Lembrar Usu&aacute;rio
                             </label>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>

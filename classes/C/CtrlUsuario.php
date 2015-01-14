@@ -46,7 +46,8 @@ class CtrlUsuario {
         //unset($_COOKIE['cd']);
         //unset($_COOKIE['tipo']);
         session_destroy();
-        header("Location: index.htm");
+        echo 'vai redirect';
+        header("Location: index.php");
     }
 
     public function cadastraCliente($cliente) {
