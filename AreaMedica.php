@@ -65,19 +65,19 @@
                 </a>-->
             </div>
             <div class="row" style="margin-top: 10px;">
-                <div class="col-md-7 col-md-offset-2" style="margin-left: 290px;">
+                <div class="col-md-7 col-md-offset-5" style="margin-left: 290px;">
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
-                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                        <ul class="nav nav-tabs col-md-offset-4" role="tablist" style="font-size: 17px;">
+                            <!--<li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>-->
                             <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Histórico dos Pacientes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Requisição de Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <!--<li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Requisição de Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>-->
                             <!--<li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Mensagens&nbsp;&nbsp;&nbsp;</a></li>-->
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="notificacoes">
+                            <!--<div role="tabpanel" class="tab-pane active" id="notificacoes">
                                 <div class="container-fluid" style="margin-top: 30px;">
                                     <div class="list-group">
                                         <a href="#" class="list-group-item active">Exame de Fezes da Paciente Maria pronto para download.</a>
@@ -85,8 +85,8 @@
                                         <a href="#" class="list-group-item active">Exame de Urina da paciente Geralda pronto para download.</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="historico"   style="margin-top: 15px;">
+                            </div>-->
+                            <div role="tabpanel" class="tab-pane active" id="historico"   style="margin-top: 15px;">
                                 <div class="col-md-2"><label>Pesquisar por Exame:</label></div>
                                 <div class="col-md-3" style="margin-top: 2px;">
                                     <div class="input-group">
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="exames" style="margin-top: 15px;">
+                            <!--<div role="tabpanel" class="tab-pane" id="exames" style="margin-top: 15px;">
                                 <form>
                                     <div class="col-md-2"><label>Selecione o Paciente:</label></div>
                                     <div class="col-md-3" style="margin-top: 2px;">
@@ -142,7 +142,7 @@
                                     </div>
                                     <div class="col-md-1 col-md-offset-5" style="margin-top: 70px;"><button type="button" class="btn btn-info">Enviar</button></div>
                                 </form>
-                            </div>
+                            </div>-->
                             <!--<div role="tabpanel" class="tab-pane" id="mensagens">
                                 <div role="tabpanel">
 

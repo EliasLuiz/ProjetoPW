@@ -9,6 +9,21 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/jquery-ui.css" />
         <script src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+            function displayVals() {
+                var value = $("#exames1").val();
+                $.ajax({
+                    url: 'FuncoesAJAX.php',
+                    data: {acao: 'dadosTipoExame', cod: value},
+                    type: 'POST',
+                    success: function (output) {
+                        $('#exibe').html(output);
+                    }
+                });
+            }
+//            $('#exames1').change(displayVals());
+        </script>
+        
 
         <style>
         </style>
@@ -78,21 +93,21 @@
                 </a>-->
             </div>
             <div class="row">
-                <div class="col-md-7 col-md-offset-3"  style="margin-top: 10px; margin-left: 280px;">
+                <div class="col-md-6 col-md-offset-3"  style="margin-top: 10px; margin-left: 350px;">
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
-                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;</a></li>
+                            <!--<li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>-->
+                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                             <!--<li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>-->
-                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="notificacoes">
+                            <!--<div role="tabpanel" class="tab-pane active" id="notificacoes">
                                 <div class="container-fluid" style="margin-top: 30px;">
                                     <div class="list-group">
                                         <a href="#" class="list-group-item active">Exame de Fezes pronto para download.</a>
@@ -100,12 +115,12 @@
                                         <a href="#" class="list-group-item active">Exame de Urina pronto para download.</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="historico" style="margin-top: 20px;">
+                            </div>-->
+                            <div role="tabpanel" class="tab-pane active" id="historico" style="margin-top: 20px;">
                                 <div class="col-md-2" style="margin-top: 0px;"><label>Pesquisar por Exame:</label></div>
                                 <div class="col-md-3" style="margin-top: 2px;">
                                     <div class="input-group">
-                                        <select class="form-control" id="exame" name="exame" onclick="displayVals()">
+                                        <select class="form-control" id="exame" name="exame">
                                             <option>Selecione</option>
                                             <option>3</option>
                                             <option>4</option>
@@ -133,7 +148,8 @@
                                     <form id="marcacaoexame" name="marcacaoexame" method="post" action="marcacaoExameUsuario.php">
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-2"><label>Selecione o Exame:</label></div>
-                                            <div class="col-md-3" style="margin-top: 2px;"><select class="form-control" name="exames1" id="exames1">
+                                            <div class="col-md-3" style="margin-top: 2px;">
+                                                <select class="form-control" name="exames1" id="exames1"  onclick="displayVals();">
                                                     <option>Selecione</option>
                                                     <option>2</option>
                                                     <option>3</option>
@@ -216,6 +232,7 @@
                                                     <option>5</option>
                                                 </select></div>
                                         </div>
+                                        <div id="exibe" class="row" style="margin-top: 24px;"></div>
                                         <div class="row" style="margin-top: 0px;">
                                             <div class="radio">
                                                 <div class="col-md-3 col-md-offset-4" style="margin-top: 0px;">
@@ -625,6 +642,9 @@
         function uncheckRadio(rbutton) {
             rbutton.checked = (rbutton.checked) ? false : true;
         }
+    </script>
+
+    <script>
     </script>
 
 
