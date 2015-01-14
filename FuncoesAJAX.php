@@ -6,7 +6,7 @@ switch ($acao) {
         require_once './classes/M/TipoExame.php';
 
         $exame = new TipoExame();
-        $exame->carrega(1);
+        $exame->carrega($_POST[cod]);
         echo "<div class = 'col-md-2 col-md-offset-2'><label>Requisitos:</label></div>
             <div class='col-md-4' style='margin-top:10px;'><input class='form-control' type='text' id='data' name='data' value='".$exame->getRequisitos()."'></div>";
 

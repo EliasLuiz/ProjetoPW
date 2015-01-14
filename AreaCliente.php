@@ -23,7 +23,7 @@
             }
 //            $('#exames1').change(displayVals());
         </script>
-        
+
 
         <style>
         </style>
@@ -144,7 +144,33 @@
                                 <div id="ExibeExameNome"></div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="exames">
-                                <div class="container-fluid" style="margin-top: 30px;">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-3" style="margin-top: 40px; margin-left: 35px;"  id="Inserirconvenio" >
+                                        <a href="#Inserir" class="thumbnail">
+                                            <img src="images/Incluir.jpg" alt="Incluir">
+                                            <div class="caption">
+                                                <center><h3>Inserir</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Atualizarconvenio">
+                                        <a href="#Atualizar" class="thumbnail">
+                                            <img src="images/Atualizar.png" alt="Atualizar">
+                                            <div class="caption">
+                                                <center><h3>Alterar</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Excluirconvenio">
+                                        <a style="cursor: pointer;" class="thumbnail">
+                                            <img src="images/Excluir.jpg" alt="Excluir">
+                                            <div class="caption">
+                                                <center><h3>Excluir</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="Inserir" style="mergin-top: 20px; margin-left: 50px;">
                                     <form id="marcacaoexame" name="marcacaoexame" method="post" action="marcacaoExameUsuario.php">
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-2"><label>Selecione o Exame:</label></div>
