@@ -6,6 +6,7 @@
  * @author Elias
  */
 
+require_once __DIR__ . '/../M/Funcionario.php';
 require_once __DIR__ . '/../C/CtrlFuncionario.php';
 require_once __DIR__ . '/Regexp.php';
 
@@ -29,6 +30,7 @@ class ICadastroFuncionario {
     
     public function valida(){
         $valido = TRUE;
+        
         $valido = $valido && $this->validaAlfabeticoEspaco($this->nome);
         $valido = $valido && $this->validaSexo($this->sexo);
         $valido = $valido && $this->validaTelefone($this->ddd, $this->telefone);
@@ -37,12 +39,13 @@ class ICadastroFuncionario {
         $valido = $valido && $this->validaEmail($this->email);
         $valido = $valido && $this->validaAlfabeticoSimbolo($this->login);
         if($this->senha == $this->senha2){
-            $valido = $valido && $this->validaAlfabeticoSimbolo($this->senha);
+            $valido = $valido && $this->validaAlfanumerico($this->senha);
         }
         else{
             return FALSE;
         }
-        $valido = $valido && $this->validaAlfabetico($this->cargo);
+        
+        $valido = $valido && $this->validaAlfabeticoEspaco($this->cargo);
         $valido = $valido && $this->validaAlfanumerico($this->registro);
         
         return $valido;
@@ -86,7 +89,6 @@ class ICadastroFuncionario {
         $func->setSenha($this->senha);
         $func->setCargo($this->cargo);
         $func->setRegistroFuncional($this->registro);
-
         $ctrl = new CtrlFuncionario();
         $ctrl->cadastra($func);
         

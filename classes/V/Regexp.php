@@ -15,19 +15,19 @@ trait Regexp {
 
     // Retorna True se só contém letras ou espaços. False se não
     public function validaAlfabeticoEspaco($subject) {
-        $pattern = "/^[A-z\s]{1,}$/";
+        $pattern = "/^[\p{L}\s]{1,}+$/u";
         return preg_match($pattern, $subject);
     }
 
     // Retorna True se só contém letras, espaços ou símbolos. False se não
     public function validaAlfabeticoSimbolo($subject) {
-        $pattern = "/^[A-z_\.\-\s]{1,}$/";
+        $pattern = "/^[\p{L}_\.\-\s]{1,}$/u";
         return preg_match($pattern, $subject);
     }
 
     // Retorna True se tem valor alfanumerico. False se não
     public function validaAlfanumerico($subject) {
-        $pattern = "/^[A-z0-9_\.\-\s]{1,}$/";
+        $pattern = "/^[\p{L}0-9_\.\-\s]{1,}$/u";
         return preg_match($pattern, $subject);
     }
 

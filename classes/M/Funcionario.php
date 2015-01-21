@@ -18,13 +18,13 @@ class Funcionario extends Pessoa{
     
     //Set's e Get's
     public function setRegistroFuncional($r){
-        $this->registroFuncional = $r;
+        $this->registroFuncional = utf8_encode($r);
     }
     public function getRegistroFuncional(){
         return $this->registroFuncional;
     }
     public function setCargo($c){
-        $this->cargo = $c;
+        $this->cargo = utf8_encode($c);
     }
     public function getCargo(){
         return $this->cargo;
@@ -41,7 +41,7 @@ class Funcionario extends Pessoa{
         $result = $this->query($sql) or die('Não foi possível carregar Pessoa' .
                 ' do banco de dados: '.$this->dberror());
             $result = $this->fetch_array($result);
-            $this->registroFuncional = $result['registroFuncional'];
+            $this->registroFuncional = utf8_encode($result['registroFuncional']);
             $this->cargo = $result['cargo'];
     }
     public function salva(){

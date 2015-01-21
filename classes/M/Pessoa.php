@@ -55,7 +55,7 @@ class Pessoa {
         return $this->email;
     }
     public function setNome($nome) {
-        $this->nome = $this->escape_string($nome);
+        $this->nome = $this->escape_string(utf8_encode($nome));
     }
     public function setCpf($cpf) {
         $this->cpf = $this->escape_string($cpf);
@@ -90,7 +90,7 @@ class Pessoa {
                         ' Pessoa do banco de dados: ' . $this->dberror());
         $result = $this->fetch_array($result);
 
-        $this->nome = $result['nmPessoa'];
+        $this->nome = utf8_decode($result['nmPessoa']);
         $this->cpf = $result['cpf'];
         $this->rg = $result['rg'];
         $this->login = $result['login'];

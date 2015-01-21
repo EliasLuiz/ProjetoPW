@@ -23,8 +23,8 @@ class ICadastroConvenio {
     }
     
     function carregaPost() {
-        $this->nome = $_POST["nomeconvenio"];
-        $this->responsavel = $_POST["responsavel"];
+        $this->nome = utf8_encode($_POST["nomeconvenio"]);
+        $this->responsavel = utf8_encode($_POST["responsavel"]);
     }
 
     //Funções para validação aqui
