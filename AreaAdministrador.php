@@ -78,15 +78,14 @@
                 </a>-->
             </div>
             <div class="row">
-                <div class="col-md-9"  style="margin-top: 10px; margin-left: 165px;">
+                <div class="col-md-7 col-md-offset-2" style="margin-left: 290px;">
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
-                            <li role="presentation" class="active"><a href="#convenios" aria-controls="home" role="tab" data-toggle="tab">&nbsp;Cadastro de Convênios&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#clinicas" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;Cadastro de Clínicas e Hospitais&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#funcionarios" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;Cadastro de Funcionários&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;Cadastro de Exames&nbsp;</a></li>
+                            <li role="presentation" class="active"><a href="#convenios" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cadastro de Convênios&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#funcionarios" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Cadastro de Funcionários&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Cadastro de Exames&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="convenios">
@@ -183,7 +182,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="clinicas">
+                            <div role="tabpanel" class="tab-pane" id="funcionarios">
                                 <div class="row">
                                     <div class="col-xs-6 col-md-3" style="margin-top: 40px; margin-left: 35px;"  id="Inserirclinica" >
                                         <a href="#Inserir2" class="thumbnail">
@@ -211,17 +210,26 @@
                                     </div>
                                 </div>
                                 <div id="Inserir2" style="margin-top: 25px;">
-                                    <form class="form-horizontal" role="form" id="hospitais" name="hospitais" method="post" action="cadastroHospital.php">
-                                        <div class="col-md-8 col-md-offset-2">
+                                    <form class="form-horizontal" role="form" id="funcionario" name="funcionario" method="post" action="cadastroFuncionario.php">
+                                        <div class="col-md-7 col-md-offset-2" style="margin-top: 25px;">
                                             <div class="form-group">
-                                                <label for="inputHospital" class="col-sm-2 control-label">Nome:</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="nomehosp" name="nomehosp" placeholder="Nome do Hospital ou Clínica" required>
+                                                <label for="inputNome" class="col-sm-2 control-label">Nome Completo:</label>
+                                                <div class="col-sm-10" style="margin-top: 9px;">
+                                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
                                             <div class="form-group">
+                                                <label for="inputSexo" class="col-sm-2 control-label">Sexo:</label>
+                                                <div class="col-sm-10">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="sexo" id="inlineRadio1" value="M" checked> Masculino
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="sexo" id="inlineRadio2" value="F"> Feminino
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-top: 20px;">
                                                 <label for="inputTelefone" class="col-sm-2 control-label">Telefone:</label>
                                                 <div class="col-sm-2">
                                                     <input type="text" class="form-control" id="ddd" name="ddd" placeholder="DDD" required>
@@ -230,10 +238,56 @@
                                                     <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 450px;">
-                                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                            <div class="form-group" style="margin-top:24px;">
+                                                <label for="inputCPF" class="col-sm-2 control-label">CPF:</label>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" id="CPF" name="CPF" placeholder="CPF" required>
+                                                </div>
+                                                <label for="inputRG" class="col-sm-2 control-label">RG:</label>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" id="RG" name="RG" placeholder="RG" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-top:23px;">
+                                                <label for="inputEmail" class="col-sm-2 control-label">Email:</label>
+                                                <div class="col-sm-7">
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-top:23px;">
+                                                <label for="inputLogin" class="col-sm-2 control-label">Login:</label>
+                                                <div class="col-sm-5">
+                                                    <input type="text" class="form-control" id="login" name="login" placeholder="Login" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-top:24px;">
+                                                <label for="inputSenha1" class="col-sm-2 control-label">Senha:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-top:13px;">
+                                                <label for="inputSenha2" class="col-sm-2 control-label">Confirmar Senha:</label>
+                                                <div class="col-sm-3" style="margin-top: 11px;">
+                                                    <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Senha" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-top: 24px;">
+                                                <label for="inputCargo" class="col-sm-2 control-label">Cargo:</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputRegistro" class="col-sm-2 control-label">Registro Funcional:</label>
+                                                <div class="col-sm-7" style="margin-top: 10px;">
+                                                    <input type="text" class="form-control" id="registro" name="registro" placeholder="Registro Funcional" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px;">
+                                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -245,7 +299,7 @@
                                                 <a href="#" data-toggle="modal" data-target="#myModal110">
                                                     <div class="row list-group-item active">
                                                         <div class="col-md-12">
-                                                            Nome: Hospital Márcio Cunha
+                                                            Nome: Daniel Gomes de Oliveira
                                                         </div>
                                                     </div>
                                                 </a>
@@ -254,20 +308,60 @@
                                                         <div class="modal-content">
                                                             <form role="form" method="post" action="contact.php" >
                                                                 <div class="modal-body">
-                                                                    <div class="form-group col-md-12">
-                                                                        <label for="nome">Nome:</label>
-                                                                        <input type="text" class="form-control" id="nomehosp" name="nomehosp">
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-6"><label for="imputnome">Nome Completo:</label></div>
+                                                                        <div class="col-sm-10"><input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required></div>
                                                                     </div>
-                                                                        <div class="form-group col-md-2">
-                                                                            <label for="DDDtel">DDD:</label>
-                                                                            <input type="text" class="form-control" id="DDD" name="ddd">
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-3"><label for="imputsexo">Sexo:</label></div>
+                                                                        <div class="col-sm-10">
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name="sexo" id="inlineRadio1" value="M" checked> Masculino
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name="sexo" id="inlineRadio2" value="F"> Feminino
+                                                                            </label>
                                                                         </div>
-                                                                        <div class="form-group col-md-5">
-                                                                            <label for="telefone">Telefone:</label>
-                                                                            <input type="text" class="form-control" id="telefone" name="telefone">
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-12"><label for="imputtelefone">Telefone:</label></div>
+                                                                        <div class="col-sm-3">
+                                                                            <input type="text" class="form-control" id="ddd" name="ddd" placeholder="DDD" required>
                                                                         </div>
+                                                                        <div class="col-sm-4">
+                                                                            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+                                                                        </div>    
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-6"><label for="imputCPF">CPF:</label></div>
+                                                                        <div class="col-sm-10"><input type="text" class="form-control" id="CPF" name="CPF" placeholder="CPF" required></div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-6"><label for="imputRG">RG:</label></div>
+                                                                        <div class="col-sm-10"><input type="text" class="form-control" id="RG" name="RG" placeholder="RG" required></div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-6"><label for="imputemail">Email:</label></div>
+                                                                        <div class="col-sm-10"><input type="email" class="form-control" id="email" name="email" placeholder="Email" required></div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-6"><label for="imputlogin">Login:</label></div>
+                                                                        <div class="col-sm-10"><input type="text" class="form-control" id="login" name="login" placeholder="Login" required></div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-6"><label for="imputsenha">Senha:</label></div>
+                                                                        <div class="col-sm-10"><input type="text" class="form-control" id="senha" name="senha" placeholder="Senha" required></div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-6"><label for="imputcargo">Cargo:</label></div>
+                                                                        <div class="col-sm-10"><input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo" required></div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <div class="col-sm-6"><label for="imputregistro">Registro Funcional:</label></div>
+                                                                        <div class="col-sm-10"><input type="text" class="form-control" id="registro" name="registro" placeholder="Registro Funcional" required></div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="modal-footer" style="margin-top:160px;">
+                                                                <div class="modal-footer" style="margin-top:730px;">
                                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
                                                                     <button type="button" class="btn btn-primary">Salvar</button>
                                                                 </div>
@@ -280,55 +374,135 @@
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="exames" style="margin-top: 40px;">
-                                <form class="form-horizontal" role="form" id="exames" name="exames" method="post" action="cadastroTipoExame.php">
-                                    <div class="col-md-8 col-md-offset-2">
+                            <div role="tabpanel" class="tab-pane" id="exames">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-3" style="margin-top: 40px; margin-left: 35px;"  id="Inserirexame" >
+                                        <a href="#Inserir4" class="thumbnail">
+                                            <img src="images/Incluir.jpg" alt="Incluir">
+                                            <div class="caption">
+                                                <center><h3>Inserir</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Atualizarexame">
+                                        <a href="#Atualizar4" class="thumbnail">
+                                            <img src="images/Atualizar.png" alt="Atualizar">
+                                            <div class="caption">
+                                                <center><h3>Alterar</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Excluirexame">
+                                        <a style="cursor: pointer;" class="thumbnail">
+                                            <img src="images/Excluir.jpg" alt="Excluir">
+                                            <div class="caption">
+                                                <center><h3>Excluir</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div id="Inserir4">
+                                    <form class="form-horizontal" role="form" id="exames" name="exames" method="post" action="cadastroTipoExame.php">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <div class="form-group">
+                                                <label for="inputExame" class="col-sm-2 control-label">Nome:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="nomeexame" name="nomeexame" placeholder="Nome do Exame" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
+                                            <div class="form-group">
+                                                <label for="inputRequisitos" class="col-sm-2 control-label">Requisitos:</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" id="requisitos" name="requisitos" placeholder="Requisitos do Exame" rows="3" required></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
+                                            <div class="form-group">
+                                                <label for="inputInformacoes" class="col-sm-2 control-label">Informações:</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" id="informacoes" name="informacoes" placeholder="Informações do Exame" rows="3" required></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-2" style="margin-top:10px; margin-left: 170px;">
+                                            <div class="form-group">
+                                                <label for="inputPreco" class="col-sm-2 control-label" style="margin-right:10px;">Preço:</label>
+                                                <div class="input-group col-sm-3">
+                                                    <span class="input-group-addon">R$</span>
+                                                    <input type="text" class="form-control" id="preco" name="preco" placeholder="Preço">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-2" style="margin-top:10px; margin-left: 180px;">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline col-md-offset-2">
+                                                    <input type="checkbox" id="coletadomicilio" name="coletadomicilio" value="TRUE"> Exame pode ser realizado em domicílio
+                                                </label>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
-                                            <label for="inputExame" class="col-sm-2 control-label">Nome:</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="nomeexame" name="nomeexame" placeholder="Nome do Exame" required>
+                                            <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 480px;">
+                                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="Atualizar4" class="row" style="margin-top: 25px;">
+                                    <div role="tabpanel" class="tab-pane active" id="notificacoes">
+                                        <div class="container-fluid" style="margin-top: 20px;">
+                                            <div>
+                                                <a href="#" data-toggle="modal" data-target="#myModal11">
+                                                    <div class="row list-group-item active">
+                                                        <div class="col-md-12">
+                                                            Nome: Exame de Fezes
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="modal fade" id="myModal11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <form role="form" method="post" action="contact.php" >
+                                                                <div class="modal-body">
+                                                                    <div class="form-group col-md-10">
+                                                                        <label for="nome">Nome:</label>
+                                                                        <input type="text" class="form-control" id="nomeexame" name="nomeexame">
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <label for="requisitos">Requisitos:</label>
+                                                                        <input type="text" class="form-control" id="requisitos" name="requisitos">
+                                                                    </div>
+                                                                    <div class="form-group col-md-10">
+                                                                        <label for="informacoes">Informações:</label>
+                                                                        <input type="text" class="form-control" id="informacoes" name="informacoes">
+                                                                    </div>
+                                                                    <div class="form-group-sm col-md-3">
+                                                                        <label for="preco">Preço:</label>
+                                                                        <input type="text" class="form-control" id="preco" name="preco">
+                                                                    </div>
+                                                                    <div class="form-group col-md-10" style="margin-top: 20px;">
+                                                                        <label class="checkbox-inline">
+                                                                            <input type="checkbox" id="coletadomicilio" name="coletadomicilio" value="option1"> Exame pode ser realizado em domicílio
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer" style="margin-top:360px;">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                                                                    <button type="button" class="btn btn-primary">Salvar</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
-                                        <div class="form-group">
-                                            <label for="inputRequisitos" class="col-sm-2 control-label">Requisitos:</label>
-                                            <div class="col-sm-9">
-                                                <textarea class="form-control" id="requisitos" name="requisitos" placeholder="Requisitos do Exame" rows="3" required></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
-                                        <div class="form-group">
-                                            <label for="inputInformacoes" class="col-sm-2 control-label">Informações:</label>
-                                            <div class="col-sm-9">
-                                                <textarea class="form-control" id="informacoes" name="informacoes" placeholder="Informações do Exame" rows="3" required></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px; margin-left: 170px;">
-                                        <div class="form-group">
-                                            <label for="inputPreco" class="col-sm-2 control-label" style="margin-right:10px;">Preço:</label>
-                                            <div class="input-group col-sm-3">
-                                                <span class="input-group-addon">R$</span>
-                                                <input type="text" class="form-control" id="preco" name="preco" placeholder="Preço">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-md-offset-2" style="margin-top:10px; margin-left: 180px;">
-                                        <div class="form-group">
-                                            <label class="checkbox-inline col-md-offset-2">
-                                                <input type="checkbox" id="coletadomicilio" name="coletadomicilio" value="TRUE"> Exame pode ser realizado em domicílio
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-5 col-sm-5" style="margin-top: 30px; margin-left: 480px;">
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
+
                             <div role="tabpanel" class="tab-pane" id="funcionarios" style="margin-top: 5px;">
                                 <form class="form-horizontal" role="form" id="funcionario" name="funcionario" method="post" action="cadastroFuncionario.php">
                                     <div class="col-md-7 col-md-offset-2" style="margin-top: 25px;">
@@ -455,7 +629,8 @@
             $('#Atualizar').hide('fast');
             $('#Atualizar2').hide('fast');
             $('#Inserir2').hide('fast');
-            $('#Atualizar2').hide('fast');
+            $('#Inserir4').hide('fast');
+            $('#Atualizar4').hide('fast');
             $('#Inserirconvenio').click(function () {
                 $('#Inserir').show('fast');
                 $('#Atualizar').hide('fast');
@@ -463,6 +638,10 @@
             $('#Inserirclinica').click(function () {
                 $('#Inserir2').show('fast');
                 $('#Atualizar2').hide('fast');
+            });
+            $('#Inserirexame').click(function () {
+                $('#Inserir4').show('fast');
+                $('#Atualizar4').hide('fast');
             });
             $('#Atualizarconvenio').click(function () {
                 $('#Atualizar').show('fast');
@@ -472,6 +651,10 @@
                 $('#Atualizar2').show('fast');
                 $('#Inserir2').hide('fast');
             });
+            $('#Atualizarexame').click(function () {
+                $('#Atualizar4').show('fast');
+                $('#Inserir4').hide('fast');
+            });
             $('#Excluirconvenio').click(function () {
                 $('#Atualizar').hide('fast');
                 $('#Inserir').hide('fast');
@@ -479,6 +662,10 @@
             $('#Excluirclinica').click(function () {
                 $('#Atualizar2').hide('fast');
                 $('#Inserir2').hide('fast');
+            });
+            $('#Excluirexame').click(function () {
+                $('#Atualizar4').hide('fast');
+                $('#Inserir4').hide('fast');
             });
         });
     </script>

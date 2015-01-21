@@ -9,6 +9,21 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/jquery-ui.css" />
         <script src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+            function displayVals() {
+                var value = $("#exames1").val();
+                $.ajax({
+                    url: 'FuncoesAJAX.php',
+                    data: {acao: 'dadosTipoExame', cod: value},
+                    type: 'POST',
+                    success: function (output) {
+                        $('#exibe').html(output);
+                    }
+                });
+            }
+//            $('#exames1').change(displayVals());
+        </script>
+
 
         <style>
         </style>
@@ -36,7 +51,7 @@
                 <div class="col-md-2" style="margin-left: 70px;"><img src="images/logo.jpg" class="img-responsive" alt="Responsive image" style="height: 100px; width: 200px; margin-right: 50px;"></div>
                 <div class="col-md-3 col-md-offset-2" style="margin-left: 220px; margin-top: 30px;"><center><h1 style="color: #0044cc; font-family: Tahoma;">Área do Cliente</h1></center></div>
                 <div class="col-md-2 col-md-offset-1" style="margin-top: 15px; margin-left: 180px;"><center><h4 style="color: #5bc0de">Bem-Vinda Ana Souza</h4></center></div>
-                <div class="col-md-3 col-md-offset-1" style="margin-left: 120px;"><center><a href="Logout.php"><button type="button"  class="btn btn-primary btn-sm">Sair</button></a></center></div>
+                <div class="col-md-3 col-md-offset-1" style="margin-left: 120px;"><center><button type="button"  class="btn btn-primary btn-sm">Sair</button></center></div>
             </div>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: 20px; margin-left: 160px; width: 1000px;">
                 <!-- Indicators-->
@@ -78,21 +93,21 @@
                 </a>-->
             </div>
             <div class="row">
-                <div class="col-md-7 col-md-offset-3"  style="margin-top: 10px; margin-left: 280px;">
+                <div class="col-md-6 col-md-offset-3"  style="margin-top: 10px; margin-left: 350px;">
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
-                            <li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Marcação de Exames&nbsp;&nbsp;</a></li>
+                            <!--<li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>-->
+                            <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                             <!--<li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>-->
-                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="notificacoes">
+                            <!--<div role="tabpanel" class="tab-pane active" id="notificacoes">
                                 <div class="container-fluid" style="margin-top: 30px;">
                                     <div class="list-group">
                                         <a href="#" class="list-group-item active">Exame de Fezes pronto para download.</a>
@@ -100,12 +115,12 @@
                                         <a href="#" class="list-group-item active">Exame de Urina pronto para download.</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="historico" style="margin-top: 20px;">
+                            </div>-->
+                            <div role="tabpanel" class="tab-pane active" id="historico" style="margin-top: 20px;">
                                 <div class="col-md-2" style="margin-top: 0px;"><label>Pesquisar por Exame:</label></div>
                                 <div class="col-md-3" style="margin-top: 2px;">
                                     <div class="input-group">
-                                        <select class="form-control" id="exame" name="exame" onclick="displayVals()">
+                                        <select class="form-control" id="exame" name="exame">
                                             <option>Selecione</option>
                                             <option>3</option>
                                             <option>4</option>
@@ -129,11 +144,38 @@
                                 <div id="ExibeExameNome"></div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="exames">
-                                <div class="container-fluid" style="margin-top: 30px;">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-3" style="margin-top: 40px; margin-left: 35px;"  id="Inserirexame" >
+                                        <a href="#Inserir" class="thumbnail">
+                                            <img src="images/Incluir.jpg" alt="Incluir">
+                                            <div class="caption">
+                                                <center><h3>Marcar de Exame</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Atualizarexame">
+                                        <a href="#Atualizar" class="thumbnail">
+                                            <img src="images/Atualizar.png" alt="Atualizar">
+                                            <div class="caption">
+                                                <center><h3>Alterar Exame</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3 col-md-offset-1" style="margin-top: 40px;" id="Excluirexame">
+                                        <a style="cursor: pointer;" class="thumbnail">
+                                            <img src="images/Excluir.jpg" alt="Excluir">
+                                            <div class="caption">
+                                                <center><h3>Excluir Exame</h3></center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="Inserir" style="margin-top: 20px; margin-left: 50px;">
                                     <form id="marcacaoexame" name="marcacaoexame" method="post" action="marcacaoExameUsuario.php">
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-2"><label>Selecione o Exame:</label></div>
-                                            <div class="col-md-3" style="margin-top: 2px;"><select class="form-control" name="exames1" id="exames1">
+                                            <div class="col-md-3" style="margin-top: 2px;">
+                                                <select class="form-control" name="exames1" id="exames1"  onclick="displayVals();">
                                                     <option>Selecione</option>
                                                     <option>2</option>
                                                     <option>3</option>
@@ -216,6 +258,7 @@
                                                     <option>5</option>
                                                 </select></div>
                                         </div>
+                                        <div id="exibe" class="row" style="margin-top: 24px;"></div>
                                         <div class="row" style="margin-top: 0px;">
                                             <div class="radio">
                                                 <div class="col-md-3 col-md-offset-4" style="margin-top: 0px;">
@@ -252,6 +295,9 @@
 
                                         <div class="col-md-2 col-md-offset-5" style="margin-top: 40px;"><button type="button" class="btn btn-primary">Marcar Exame</button></div>
                                     </form>
+                                </div>
+                                <div id="Atualizar" class="row" style="margin-top: 25px;">
+                                    
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="mensagens">
@@ -495,25 +541,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="#" class="list-group-item" data-toggle="modal" data-target="#myModal5">Não receber lembretes do Sistema</a>
-                                        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                                        <h4 class="modal-title" id="myModalLabel">Aviso</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Você tem certeza que não deseja receber lembretes do Sistema?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                                                        <button type="button" class="btn btn-primary">Sim</button>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -540,18 +567,18 @@
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.slides.min.js"></script>
     <script>
-        $(function () {
-            $('#slides').slidesjs({
-                width: 940,
-                height: 200,
-                play: {
-                    active: true,
-                    auto: true,
-                    interval: 4000,
-                    swap: true
-                }
-            });
-        });
+                                                            $(function () {
+                                                                $('#slides').slidesjs({
+                                                                    width: 940,
+                                                                    height: 200,
+                                                                    play: {
+                                                                        active: true,
+                                                                        auto: true,
+                                                                        interval: 4000,
+                                                                        swap: true
+                                                                    }
+                                                                });
+                                                            });
     </script>
 
 
@@ -584,6 +611,20 @@
             $('#divconvenio2').hide('fast');
             $('#divcoleta').hide('fast');
             $('#medicos').hide('fast');
+            $('#Inserir').hide('fast');
+            $('#Atualizar').hide('fast');
+            $('#Inserirexame').click(function () {
+                $('#Inserir').show('fast');
+                $('#Atualizar').hide('fast');
+            });
+            $('#Atualizarexame').click(function () {
+                $('#Atualizar').show('fast');
+                $('#Inserir').hide('fast');
+            });
+            $('#Excluirexame').click(function () {
+                $('#Atualizar').hide('fast');
+                $('#Inserir').hide('fast');
+            });
             $('#id_radio2').click(function () {
                 $('#divconvenio2').show('fast');
             });
@@ -625,6 +666,9 @@
         function uncheckRadio(rbutton) {
             rbutton.checked = (rbutton.checked) ? false : true;
         }
+    </script>
+
+    <script>
     </script>
 
 
