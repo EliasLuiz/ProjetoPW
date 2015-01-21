@@ -14,8 +14,8 @@ class ILogin {
 
         //tirar daqui e fazer um get separado pra cada um
         //echo '<hr>Construtor de ILogin';
-        $this->login = $_POST["login"];
-        $this->senha = $_POST["senha"];
+        $this->login = $login;
+        $this->senha = $senha;
         $controle = new CtrlUsuario();
         $controle->login($this->login, $this->senha);
     }

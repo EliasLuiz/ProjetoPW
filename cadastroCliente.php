@@ -8,6 +8,9 @@ if(isset($_POST)){
     if(!$interf->salva()){ 
         header("Location: Cadastro.html");
     }
+    else{
+        header("Location: index.php");
+    }
 }
 
 ?>

@@ -40,11 +40,18 @@
                             }
                             else{
                                 echo '<input type="login"  id="login" name="login" class="form-control" placeholder="Usuário" required>';
+                            }
+                            echo '<label for="inputPassword" class="sr-only">Senha</label>';
+                            if(isset($_COOKIE["senha"])){
+                                echo '<input type="password" id="inputPassword" name="senha" class="form-control" value="' . $_COOKIE["senha"] . '"  required>';
+                            }
+                            else{
+                                echo '<input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>';
+                        
                         }
                         ?>
-                        <label for="inputPassword" class="sr-only">Senha</label>
-                        <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
                         <!--
+                        <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
                         <input type="login"  id="login" name="login" class="form-control" placeholder="Usuário"  required>
                         -->
                         <div class="checkbox">

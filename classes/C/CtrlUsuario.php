@@ -29,7 +29,7 @@ class CtrlUsuario {
             $dest = "Location: AreaMedica.php";
         }
         else{
-            $dest = "Location: index.html";
+            $dest = "Location: index.php";
         }
         
         if($_SESSION['tipo'] != 'A' && $_SESSION['tipo'] != 'N'){
