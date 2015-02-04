@@ -15,6 +15,7 @@ class CtrlUsuario {
 
     public function login($login, $senha) {
         $usuario = new Pessoa();
+        session_start();
         $_SESSION['tipo'] = $usuario->testaLogin($login, $senha);
         if($_SESSION['tipo'] == 'A'){
             $dest = "Location: AreaAdministrador.php";
@@ -43,10 +44,7 @@ class CtrlUsuario {
     }
 
     public function logout() {
-        //unset($_COOKIE['cd']);
-        //unset($_COOKIE['tipo']);
         session_destroy();
-        echo 'vai redirect';
         header("Location: index.php");
     }
 

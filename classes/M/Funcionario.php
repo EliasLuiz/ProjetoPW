@@ -41,8 +41,8 @@ class Funcionario extends Pessoa{
         $result = $this->query($sql) or die('Não foi possível carregar Pessoa' .
                 ' do banco de dados: '.$this->dberror());
             $result = $this->fetch_array($result);
-            $this->registroFuncional = utf8_encode($result['registroFuncional']);
-            $this->cargo = $result['cargo'];
+            $this->registroFuncional = utf8_decode($result['registroFuncional']);
+            $this->cargo = utf8_decode($result['cargo']);
     }
     public function salva(){
         

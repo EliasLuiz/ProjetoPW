@@ -10,7 +10,8 @@ trait Regexp {
 
     // Retorna True se só contém letras. False se não
     public function validaAlfabetico($subject) {
-        return ctype_alpha($subject);
+        $pattern = "/^[\p{L}]{1,}+$/u";
+        return preg_match($pattern, $subject);
     }
 
     // Retorna True se só contém letras ou espaços. False se não

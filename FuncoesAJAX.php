@@ -11,6 +11,7 @@ switch ($acao) {
             <div class='col-md-4' style='margin-top:10px;'><input class='form-control' type='text' id='data' name='data' value='".$exame->getRequisitos()."'></div>";
 
         break;
+    
     case 'gerahorarios':
         require_once './classes/V/IMarcacaoExame.php';
 
@@ -37,6 +38,9 @@ switch ($acao) {
         $exames = new IRelatorioExame();
         $exames->listaExameNome($_POST["cod"]);
         echo 'oiiiiiiiiiiiiiiiiiiiiiiiiiii';
+        break;
+    
+    case '':
         break;
 
     default:

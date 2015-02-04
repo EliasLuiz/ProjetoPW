@@ -100,9 +100,9 @@
                         <ul class="nav nav-tabs" role="tablist" style="font-size: 17px;">
                             <!--<li role="presentation" class="active"><a href="#notificacoes" aria-controls="home" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Notificações&nbsp;&nbsp;</a></li>-->
                             <li role="presentation"><a href="#historico" aria-controls="profile" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Histórico Clínico&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#exames" aria-controls="messages" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exames&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                             <!--<li role="presentation"><a href="#mensagens" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;Mensagens&nbsp;&nbsp;</a></li>-->
-                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            <li role="presentation"><a href="#configuracoes" aria-controls="settings" role="tab" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configurações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -149,7 +149,7 @@
                                         <a href="#Inserir" class="thumbnail">
                                             <img src="images/Incluir.jpg" alt="Incluir">
                                             <div class="caption">
-                                                <center><h3>Marcar de Exame</h3></center>
+                                                <center><h3>Marcar Exame</h3></center>
                                             </div>
                                         </a>
                                     </div>
@@ -177,7 +177,7 @@
                                             <div class="col-md-3" style="margin-top: 2px;">
                                                 <select class="form-control" name="exames1" id="exames1"  onclick="displayVals();">
                                                     <option>Selecione</option>
-                                                    <option>2</option>
+                                                    <option>Teste do Pezinho</option>
                                                     <option>3</option>
                                                     <option>4</option>
                                                     <option>5</option>
@@ -188,13 +188,13 @@
                                             <div class="radio">
                                                 <div class="col-md-1" style="margin-top: 10px;">
                                                     <label>
-                                                        <input type="radio" name="coleta" id="sim" value="option1">
+                                                        <input type="radio" name="coleta" id="sim" value="sim">
                                                         Sim
                                                     </label>
                                                 </div>
                                                 <div class="col-md-1" style="margin-left: 10px; margin-top: 10px;">
                                                     <label>
-                                                        <input type="radio" name="coleta" id="nao" value="option2">
+                                                        <input type="radio" name="coleta" id="nao" value="nao">
                                                         Não
                                                     </label>
                                                 </div>
@@ -208,7 +208,7 @@
                                             <div class="row" style="margin-top: 5px;" id="divhorarios">
                                                 <div class="col-md-2 col-md-offset-2" style="margin-top: 7px;">
                                                     <label>Horários Disponíveis:</label></div>
-                                                <div class="col-md-2" style="margin-top: 10px;"><select class="form-control" name="horarios">
+                                                <div class="col-md-2" style="margin-top: 10px;"><select class="form-control" name="horario">
                                                         <option>Selecione</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -222,13 +222,13 @@
                                             <div class="radio" id="divconvenio">
                                                 <div class="col-md-1">
                                                     <label>
-                                                        <input type="radio" name="pagamento" id="id_radio1" value="option1">
+                                                        <input type="radio" name="pagamento" id="id_radio1" value="particular">
                                                         Particular
                                                     </label>
                                                 </div>
                                                 <div class="col-md-1" style="margin-left: 25px;">
                                                     <label>
-                                                        <input type="radio" name="pagamento" id="id_radio2" value="option2">
+                                                        <input type="radio" name="pagamento" id="id_radio2" value="convenio">
                                                         Convênio
                                                     </label>
                                                 </div>
@@ -251,7 +251,7 @@
                                         <div class="row" style="margin-top: 24px;">
                                             <div class="col-md-2 col-md-offset-2"><label>Médico Solicitante:</label></div>
                                             <div class="col-md-3" style="margin-top: 2px;" id="medicox"><select class="form-control" name="medico" id="medico">
-                                                    <option>Médicos</option>
+                                                    <option>Nenhum</option>
                                                     <option>2</option>
                                                     <option>3</option>
                                                     <option>4</option>
@@ -263,7 +263,7 @@
                                             <div class="radio">
                                                 <div class="col-md-3 col-md-offset-4" style="margin-top: 0px;">
                                                     <label>
-                                                        <input type="checkbox" name="outromedico" id="outromedico" value="1" onClick='javascript:travar(1)' ondblclick='javascript:travar(2)'>
+                                                        <input type="checkbox" name="outromedico" id="outromedico" value="1" onClick='javascript:travar()'>
                                                         Outro Médico
                                                     </label>
                                                 </div>
@@ -293,11 +293,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-2 col-md-offset-5" style="margin-top: 40px;"><button type="button" class="btn btn-primary">Marcar Exame</button></div>
+                                        <div class="col-md-2 col-md-offset-5" style="margin-top: 40px;"><button type="submit" class="btn btn-primary">Marcar Exame</button></div>
                                     </form>
                                 </div>
                                 <div id="Atualizar" class="row" style="margin-top: 25px;">
-                                    
+
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="mensagens">
@@ -567,27 +567,27 @@
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.slides.min.js"></script>
     <script>
-                                                            $(function () {
-                                                                $('#slides').slidesjs({
-                                                                    width: 940,
-                                                                    height: 200,
-                                                                    play: {
-                                                                        active: true,
-                                                                        auto: true,
-                                                                        interval: 4000,
-                                                                        swap: true
-                                                                    }
-                                                                });
-                                                            });
+        $(function () {
+            $('#slides').slidesjs({
+                width: 940,
+                height: 200,
+                play: {
+                    active: true,
+                    auto: true,
+                    interval: 4000,
+                    swap: true
+                }
+            });
+        });
     </script>
 
 
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script>
-                                                            $(function () {
-                                                                $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
-                                                            });
+        $(function () {
+            $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});
+        });
     </script>
     <script>
         $(function () {
@@ -640,23 +640,18 @@
         });
     </script>
     <script  type="text/javascript">
-
-        function bloqueio()
-        {
-            if (document.getElementById("outromedico").style.display == "none")
-            {
+        function bloqueio(){
+            if (document.getElementById("outromedico").style.display == "none"){
                 document.getElementById("outromedico").style.display = "block";
             }
-            else
-            {
+            else{
                 document.getElementById("outromedico").style.display = "none";
             }
         }
-
     </script>
     <script>
-        function travar(num) {
-            if (num == 1) {
+        function travar() {
+            if (marcacaoexame.medico.disabled == false) {
                 marcacaoexame.medico.disabled = true
             }
             else {

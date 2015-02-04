@@ -8,24 +8,28 @@
 require_once __DIR__ . '/../M/Exame.php';
 
 class CtrlExame {
-    public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, 
+    public function marcaExame($cdCliente, $cdMedico, $cdTipoExame, 
             $cdConvenio, $dtExame, $hrExame, $dtColeta){
+        
+        
+        echo 'chegou em controle<br>';
+        
         $cliente=new Cliente();
         $cliente->carrega($cdCliente);
         $tipoExame=new TipoExame();
         $tipoExame->carrega($cdTipoExame);
-        $medico = NULL;
-        $consulta = NULL;
-        $convenio = NULL;/*
-        if(isset($cdMedico)){
+        //$medico = NULL;
+        //$consulta = NULL;
+        //$convenio = NULL;
+        if($cdMedico != ''){
             $medico=new Medico();
             $medico->carrega($cdMedico);
-        }
-        if(isset($cdConsulta)){
+        }/*
+        if($cdConsulta != ''){
             $consulta=new Consulta();
             $consulta->carrega($cdConsulta);
         }*/
-        if(isset($cdConvenio)){
+        if($cdConvenio != ''){
             $convenio=new Convenio();
             $convenio->carrega($cdConvenio);
         }
@@ -38,13 +42,13 @@ class CtrlExame {
         $exame->setConvenio($convenio);
         $exame->setDataExame($dtExame);
         $exame->setHoraExame($hrExame);
-        /*if(isset($dtColeta)){
+        if($dtColeta != ''){
             $exame->setColeta(TRUE);
             $exame->setDataColeta($dtColeta);
         }
-        else{*/
+        else{
             $exame->setColeta(FALSE);
-        //}
+        }
         $exame->salva();
     }
     public function listaExameData($data){

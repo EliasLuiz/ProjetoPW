@@ -107,6 +107,7 @@ class TipoExame {
                 . ' do banco de dados: '. $this->dberror());
     }
     public function getCdTipoExame(){
+        var_dump($this);
         $sql = "SELECT cdTipoExame FROM TB_TipoExame WHERE nmTipoExame = '" . $this->nome . "'";
         $result = $this->query($sql) or die('Não foi possível buscar TipoExame'
                 . ' no banco de dados: '.$this->dberror());

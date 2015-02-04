@@ -204,6 +204,13 @@ class Pessoa {
         $result = $this->fetch_array($result);
         return $result['cdPessoa'];
     }
+    public function getCdPessoaNome(){
+        $sql = "SELECT cdPessoa FROM TB_Pessoa p WHERE p.nome = '" . $this->nome . "'";
+        $result = $this->query($sql) or die('Não foi possível buscar Pessoa '
+                        . 'no banco de dados: ' . $this->dberror());
+        $result = $this->fetch_array($result);
+        return $result['cdPessoa'];
+    }
     public function testaLogin($login, $senha){
         //Testa se é administrador
         

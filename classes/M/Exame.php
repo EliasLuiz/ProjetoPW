@@ -145,6 +145,8 @@ class Exame {
     }
 
     public function salva() {
+        
+        echo 'chegou em modelo<br>';
         //Insere Exame no banco. Não tem opção de atualizar porque não tem nada que vale ser alterado
         //Se achar ruim depois muda
         

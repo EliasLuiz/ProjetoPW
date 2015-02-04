@@ -126,9 +126,11 @@ class IMarcacaoExame {
         }
     }
 
-    public function marcaExame($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, $cdConvenio, $dtExame, $hrExame, $dtColeta) {
+    public function marcaExame($cdCliente, $cdMedico, $cdTipoExame, $cdConvenio, $hrExame, $dtColeta, $dtExame) {
 
-        if (!$this->valida($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, $cdConvenio, $dtExame, $hrExame, $dtColeta)) {
+        echo 'chegou em interf<br>';
+        
+        if (!$this->valida($cdCliente, $cdMedico, $cdTipoExame, $cdConvenio, $dtExame, $hrExame, $dtColeta)) {
             die("Dados invalidos");
         }
 
@@ -139,18 +141,25 @@ class IMarcacaoExame {
 
     public function valida($cdCliente, $cdMedico, $cdConsulta, $cdTipoExame, $cdConvenio, &$dtExame, &$hrExame, &$dtColeta) {
 
+        echo 'entrou em valida<br>';
         $valido = TRUE;
         $valido = $valido && $this->validaNumerico($cdCliente);
+        echo 'valida: '.$valido.' <br>';
+        echo 'texame: '.$cdTipoExame.' <br>';
         //$valido = $valido && ($this->validaNumerico($cdMedico) || empty($cdMedico));
         //$valido = $valido && ($this->validaNumerico($cdConsulta) || empty($cdConsulta));
         $valido = $valido && $this->validaNumerico($cdTipoExame);
-        $valido = $valido && ($this->validaNumerico($cdConvenio) || empty($cdConvenio));
-        $valido = $valido && isset($dtExame);
-        $valido = $valido && isset($hrExame);
+        echo 'valida: '.$valido.' <br>';
+        echo 'texame: '.$cdTipoExame.' <br>';
+        $valido = $valido && ($this->validaNumerico($cdConvenio) || $cdConvenio == '');
         //$valido = $valido && ($this->validaData($dtColeta) || empty($dtColeta));
-        //$dtColeta = $this->validaData($dtColeta);
-        $dtExame = $this->validaData($dtExame);
-        $hrExame = $this->validaHora($hrExame);
+        if($dtColeta != '')
+            $dtColeta = $this->validaData($dtColeta);
+        if($dtExame != '')
+            $dtExame = $this->validaData($dtExame);
+        if($hrExame != '')
+            $hrExame = $this->validaHora($hrExame);
+        echo 'saindo de valida: '+$valido+' <br>';
         return $valido;
     }
 
